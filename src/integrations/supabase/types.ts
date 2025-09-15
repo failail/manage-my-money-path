@@ -14,7 +14,82 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      assessment_responses: {
+        Row: {
+          created_at: string | null
+          form_data: Json
+          id: string
+          session_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          form_data: Json
+          id?: string
+          session_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          form_data?: Json
+          id?: string
+          session_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assessment_responses_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "assessment_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      assessment_results: {
+        Row: {
+          created_at: string | null
+          id: string
+          results_data: Json
+          session_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          results_data: Json
+          session_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          results_data?: Json
+          session_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assessment_results_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "assessment_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      assessment_sessions: {
+        Row: {
+          created_at: string | null
+          id: string
+          session_token: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          session_token: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          session_token?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

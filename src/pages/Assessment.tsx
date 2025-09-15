@@ -41,11 +41,6 @@ const Assessment = () => {
   useEffect(() => {
     const triggers = {
       'housing': responses['q15'] === 'No', // Live with parents
-      'additional-properties': responses['q16'] === 'Yes', // Own other properties
-      'vehicles': responses['q17'] === 'Yes', // Own vehicles
-      'children': responses['q18'] === 'Yes', // Have kids
-      'dependents': responses['q19'] === 'Yes', // Have dependents
-      'personal-loans': responses['q20'] === 'Yes' // Have personal loans
     };
 
     const newVisibleGroups = ['personal-basics']; // Always show basics
@@ -58,8 +53,7 @@ const Assessment = () => {
     });
     
     // Always show the final groups
-    newVisibleGroups.push('insurance', 'monthly-expenses-1', 'monthly-expenses-2', 
-                         'annual-expenses', 'investments', 'assets', 'income');
+    newVisibleGroups.push('income');
     
     setVisibleGroups(newVisibleGroups);
   }, [responses]);

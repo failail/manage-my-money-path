@@ -1,8 +1,8 @@
+import { Question } from "@/data/questionGroups";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Question } from "@/data/questionGroups";
 
 interface QuestionRendererProps {
   question: Question;
@@ -29,31 +29,24 @@ const QuestionRenderer = ({ question, value, onChange }: QuestionRendererProps) 
             type="number"
             value={value || ''}
             onChange={(e) => onChange(e.target.value ? Number(e.target.value) : '')}
-            placeholder="Enter a number..."
-            min={question.validation?.min}
-            max={question.validation?.max}
+            placeholder="Enter amount..."
             className="w-full"
           />
         );
 
       case 'radio':
         return (
-          <RadioGroup
-            value={value || ''}
-            onValueChange={onChange}
-            className="space-y-3"
-          >
-            {question.options?.map((option) => (
-              <div key={option} className="flex items-center space-x-2">
-                <RadioGroupItem value={option} id={`${question.id}-${option}`} />
-                <Label 
-                  htmlFor={`${question.id}-${option}`}
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  {option}
-                </Label>
-              </div>
-            ))}
+          <RadioGroup value={value || ''} onValueChange={onChange}>
+            <div className="space-y-2">
+              {question.options?.map((option) => (
+                <div key={option} className="flex items-center space-x-2">
+                  <RadioGroupItem value={option} id={`${question.id}-${option}`} />
+                  <Label htmlFor={`${question.id}-${option}`} className="text-sm font-normal">
+                    {option}
+                  </Label>
+                </div>
+              ))}
+            </div>
           </RadioGroup>
         );
 
@@ -61,7 +54,7 @@ const QuestionRenderer = ({ question, value, onChange }: QuestionRendererProps) 
         return (
           <Select value={value || ''} onValueChange={onChange}>
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="Please select an option..." />
+              <SelectValue placeholder="Select an option..." />
             </SelectTrigger>
             <SelectContent>
               {question.options?.map((option) => (
@@ -73,59 +66,27 @@ const QuestionRenderer = ({ question, value, onChange }: QuestionRendererProps) 
           </Select>
         );
 
-      case 'date':
-        return (
-          <Input
-            type="date"
-            value={value || ''}
-            onChange={(e) => onChange(e.target.value)}
-            className="w-full"
-          />
-        );
-
       default:
-        return (
-          <Input
-            value={value || ''}
-            onChange={(e) => onChange(e.target.value)}
-            placeholder="Enter your answer..."
-            className="w-full"
-          />
-        );
+        return null;
     }
   };
 
   return (
-    <div className="space-y-3">
-      <div className="flex items-start gap-2">
-        <span className="text-sm font-medium text-primary bg-primary/10 px-2 py-1 rounded-md">
-          Q{question.questionNumber}
-        </span>
-        <div className="flex-1">
-          <Label className="text-base font-medium text-foreground">
-            {question.title}
-            {question.required && <span className="text-destructive ml-1">*</span>}
+    <div className="space-y-4 p-4 border border-border rounded-lg bg-card">
+      <div className="space-y-2">
+        <div className="flex items-start justify-between">
+          <Label htmlFor={question.id} className="text-base font-medium leading-relaxed">
+            <span className="text-muted-foreground text-sm">Q{question.questionNumber}.</span> {question.title}
           </Label>
+          {question.required && (
+            <span className="text-destructive text-sm font-medium ml-2">*</span>
+          )}
         </div>
       </div>
       
-      <div className="ml-12">
+      <div className="mt-3">
         {renderInput()}
       </div>
-      
-      {question.validation && (
-        <div className="ml-12 text-xs text-muted-foreground">
-          {question.validation.min !== undefined && question.validation.max !== undefined && (
-            <>Value should be between {question.validation.min} and {question.validation.max}</>
-          )}
-          {question.validation.min !== undefined && question.validation.max === undefined && (
-            <>Minimum value: {question.validation.min}</>
-          )}
-          {question.validation.max !== undefined && question.validation.min === undefined && (
-            <>Maximum value: {question.validation.max}</>
-          )}
-        </div>
-      )}
     </div>
   );
 };
