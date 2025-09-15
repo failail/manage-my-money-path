@@ -39,8 +39,33 @@ const Assessment = () => {
 
   // Handle conditional logic for showing/hiding groups
   useEffect(() => {
+    // Calculate total owned properties
+    const calculateOwnedProperties = () => {
+      let total = 0;
+      
+      // Primary residence if owned
+      if (responses['housingType'] === 'Own it') {
+        total += 1;
+      }
+      
+      // Additional properties from Q12 (for owners) or Q26 (for renters)
+      const additionalProperties = responses['housingType'] === 'Rent it' 
+        ? responses['ownedHomesCount'] 
+        : responses['additionalProperties'];
+        
+      if (additionalProperties && additionalProperties !== '0') {
+        const count = additionalProperties === '4 or more' ? 4 : parseInt(additionalProperties);
+        total += count;
+      }
+      
+      return total;
+    };
+
+    const ownedPropertiesCount = calculateOwnedProperties();
+
     const triggers = {
       'rental-housing': responses['housingType'] === 'Rent it',
+      'owned-properties': ownedPropertiesCount > 0,
       'housing': responses['housingType'] === 'Own it' || responses['additionalProperties'] !== '0',
       'additional-properties': responses['additionalProperties'] && responses['additionalProperties'] !== '0',
       'vehicles': responses['hasVehicles'] === 'Yes',

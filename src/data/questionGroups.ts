@@ -311,6 +311,178 @@ export const questionGroups: QuestionGroup[] = [
     ]
   },
   {
+    id: 'owned-properties',
+    title: 'Owned Properties',
+    description: 'Details about properties you own',
+    conditional: true,
+    questions: [
+      {
+        id: 'home1PurchasePrice',
+        title: 'Home 1: What was the purchase price of this property?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 27,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home1CurrentValue',
+        title: 'Home 1: What is the estimated current value of this property?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 28,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home1HasLoan',
+        title: 'Home 1: Do you have a loan on this property?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Owned Properties',
+        questionNumber: 29,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home1OriginalLoanAmount',
+        title: 'Home 1: What was the original loan amount for this property?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 30,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home1OutstandingLoan',
+        title: 'Home 1: What is the current outstanding loan amount?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 31,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home1LoanInterestRate',
+        title: 'Home 1: What is the interest rate on this loan (in percentage)?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 32,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home1MonthlyEMI',
+        title: 'Home 1: What is your monthly EMI payment for this loan?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 33,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home1InsuranceCover',
+        title: 'Home 1: What is the coverage amount of insurance for this property?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 34,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home1InsurancePremium',
+        title: 'Home 1: What is the annual insurance premium for this property?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 35,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2PurchasePrice',
+        title: 'Home 2: What was the purchase price of this property?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 36,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2CurrentValue',
+        title: 'Home 2: What is the estimated current value of this property?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 37,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2HasLoan',
+        title: 'Home 2: Do you have a loan on this property?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Owned Properties',
+        questionNumber: 38,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2OriginalLoanAmount',
+        title: 'Home 2: What was the original loan amount for this property?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 39,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2OutstandingLoan',
+        title: 'Home 2: What is the current outstanding loan amount?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 40,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2LoanInterestRate',
+        title: 'Home 2: What is the interest rate on this loan (in percentage)?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 41,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2MonthlyEMI',
+        title: 'Home 2: What is your monthly EMI payment for this loan?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 42,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2InsuranceCover',
+        title: 'Home 2: What is the coverage amount of insurance for this property?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 43,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2InsurancePremium',
+        title: 'Home 2: What is the annual insurance premium for this property?',
+        type: 'number',
+        required: true,
+        section: 'Owned Properties',
+        questionNumber: 44,
+        groupId: 'owned-properties'
+      }
+    ]
+  },
+  {
     id: 'housing',
     title: 'Housing & Property',
     description: 'Details about your primary residence',
