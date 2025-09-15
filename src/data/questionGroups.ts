@@ -682,5 +682,272 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'income'
       }
     ]
+  },
+  {
+    id: 'vehicles-common',
+    title: 'Vehicle Expenses & Basics',
+    description: 'Common vehicle expenses and basic details',
+    conditional: true,
+    questions: [
+      {
+        id: 'monthlyFuelCosts',
+        title: 'What are your total monthly fuel costs for all vehicles?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Expenses',
+        questionNumber: 151,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'monthlyParkingCosts',
+        title: 'What are your total monthly parking costs?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Expenses',
+        questionNumber: 152,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'monthlyMaintenanceCosts',
+        title: 'What are your average monthly maintenance costs for all vehicles?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Expenses',
+        questionNumber: 153,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'vehicle1Type',
+        title: 'Vehicle 1: What type of vehicle is this?',
+        type: 'select',
+        required: true,
+        options: ['Car', 'Motorcycle', 'Truck', 'SUV', 'Van', 'Other'],
+        section: 'Vehicle Basics',
+        questionNumber: 154,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'vehicle1PurchasePrice',
+        title: 'Vehicle 1: What was the purchase price of this vehicle?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Basics',
+        questionNumber: 155,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'vehicle1CurrentValue',
+        title: 'Vehicle 1: What is the estimated current value of this vehicle?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Basics',
+        questionNumber: 156,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'vehicle2Type',
+        title: 'Vehicle 2: What type of vehicle is this?',
+        type: 'select',
+        required: true,
+        options: ['Car', 'Motorcycle', 'Truck', 'SUV', 'Van', 'Other'],
+        section: 'Vehicle Basics',
+        questionNumber: 157,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'vehicle2PurchasePrice',
+        title: 'Vehicle 2: What was the purchase price of this vehicle?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Basics',
+        questionNumber: 158,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'vehicle2CurrentValue',
+        title: 'Vehicle 2: What is the estimated current value of this vehicle?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Basics',
+        questionNumber: 159,
+        groupId: 'vehicles-common'
+      }
+    ]
+  },
+  {
+    id: 'vehicles-insurance-loans',
+    title: 'Vehicle Insurance & Loans',
+    description: 'Detailed insurance and loan information for each vehicle',
+    conditional: true,
+    questions: [
+      {
+        id: 'vehicle1HasInsurance',
+        title: 'Vehicle 1: Do you have insurance for this vehicle?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Vehicle Insurance',
+        questionNumber: 160,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle1InsuranceCover',
+        title: 'Vehicle 1: What is the coverage amount of insurance for this vehicle?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Insurance',
+        questionNumber: 161,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle1InsurancePremium',
+        title: 'Vehicle 1: What is your insurance premium for this vehicle?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Insurance',
+        questionNumber: 162,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle1InsurancePeriod',
+        title: 'Vehicle 1: How often do you pay this premium?',
+        type: 'select',
+        required: true,
+        options: ['Monthly', 'Quarterly', 'Semi-annually', 'Annually'],
+        section: 'Vehicle Insurance',
+        questionNumber: 163,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle1HasLoan',
+        title: 'Vehicle 1: Do you have a loan on this vehicle?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Vehicle Loans',
+        questionNumber: 164,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle1OriginalLoanAmount',
+        title: 'Vehicle 1: What was the original loan amount for this vehicle?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Loans',
+        questionNumber: 165,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle1OutstandingLoan',
+        title: 'Vehicle 1: What is the current outstanding loan amount?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Loans',
+        questionNumber: 166,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle1LoanInterestRate',
+        title: 'Vehicle 1: What is the interest rate on this loan (in percentage)?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Loans',
+        questionNumber: 167,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle1MonthlyEMI',
+        title: 'Vehicle 1: What is your monthly EMI payment for this loan?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Loans',
+        questionNumber: 168,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2HasInsurance',
+        title: 'Vehicle 2: Do you have insurance for this vehicle?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Vehicle Insurance',
+        questionNumber: 169,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2InsuranceCover',
+        title: 'Vehicle 2: What is the coverage amount of insurance for this vehicle?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Insurance',
+        questionNumber: 170,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2InsurancePremium',
+        title: 'Vehicle 2: What is your insurance premium for this vehicle?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Insurance',
+        questionNumber: 171,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2InsurancePeriod',
+        title: 'Vehicle 2: How often do you pay this premium?',
+        type: 'select',
+        required: true,
+        options: ['Monthly', 'Quarterly', 'Semi-annually', 'Annually'],
+        section: 'Vehicle Insurance',
+        questionNumber: 172,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2HasLoan',
+        title: 'Vehicle 2: Do you have a loan on this vehicle?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Vehicle Loans',
+        questionNumber: 173,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2OriginalLoanAmount',
+        title: 'Vehicle 2: What was the original loan amount for this vehicle?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Loans',
+        questionNumber: 174,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2OutstandingLoan',
+        title: 'Vehicle 2: What is the current outstanding loan amount?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Loans',
+        questionNumber: 175,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2LoanInterestRate',
+        title: 'Vehicle 2: What is the interest rate on this loan (in percentage)?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Loans',
+        questionNumber: 176,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2MonthlyEMI',
+        title: 'Vehicle 2: What is your monthly EMI payment for this loan?',
+        type: 'number',
+        required: true,
+        section: 'Vehicle Loans',
+        questionNumber: 177,
+        groupId: 'vehicles-insurance-loans'
+      }
+    ]
   }
 ];
