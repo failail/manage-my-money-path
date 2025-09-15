@@ -89,7 +89,7 @@ const Assessment = () => {
       'additional-properties': responses['additionalProperties'] && responses['additionalProperties'] !== '0',
       'vehicles-common': responses['hasVehicles'] && responses['hasVehicles'] !== '0',
       'vehicles-insurance-loans': responses['hasVehicles'] && responses['hasVehicles'] !== '0',
-      'children': responses['hasChildren'] === 'Yes',
+      'children': responses['hasChildren'] && responses['hasChildren'] !== '0',
       'dependents': responses['hasFinancialDependents'] === 'Yes',
       'personal-loans': responses['hasPersonalLoans'] === 'Yes'
     };

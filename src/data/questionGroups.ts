@@ -167,10 +167,10 @@ export const questionGroups: QuestionGroup[] = [
       },
       {
         id: 'hasChildren',
-        title: 'Do you have kids?',
-        type: 'radio',
+        title: 'How many kids do you have?',
+        type: 'select',
         required: true,
-        options: ['Yes', 'No'],
+        options: ['0', '1', '2', '3 or more'],
         section: 'Personal Information',
         questionNumber: 14,
         groupId: 'personal-basics'
