@@ -68,7 +68,7 @@ const Assessment = () => {
       'owned-properties': ownedPropertiesCount > 0,
       'housing': responses['housingType'] === 'Own it' || responses['additionalProperties'] !== '0',
       'additional-properties': responses['additionalProperties'] && responses['additionalProperties'] !== '0',
-      'vehicles': responses['hasVehicles'] === 'Yes',
+      'vehicles': responses['hasVehicles'] && responses['hasVehicles'] !== '0',
       'children': responses['hasChildren'] === 'Yes',
       'dependents': responses['hasFinancialDependents'] === 'Yes',
       'personal-loans': responses['hasPersonalLoans'] === 'Yes'

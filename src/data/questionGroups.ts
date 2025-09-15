@@ -157,10 +157,10 @@ export const questionGroups: QuestionGroup[] = [
       },
       {
         id: 'hasVehicles',
-        title: 'Do you own any vehicles for personal/family use?',
-        type: 'radio',
+        title: 'How many vehicles do you own?',
+        type: 'select',
         required: true,
-        options: ['Yes', 'No'],
+        options: ['0', '1', '2', '3', '4 or more'],
         section: 'Personal Information',
         questionNumber: 13,
         groupId: 'personal-basics'
