@@ -1,6 +1,7 @@
 export interface Question {
   id: string;
   title: string;
+  subtitle?: string;
   type: 'text' | 'number' | 'radio' | 'select' | 'date';
   required: boolean;
   options?: string[];
@@ -36,12 +37,23 @@ export const questionGroups: QuestionGroup[] = [
     description: 'Essential personal and demographic information',
     questions: [
       {
-        id: 'dateOfBirth',
-        title: "What's your date of birth?",
-        type: 'date',
+        id: 'firstName',
+        title: "What's your first name?",
+        subtitle: "So we know what to call you",
+        type: 'text',
         required: true,
         section: 'Personal Information',
         questionNumber: 1,
+        groupId: 'personal-basics'
+      },
+      {
+        id: 'yearOfBirth',
+        title: 'What year were you born?',
+        type: 'select',
+        required: true,
+        options: ['2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', '1997', '1996', '1995', '1994', '1993', '1992', '1991', '1990', '1989', '1988', '1987', '1986', '1985', '1984', '1983', '1982', '1981', '1980', '1979', '1978', '1977', '1976', '1975', '1974', '1973', '1972', '1971', '1970', '1969', '1968', '1967', '1966', '1965', '1964', '1963', '1962', '1961', '1960', '1959', '1958', '1957', '1956', '1955', '1954', '1953', '1952', '1951', '1950', '1949', '1948', '1947', '1946', '1945', '1944', '1943', '1942', '1941', '1940'],
+        section: 'Personal Information',
+        questionNumber: 2,
         groupId: 'personal-basics'
       },
       {
@@ -51,7 +63,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Male', 'Female', 'Prefer not to say'],
         section: 'Personal Information',
-        questionNumber: 2,
+        questionNumber: 3,
         groupId: 'personal-basics'
       },
       {
@@ -60,20 +72,6 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Single', 'In relationship not living together', 'In relationship living together', 'Married'],
-        section: 'Personal Information',
-        questionNumber: 3,
-        groupId: 'personal-basics'
-      },
-      {
-        id: 'partnerAge',
-        title: "What's your partner's age range?",
-        type: 'select',
-        required: true,
-        options: ['18-25', '26-30', '31-35', '36-40', '41-45', '46-50', '51-55', '56-60', '60+'],
-        conditional: {
-          dependsOn: 'relationshipStatus',
-          values: ['In relationship not living together', 'In relationship living together', 'Married']
-        },
         section: 'Personal Information',
         questionNumber: 4,
         groupId: 'personal-basics'
@@ -89,30 +87,13 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'personal-basics'
       },
       {
-        id: 'retirementDate',
-        title: 'When did you retire?',
-        type: 'date',
-        required: true,
-        conditional: {
-          dependsOn: 'workSituation',
-          values: ['Retired']
-        },
-        section: 'Personal Information',
-        questionNumber: 6,
-        groupId: 'personal-basics'
-      },
-      {
         id: 'industry',
         title: 'Which industry do you work in?',
         type: 'select',
         required: true,
-        options: ['Technology', 'Finance & Banking', 'Healthcare', 'Education', 'Manufacturing', 'Retail', 'Consulting', 'Real Estate', 'Media & Entertainment', 'Government', 'Non-profit', 'Agriculture', 'Energy', 'Transportation', 'Other'],
-        conditional: {
-          dependsOn: 'workSituation',
-          values: ['Full-time employed', 'Part-time employed', 'Self-employed', 'Freelancer']
-        },
+        options: ['Technology', 'Finance & Banking', 'Healthcare', 'Education', 'Manufacturing', 'Retail', 'Consulting', 'Real Estate', 'Media & Entertainment', 'Government', 'Non-profit', 'Agriculture', 'Energy', 'Transportation', 'Other', 'Not applicable'],
         section: 'Personal Information',
-        questionNumber: 7,
+        questionNumber: 6,
         groupId: 'personal-basics'
       },
       {
@@ -120,36 +101,9 @@ export const questionGroups: QuestionGroup[] = [
         title: "What's your primary job function?",
         type: 'select',
         required: true,
-        options: ['Engineering/Technical', 'Sales & Marketing', 'Operations', 'Finance & Accounting', 'Human Resources', 'Management/Leadership', 'Customer Service', 'Research & Development', 'Legal', 'Design/Creative', 'Administrative', 'Other'],
-        conditional: {
-          dependsOn: 'workSituation',
-          values: ['Full-time employed', 'Part-time employed', 'Self-employed', 'Freelancer']
-        },
+        options: ['Engineering/Technical', 'Sales & Marketing', 'Operations', 'Finance & Accounting', 'Human Resources', 'Management/Leadership', 'Customer Service', 'Research & Development', 'Legal', 'Design/Creative', 'Administrative', 'Other', 'Not applicable'],
         section: 'Personal Information',
-        questionNumber: 8,
-        groupId: 'personal-basics'
-      },
-      {
-        id: 'smoker',
-        title: 'Are you a smoker?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        section: 'Personal Information',
-        questionNumber: 9,
-        groupId: 'personal-basics'
-      },
-      {
-        id: 'targetRetirementAge',
-        title: 'At what age do you plan to retire?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'workSituation',
-          values: ['Full-time employed', 'Part-time employed', 'Self-employed', 'Freelancer', 'Unemployed', 'Student', 'Homemaker']
-        },
-        section: 'Personal Information',
-        questionNumber: 10,
+        questionNumber: 7,
         groupId: 'personal-basics'
       },
       {
@@ -159,7 +113,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['India', 'United States', 'United Kingdom', 'Canada', 'Australia', 'Singapore', 'UAE', 'Germany', 'Other'],
         section: 'Personal Information',
-        questionNumber: 11,
+        questionNumber: 8,
         groupId: 'personal-basics'
       },
       {
@@ -168,7 +122,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'text',
         required: true,
         section: 'Personal Information',
-        questionNumber: 12,
+        questionNumber: 9,
         groupId: 'personal-basics'
       },
       {
@@ -176,38 +130,29 @@ export const questionGroups: QuestionGroup[] = [
         title: "What's your preferred currency?",
         type: 'select',
         required: true,
-        options: ['INR (Indian Rupees)', 'USD (US Dollars)', 'GBP (British Pounds)', 'EUR (Euros)', 'CAD (Canadian Dollars)', 'AUD (Australian Dollars)', 'SGD (Singapore Dollars)', 'AED (UAE Dirhams)'],
+        options: ['INR', 'USD', 'GBP', 'EUR', 'CAD', 'AUD', 'SGD', 'AED'],
         section: 'Personal Information',
-        questionNumber: 13,
+        questionNumber: 10,
         groupId: 'personal-basics'
       },
       {
-        id: 'firstName',
-        title: "What's your first name?",
-        type: 'text',
-        required: true,
-        section: 'Personal Information',
-        questionNumber: 14,
-        groupId: 'personal-basics'
-      },
-      {
-        id: 'liveWithParents',
-        title: 'Do you live with parents?',
+        id: 'housingType',
+        title: 'In your primary residence, do you rent it or own it?',
         type: 'radio',
         required: true,
-        options: ['Yes', 'No'],
+        options: ['Rent it', 'Own it'],
         section: 'Personal Information',
-        questionNumber: 15,
+        questionNumber: 11,
         groupId: 'personal-basics'
       },
       {
-        id: 'hasAdditionalProperties',
-        title: 'Do you own any other properties?',
-        type: 'radio',
+        id: 'additionalProperties',
+        title: 'Apart from your current living arrangement, how many other properties do you own?',
+        type: 'select',
         required: true,
-        options: ['Yes', 'No'],
+        options: ['0', '1', '2', '3', '4 or more'],
         section: 'Personal Information',
-        questionNumber: 16,
+        questionNumber: 12,
         groupId: 'personal-basics'
       },
       {
@@ -217,7 +162,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Personal Information',
-        questionNumber: 17,
+        questionNumber: 13,
         groupId: 'personal-basics'
       },
       {
@@ -227,7 +172,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Personal Information',
-        questionNumber: 18,
+        questionNumber: 14,
         groupId: 'personal-basics'
       },
       {
@@ -237,7 +182,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Personal Information',
-        questionNumber: 19,
+        questionNumber: 15,
         groupId: 'personal-basics'
       },
       {
@@ -246,6 +191,46 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
+        section: 'Personal Information',
+        questionNumber: 16,
+        groupId: 'personal-basics'
+      },
+      {
+        id: 'smoker',
+        title: 'Are you a smoker?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Personal Information',
+        questionNumber: 17,
+        groupId: 'personal-basics'
+      },
+      {
+        id: 'targetRetirementAge',
+        title: 'At what age do you plan to retire?',
+        type: 'select',
+        required: true,
+        options: ['50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80'],
+        section: 'Personal Information',
+        questionNumber: 18,
+        groupId: 'personal-basics'
+      },
+      {
+        id: 'partnerAge',
+        title: "What's your partner's age range?",
+        type: 'select',
+        required: true,
+        options: ['18-25', '26-30', '31-35', '36-40', '41-45', '46-50', '51-55', '56-60', '60+', 'Not applicable'],
+        section: 'Personal Information',
+        questionNumber: 19,
+        groupId: 'personal-basics'
+      },
+      {
+        id: 'retiredYear',
+        title: 'What year did you retire?',
+        type: 'select',
+        required: true,
+        options: ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', 'Not applicable'],
         section: 'Personal Information',
         questionNumber: 20,
         groupId: 'personal-basics'

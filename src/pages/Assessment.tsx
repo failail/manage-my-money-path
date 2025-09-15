@@ -40,8 +40,8 @@ const Assessment = () => {
   // Handle conditional logic for showing/hiding groups
   useEffect(() => {
     const triggers = {
-      'housing': responses['liveWithParents'] === 'No',
-      'additional-properties': responses['hasAdditionalProperties'] === 'Yes',
+      'housing': responses['housingType'] === 'Own it' || responses['additionalProperties'] !== '0',
+      'additional-properties': responses['additionalProperties'] && responses['additionalProperties'] !== '0',
       'vehicles': responses['hasVehicles'] === 'Yes',
       'children': responses['hasChildren'] === 'Yes',
       'dependents': responses['hasFinancialDependents'] === 'Yes',

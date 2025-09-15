@@ -75,9 +75,14 @@ const QuestionRenderer = ({ question, value, onChange }: QuestionRendererProps) 
     <div className="space-y-4 p-4 border border-border rounded-lg bg-card">
       <div className="space-y-2">
         <div className="flex items-start justify-between">
-          <Label htmlFor={question.id} className="text-base font-medium leading-relaxed">
-            <span className="text-muted-foreground text-sm">Q{question.questionNumber}.</span> {question.title}
-          </Label>
+          <div className="flex-1">
+            <Label htmlFor={question.id} className="text-base font-medium leading-relaxed">
+              <span className="text-muted-foreground text-sm">Q{question.questionNumber}.</span> {question.title}
+            </Label>
+            {question.subtitle && (
+              <p className="text-sm text-muted-foreground mt-1">{question.subtitle}</p>
+            )}
+          </div>
           {question.required && (
             <span className="text-destructive text-sm font-medium ml-2">*</span>
           )}
