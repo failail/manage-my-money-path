@@ -238,6 +238,79 @@ export const questionGroups: QuestionGroup[] = [
     ]
   },
   {
+    id: 'rental-housing',
+    title: 'Rental Housing',
+    description: 'Details about your rental situation',
+    conditional: true,
+    questions: [
+      {
+        id: 'monthlyRent',
+        title: 'What is your monthly rent amount?',
+        type: 'number',
+        required: true,
+        section: 'Rental Housing',
+        questionNumber: 20,
+        groupId: 'rental-housing'
+      },
+      {
+        id: 'rentalDeposit',
+        title: 'What was your total rental deposit amount?',
+        type: 'number',
+        required: true,
+        section: 'Rental Housing',
+        questionNumber: 21,
+        groupId: 'rental-housing'
+      },
+      {
+        id: 'rentalInsurance',
+        title: 'Do you have rental/contents insurance?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Rental Housing',
+        questionNumber: 22,
+        groupId: 'rental-housing'
+      },
+      {
+        id: 'rentalInsuranceCover',
+        title: 'What is the total coverage amount of your rental insurance?',
+        type: 'number',
+        required: true,
+        section: 'Rental Housing',
+        questionNumber: 23,
+        groupId: 'rental-housing'
+      },
+      {
+        id: 'rentalInsurancePremium',
+        title: 'What is your annual rental insurance premium?',
+        type: 'number',
+        required: true,
+        section: 'Rental Housing',
+        questionNumber: 24,
+        groupId: 'rental-housing'
+      },
+      {
+        id: 'buildingMaintenanceFees',
+        title: 'Do you pay any building maintenance or society fees monthly?',
+        type: 'number',
+        required: true,
+        section: 'Rental Housing',
+        questionNumber: 25,
+        groupId: 'rental-housing'
+      },
+      {
+        id: 'ownedHomesCount',
+        title: 'Apart from your rental, how many other homes do you own?',
+        type: 'select',
+        required: true,
+        options: ['0', '1', '2', '3', '4 or more'],
+        section: 'Rental Housing',
+        questionNumber: 26,
+        groupId: 'rental-housing'
+      }
+    ]
+  },
+  {
     id: 'housing',
     title: 'Housing & Property',
     description: 'Details about your primary residence',
