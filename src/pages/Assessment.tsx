@@ -19,7 +19,17 @@ const Assessment = () => {
   // Calculate total questions and progress
   const totalQuestions = questionGroups
     .filter(group => visibleGroups.includes(group.id))
-    .reduce((sum, group) => sum + group.questions.length, 0);
+    .reduce((sum, group) => {
+      const visibleQuestions = group.questions.filter(question => {
+        // Check if question has conditional requirements
+        if (question.conditional) {
+          const { dependsOn, values } = question.conditional;
+          return values.includes(responses[dependsOn]);
+        }
+        return true;
+      });
+      return sum + visibleQuestions.length;
+    }, 0);
   
   const answeredQuestions = Object.keys(responses).length;
   const progress = totalQuestions > 0 ? (answeredQuestions / totalQuestions) * 100 : 0;
@@ -27,7 +37,16 @@ const Assessment = () => {
   // Get current questions to display (10 per page)
   const allQuestions = questionGroups
     .filter(group => visibleGroups.includes(group.id))
-    .flatMap(group => group.questions);
+    .flatMap(group => 
+      group.questions.filter(question => {
+        // Check if question has conditional requirements
+        if (question.conditional) {
+          const { dependsOn, values } = question.conditional;
+          return values.includes(responses[dependsOn]);
+        }
+        return true;
+      })
+    );
   
   const questionsPerPage = 10;
   const currentQuestions = allQuestions.slice(

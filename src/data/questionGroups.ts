@@ -777,26 +777,16 @@ export const questionGroups: QuestionGroup[] = [
   {
     id: 'vehicles-insurance-loans',
     title: 'Vehicle Insurance & Loans',
-    description: 'Detailed insurance and loan information for each vehicle',
+    description: 'Insurance and loan information for each vehicle',
     conditional: true,
     questions: [
       {
-        id: 'vehicle1HasInsurance',
-        title: 'Vehicle 1: Do you have insurance for this vehicle?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        section: 'Vehicle Insurance',
-        questionNumber: 160,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
         id: 'vehicle1InsuranceCover',
-        title: 'Vehicle 1: What is the coverage amount of insurance for this vehicle?',
+        title: 'Vehicle 1: What is the insurance coverage amount for this vehicle? (Enter 0 if no insurance)',
         type: 'number',
         required: true,
-        section: 'Vehicle Insurance',
-        questionNumber: 161,
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 57,
         groupId: 'vehicles-insurance-loans'
       },
       {
@@ -804,18 +794,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is your insurance premium for this vehicle?',
         type: 'number',
         required: true,
-        section: 'Vehicle Insurance',
-        questionNumber: 162,
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 58,
         groupId: 'vehicles-insurance-loans'
       },
       {
         id: 'vehicle1InsurancePeriod',
-        title: 'Vehicle 1: How often do you pay this premium?',
+        title: 'Vehicle 1: Insurance premium period',
         type: 'select',
         required: true,
-        options: ['Monthly', 'Quarterly', 'Semi-annually', 'Annually'],
-        section: 'Vehicle Insurance',
-        questionNumber: 163,
+        options: ['Monthly', 'Annual'],
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 59,
         groupId: 'vehicles-insurance-loans'
       },
       {
@@ -824,17 +814,8 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
-        section: 'Vehicle Loans',
-        questionNumber: 164,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle1OriginalLoanAmount',
-        title: 'Vehicle 1: What was the original loan amount for this vehicle?',
-        type: 'number',
-        required: true,
-        section: 'Vehicle Loans',
-        questionNumber: 165,
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 60,
         groupId: 'vehicles-insurance-loans'
       },
       {
@@ -842,8 +823,12 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
-        section: 'Vehicle Loans',
-        questionNumber: 166,
+        conditional: {
+          dependsOn: 'vehicle1HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 61,
         groupId: 'vehicles-insurance-loans'
       },
       {
@@ -851,36 +836,34 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
-        section: 'Vehicle Loans',
-        questionNumber: 167,
+        conditional: {
+          dependsOn: 'vehicle1HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 62,
         groupId: 'vehicles-insurance-loans'
       },
       {
         id: 'vehicle1MonthlyEMI',
-        title: 'Vehicle 1: What is your monthly EMI payment for this loan?',
+        title: 'Vehicle 1: What is your monthly EMI payment for this vehicle?',
         type: 'number',
         required: true,
-        section: 'Vehicle Loans',
-        questionNumber: 168,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2HasInsurance',
-        title: 'Vehicle 2: Do you have insurance for this vehicle?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        section: 'Vehicle Insurance',
-        questionNumber: 169,
+        conditional: {
+          dependsOn: 'vehicle1HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 63,
         groupId: 'vehicles-insurance-loans'
       },
       {
         id: 'vehicle2InsuranceCover',
-        title: 'Vehicle 2: What is the coverage amount of insurance for this vehicle?',
+        title: 'Vehicle 2: What is the insurance coverage amount for this vehicle? (Enter 0 if no insurance)',
         type: 'number',
         required: true,
-        section: 'Vehicle Insurance',
-        questionNumber: 170,
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 64,
         groupId: 'vehicles-insurance-loans'
       },
       {
@@ -888,18 +871,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is your insurance premium for this vehicle?',
         type: 'number',
         required: true,
-        section: 'Vehicle Insurance',
-        questionNumber: 171,
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 65,
         groupId: 'vehicles-insurance-loans'
       },
       {
         id: 'vehicle2InsurancePeriod',
-        title: 'Vehicle 2: How often do you pay this premium?',
+        title: 'Vehicle 2: Insurance premium period',
         type: 'select',
         required: true,
-        options: ['Monthly', 'Quarterly', 'Semi-annually', 'Annually'],
-        section: 'Vehicle Insurance',
-        questionNumber: 172,
+        options: ['Monthly', 'Annual'],
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 66,
         groupId: 'vehicles-insurance-loans'
       },
       {
@@ -908,17 +891,8 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
-        section: 'Vehicle Loans',
-        questionNumber: 173,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2OriginalLoanAmount',
-        title: 'Vehicle 2: What was the original loan amount for this vehicle?',
-        type: 'number',
-        required: true,
-        section: 'Vehicle Loans',
-        questionNumber: 174,
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 67,
         groupId: 'vehicles-insurance-loans'
       },
       {
@@ -926,8 +900,12 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
-        section: 'Vehicle Loans',
-        questionNumber: 175,
+        conditional: {
+          dependsOn: 'vehicle2HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 68,
         groupId: 'vehicles-insurance-loans'
       },
       {
@@ -935,17 +913,25 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
-        section: 'Vehicle Loans',
-        questionNumber: 176,
+        conditional: {
+          dependsOn: 'vehicle2HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 69,
         groupId: 'vehicles-insurance-loans'
       },
       {
         id: 'vehicle2MonthlyEMI',
-        title: 'Vehicle 2: What is your monthly EMI payment for this loan?',
+        title: 'Vehicle 2: What is your monthly EMI payment for this vehicle?',
         type: 'number',
         required: true,
-        section: 'Vehicle Loans',
-        questionNumber: 177,
+        conditional: {
+          dependsOn: 'vehicle2HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Insurance & Loans',
+        questionNumber: 70,
         groupId: 'vehicles-insurance-loans'
       }
     ]
