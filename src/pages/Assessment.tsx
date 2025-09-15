@@ -40,7 +40,12 @@ const Assessment = () => {
   // Handle conditional logic for showing/hiding groups
   useEffect(() => {
     const triggers = {
-      'housing': responses['q15'] === 'No', // Live with parents
+      'housing': responses['liveWithParents'] === 'No',
+      'additional-properties': responses['hasAdditionalProperties'] === 'Yes',
+      'vehicles': responses['hasVehicles'] === 'Yes',
+      'children': responses['hasChildren'] === 'Yes',
+      'dependents': responses['hasFinancialDependents'] === 'Yes',
+      'personal-loans': responses['hasPersonalLoans'] === 'Yes'
     };
 
     const newVisibleGroups = ['personal-basics']; // Always show basics
@@ -53,7 +58,7 @@ const Assessment = () => {
     });
     
     // Always show the final groups
-    newVisibleGroups.push('income');
+    newVisibleGroups.push('insurance', 'monthly-expenses-1', 'monthly-expenses-2', 'annual-expenses', 'investments', 'assets', 'income');
     
     setVisibleGroups(newVisibleGroups);
   }, [responses]);
