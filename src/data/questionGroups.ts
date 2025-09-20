@@ -3171,12 +3171,13 @@ export const questionGroups: QuestionGroup[] = [
       }
     ]
   },
-  // Group 8: Monthly Expenses
+  // Group 8: Monthly & Annual Expenses
   {
-    id: 'monthly-expenses',
-    title: 'Monthly Expenses',
-    description: 'Your regular monthly living expenses',
+    id: 'monthly-annual-expenses',
+    title: 'Monthly & Annual Expenses',
+    description: 'Your regular monthly living expenses and yearly costs',
     questions: [
+      // Section A: Monthly Expenses (Questions 235-257)
       {
         id: 'monthlyGroceries',
         title: 'What are your monthly costs for groceries and toiletries?',
@@ -3184,7 +3185,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 235,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyClothing',
@@ -3193,7 +3194,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 236,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyBeauty',
@@ -3202,7 +3203,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 237,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlySalon',
@@ -3211,7 +3212,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 238,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyDomesticHelp',
@@ -3220,7 +3221,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 239,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyCookingGas',
@@ -3229,7 +3230,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 240,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyElectricity',
@@ -3238,7 +3239,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 241,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyMobile',
@@ -3247,7 +3248,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 242,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyInternet',
@@ -3256,7 +3257,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 243,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyTvOtt',
@@ -3265,7 +3266,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 244,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyAppSubscriptions',
@@ -3274,7 +3275,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 245,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyCommute',
@@ -3284,7 +3285,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 246,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyPetCosts',
@@ -3294,7 +3295,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 247,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyEntertainment',
@@ -3303,7 +3304,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 248,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyHobbies',
@@ -3312,7 +3313,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 249,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyDiningOut',
@@ -3321,7 +3322,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 250,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyAlcoholHome',
@@ -3330,7 +3331,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 251,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyTobacco',
@@ -3339,7 +3340,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 252,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyMedication',
@@ -3348,7 +3349,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 253,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyHealthcare',
@@ -3357,7 +3358,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 254,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyEducation',
@@ -3366,7 +3367,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 255,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyVisitingHome',
@@ -3375,7 +3376,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 256,
-        groupId: 'monthly-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyMiscellaneous',
@@ -3384,16 +3385,10 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Monthly Expenses',
         questionNumber: 257,
-        groupId: 'monthly-expenses'
-      }
-    ]
-  },
-  // Group 9: Annual Expenses  
-  {
-    id: 'annual-expenses',
-    title: 'Annual Expenses',
-    description: 'Your yearly or occasional expenses',
-    questions: [
+        groupId: 'monthly-annual-expenses'
+      },
+
+      // Section B: Annual Expenses (Questions 258-269)
       {
         id: 'annualHomeDecor',
         title: 'What are your annual costs for home decor, furniture, furnishings, linen?',
@@ -3401,7 +3396,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 258,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualElectronics',
@@ -3410,7 +3405,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 259,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualMobileHandset',
@@ -3420,7 +3415,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 260,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualHolidays',
@@ -3429,7 +3424,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 261,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualGifts',
@@ -3438,7 +3433,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 262,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualFitnessMemberships',
@@ -3447,7 +3442,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 263,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualProfessionalMemberships',
@@ -3456,7 +3451,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 264,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualDonations',
@@ -3465,7 +3460,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 265,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualProfessionalServices',
@@ -3474,7 +3469,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 266,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualHomeSecurity',
@@ -3483,7 +3478,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 267,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualProfessionalDevelopment',
@@ -3492,7 +3487,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 268,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualMiscellaneous',
@@ -3501,7 +3496,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         section: 'Annual Expenses',
         questionNumber: 269,
-        groupId: 'annual-expenses'
+        groupId: 'monthly-annual-expenses'
       }
     ]
   },
