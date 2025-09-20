@@ -91,8 +91,14 @@ const Assessment = () => {
       'vehicles-common': responses['hasVehicles'] && responses['hasVehicles'] !== '0',
       'vehicles-insurance-loans': responses['hasVehicles'] && responses['hasVehicles'] !== '0',
       'children': responses['hasChildren'] && responses['hasChildren'] !== '0',
-      'dependents': responses['hasFinancialDependents'] && responses['hasFinancialDependents'] !== '0',
-      'personal-loans': responses['hasPersonalLoans'] === 'Yes'
+      'financial-dependents': responses['hasFinancialDependents'] && responses['hasFinancialDependents'] !== '0',
+      'personal-loans': responses['hasPersonalLoans'] === 'Yes',
+      'insurance-details': responses['userHealthInsurance'] === 'Yes' ||
+                          responses['userLifeInsurance'] === 'Yes' ||
+                          responses['userAccidentInsurance'] === 'Yes' ||
+                          responses['partnerHealthInsurance'] === 'Yes' ||
+                          responses['partnerLifeInsurance'] === 'Yes' ||
+                          responses['partnerAccidentInsurance'] === 'Yes'
     };
 
     const newVisibleGroups = ['personal-basics']; // Always show basics
@@ -105,7 +111,7 @@ const Assessment = () => {
     });
     
     // Always show the final groups
-    newVisibleGroups.push('insurance', 'monthly-expenses-1', 'monthly-expenses-2', 'annual-expenses', 'investments', 'assets', 'income');
+    newVisibleGroups.push('insurance-coverage', 'insurance', 'monthly-expenses-1', 'monthly-expenses-2', 'annual-expenses', 'investments', 'assets', 'income');
     
     setVisibleGroups(newVisibleGroups);
   }, [responses]);

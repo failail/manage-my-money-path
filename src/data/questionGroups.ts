@@ -2754,5 +2754,320 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'personal-loans'
       }
     ]
+  },
+  {
+    id: 'insurance-coverage',
+    title: 'Insurance Coverage',
+    description: 'Basic insurance coverage questions',
+    questions: [
+      {
+        id: 'userHealthInsurance',
+        title: 'Do you have health insurance?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Insurance Coverage',
+        questionNumber: 194,
+        groupId: 'insurance-coverage'
+      },
+      {
+        id: 'userLifeInsurance',
+        title: 'Do you have life insurance?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Insurance Coverage',
+        questionNumber: 195,
+        groupId: 'insurance-coverage'
+      },
+      {
+        id: 'userAccidentInsurance',
+        title: 'Do you have accident and disability insurance?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Insurance Coverage',
+        questionNumber: 196,
+        groupId: 'insurance-coverage'
+      },
+      {
+        id: 'partnerHealthInsurance',
+        title: 'Does your partner have health insurance?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No', 'Not applicable'],
+        section: 'Insurance Coverage',
+        questionNumber: 197,
+        groupId: 'insurance-coverage'
+      },
+      {
+        id: 'partnerLifeInsurance',
+        title: 'Does your partner have life insurance?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No', 'Not applicable'],
+        section: 'Insurance Coverage',
+        questionNumber: 198,
+        groupId: 'insurance-coverage'
+      },
+      {
+        id: 'partnerAccidentInsurance',
+        title: 'Does your partner have accident and disability insurance?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No', 'Not applicable'],
+        section: 'Insurance Coverage',
+        questionNumber: 199,
+        groupId: 'insurance-coverage'
+      }
+    ]
+  },
+  {
+    id: 'insurance-details',
+    title: 'Insurance Details',
+    description: 'Detailed insurance coverage amounts and premiums',
+    conditional: true,
+    questions: [
+      {
+        id: 'userHealthInsuranceCover',
+        title: 'What is your total health insurance coverage amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'userHealthInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 200,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userHealthInsurancePremium',
+        title: 'What is your health insurance premium amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'userHealthInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 201,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userHealthInsurancePeriod',
+        title: 'Health insurance premium period',
+        type: 'select',
+        required: true,
+        options: ['Monthly', 'Annual'],
+        conditional: {
+          dependsOn: 'userHealthInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 202,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userLifeInsuranceCover',
+        title: 'What is your total life insurance coverage amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'userLifeInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 203,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userLifeInsurancePremium',
+        title: 'What is your life insurance premium amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'userLifeInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 204,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userLifeInsurancePeriod',
+        title: 'Life insurance premium period',
+        type: 'select',
+        required: true,
+        options: ['Monthly', 'Annual'],
+        conditional: {
+          dependsOn: 'userLifeInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 205,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userAccidentInsuranceCover',
+        title: 'What is your total accident and disability insurance coverage amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'userAccidentInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 206,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userAccidentInsurancePremium',
+        title: 'What is your accident and disability insurance premium amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'userAccidentInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 207,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userAccidentInsurancePeriod',
+        title: 'Accident and disability insurance premium period',
+        type: 'select',
+        required: true,
+        options: ['Monthly', 'Annual'],
+        conditional: {
+          dependsOn: 'userAccidentInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 208,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'partnerHealthInsuranceCover',
+        title: 'What is your partner\'s total health insurance coverage amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'partnerHealthInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 209,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'partnerHealthInsurancePremium',
+        title: 'What is your partner\'s health insurance premium amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'partnerHealthInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 210,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'partnerHealthInsurancePeriod',
+        title: 'Partner\'s health insurance premium period',
+        type: 'select',
+        required: true,
+        options: ['Monthly', 'Annual'],
+        conditional: {
+          dependsOn: 'partnerHealthInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 211,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'partnerLifeInsuranceCover',
+        title: 'What is your partner\'s total life insurance coverage amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'partnerLifeInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 212,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'partnerLifeInsurancePremium',
+        title: 'What is your partner\'s life insurance premium amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'partnerLifeInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 213,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'partnerLifeInsurancePeriod',
+        title: 'Partner\'s life insurance premium period',
+        type: 'select',
+        required: true,
+        options: ['Monthly', 'Annual'],
+        conditional: {
+          dependsOn: 'partnerLifeInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 214,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'partnerAccidentInsuranceCover',
+        title: 'What is your partner\'s total accident and disability insurance coverage amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'partnerAccidentInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 215,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'partnerAccidentInsurancePremium',
+        title: 'What is your partner\'s accident and disability insurance premium amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'partnerAccidentInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 216,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'partnerAccidentInsurancePeriod',
+        title: 'Partner\'s accident and disability insurance premium period',
+        type: 'select',
+        required: true,
+        options: ['Monthly', 'Annual'],
+        conditional: {
+          dependsOn: 'partnerAccidentInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 217,
+        groupId: 'insurance-details'
+      }
+    ]
   }
 ];
