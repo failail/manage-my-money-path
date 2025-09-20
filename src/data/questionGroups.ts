@@ -3059,5 +3059,339 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'insurance-details'
       }
     ]
+  },
+  // Group 8: Monthly Expenses
+  {
+    id: 'monthly-expenses',
+    title: 'Monthly Expenses',
+    description: 'Your regular monthly living expenses',
+    questions: [
+      {
+        id: 'monthlyGroceries',
+        title: 'What are your monthly costs for groceries and toiletries?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 235,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyClothing',
+        title: 'What are your monthly costs for clothes and shoes?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 236,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyBeauty',
+        title: 'What are your monthly costs for makeup and jewellery?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 237,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlySalon',
+        title: 'What are your monthly costs for haircuts, salon, beauty treatments and massages?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 238,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyDomesticHelp',
+        title: 'What are your monthly costs for maid/cook/househelp/nanny?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 239,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyCookingGas',
+        title: 'What are your monthly cooking gas costs?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 240,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyElectricity',
+        title: 'What are your monthly electricity costs?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 241,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyMobile',
+        title: 'What are your monthly mobile plan costs?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 242,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyInternet',
+        title: 'What are your monthly broadband/internet costs?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 243,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyTvOtt',
+        title: 'What are your monthly TV/OTT/cable bills? Include all your OTT subscriptions.',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 244,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyAppSubscriptions',
+        title: 'What are your monthly costs for other app subscriptions (music, gaming, data storage, email, health trackers, etc.)?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 245,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyCommute',
+        title: 'What are your monthly costs for commuting to office and local transport (not your own vehicle)?',
+        subtitle: 'Include taxis, buses, trains, metro - exclude fuel for your own vehicle',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 246,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyPetCosts',
+        title: 'What are your monthly pet-related costs?',
+        subtitle: 'Include food, grooming, medical treatments, toys, medicines',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 247,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyEntertainment',
+        title: 'What are your monthly costs for movies, concerts, shows, museums, sporting events?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 248,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyHobbies',
+        title: 'What are your monthly hobby costs?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 249,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyDiningOut',
+        title: 'What are your monthly costs for eating out, ordering food, partying, drinking out, coffee outside?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 250,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyAlcoholHome',
+        title: 'What are your monthly costs for alcohol ordered at home?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 251,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyTobacco',
+        title: 'What are your monthly costs for cigarettes, vaping, tobacco use?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 252,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyMedication',
+        title: 'What are your monthly medication and treatment costs not covered by insurance?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 253,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyHealthcare',
+        title: 'What are your monthly costs for health exams, tests, dental treatment, eyeglasses not covered by insurance?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 254,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyEducation',
+        title: 'What are your monthly college/course fees for yourself or partner?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 255,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyVisitingHome',
+        title: 'What are your monthly costs for visiting home (if staying away from family)?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 256,
+        groupId: 'monthly-expenses'
+      },
+      {
+        id: 'monthlyMiscellaneous',
+        title: 'What are your other miscellaneous monthly expenses not covered above?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 257,
+        groupId: 'monthly-expenses'
+      }
+    ]
+  },
+  // Group 9: Annual Expenses  
+  {
+    id: 'annual-expenses',
+    title: 'Annual Expenses',
+    description: 'Your yearly or occasional expenses',
+    questions: [
+      {
+        id: 'annualHomeDecor',
+        title: 'What are your annual costs for home decor, furniture, furnishings, linen?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 258,
+        groupId: 'annual-expenses'
+      },
+      {
+        id: 'annualElectronics',
+        title: 'What are your annual costs for gadgets, computers, electronics, home appliances (except mobile phone)?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 259,
+        groupId: 'annual-expenses'
+      },
+      {
+        id: 'annualMobileHandset',
+        title: 'What do you spend annually on new mobile handsets?',
+        subtitle: 'If you buy once every 2 years, divide the cost by 2',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 260,
+        groupId: 'annual-expenses'
+      },
+      {
+        id: 'annualHolidays',
+        title: 'What are your annual costs for holidays and vacations?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 261,
+        groupId: 'annual-expenses'
+      },
+      {
+        id: 'annualGifts',
+        title: 'What are your annual estimated costs for gifts to partner/friends/family?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 262,
+        groupId: 'annual-expenses'
+      },
+      {
+        id: 'annualFitnessMemberships',
+        title: 'What are your annual costs for gym/fitness memberships, sports club fees?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 263,
+        groupId: 'annual-expenses'
+      },
+      {
+        id: 'annualProfessionalMemberships',
+        title: 'What are your annual costs for professional networking, association memberships?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 264,
+        groupId: 'annual-expenses'
+      },
+      {
+        id: 'annualDonations',
+        title: 'What are your annual charitable donations/religious contributions?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 265,
+        groupId: 'annual-expenses'
+      },
+      {
+        id: 'annualProfessionalServices',
+        title: 'What are your annual costs for legal/accounting/professional services, tax preparation?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 266,
+        groupId: 'annual-expenses'
+      },
+      {
+        id: 'annualHomeSecurity',
+        title: 'What are your annual costs for home security systems/services?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 267,
+        groupId: 'annual-expenses'
+      },
+      {
+        id: 'annualProfessionalDevelopment',
+        title: 'What are your annual costs for professional development, courses, certifications?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 268,
+        groupId: 'annual-expenses'
+      },
+      {
+        id: 'annualMiscellaneous',
+        title: 'What are your other annual miscellaneous expenses not covered above?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 269,
+        groupId: 'annual-expenses'
+      }
+    ]
   }
 ];
