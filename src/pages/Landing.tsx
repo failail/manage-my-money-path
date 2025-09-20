@@ -58,7 +58,7 @@ const Landing = () => {
               className="text-lg px-8 py-4 bg-primary hover:bg-primary-hover"
               onClick={() => navigate('/assessment')}
             >
-              Start Assessment - £10
+              Start Your Financial Checkup - £10
             </Button>
             <div className="text-sm text-muted-foreground">
               ✓ Anonymous • ✓ Secure • ✓ Professional Analysis
@@ -166,7 +166,7 @@ const Landing = () => {
             className="text-lg px-8 py-4 bg-primary hover:bg-primary-hover"
             onClick={() => navigate('/assessment')}
           >
-            Start Your Assessment Now - £10
+            Start Your Financial Checkup - £10
           </Button>
         </div>
       </section>
