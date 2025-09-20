@@ -190,7 +190,7 @@ export const questionGroups: QuestionGroup[] = [
       },
       {
         id: 'hasPersonalLoans',
-        title: 'Do you have any personal loans apart from home and vehicle loans?',
+        title: 'Do you have any personal loans or credit card debt?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
