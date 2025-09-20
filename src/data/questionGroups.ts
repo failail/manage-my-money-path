@@ -241,6 +241,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly rent amount?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Rent it']
+        },
         section: 'Rental Housing',
         questionNumber: 20,
         groupId: 'rental-housing'
@@ -250,6 +254,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What was your total rental deposit amount?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Rent it']
+        },
         section: 'Rental Housing',
         questionNumber: 21,
         groupId: 'rental-housing'
@@ -260,6 +268,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Rent it']
+        },
         section: 'Rental Housing',
         questionNumber: 22,
         groupId: 'rental-housing'
@@ -269,6 +281,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the total coverage amount of your rental insurance?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Rent it']
+        },
         section: 'Rental Housing',
         questionNumber: 23,
         groupId: 'rental-housing'
@@ -278,6 +294,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your annual rental insurance premium?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Rent it']
+        },
         section: 'Rental Housing',
         questionNumber: 24,
         groupId: 'rental-housing'
@@ -287,6 +307,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Do you pay any building maintenance or society fees monthly?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Rent it']
+        },
         section: 'Rental Housing',
         questionNumber: 25,
         groupId: 'rental-housing'
@@ -297,6 +321,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'select',
         required: true,
         options: ['0', '1', '2', '3', '4 or more'],
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Rent it']
+        },
         section: 'Rental Housing',
         questionNumber: 26,
         groupId: 'rental-housing'
@@ -314,6 +342,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What was the purchase price of this property?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 27,
         groupId: 'owned-properties'
@@ -323,6 +355,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the estimated current value of this property?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 28,
         groupId: 'owned-properties'
@@ -333,6 +369,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 29,
         groupId: 'owned-properties'
@@ -342,6 +382,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What was the original loan amount for this property?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 30,
         groupId: 'owned-properties'
@@ -351,6 +395,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 31,
         groupId: 'owned-properties'
@@ -360,6 +408,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 32,
         groupId: 'owned-properties'
@@ -369,6 +421,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is your monthly EMI payment for this loan?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 33,
         groupId: 'owned-properties'
@@ -378,6 +434,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the coverage amount of insurance for this property?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 34,
         groupId: 'owned-properties'
@@ -387,6 +447,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the annual insurance premium for this property?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 35,
         groupId: 'owned-properties'
@@ -396,6 +460,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What was the purchase price of this property?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 36,
         groupId: 'owned-properties'
@@ -405,6 +473,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is the estimated current value of this property?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 37,
         groupId: 'owned-properties'
@@ -415,6 +487,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 38,
         groupId: 'owned-properties'
@@ -424,6 +500,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What was the original loan amount for this property?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 39,
         groupId: 'owned-properties'
@@ -433,6 +513,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 40,
         groupId: 'owned-properties'
@@ -442,6 +526,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 41,
         groupId: 'owned-properties'
@@ -451,6 +539,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is your monthly EMI payment for this loan?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 42,
         groupId: 'owned-properties'
@@ -460,6 +552,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is the coverage amount of insurance for this property?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 43,
         groupId: 'owned-properties'
@@ -469,6 +565,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is the annual insurance premium for this property?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'housingType',
+          values: ['Own it']
+        },
         section: 'Owned Properties',
         questionNumber: 44,
         groupId: 'owned-properties'
@@ -586,6 +686,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your total monthly fuel costs for all vehicles?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Expenses',
         questionNumber: 65,
         groupId: 'vehicles-common'
@@ -595,6 +699,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your total monthly parking costs?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Expenses',
         questionNumber: 66,
         groupId: 'vehicles-common'
@@ -604,6 +712,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your average monthly maintenance costs for all vehicles?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Expenses',
         questionNumber: 67,
         groupId: 'vehicles-common'
@@ -614,6 +726,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'select',
         required: true,
         options: ['Car', 'Motorcycle', 'Truck', 'SUV', 'Van', 'Other'],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Basics',
         questionNumber: 68,
         groupId: 'vehicles-common'
@@ -623,6 +739,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What was the purchase price of this vehicle?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Basics',
         questionNumber: 69,
         groupId: 'vehicles-common'
@@ -632,6 +752,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is the estimated current value of this vehicle?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Basics',
         questionNumber: 70,
         groupId: 'vehicles-common'
@@ -642,6 +766,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'select',
         required: true,
         options: ['Car', 'Motorcycle', 'Truck', 'SUV', 'Van', 'Other'],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Basics',
         questionNumber: 71,
         groupId: 'vehicles-common'
@@ -651,6 +779,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What was the purchase price of this vehicle?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Basics',
         questionNumber: 72,
         groupId: 'vehicles-common'
@@ -660,6 +792,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is the estimated current value of this vehicle?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Basics',
         questionNumber: 73,
         groupId: 'vehicles-common'
@@ -677,6 +813,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is the insurance coverage amount for this vehicle? (Enter 0 if no insurance)',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Insurance & Loans',
         questionNumber: 74,
         groupId: 'vehicles-insurance-loans'
@@ -686,6 +826,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is your insurance premium for this vehicle?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Insurance & Loans',
         questionNumber: 75,
         groupId: 'vehicles-insurance-loans'
@@ -696,6 +840,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'select',
         required: true,
         options: ['Monthly', 'Annual'],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Insurance & Loans',
         questionNumber: 76,
         groupId: 'vehicles-insurance-loans'
@@ -706,6 +854,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Insurance & Loans',
         questionNumber: 77,
         groupId: 'vehicles-insurance-loans'
@@ -715,10 +867,16 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
-        conditional: {
-          dependsOn: 'vehicle1HasLoan',
-          values: ['Yes']
-        },
+        conditional: [
+          {
+            dependsOn: 'hasVehicles',
+            values: ['1', '2', '3', '4 or more']
+          },
+          {
+            dependsOn: 'vehicle1HasLoan',
+            values: ['Yes']
+          }
+        ],
         section: 'Vehicle Insurance & Loans',
         questionNumber: 78,
         groupId: 'vehicles-insurance-loans'
@@ -728,10 +886,16 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
-        conditional: {
-          dependsOn: 'vehicle1HasLoan',
-          values: ['Yes']
-        },
+        conditional: [
+          {
+            dependsOn: 'hasVehicles',
+            values: ['1', '2', '3', '4 or more']
+          },
+          {
+            dependsOn: 'vehicle1HasLoan',
+            values: ['Yes']
+          }
+        ],
         section: 'Vehicle Insurance & Loans',
         questionNumber: 79,
         groupId: 'vehicles-insurance-loans'
@@ -741,10 +905,16 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is your monthly EMI payment for this vehicle?',
         type: 'number',
         required: true,
-        conditional: {
-          dependsOn: 'vehicle1HasLoan',
-          values: ['Yes']
-        },
+        conditional: [
+          {
+            dependsOn: 'hasVehicles',
+            values: ['1', '2', '3', '4 or more']
+          },
+          {
+            dependsOn: 'vehicle1HasLoan',
+            values: ['Yes']
+          }
+        ],
         section: 'Vehicle Insurance & Loans',
         questionNumber: 80,
         groupId: 'vehicles-insurance-loans'
@@ -754,6 +924,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is the insurance coverage amount for this vehicle? (Enter 0 if no insurance)',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Insurance & Loans',
         questionNumber: 81,
         groupId: 'vehicles-insurance-loans'
@@ -763,6 +937,10 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is your insurance premium for this vehicle?',
         type: 'number',
         required: true,
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Insurance & Loans',
         questionNumber: 82,
         groupId: 'vehicles-insurance-loans'
@@ -773,6 +951,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'select',
         required: true,
         options: ['Monthly', 'Annual'],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Insurance & Loans',
         questionNumber: 83,
         groupId: 'vehicles-insurance-loans'
@@ -783,6 +965,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
         section: 'Vehicle Insurance & Loans',
         questionNumber: 84,
         groupId: 'vehicles-insurance-loans'
@@ -792,10 +978,16 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
-        conditional: {
-          dependsOn: 'vehicle2HasLoan',
-          values: ['Yes']
-        },
+        conditional: [
+          {
+            dependsOn: 'hasVehicles',
+            values: ['1', '2', '3', '4 or more']
+          },
+          {
+            dependsOn: 'vehicle2HasLoan',
+            values: ['Yes']
+          }
+        ],
         section: 'Vehicle Insurance & Loans',
         questionNumber: 85,
         groupId: 'vehicles-insurance-loans'
@@ -805,10 +997,16 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
-        conditional: {
-          dependsOn: 'vehicle2HasLoan',
-          values: ['Yes']
-        },
+        conditional: [
+          {
+            dependsOn: 'hasVehicles',
+            values: ['1', '2', '3', '4 or more']
+          },
+          {
+            dependsOn: 'vehicle2HasLoan',
+            values: ['Yes']
+          }
+        ],
         section: 'Vehicle Insurance & Loans',
         questionNumber: 86,
         groupId: 'vehicles-insurance-loans'
@@ -818,10 +1016,16 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is your monthly EMI payment for this vehicle?',
         type: 'number',
         required: true,
-        conditional: {
-          dependsOn: 'vehicle2HasLoan',
-          values: ['Yes']
-        },
+        conditional: [
+          {
+            dependsOn: 'hasVehicles',
+            values: ['1', '2', '3', '4 or more']
+          },
+          {
+            dependsOn: 'vehicle2HasLoan',
+            values: ['Yes']
+          }
+        ],
         section: 'Vehicle Insurance & Loans',
         questionNumber: 87,
         groupId: 'vehicles-insurance-loans'
@@ -841,6 +1045,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'select',
         required: true,
         options: ['0-5', '6-10', '11-15', '16-18', '19-25', '26 or older'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
         section: 'Children',
         questionNumber: 88,
         groupId: 'children'
@@ -2247,6 +2455,10 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasPersonalLoans',
+          values: ['Yes']
+        },
         section: 'Personal Loans & Credit',
         questionNumber: 181,
         groupId: 'personal-loans'
