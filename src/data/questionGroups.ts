@@ -3717,5 +3717,197 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'assets'
       }
     ]
+  },
+
+  // Group 11: Income
+  {
+    id: 'income',
+    title: 'Income',
+    description: 'Your various income sources',
+    questions: [
+      // Employment Income
+      {
+        id: 'grossMonthlySalary',
+        title: 'What is your gross monthly salary/wage (before taxes)?',
+        type: 'number',
+        required: true,
+        section: 'Employment Income',
+        questionNumber: 302,
+        groupId: 'income'
+      },
+      {
+        id: 'netMonthlySalary',
+        title: 'What is your net monthly salary/wage (after taxes and deductions)?',
+        type: 'number',
+        required: true,
+        section: 'Employment Income',
+        questionNumber: 303,
+        groupId: 'income'
+      },
+      {
+        id: 'annualBonusCommission',
+        title: 'What is your average annual bonus/commission?',
+        type: 'number',
+        required: true,
+        section: 'Employment Income',
+        questionNumber: 304,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyOvertimePay',
+        title: 'What is your monthly average overtime pay?',
+        type: 'number',
+        required: true,
+        section: 'Employment Income',
+        questionNumber: 305,
+        groupId: 'income'
+      },
+      
+      // Self-Employment/Business Income
+      {
+        id: 'monthlySelfEmploymentGross',
+        title: 'What is your monthly self-employment/freelance income, side hustles, income from hobbies, gig work (gross)?',
+        type: 'number',
+        required: true,
+        section: 'Self-Employment/Business Income',
+        questionNumber: 306,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlySelfEmploymentNet',
+        title: 'What is your monthly self-employment/freelance income (net after expenses)?',
+        type: 'number',
+        required: true,
+        section: 'Self-Employment/Business Income',
+        questionNumber: 307,
+        groupId: 'income'
+      },
+      
+      // Investment Income
+      {
+        id: 'annualDividendIncome',
+        title: 'What is your annual dividend income?',
+        type: 'number',
+        required: true,
+        section: 'Investment Income',
+        questionNumber: 308,
+        groupId: 'income'
+      },
+      {
+        id: 'annualInterestIncome',
+        title: 'What is your annual interest income (from savings, FDs, bonds)?',
+        type: 'number',
+        required: true,
+        section: 'Investment Income',
+        questionNumber: 309,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyRentalIncome',
+        title: 'What is your monthly rental income from properties?',
+        type: 'number',
+        required: true,
+        section: 'Investment Income',
+        questionNumber: 310,
+        groupId: 'income'
+      },
+      {
+        id: 'annualCapitalGains',
+        title: 'What are your annual average capital gains?',
+        type: 'number',
+        required: true,
+        section: 'Investment Income',
+        questionNumber: 311,
+        groupId: 'income'
+      },
+      
+      // Other Income Sources
+      {
+        id: 'monthlyGovernmentBenefits',
+        title: 'What are your monthly government benefits/pensions?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 312,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyAlimonyChildSupport',
+        title: 'What is your monthly alimony/child support received?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 313,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyRoyaltiesLicensing',
+        title: 'What is your monthly royalties/licensing income?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 314,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyFamilySupport',
+        title: 'What is your monthly family financial support received?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 315,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyMiscellaneousIncome',
+        title: 'What are your other miscellaneous income sources (monthly)?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 316,
+        groupId: 'income'
+      },
+      
+      // Partner's Income (if applicable)
+      {
+        id: 'partnerGrossMonthlySalary',
+        title: "What is your partner's gross monthly salary?",
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship living together', 'Married']
+        },
+        section: "Partner's Income",
+        questionNumber: 317,
+        groupId: 'income'
+      },
+      {
+        id: 'partnerNetMonthlySalary',
+        title: "What is your partner's net monthly salary?",
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship living together', 'Married']
+        },
+        section: "Partner's Income",
+        questionNumber: 318,
+        groupId: 'income'
+      },
+      {
+        id: 'partnerOtherIncome',
+        title: "What are your partner's other income sources (monthly)?",
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship living together', 'Married']
+        },
+        section: "Partner's Income",
+        questionNumber: 319,
+        groupId: 'income'
+      }
+    ]
   }
 ];
