@@ -180,10 +180,10 @@ export const questionGroups: QuestionGroup[] = [
       },
       {
         id: 'hasFinancialDependents',
-        title: 'Do you have any other financial dependents?',
-        type: 'radio',
+        title: 'Apart from your children, how many financial dependents do you have?',
+        type: 'select',
         required: true,
-        options: ['Yes', 'No'],
+        options: ['0', '1', '2', '3', '4', '5 or more'],
         section: 'Personal Information',
         questionNumber: 15,
         groupId: 'personal-basics'
@@ -1675,6 +1675,673 @@ export const questionGroups: QuestionGroup[] = [
         section: 'Children',
         questionNumber: 118,
         groupId: 'children'
+      }
+    ]
+  },
+  {
+    id: 'financial-dependents',
+    title: 'Financial Dependents',
+    description: 'Details about your financial dependents',
+    conditional: true,
+    questions: [
+      // Dependent 1 Questions
+      {
+        id: 'dependent1HealthExpenses',
+        title: 'Dependent 1: Health related monthly expenses (not covered by insurance)',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 119,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1MedicalCosts',
+        title: 'Dependent 1: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 120,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1LivingExpenses',
+        title: 'Dependent 1: Rent, grocery, utilities expenses, monthly',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 121,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1TravelExpenses',
+        title: 'Dependent 1: Travel and commute monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 122,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1EntertainmentExpenses',
+        title: 'Dependent 1: Entertainment, leisure, holiday, hobby, monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 123,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1MiscellaneousExpenses',
+        title: 'Dependent 1: Other miscellaneous expenses monthly',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 124,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1HealthInsurance',
+        title: 'Dependent 1: Do you have health insurance to cover this dependent?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 125,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1InsuranceCover',
+        title: 'Dependent 1: What is the value of the insurance cover for this dependent?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['1', '2', '3', '4', '5 or more']
+          },
+          {
+            dependsOn: 'dependent1HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 126,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1InsurancePremium',
+        title: 'Dependent 1: What is the annual premium you\'re paying for this?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['1', '2', '3', '4', '5 or more']
+          },
+          {
+            dependsOn: 'dependent1HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 127,
+        groupId: 'financial-dependents'
+      },
+
+      // Dependent 2 Questions
+      {
+        id: 'dependent2HealthExpenses',
+        title: 'Dependent 2: Health related monthly expenses (not covered by insurance)',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 128,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent2MedicalCosts',
+        title: 'Dependent 2: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 129,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent2LivingExpenses',
+        title: 'Dependent 2: Rent, grocery, utilities expenses, monthly',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 130,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent2TravelExpenses',
+        title: 'Dependent 2: Travel and commute monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 131,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent2EntertainmentExpenses',
+        title: 'Dependent 2: Entertainment, leisure, holiday, hobby, monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 132,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent2MiscellaneousExpenses',
+        title: 'Dependent 2: Other miscellaneous expenses monthly',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 133,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent2HealthInsurance',
+        title: 'Dependent 2: Do you have health insurance to cover this dependent?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 134,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent2InsuranceCover',
+        title: 'Dependent 2: What is the value of the insurance cover for this dependent?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['2', '3', '4', '5 or more']
+          },
+          {
+            dependsOn: 'dependent2HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 135,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent2InsurancePremium',
+        title: 'Dependent 2: What is the annual premium you\'re paying for this?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['2', '3', '4', '5 or more']
+          },
+          {
+            dependsOn: 'dependent2HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 136,
+        groupId: 'financial-dependents'
+      },
+
+      // Dependent 3 Questions
+      {
+        id: 'dependent3HealthExpenses',
+        title: 'Dependent 3: Health related monthly expenses (not covered by insurance)',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 137,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent3MedicalCosts',
+        title: 'Dependent 3: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 138,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent3LivingExpenses',
+        title: 'Dependent 3: Rent, grocery, utilities expenses, monthly',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 139,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent3TravelExpenses',
+        title: 'Dependent 3: Travel and commute monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 140,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent3EntertainmentExpenses',
+        title: 'Dependent 3: Entertainment, leisure, holiday, hobby, monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 141,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent3MiscellaneousExpenses',
+        title: 'Dependent 3: Other miscellaneous expenses monthly',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 142,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent3HealthInsurance',
+        title: 'Dependent 3: Do you have health insurance to cover this dependent?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 143,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent3InsuranceCover',
+        title: 'Dependent 3: What is the value of the insurance cover for this dependent?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['3', '4', '5 or more']
+          },
+          {
+            dependsOn: 'dependent3HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 144,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent3InsurancePremium',
+        title: 'Dependent 3: What is the annual premium you\'re paying for this?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['3', '4', '5 or more']
+          },
+          {
+            dependsOn: 'dependent3HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 145,
+        groupId: 'financial-dependents'
+      },
+
+      // Dependent 4 Questions
+      {
+        id: 'dependent4HealthExpenses',
+        title: 'Dependent 4: Health related monthly expenses (not covered by insurance)',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 146,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent4MedicalCosts',
+        title: 'Dependent 4: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 147,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent4LivingExpenses',
+        title: 'Dependent 4: Rent, grocery, utilities expenses, monthly',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 148,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent4TravelExpenses',
+        title: 'Dependent 4: Travel and commute monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 149,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent4EntertainmentExpenses',
+        title: 'Dependent 4: Entertainment, leisure, holiday, hobby, monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 150,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent4MiscellaneousExpenses',
+        title: 'Dependent 4: Other miscellaneous expenses monthly',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 151,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent4HealthInsurance',
+        title: 'Dependent 4: Do you have health insurance to cover this dependent?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 152,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent4InsuranceCover',
+        title: 'Dependent 4: What is the value of the insurance cover for this dependent?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['4', '5 or more']
+          },
+          {
+            dependsOn: 'dependent4HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 153,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent4InsurancePremium',
+        title: 'Dependent 4: What is the annual premium you\'re paying for this?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['4', '5 or more']
+          },
+          {
+            dependsOn: 'dependent4HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 154,
+        groupId: 'financial-dependents'
+      },
+
+      // Dependent 5 Questions
+      {
+        id: 'dependent5HealthExpenses',
+        title: 'Dependent 5: Health related monthly expenses (not covered by insurance)',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 155,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent5MedicalCosts',
+        title: 'Dependent 5: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 156,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent5LivingExpenses',
+        title: 'Dependent 5: Rent, grocery, utilities expenses, monthly',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 157,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent5TravelExpenses',
+        title: 'Dependent 5: Travel and commute monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 158,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent5EntertainmentExpenses',
+        title: 'Dependent 5: Entertainment, leisure, holiday, hobby, monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 159,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent5MiscellaneousExpenses',
+        title: 'Dependent 5: Other miscellaneous expenses monthly',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 160,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent5HealthInsurance',
+        title: 'Dependent 5: Do you have health insurance to cover this dependent?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 161,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent5InsuranceCover',
+        title: 'Dependent 5: What is the value of the insurance cover for this dependent?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['5 or more']
+          },
+          {
+            dependsOn: 'dependent5HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 162,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent5InsurancePremium',
+        title: 'Dependent 5: What is the annual premium you\'re paying for this?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['5 or more']
+          },
+          {
+            dependsOn: 'dependent5HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 163,
+        groupId: 'financial-dependents'
       }
     ]
   }
