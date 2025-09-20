@@ -3393,5 +3393,127 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'annual-expenses'
       }
     ]
+  },
+
+  // Group 9: Investment Contributions
+  {
+    id: 'investment-contributions',
+    title: 'Investment Contributions',
+    description: 'Your monthly and annual investment contributions',
+    questions: [
+      // Section A: Monthly Investment Contributions
+      {
+        id: 'monthlySipContributions',
+        title: 'What are your monthly systematic investment plan (SIP) contributions to mutual funds?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 270,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyDirectEquity',
+        title: 'What are your monthly direct equity purchases?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 271,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyRetirementContributions',
+        title: 'What are your monthly retirement savings contributions?',
+        subtitle: 'Include workplace pension schemes like 401k in US, EPF in India, occupational pensions in Europe, superannuation in Australia, etc.',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 272,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyFixedDeposits',
+        title: 'What are your monthly fixed deposit or term deposit contributions?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 273,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlySavingsGoals',
+        title: 'What are your monthly savings account deposits for investment purposes or saving for goals?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 274,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyCryptoPurchases',
+        title: 'What are your monthly cryptocurrency purchases?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 275,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyCommodityInvestments',
+        title: 'What are your monthly gold, silver or other commodity investments?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 276,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyBondContributions',
+        title: 'What are your monthly contributions to investment bonds or structured products?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 277,
+        groupId: 'investment-contributions'
+      },
+      
+      // Section B: Annual Investment Contributions
+      {
+        id: 'annualRetirementLumpsum',
+        title: 'What are your annual lump sum contributions to retirement accounts?',
+        type: 'number',
+        required: true,
+        section: 'Annual Investment Contributions',
+        questionNumber: 278,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'annualTaxAdvantagedInvestments',
+        title: 'What are your annual tax-advantaged investment contributions?',
+        subtitle: 'Include ELSS in India, ISA in UK, Roth IRA in US, etc.',
+        type: 'number',
+        required: true,
+        section: 'Annual Investment Contributions',
+        questionNumber: 279,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'annualBondPurchases',
+        title: 'What are your annual government or corporate bond purchases?',
+        type: 'number',
+        required: true,
+        section: 'Annual Investment Contributions',
+        questionNumber: 280,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'annualMiscellaneousInvestments',
+        title: 'What are your annual miscellaneous investment contributions not covered above?',
+        type: 'number',
+        required: true,
+        section: 'Annual Investment Contributions',
+        questionNumber: 281,
+        groupId: 'investment-contributions'
+      }
+    ]
   }
 ];
