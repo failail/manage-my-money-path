@@ -3515,5 +3515,207 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'investment-contributions'
       }
     ]
+  },
+
+  // Group 10: Assets
+  {
+    id: 'assets',
+    title: 'Assets',
+    description: 'Current value of your assets and holdings',
+    questions: [
+      // Auto-calculated fields (non-editable)
+      {
+        id: 'totalPropertyValue',
+        title: 'Total current value of all properties you own',
+        subtitle: 'This is calculated automatically from your property details above',
+        type: 'number',
+        required: false,
+        section: 'Auto-calculated Assets',
+        questionNumber: 282,
+        groupId: 'assets'
+      },
+      {
+        id: 'totalVehicleValue',
+        title: 'Total current value of all vehicles you own',
+        subtitle: 'This is calculated automatically from your vehicle details above',
+        type: 'number',
+        required: false,
+        section: 'Auto-calculated Assets',
+        questionNumber: 283,
+        groupId: 'assets'
+      },
+      
+      // Cash & Bank Accounts
+      {
+        id: 'checkingAccountBalance',
+        title: 'What is your current checking account balance?',
+        type: 'number',
+        required: true,
+        section: 'Cash & Bank Accounts',
+        questionNumber: 284,
+        groupId: 'assets'
+      },
+      {
+        id: 'savingsAccountBalance',
+        title: 'What is your current savings account balance?',
+        type: 'number',
+        required: true,
+        section: 'Cash & Bank Accounts',
+        questionNumber: 285,
+        groupId: 'assets'
+      },
+      {
+        id: 'fixedDepositsValue',
+        title: 'What is the current value of your fixed deposits/term deposits?',
+        type: 'number',
+        required: true,
+        section: 'Cash & Bank Accounts',
+        questionNumber: 286,
+        groupId: 'assets'
+      },
+      {
+        id: 'cashOnHand',
+        title: 'How much cash do you have on hand?',
+        type: 'number',
+        required: true,
+        section: 'Cash & Bank Accounts',
+        questionNumber: 287,
+        groupId: 'assets'
+      },
+      
+      // Investment Holdings
+      {
+        id: 'mutualFundsValue',
+        title: 'What is the current value of your mutual funds?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 288,
+        groupId: 'assets'
+      },
+      {
+        id: 'directEquityValue',
+        title: 'What is the current value of your direct equity/stocks?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 289,
+        groupId: 'assets'
+      },
+      {
+        id: 'retirementAccountBalance',
+        title: 'What is your retirement account balance?',
+        subtitle: 'Include 401k, EPF, pension funds, superannuation, etc.',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 290,
+        groupId: 'assets'
+      },
+      {
+        id: 'cryptoCurrentValue',
+        title: 'What is the current value of your cryptocurrency holdings?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 291,
+        groupId: 'assets'
+      },
+      {
+        id: 'commodityHoldingsValue',
+        title: 'What is the current value of your gold, silver, or other commodity holdings?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 292,
+        groupId: 'assets'
+      },
+      {
+        id: 'bondsCurrentValue',
+        title: 'What is the current value of your government/corporate bonds?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 293,
+        groupId: 'assets'
+      },
+      {
+        id: 'otherInvestmentProducts',
+        title: 'What is the current value of your other investment products?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 294,
+        groupId: 'assets'
+      },
+      
+      // Other Assets
+      {
+        id: 'providentFundBalance',
+        title: 'What is your provident fund/pension fund balance?',
+        subtitle: 'If separate from retirement accounts mentioned above',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 295,
+        groupId: 'assets'
+      },
+      {
+        id: 'employeeStockOptions',
+        title: 'What is the current value of your employee stock options?',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 296,
+        groupId: 'assets'
+      },
+      {
+        id: 'businessOwnershipValue',
+        title: 'What is the value of your business ownership/partnership stakes?',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 297,
+        groupId: 'assets'
+      },
+      {
+        id: 'collectiblesValue',
+        title: 'What is the value of your collectibles?',
+        subtitle: 'Include art, antiques, etc.',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 298,
+        groupId: 'assets'
+      },
+      {
+        id: 'loansGivenToOthers',
+        title: 'How much money is owed to you?',
+        subtitle: 'Loans given to others that you expect to be repaid',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 299,
+        groupId: 'assets'
+      },
+      {
+        id: 'securityDepositsRecoverable',
+        title: 'What is the total of your recoverable security deposits?',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 300,
+        groupId: 'assets'
+      },
+      {
+        id: 'otherMiscellaneousAssets',
+        title: 'What is the value of your other miscellaneous assets?',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 301,
+        groupId: 'assets'
+      }
+    ]
   }
 ];
