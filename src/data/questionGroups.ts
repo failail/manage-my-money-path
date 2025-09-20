@@ -2344,5 +2344,415 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'financial-dependents'
       }
     ]
+  },
+  {
+    id: 'personal-loans',
+    title: 'Personal Loans & Credit Cards',
+    description: 'Details about your personal loans and credit card debt',
+    conditional: true,
+    questions: [
+      // Part A: Credit Card Debt
+      {
+        id: 'hasCreditCardDebt',
+        title: 'Do you have any credit card debt that is more than 45 days old?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Personal Loans & Credit',
+        questionNumber: 164,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'totalCreditCardDebt',
+        title: 'What is the total outstanding credit card debt?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasCreditCardDebt',
+          values: ['Yes']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 165,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'creditCardMonthlyPayment',
+        title: 'What is your current credit card monthly payment?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasCreditCardDebt',
+          values: ['Yes']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 166,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'creditCardInterestRate',
+        title: 'What is the average interest rate on your credit cards (in percentage)?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasCreditCardDebt',
+          values: ['Yes']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 167,
+        groupId: 'personal-loans'
+      },
+
+      // Part B: Personal Loans
+      {
+        id: 'numberOfPersonalLoans',
+        title: 'How many personal loans do you have apart from those for your home and/or your vehicles?',
+        type: 'select',
+        required: true,
+        options: ['0', '1', '2', '3', '4', '5 or more'],
+        section: 'Personal Loans & Credit',
+        questionNumber: 168,
+        groupId: 'personal-loans'
+      },
+
+      // Personal Loan 1 Questions
+      {
+        id: 'loan1Purpose',
+        title: 'Personal Loan 1: What was this loan taken for?',
+        type: 'select',
+        required: true,
+        options: ['Education', 'Wedding', 'Medical emergency', 'Business', 'Debt consolidation', 'Holiday/Travel', 'Home renovation', 'Emergency', 'Other'],
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 169,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan1OriginalAmount',
+        title: 'Personal Loan 1: What was the original loan amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 170,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan1OutstandingBalance',
+        title: 'Personal Loan 1: What is the current outstanding balance?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 171,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan1InterestRate',
+        title: 'Personal Loan 1: What is the interest rate on this loan (in percentage)?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 172,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan1MonthlyPayment',
+        title: 'Personal Loan 1: What is the monthly payment you make towards this loan?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 173,
+        groupId: 'personal-loans'
+      },
+
+      // Personal Loan 2 Questions
+      {
+        id: 'loan2Purpose',
+        title: 'Personal Loan 2: What was this loan taken for?',
+        type: 'select',
+        required: true,
+        options: ['Education', 'Wedding', 'Medical emergency', 'Business', 'Debt consolidation', 'Holiday/Travel', 'Home renovation', 'Emergency', 'Other'],
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 174,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan2OriginalAmount',
+        title: 'Personal Loan 2: What was the original loan amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 175,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan2OutstandingBalance',
+        title: 'Personal Loan 2: What is the current outstanding balance?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 176,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan2InterestRate',
+        title: 'Personal Loan 2: What is the interest rate on this loan (in percentage)?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 177,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan2MonthlyPayment',
+        title: 'Personal Loan 2: What is the monthly payment you make towards this loan?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 178,
+        groupId: 'personal-loans'
+      },
+
+      // Personal Loan 3 Questions
+      {
+        id: 'loan3Purpose',
+        title: 'Personal Loan 3: What was this loan taken for?',
+        type: 'select',
+        required: true,
+        options: ['Education', 'Wedding', 'Medical emergency', 'Business', 'Debt consolidation', 'Holiday/Travel', 'Home renovation', 'Emergency', 'Other'],
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 179,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan3OriginalAmount',
+        title: 'Personal Loan 3: What was the original loan amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 180,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan3OutstandingBalance',
+        title: 'Personal Loan 3: What is the current outstanding balance?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 181,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan3InterestRate',
+        title: 'Personal Loan 3: What is the interest rate on this loan (in percentage)?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 182,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan3MonthlyPayment',
+        title: 'Personal Loan 3: What is the monthly payment you make towards this loan?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 183,
+        groupId: 'personal-loans'
+      },
+
+      // Personal Loan 4 Questions
+      {
+        id: 'loan4Purpose',
+        title: 'Personal Loan 4: What was this loan taken for?',
+        type: 'select',
+        required: true,
+        options: ['Education', 'Wedding', 'Medical emergency', 'Business', 'Debt consolidation', 'Holiday/Travel', 'Home renovation', 'Emergency', 'Other'],
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 184,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan4OriginalAmount',
+        title: 'Personal Loan 4: What was the original loan amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 185,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan4OutstandingBalance',
+        title: 'Personal Loan 4: What is the current outstanding balance?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 186,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan4InterestRate',
+        title: 'Personal Loan 4: What is the interest rate on this loan (in percentage)?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 187,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan4MonthlyPayment',
+        title: 'Personal Loan 4: What is the monthly payment you make towards this loan?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 188,
+        groupId: 'personal-loans'
+      },
+
+      // Personal Loan 5 Questions
+      {
+        id: 'loan5Purpose',
+        title: 'Personal Loan 5: What was this loan taken for?',
+        type: 'select',
+        required: true,
+        options: ['Education', 'Wedding', 'Medical emergency', 'Business', 'Debt consolidation', 'Holiday/Travel', 'Home renovation', 'Emergency', 'Other'],
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 189,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan5OriginalAmount',
+        title: 'Personal Loan 5: What was the original loan amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 190,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan5OutstandingBalance',
+        title: 'Personal Loan 5: What is the current outstanding balance?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 191,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan5InterestRate',
+        title: 'Personal Loan 5: What is the interest rate on this loan (in percentage)?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 192,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan5MonthlyPayment',
+        title: 'Personal Loan 5: What is the monthly payment you make towards this loan?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 193,
+        groupId: 'personal-loans'
+      }
+    ]
   }
 ];
