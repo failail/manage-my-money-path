@@ -16,18 +16,28 @@ const Assessment = () => {
   const [responses, setResponses] = useState<Record<string, any>>({});
   const [visibleGroups, setVisibleGroups] = useState<string[]>(['personal-basics']);
 
+  // Helper function to check if question should be shown based on conditional logic
+  const shouldShowQuestion = (question: any) => {
+    if (!question.conditional) return true;
+    
+    // Handle array of conditions (all must be satisfied)
+    if (Array.isArray(question.conditional)) {
+      return question.conditional.every(condition => {
+        const dependentValue = responses[condition.dependsOn];
+        return condition.values.includes(dependentValue);
+      });
+    }
+    
+    // Handle single condition
+    const dependentValue = responses[question.conditional.dependsOn];
+    return question.conditional.values.includes(dependentValue);
+  };
+
   // Calculate total questions and progress
   const totalQuestions = questionGroups
     .filter(group => visibleGroups.includes(group.id))
     .reduce((sum, group) => {
-      const visibleQuestions = group.questions.filter(question => {
-        // Check if question has conditional requirements
-        if (question.conditional) {
-          const { dependsOn, values } = question.conditional;
-          return values.includes(responses[dependsOn]);
-        }
-        return true;
-      });
+      const visibleQuestions = group.questions.filter(shouldShowQuestion);
       return sum + visibleQuestions.length;
     }, 0);
   
@@ -37,16 +47,7 @@ const Assessment = () => {
   // Get current questions to display (10 per page)
   const allQuestions = questionGroups
     .filter(group => visibleGroups.includes(group.id))
-    .flatMap(group => 
-      group.questions.filter(question => {
-        // Check if question has conditional requirements
-        if (question.conditional) {
-          const { dependsOn, values } = question.conditional;
-          return values.includes(responses[dependsOn]);
-        }
-        return true;
-      })
-    );
+    .flatMap(group => group.questions.filter(shouldShowQuestion));
   
   const questionsPerPage = 10;
   const currentQuestions = allQuestions.slice(

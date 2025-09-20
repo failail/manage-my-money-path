@@ -9,7 +9,10 @@ export interface Question {
   conditional?: {
     dependsOn: string;
     values: string[];
-  };
+  } | Array<{
+    dependsOn: string;
+    values: string[];
+  }>;
   section: string;
   questionNumber: number;
   groupId: string;
@@ -933,6 +936,745 @@ export const questionGroups: QuestionGroup[] = [
         section: 'Vehicle Insurance & Loans',
         questionNumber: 70,
         groupId: 'vehicles-insurance-loans'
+      }
+    ]
+  },
+  {
+    id: 'children',
+    title: 'Children',
+    description: 'Details about your children and related expenses',
+    conditional: true,
+    questions: [
+      // Child 1 Questions (always shown if group appears)
+      {
+        id: 'child1AgeGroup',
+        title: 'Child 1: What is the age group of this child?',
+        type: 'select',
+        required: true,
+        options: ['0-5', '6-10', '11-15', '16-18', '19-25', '26 or older'],
+        section: 'Children',
+        questionNumber: 71,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyDiapers',
+        title: 'Child 1: Monthly expenses for diapers',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'child1AgeGroup',
+          values: ['0-5']
+        },
+        section: 'Children',
+        questionNumber: 72,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyClothing',
+        title: 'Child 1: What are your monthly expenses for clothing, shoes',
+        type: 'number',
+        required: true,
+        section: 'Children',
+        questionNumber: 73,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyToys',
+        title: 'Child 1: What are your monthly expenses for toys and games',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'child1AgeGroup',
+          values: ['0-5', '6-10', '11-15']
+        },
+        section: 'Children',
+        questionNumber: 74,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyParties',
+        title: 'Child 1: What are your monthly expenses for parties, gifts for kids parties',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'child1AgeGroup',
+          values: ['0-5', '6-10', '11-15', '16-18']
+        },
+        section: 'Children',
+        questionNumber: 75,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyActivities',
+        title: 'Child 1: Monthly expense for hobbies, sports, extra curricular activities',
+        type: 'number',
+        required: true,
+        section: 'Children',
+        questionNumber: 76,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyEducation',
+        title: 'Child 1: Monthly expense for school/college fees',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'child1AgeGroup',
+          values: ['6-10', '11-15', '16-18', '19-25']
+        },
+        section: 'Children',
+        questionNumber: 77,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyOnlineLearning',
+        title: 'Child 1: Monthly expense for additional online learning',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'child1AgeGroup',
+          values: ['6-10', '11-15', '16-18', '19-25']
+        },
+        section: 'Children',
+        questionNumber: 78,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyTutoring',
+        title: 'Child 1: Monthly expense for additional tutoring',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'child1AgeGroup',
+          values: ['6-10', '11-15', '16-18', '19-25']
+        },
+        section: 'Children',
+        questionNumber: 79,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyBooks',
+        title: 'Child 1: Monthly expense for school books',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'child1AgeGroup',
+          values: ['6-10', '11-15', '16-18', '19-25']
+        },
+        section: 'Children',
+        questionNumber: 80,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyFieldTrips',
+        title: 'Child 1: Monthly expense for field trips',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'child1AgeGroup',
+          values: ['6-10', '11-15', '16-18']
+        },
+        section: 'Children',
+        questionNumber: 81,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyMedical',
+        title: 'Child 1: Monthly expenses for your child\'s medical expenses, treatments, medicines',
+        type: 'number',
+        required: true,
+        section: 'Children',
+        questionNumber: 82,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyMiscellaneous',
+        title: 'Child 1: Miscellaneous monthly expenses',
+        type: 'number',
+        required: true,
+        section: 'Children',
+        questionNumber: 83,
+        groupId: 'children'
+      },
+      {
+        id: 'child1HealthInsurance',
+        title: 'Child 1: Do you have health insurance that covers your child?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Children',
+        questionNumber: 84,
+        groupId: 'children'
+      },
+      {
+        id: 'child1InsuranceCover',
+        title: 'Child 1: What is the value of the insurance cover?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'child1HealthInsurance',
+          values: ['Yes']
+        },
+        section: 'Children',
+        questionNumber: 85,
+        groupId: 'children'
+      },
+      {
+        id: 'child1InsurancePremium',
+        title: 'Child 1: What is the annual premium you\'re paying for this?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'child1HealthInsurance',
+          values: ['Yes']
+        },
+        section: 'Children',
+        questionNumber: 86,
+        groupId: 'children'
+      },
+
+      // Child 2 Questions (if Q14 >= "2")
+      {
+        id: 'child2AgeGroup',
+        title: 'Child 2: What is the age group of this child?',
+        type: 'select',
+        required: true,
+        options: ['0-5', '6-10', '11-15', '16-18', '19-25', '26 or older'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children',
+        questionNumber: 87,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyDiapers',
+        title: 'Child 2: Monthly expenses for diapers',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2AgeGroup',
+            values: ['0-5']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 88,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyClothing',
+        title: 'Child 2: What are your monthly expenses for clothing, shoes',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children',
+        questionNumber: 89,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyToys',
+        title: 'Child 2: What are your monthly expenses for toys and games',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2AgeGroup',
+            values: ['0-5', '6-10', '11-15']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 90,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyParties',
+        title: 'Child 2: What are your monthly expenses for parties, gifts for kids parties',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2AgeGroup',
+            values: ['0-5', '6-10', '11-15', '16-18']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 91,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyActivities',
+        title: 'Child 2: Monthly expense for hobbies, sports, extra curricular activities',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children',
+        questionNumber: 92,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyEducation',
+        title: 'Child 2: Monthly expense for school/college fees',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2AgeGroup',
+            values: ['6-10', '11-15', '16-18', '19-25']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 93,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyOnlineLearning',
+        title: 'Child 2: Monthly expense for additional online learning',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2AgeGroup',
+            values: ['6-10', '11-15', '16-18', '19-25']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 94,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyTutoring',
+        title: 'Child 2: Monthly expense for additional tutoring',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2AgeGroup',
+            values: ['6-10', '11-15', '16-18', '19-25']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 95,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyBooks',
+        title: 'Child 2: Monthly expense for school books',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2AgeGroup',
+            values: ['6-10', '11-15', '16-18', '19-25']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 96,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyFieldTrips',
+        title: 'Child 2: Monthly expense for field trips',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2AgeGroup',
+            values: ['6-10', '11-15', '16-18']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 97,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyMedical',
+        title: 'Child 2: Monthly expenses for your child\'s medical expenses, treatments, medicines',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children',
+        questionNumber: 98,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyMiscellaneous',
+        title: 'Child 2: Miscellaneous monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children',
+        questionNumber: 99,
+        groupId: 'children'
+      },
+      {
+        id: 'child2HealthInsurance',
+        title: 'Child 2: Do you have health insurance that covers your child?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children',
+        questionNumber: 100,
+        groupId: 'children'
+      },
+      {
+        id: 'child2InsuranceCover',
+        title: 'Child 2: What is the value of the insurance cover?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 101,
+        groupId: 'children'
+      },
+      {
+        id: 'child2InsurancePremium',
+        title: 'Child 2: What is the annual premium you\'re paying for this?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 102,
+        groupId: 'children'
+      },
+
+      // Child 3 Questions (if Q14 = "3 or more")
+      {
+        id: 'child3AgeGroup',
+        title: 'Child 3: What is the age group of this child?',
+        type: 'select',
+        required: true,
+        options: ['0-5', '6-10', '11-15', '16-18', '19-25', '26 or older'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children',
+        questionNumber: 103,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyDiapers',
+        title: 'Child 3: Monthly expenses for diapers',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3AgeGroup',
+            values: ['0-5']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 104,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyClothing',
+        title: 'Child 3: What are your monthly expenses for clothing, shoes',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children',
+        questionNumber: 105,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyToys',
+        title: 'Child 3: What are your monthly expenses for toys and games',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3AgeGroup',
+            values: ['0-5', '6-10', '11-15']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 106,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyParties',
+        title: 'Child 3: What are your monthly expenses for parties, gifts for kids parties',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3AgeGroup',
+            values: ['0-5', '6-10', '11-15', '16-18']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 107,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyActivities',
+        title: 'Child 3: Monthly expense for hobbies, sports, extra curricular activities',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children',
+        questionNumber: 108,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyEducation',
+        title: 'Child 3: Monthly expense for school/college fees',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3AgeGroup',
+            values: ['6-10', '11-15', '16-18', '19-25']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 109,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyOnlineLearning',
+        title: 'Child 3: Monthly expense for additional online learning',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3AgeGroup',
+            values: ['6-10', '11-15', '16-18', '19-25']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 110,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyTutoring',
+        title: 'Child 3: Monthly expense for additional tutoring',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3AgeGroup',
+            values: ['6-10', '11-15', '16-18', '19-25']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 111,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyBooks',
+        title: 'Child 3: Monthly expense for school books',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3AgeGroup',
+            values: ['6-10', '11-15', '16-18', '19-25']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 112,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyFieldTrips',
+        title: 'Child 3: Monthly expense for field trips',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3AgeGroup',
+            values: ['6-10', '11-15', '16-18']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 113,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyMedical',
+        title: 'Child 3: Monthly expenses for your child\'s medical expenses, treatments, medicines',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children',
+        questionNumber: 114,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyMiscellaneous',
+        title: 'Child 3: Miscellaneous monthly expenses',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children',
+        questionNumber: 115,
+        groupId: 'children'
+      },
+      {
+        id: 'child3HealthInsurance',
+        title: 'Child 3: Do you have health insurance that covers your child?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children',
+        questionNumber: 116,
+        groupId: 'children'
+      },
+      {
+        id: 'child3InsuranceCover',
+        title: 'Child 3: What is the value of the insurance cover?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 117,
+        groupId: 'children'
+      },
+      {
+        id: 'child3InsurancePremium',
+        title: 'Child 3: What is the annual premium you\'re paying for this?',
+        type: 'number',
+        required: true,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Children',
+        questionNumber: 118,
+        groupId: 'children'
       }
     ]
   }
