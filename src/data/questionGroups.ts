@@ -1930,6 +1930,615 @@ export const questionGroups: QuestionGroup[] = [
         section: 'Children Details',
         questionNumber: 102,
         groupId: 'children'
+      },
+      
+      // Additional Child 1 Detailed Expenses
+      {
+        id: 'child1MonthlyChildcare',
+        title: 'Child 1: What are your monthly childcare/daycare expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 103,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyClothing',
+        title: 'Child 1: What are your monthly clothing and shoes expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 104,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyToys',
+        title: 'Child 1: What are your monthly toys and entertainment expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 105,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyActivities',
+        title: 'Child 1: What are your monthly activities/sports/hobbies expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 106,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyMedical',
+        title: 'Child 1: What are your monthly medical expenses not covered by insurance?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 107,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyFood',
+        title: 'Child 1: What are your monthly special food/formula expenses?',
+        subtitle: 'Baby formula, special dietary needs',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 108,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyTransport',
+        title: 'Child 1: What are your monthly school transport expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 109,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyTutoring',
+        title: 'Child 1: What are your monthly tutoring/coaching expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 110,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyBooks',
+        title: 'Child 1: What are your monthly books and educational materials expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 111,
+        groupId: 'children'
+      },
+      {
+        id: 'child1MonthlyMiscellaneous',
+        title: 'Child 1: What are your other monthly expenses for this child?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 112,
+        groupId: 'children'
+      },
+
+      // Additional Child 2 Detailed Expenses
+      {
+        id: 'child2MonthlyChildcare',
+        title: 'Child 2: What are your monthly childcare/daycare expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 113,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyClothing',
+        title: 'Child 2: What are your monthly clothing and shoes expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 114,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyToys',
+        title: 'Child 2: What are your monthly toys and entertainment expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 115,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyActivities',
+        title: 'Child 2: What are your monthly activities/sports/hobbies expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 116,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyMedical',
+        title: 'Child 2: What are your monthly medical expenses not covered by insurance?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 117,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyFood',
+        title: 'Child 2: What are your monthly special food/formula expenses?',
+        subtitle: 'Baby formula, special dietary needs',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 118,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyTransport',
+        title: 'Child 2: What are your monthly school transport expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 119,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyTutoring',
+        title: 'Child 2: What are your monthly tutoring/coaching expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 120,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyBooks',
+        title: 'Child 2: What are your monthly books and educational materials expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 121,
+        groupId: 'children'
+      },
+      {
+        id: 'child2MonthlyMiscellaneous',
+        title: 'Child 2: What are your other monthly expenses for this child?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 122,
+        groupId: 'children'
+      },
+
+      // Additional Child 3 Detailed Expenses
+      {
+        id: 'child3MonthlyChildcare',
+        title: 'Child 3: What are your monthly childcare/daycare expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 123,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyClothing',
+        title: 'Child 3: What are your monthly clothing and shoes expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 124,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyToys',
+        title: 'Child 3: What are your monthly toys and entertainment expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 125,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyActivities',
+        title: 'Child 3: What are your monthly activities/sports/hobbies expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 126,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyMedical',
+        title: 'Child 3: What are your monthly medical expenses not covered by insurance?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 127,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyFood',
+        title: 'Child 3: What are your monthly special food/formula expenses?',
+        subtitle: 'Baby formula, special dietary needs',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 128,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyTransport',
+        title: 'Child 3: What are your monthly school transport expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 129,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyTutoring',
+        title: 'Child 3: What are your monthly tutoring/coaching expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 130,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyBooks',
+        title: 'Child 3: What are your monthly books and educational materials expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 131,
+        groupId: 'children'
+      },
+      {
+        id: 'child3MonthlyMiscellaneous',
+        title: 'Child 3: What are your other monthly expenses for this child?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 132,
+        groupId: 'children'
       }
     ]
   },
@@ -1950,7 +2559,67 @@ export const questionGroups: QuestionGroup[] = [
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 103,
+        questionNumber: 133,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1HealthExpenses',
+        title: 'Dependent 1: What are your monthly health-related expenses not covered by insurance?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 134,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1MedicalCosts',
+        title: 'Dependent 1: What are your monthly costs for medicines and treatments?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 135,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1LivingExpenses',
+        title: 'Dependent 1: What monthly living expenses do you cover (rent, groceries, utilities)?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 136,
         groupId: 'financial-dependents'
       },
       {
@@ -1970,7 +2639,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 104,
+        questionNumber: 137,
         groupId: 'financial-dependents'
       },
       {
@@ -1984,7 +2653,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 105,
+        questionNumber: 138,
         groupId: 'financial-dependents'
       },
       {
@@ -3712,6 +4381,205 @@ export const questionGroups: QuestionGroup[] = [
         section: 'Annual Expenses',
         questionNumber: 210,
         groupId: 'monthly-annual-expenses'
+      },
+      
+      // Additional Monthly Expenses
+      {
+        id: 'monthlyDomesticHelp',
+        title: 'What are your monthly costs for household help/maid/cook?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Monthly Expenses',
+        questionNumber: 211,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'monthlyCableTV',
+        title: 'What are your monthly cable/satellite TV costs?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Monthly Expenses',
+        questionNumber: 212,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'monthlyNewspaperMagazines',
+        title: 'What are your monthly newspaper and magazine subscription costs?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Monthly Expenses',
+        questionNumber: 213,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'monthlyLaundry',
+        title: 'What are your monthly laundry and dry cleaning costs?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Monthly Expenses',
+        questionNumber: 214,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'monthlyEducationSelf',
+        title: 'What are your monthly education costs for yourself?',
+        subtitle: 'Online courses, books, learning materials',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Monthly Expenses',
+        questionNumber: 215,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'monthlyFitnessWellness',
+        title: 'What are your monthly fitness/gym/yoga expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Monthly Expenses',
+        questionNumber: 216,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'monthlyAlcoholTobacco',
+        title: 'What are your monthly alcohol and tobacco expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Monthly Expenses',
+        questionNumber: 217,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'monthlyGardening',
+        title: 'What are your monthly gardening and outdoor maintenance costs?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Monthly Expenses',
+        questionNumber: 218,
+        groupId: 'monthly-annual-expenses'
+      },
+
+      // Additional Annual Expenses
+      {
+        id: 'annualClubMemberships',
+        title: 'What are your annual club membership fees?',
+        subtitle: 'Country clubs, social clubs, professional associations',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Annual Expenses',
+        questionNumber: 219,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'annualSubscriptions',
+        title: 'What are your annual subscription renewals?',
+        subtitle: 'Software, apps, premium services',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Annual Expenses',
+        questionNumber: 220,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'annualElectronicsAppliances',
+        title: 'What are your annual electronics and appliances purchases?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Annual Expenses',
+        questionNumber: 221,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'annualFurnitureDecor',
+        title: 'What are your annual furniture and home decor expenses?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Annual Expenses',
+        questionNumber: 222,
+        groupId: 'monthly-annual-expenses'
       }
     ]
   },
@@ -3726,7 +4594,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 211,
+        questionNumber: 223,
         groupId: 'investment-contributions'
       },
       {
@@ -3854,7 +4722,41 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 225,
+        questionNumber: 237,
+        groupId: 'investment-contributions'
+      },
+      
+      // Additional Investment Questions
+      {
+        id: 'monthlyP2PLending',
+        title: 'What are your monthly peer-to-peer lending investments?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Investment Contributions',
+        questionNumber: 238,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyInternationalInvestments',
+        title: 'What are your monthly international/foreign investments?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Investment Contributions',
+        questionNumber: 239,
         groupId: 'investment-contributions'
       }
     ]
@@ -4093,7 +4995,59 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Valuable Assets',
-        questionNumber: 249,
+        questionNumber: 259,
+        groupId: 'assets'
+      },
+      
+      // Additional Asset Questions
+      {
+        id: 'loansGivenToOthers',
+        title: 'What is the total amount of loans you have given to others?',
+        subtitle: 'Money owed to you by friends, family, or others',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Other Assets',
+        questionNumber: 260,
+        groupId: 'assets'
+      },
+      {
+        id: 'securityDeposits',
+        title: 'What is the total value of your security deposits?',
+        subtitle: 'Rental deposits, utility deposits, etc.',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Other Assets',
+        questionNumber: 261,
+        groupId: 'assets'
+      },
+      {
+        id: 'cashInHand',
+        title: 'How much cash do you keep on hand?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Cash & Bank Accounts',
+        questionNumber: 262,
         groupId: 'assets'
       }
     ]
@@ -4111,7 +5065,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Primary Income',
-        questionNumber: 250,
+        questionNumber: 263,
         groupId: 'income'
       },
       {
@@ -4326,7 +5280,196 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 271,
+        questionNumber: 284,
+        groupId: 'income'
+      },
+      
+      // Additional Income Questions
+      {
+        id: 'monthlyCommissionIncome',
+        title: 'What is your average monthly commission income?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Primary Income',
+        questionNumber: 285,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyOvertimeIncome',
+        title: 'What is your average monthly overtime income?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Primary Income',
+        questionNumber: 286,
+        groupId: 'income'
+      },
+      {
+        id: 'annualTaxRefunds',
+        title: 'What is your average annual tax refund?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Other Income Sources',
+        questionNumber: 287,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyGiftIncome',
+        title: 'What is your average monthly gift/cash gifts received?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Other Income Sources',
+        questionNumber: 288,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlySideBusinessIncome',
+        title: 'What is your monthly side business/hustle income?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Business Income',
+        questionNumber: 289,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyPassiveIncome',
+        title: 'What is your other monthly passive income?',
+        subtitle: 'Income that requires minimal effort',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Investment Income',
+        questionNumber: 290,
+        groupId: 'income'
+      },
+      {
+        id: 'annualInheritanceGifts',
+        title: 'What is your expected annual inheritance or large gifts?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Other Income Sources',
+        questionNumber: 291,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyPensionIncome',
+        title: 'What is your monthly pension income?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Other Income Sources',
+        questionNumber: 292,
+        groupId: 'income'
+      },
+      {
+        id: 'partnerAnnualBonus',
+        title: "What is your partner's average annual bonus?",
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship living together', 'Married']
+        },
+        section: "Partner's Income",
+        questionNumber: 293,
+        groupId: 'income'
+      },
+      {
+        id: 'partnerInvestmentIncome',
+        title: "What is your partner's monthly investment income?",
+        subtitle: 'Dividends, interest, capital gains',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship living together', 'Married']
+        },
+        section: "Partner's Income",
+        questionNumber: 294,
+        groupId: 'income'
+      },
+      {
+        id: 'householdTotalIncome',
+        title: 'What is your estimated total household monthly income?',
+        subtitle: 'Combined income of all earning members',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        section: 'Household Income',
+        questionNumber: 299,
         groupId: 'income'
       }
     ]
