@@ -2,7 +2,7 @@ export interface Question {
   id: string;
   title: string;
   subtitle?: string;
-  type: 'text' | 'number' | 'radio' | 'select' | 'date';
+  type: 'text' | 'number' | 'radio' | 'select' | 'date' | 'range';
   required: boolean;
   options?: string[];
   validation?: ValidationRule[];
@@ -16,6 +16,13 @@ export interface Question {
   section: string;
   questionNumber: number;
   groupId: string;
+  // Range-specific properties
+  min?: number;
+  max?: number;
+  step?: number;
+  defaultValue?: number;
+  showValue?: boolean;
+  suffix?: string;
 }
 
 export interface ValidationRule {
@@ -469,8 +476,14 @@ export const questionGroups: QuestionGroup[] = [
       {
         id: 'home1LoanInterestRate',
         title: 'Home 1: What is the interest rate on this loan (in percentage)?',
-        type: 'number',
+        type: 'range',
         required: true,
+        min: 0,
+        max: 50,
+        step: 0.1,
+        defaultValue: 10,
+        showValue: true,
+        suffix: '%',
         validation: [
           {
             type: 'min',
@@ -599,8 +612,14 @@ export const questionGroups: QuestionGroup[] = [
       {
         id: 'home2LoanInterestRate',
         title: 'Home 2: What is the interest rate on this loan (in percentage)?',
-        type: 'number',
+        type: 'range',
         required: true,
+        min: 0,
+        max: 50,
+        step: 0.1,
+        defaultValue: 10,
+        showValue: true,
+        suffix: '%',
         validation: [
           {
             type: 'min',
@@ -871,8 +890,14 @@ export const questionGroups: QuestionGroup[] = [
       {
         id: 'vehicle1LoanInterestRate',
         title: 'Vehicle 1: What is the interest rate on this loan (in percentage)?',
-        type: 'number',
+        type: 'range',
         required: true,
+        min: 0,
+        max: 50,
+        step: 0.1,
+        defaultValue: 10,
+        showValue: true,
+        suffix: '%',
         validation: [
           {
             type: 'min',
@@ -994,8 +1019,14 @@ export const questionGroups: QuestionGroup[] = [
       {
         id: 'vehicle2LoanInterestRate',
         title: 'Vehicle 2: What is the interest rate on this loan (in percentage)?',
-        type: 'number',
+        type: 'range',
         required: true,
+        min: 0,
+        max: 50,
+        step: 0.1,
+        defaultValue: 10,
+        showValue: true,
+        suffix: '%',
         validation: [
           {
             type: 'min',
@@ -2503,8 +2534,14 @@ export const questionGroups: QuestionGroup[] = [
       {
         id: 'creditCardInterestRate',
         title: 'What is the average interest rate on your credit cards (in percentage)?',
-        type: 'number',
+        type: 'range',
         required: true,
+        min: 0,
+        max: 50,
+        step: 0.1,
+        defaultValue: 10,
+        showValue: true,
+        suffix: '%',
         validation: [
           {
             type: 'min',
@@ -2582,8 +2619,14 @@ export const questionGroups: QuestionGroup[] = [
       {
         id: 'loan1InterestRate',
         title: 'Personal Loan 1: What is the interest rate on this loan (in percentage)?',
-        type: 'number',
+        type: 'range',
         required: true,
+        min: 0,
+        max: 50,
+        step: 0.1,
+        defaultValue: 10,
+        showValue: true,
+        suffix: '%',
         validation: [
           {
             type: 'min',
@@ -2662,8 +2705,14 @@ export const questionGroups: QuestionGroup[] = [
       {
         id: 'loan2InterestRate',
         title: 'Personal Loan 2: What is the interest rate on this loan (in percentage)?',
-        type: 'number',
+        type: 'range',
         required: true,
+        min: 0,
+        max: 50,
+        step: 0.1,
+        defaultValue: 10,
+        showValue: true,
+        suffix: '%',
         validation: [
           {
             type: 'min',
@@ -2742,8 +2791,14 @@ export const questionGroups: QuestionGroup[] = [
       {
         id: 'loan3InterestRate',
         title: 'Personal Loan 3: What is the interest rate on this loan (in percentage)?',
-        type: 'number',
+        type: 'range',
         required: true,
+        min: 0,
+        max: 50,
+        step: 0.1,
+        defaultValue: 10,
+        showValue: true,
+        suffix: '%',
         validation: [
           {
             type: 'min',
@@ -2822,8 +2877,14 @@ export const questionGroups: QuestionGroup[] = [
       {
         id: 'loan4InterestRate',
         title: 'Personal Loan 4: What is the interest rate on this loan (in percentage)?',
-        type: 'number',
+        type: 'range',
         required: true,
+        min: 0,
+        max: 50,
+        step: 0.1,
+        defaultValue: 10,
+        showValue: true,
+        suffix: '%',
         validation: [
           {
             type: 'min',
@@ -2902,8 +2963,14 @@ export const questionGroups: QuestionGroup[] = [
       {
         id: 'loan5InterestRate',
         title: 'Personal Loan 5: What is the interest rate on this loan (in percentage)?',
-        type: 'number',
+        type: 'range',
         required: true,
+        min: 0,
+        max: 50,
+        step: 0.1,
+        defaultValue: 10,
+        showValue: true,
+        suffix: '%',
         validation: [
           {
             type: 'min',
