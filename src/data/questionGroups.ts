@@ -2768,7 +2768,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 191,
+        questionNumber: 177,
         groupId: 'insurance-coverage'
       },
       {
@@ -2778,7 +2778,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 192,
+        questionNumber: 178,
         groupId: 'insurance-coverage'
       },
       {
@@ -2788,7 +2788,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 193,
+        questionNumber: 179,
         groupId: 'insurance-coverage'
       },
       {
@@ -2798,7 +2798,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No', 'Not applicable'],
         section: 'Insurance Coverage',
-        questionNumber: 194,
+        questionNumber: 180,
         groupId: 'insurance-coverage'
       },
       {
@@ -2808,7 +2808,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No', 'Not applicable'],
         section: 'Insurance Coverage',
-        questionNumber: 195,
+        questionNumber: 181,
         groupId: 'insurance-coverage'
       },
       {
@@ -2818,7 +2818,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No', 'Not applicable'],
         section: 'Insurance Coverage',
-        questionNumber: 196,
+        questionNumber: 182,
         groupId: 'insurance-coverage'
       }
     ]
@@ -2839,7 +2839,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 197,
+        questionNumber: 183,
         groupId: 'insurance-details'
       },
       {
@@ -2852,7 +2852,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 198,
+        questionNumber: 184,
         groupId: 'insurance-details'
       },
       {
@@ -2866,7 +2866,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 199,
+        questionNumber: 185,
         groupId: 'insurance-details'
       },
       {
@@ -3084,7 +3084,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 215,
+        questionNumber: 201,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -3093,7 +3093,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 216,
+        questionNumber: 202,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -3414,7 +3414,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Investment Contributions',
-        questionNumber: 250,
+        questionNumber: 236,
         groupId: 'investment-contributions'
       },
       {
@@ -3423,7 +3423,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Investment Contributions',
-        questionNumber: 251,
+        questionNumber: 237,
         groupId: 'investment-contributions'
       },
       {
@@ -3537,7 +3537,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: false,
         section: 'Auto-calculated Assets',
-        questionNumber: 262,
+        questionNumber: 248,
         groupId: 'assets'
       },
       {
@@ -3547,7 +3547,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: false,
         section: 'Auto-calculated Assets',
-        questionNumber: 263,
+        questionNumber: 249,
         groupId: 'assets'
       },
       
@@ -3738,7 +3738,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Employment Income',
-        questionNumber: 282,
+        questionNumber: 268,
         groupId: 'income'
       },
       {
@@ -3747,7 +3747,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Employment Income',
-        questionNumber: 283,
+        questionNumber: 269,
         groupId: 'income'
       },
       {
