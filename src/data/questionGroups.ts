@@ -3580,7 +3580,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 132,
+        questionNumber: 183,
         groupId: 'personal-loans'
       },
 
@@ -3596,7 +3596,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 133,
+        questionNumber: 184,
         groupId: 'personal-loans'
       },
       {
@@ -3616,7 +3616,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 134,
+        questionNumber: 185,
         groupId: 'personal-loans'
       },
       {
@@ -3636,7 +3636,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 135,
+        questionNumber: 186,
         groupId: 'personal-loans'
       },
       {
@@ -3667,7 +3667,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 136,
+        questionNumber: 187,
         groupId: 'personal-loans'
       },
       {
@@ -4180,7 +4180,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 162,
+        questionNumber: 213,
         groupId: 'personal-loans'
       }
     ]
@@ -4197,7 +4197,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 163,
+        questionNumber: 214,
         groupId: 'insurance-coverage'
       },
       {
@@ -4207,7 +4207,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 164,
+        questionNumber: 215,
         groupId: 'insurance-coverage'
       },
       {
@@ -4217,7 +4217,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 165,
+        questionNumber: 216,
         groupId: 'insurance-coverage'
       },
       {
@@ -4227,7 +4227,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 166,
+        questionNumber: 217,
         groupId: 'insurance-coverage'
       },
       {
@@ -4237,7 +4237,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 167,
+        questionNumber: 218,
         groupId: 'insurance-coverage'
       },
       {
@@ -4251,7 +4251,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: 'Insurance Coverage',
-        questionNumber: 168,
+        questionNumber: 219,
         groupId: 'insurance-coverage'
       },
       {
@@ -4265,7 +4265,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: 'Insurance Coverage',
-        questionNumber: 169,
+        questionNumber: 220,
         groupId: 'insurance-coverage'
       }
     ]
@@ -4526,7 +4526,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 188,
+        questionNumber: 238,
         groupId: 'insurance-details'
       }
     ]
@@ -4536,14 +4536,14 @@ export const questionGroups: QuestionGroup[] = [
     title: 'Monthly & Annual Expenses',
     description: 'Your regular monthly living expenses and yearly costs',
     questions: [
-      // Section A: Monthly Expenses (Questions 189-211)
+      // Section A: Monthly Expenses (Questions 239-253)
       {
         id: 'monthlyGroceries',
         title: 'What are your monthly costs for groceries and toiletries?',
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 189,
+        questionNumber: 239,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4552,7 +4552,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 190,
+        questionNumber: 240,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4561,7 +4561,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 191,
+        questionNumber: 241,
         groupId: 'monthly-annual-expenses'
       },
       {
