@@ -505,10 +505,17 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'owned-properties'
       },
       {
-        id: 'home1MonthlyEMI',
-        title: 'Home 1: What is your monthly EMI payment for this loan?',
+        id: 'home1RemainingTenure',
+        title: 'Home 1: What is the remaining loan tenure (in years)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Tenure cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -518,10 +525,17 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'owned-properties'
       },
       {
-        id: 'home1InsuranceCover',
-        title: 'Home 1: What is the coverage amount of insurance for this property?',
+        id: 'home1MonthlyPayment',
+        title: 'Home 1: What is your monthly EMI/loan payment?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -531,10 +545,17 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'owned-properties'
       },
       {
-        id: 'home1InsurancePremium',
-        title: 'Home 1: What is the annual insurance premium for this property?',
+        id: 'home1PropertyTax',
+        title: 'Home 1: What is your annual property tax?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -544,10 +565,17 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'owned-properties'
       },
       {
-        id: 'home2PurchasePrice',
-        title: 'Home 2: What was the purchase price of this property?',
+        id: 'home1MaintenanceFees',
+        title: 'Home 1: What are your monthly building maintenance or society fees?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -557,10 +585,11 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'owned-properties'
       },
       {
-        id: 'home2CurrentValue',
-        title: 'Home 2: What is the estimated current value of this property?',
-        type: 'number',
+        id: 'home1Insurance',
+        title: 'Home 1: Do you have home insurance for this property?',
+        type: 'radio',
         required: true,
+        options: ['Yes', 'No'],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -570,11 +599,17 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'owned-properties'
       },
       {
-        id: 'home2HasLoan',
-        title: 'Home 2: Do you have a loan on this property?',
-        type: 'radio',
+        id: 'home1InsuranceCover',
+        title: 'Home 1: What is the total coverage amount of your home insurance?',
+        type: 'number',
         required: true,
-        options: ['Yes', 'No'],
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -584,10 +619,17 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'owned-properties'
       },
       {
-        id: 'home2OriginalLoanAmount',
-        title: 'Home 2: What was the original loan amount for this property?',
+        id: 'home1InsurancePremium',
+        title: 'Home 1: What is your annual home insurance premium?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -596,17 +638,100 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 39,
         groupId: 'owned-properties'
       },
+      
+      // Home 2 Questions
+      {
+        id: 'home2PurchasePrice',
+        title: 'Home 2: What was the purchase price of this property?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
+        },
+        section: 'Owned Properties',
+        questionNumber: 40,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2CurrentValue',
+        title: 'Home 2: What is the estimated current value of this property?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
+        },
+        section: 'Owned Properties',
+        questionNumber: 41,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2HasLoan',
+        title: 'Home 2: Do you have a loan on this property?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
+        },
+        section: 'Owned Properties',
+        questionNumber: 42,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2OriginalLoanAmount',
+        title: 'Home 2: What was the original loan amount for this property?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
+        },
+        section: 'Owned Properties',
+        questionNumber: 43,
+        groupId: 'owned-properties'
+      },
       {
         id: 'home2OutstandingLoan',
         title: 'Home 2: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
         },
         section: 'Owned Properties',
-        questionNumber: 40,
+        questionNumber: 44,
         groupId: 'owned-properties'
       },
       {
@@ -633,50 +758,145 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
         },
         section: 'Owned Properties',
-        questionNumber: 41,
+        questionNumber: 45,
         groupId: 'owned-properties'
       },
       {
-        id: 'home2MonthlyEMI',
-        title: 'Home 2: What is your monthly EMI payment for this loan?',
+        id: 'home2RemainingTenure',
+        title: 'Home 2: What is the remaining loan tenure (in years)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Tenure cannot be negative'
+          }
+        ],
         conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
         },
         section: 'Owned Properties',
-        questionNumber: 42,
+        questionNumber: 46,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2MonthlyPayment',
+        title: 'Home 2: What is your monthly EMI/loan payment?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
+        },
+        section: 'Owned Properties',
+        questionNumber: 47,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2PropertyTax',
+        title: 'Home 2: What is your annual property tax?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
+        },
+        section: 'Owned Properties',
+        questionNumber: 48,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2MaintenanceFees',
+        title: 'Home 2: What are your monthly building maintenance or society fees?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
+        },
+        section: 'Owned Properties',
+        questionNumber: 49,
+        groupId: 'owned-properties'
+      },
+      {
+        id: 'home2Insurance',
+        title: 'Home 2: Do you have home insurance for this property?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
+        },
+        section: 'Owned Properties',
+        questionNumber: 50,
         groupId: 'owned-properties'
       },
       {
         id: 'home2InsuranceCover',
-        title: 'Home 2: What is the coverage amount of insurance for this property?',
+        title: 'Home 2: What is the total coverage amount of your home insurance?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
         },
         section: 'Owned Properties',
-        questionNumber: 43,
+        questionNumber: 51,
         groupId: 'owned-properties'
       },
       {
         id: 'home2InsurancePremium',
-        title: 'Home 2: What is the annual insurance premium for this property?',
+        title: 'Home 2: What is your annual home insurance premium?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
+          dependsOn: 'additionalProperties',
+          values: ['1', '2', '3', '4 or more']
         },
         section: 'Owned Properties',
-        questionNumber: 44,
+        questionNumber: 52,
         groupId: 'owned-properties'
       }
     ]
@@ -684,46 +904,88 @@ export const questionGroups: QuestionGroup[] = [
   {
     id: 'vehicles-common',
     title: 'Vehicle Expenses & Basics',
-    description: 'Common vehicle expenses and basic details',
+    description: 'Vehicle expenses that apply to all vehicles',
     conditional: true,
     questions: [
       {
-        id: 'monthlyFuelCosts',
-        title: 'What are your total monthly fuel costs for all vehicles?',
+        id: 'monthlyFuelExpenses',
+        title: 'What are your total monthly fuel/petrol/diesel expenses?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['1', '2', '3', '4 or more']
         },
         section: 'Vehicle Expenses',
-        questionNumber: 45,
+        questionNumber: 53,
         groupId: 'vehicles-common'
       },
       {
-        id: 'monthlyParkingCosts',
-        title: 'What are your total monthly parking costs?',
+        id: 'monthlyVehicleMaintenance',
+        title: 'What are your total monthly vehicle maintenance expenses?',
+        subtitle: 'Include servicing, repairs, car wash, etc.',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['1', '2', '3', '4 or more']
         },
         section: 'Vehicle Expenses',
-        questionNumber: 46,
+        questionNumber: 54,
         groupId: 'vehicles-common'
       },
       {
-        id: 'monthlyMaintenanceCosts',
-        title: 'What are your average monthly maintenance costs for all vehicles?',
+        id: 'monthlyParkingTolls',
+        title: 'What are your total monthly parking and toll expenses?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['1', '2', '3', '4 or more']
         },
         section: 'Vehicle Expenses',
-        questionNumber: 47,
+        questionNumber: 55,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'annualVehicleRegistration',
+        title: 'What are your total annual vehicle registration and licensing fees?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
+        section: 'Vehicle Expenses',
+        questionNumber: 56,
         groupId: 'vehicles-common'
       },
       {
@@ -731,13 +993,13 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What type of vehicle is this?',
         type: 'select',
         required: true,
-        options: ['Car', 'Motorcycle', 'Truck', 'SUV', 'Van', 'Other'],
+        options: ['Car', 'Motorcycle/Scooter', 'Truck', 'Van', 'SUV', 'Other'],
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['1', '2', '3', '4 or more']
         },
-        section: 'Vehicle Basics',
-        questionNumber: 48,
+        section: 'Vehicle Details',
+        questionNumber: 57,
         groupId: 'vehicles-common'
       },
       {
@@ -745,12 +1007,19 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What was the purchase price of this vehicle?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['1', '2', '3', '4 or more']
         },
-        section: 'Vehicle Basics',
-        questionNumber: 49,
+        section: 'Vehicle Details',
+        questionNumber: 58,
         groupId: 'vehicles-common'
       },
       {
@@ -758,101 +1027,20 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is the estimated current value of this vehicle?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['1', '2', '3', '4 or more']
         },
-        section: 'Vehicle Basics',
-        questionNumber: 50,
+        section: 'Vehicle Details',
+        questionNumber: 59,
         groupId: 'vehicles-common'
-      },
-      {
-        id: 'vehicle2Type',
-        title: 'Vehicle 2: What type of vehicle is this?',
-        type: 'select',
-        required: true,
-        options: ['Car', 'Motorcycle', 'Truck', 'SUV', 'Van', 'Other'],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Basics',
-        questionNumber: 51,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'vehicle2PurchasePrice',
-        title: 'Vehicle 2: What was the purchase price of this vehicle?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Basics',
-        questionNumber: 52,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'vehicle2CurrentValue',
-        title: 'Vehicle 2: What is the estimated current value of this vehicle?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Basics',
-        questionNumber: 53,
-        groupId: 'vehicles-common'
-      }
-    ]
-  },
-  {
-    id: 'vehicles-insurance-loans',
-    title: 'Vehicle Insurance & Loans',
-    description: 'Insurance and loan information for each vehicle',
-    conditional: true,
-    questions: [
-      {
-        id: 'vehicle1InsuranceCover',
-        title: 'Vehicle 1: What is the insurance coverage amount for this vehicle? (Enter 0 if no insurance)',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 54,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle1InsurancePremium',
-        title: 'Vehicle 1: What is your insurance premium for this vehicle?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 55,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle1InsurancePeriod',
-        title: 'Vehicle 1: Insurance premium period',
-        type: 'select',
-        required: true,
-        options: ['Monthly', 'Annual'],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 56,
-        groupId: 'vehicles-insurance-loans'
       },
       {
         id: 'vehicle1HasLoan',
@@ -864,27 +1052,158 @@ export const questionGroups: QuestionGroup[] = [
           dependsOn: 'hasVehicles',
           values: ['1', '2', '3', '4 or more']
         },
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 57,
+        section: 'Vehicle Details',
+        questionNumber: 60,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'vehicle2Type',
+        title: 'Vehicle 2: What type of vehicle is this?',
+        type: 'select',
+        required: true,
+        options: ['Car', 'Motorcycle/Scooter', 'Truck', 'Van', 'SUV', 'Other'],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['2', '3', '4 or more']
+        },
+        section: 'Vehicle Details',
+        questionNumber: 61,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'vehicle2PurchasePrice',
+        title: 'Vehicle 2: What was the purchase price of this vehicle?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['2', '3', '4 or more']
+        },
+        section: 'Vehicle Details',
+        questionNumber: 62,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'vehicle2CurrentValue',
+        title: 'Vehicle 2: What is the estimated current value of this vehicle?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['2', '3', '4 or more']
+        },
+        section: 'Vehicle Details',
+        questionNumber: 63,
+        groupId: 'vehicles-common'
+      },
+      {
+        id: 'vehicle2HasLoan',
+        title: 'Vehicle 2: Do you have a loan on this vehicle?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['2', '3', '4 or more']
+        },
+        section: 'Vehicle Details',
+        questionNumber: 64,
+        groupId: 'vehicles-common'
+      }
+    ]
+  },
+  {
+    id: 'vehicles-insurance-loans',
+    title: 'Vehicle Insurance & Loans',
+    description: 'Insurance and loan details for your vehicles',
+    conditional: true,
+    questions: [
+      {
+        id: 'vehicle1Insurance',
+        title: 'Vehicle 1: Do you have insurance for this vehicle?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
+        section: 'Vehicle Insurance',
+        questionNumber: 65,
         groupId: 'vehicles-insurance-loans'
       },
       {
-        id: 'vehicle1OutstandingLoan',
+        id: 'vehicle1InsurancePremium',
+        title: 'Vehicle 1: What is your annual vehicle insurance premium?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
+        },
+        section: 'Vehicle Insurance',
+        questionNumber: 66,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle1LoanOriginalAmount',
+        title: 'Vehicle 1: What was the original loan amount for this vehicle?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'vehicle1HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Loans',
+        questionNumber: 67,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle1LoanOutstanding',
         title: 'Vehicle 1: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
-        conditional: [
+        validation: [
           {
-            dependsOn: 'hasVehicles',
-            values: ['1', '2', '3', '4 or more']
-          },
-          {
-            dependsOn: 'vehicle1HasLoan',
-            values: ['Yes']
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
           }
         ],
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 58,
+        conditional: {
+          dependsOn: 'vehicle1HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Loans',
+        questionNumber: 68,
         groupId: 'vehicles-insurance-loans'
       },
       {
@@ -910,110 +1229,126 @@ export const questionGroups: QuestionGroup[] = [
             message: 'Interest rate cannot exceed 100%'
           }
         ],
-        conditional: [
+        conditional: {
+          dependsOn: 'vehicle1HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Loans',
+        questionNumber: 69,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle1LoanRemainingTenure',
+        title: 'Vehicle 1: What is the remaining loan tenure (in years)?',
+        type: 'number',
+        required: true,
+        validation: [
           {
-            dependsOn: 'hasVehicles',
-            values: ['1', '2', '3', '4 or more']
-          },
-          {
-            dependsOn: 'vehicle1HasLoan',
-            values: ['Yes']
+            type: 'min',
+            value: 0,
+            message: 'Tenure cannot be negative'
           }
         ],
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 59,
+        conditional: {
+          dependsOn: 'vehicle1HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Loans',
+        questionNumber: 70,
         groupId: 'vehicles-insurance-loans'
       },
       {
-        id: 'vehicle1MonthlyEMI',
-        title: 'Vehicle 1: What is your monthly EMI payment for this vehicle?',
+        id: 'vehicle1LoanMonthlyPayment',
+        title: 'Vehicle 1: What is your monthly EMI/loan payment?',
         type: 'number',
         required: true,
-        conditional: [
+        validation: [
           {
-            dependsOn: 'hasVehicles',
-            values: ['1', '2', '3', '4 or more']
-          },
-          {
-            dependsOn: 'vehicle1HasLoan',
-            values: ['Yes']
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
           }
         ],
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 60,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2InsuranceCover',
-        title: 'Vehicle 2: What is the insurance coverage amount for this vehicle? (Enter 0 if no insurance)',
-        type: 'number',
-        required: true,
         conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
+          dependsOn: 'vehicle1HasLoan',
+          values: ['Yes']
         },
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 61,
+        section: 'Vehicle Loans',
+        questionNumber: 71,
         groupId: 'vehicles-insurance-loans'
       },
       {
-        id: 'vehicle2InsurancePremium',
-        title: 'Vehicle 2: What is your insurance premium for this vehicle?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 62,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2InsurancePeriod',
-        title: 'Vehicle 2: Insurance premium period',
-        type: 'select',
-        required: true,
-        options: ['Monthly', 'Annual'],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 63,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2HasLoan',
-        title: 'Vehicle 2: Do you have a loan on this vehicle?',
+        id: 'vehicle2Insurance',
+        title: 'Vehicle 2: Do you have insurance for this vehicle?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
         conditional: {
           dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
+          values: ['2', '3', '4 or more']
         },
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 64,
+        section: 'Vehicle Insurance',
+        questionNumber: 72,
         groupId: 'vehicles-insurance-loans'
       },
       {
-        id: 'vehicle2OutstandingLoan',
+        id: 'vehicle2InsurancePremium',
+        title: 'Vehicle 2: What is your annual vehicle insurance premium?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasVehicles',
+          values: ['2', '3', '4 or more']
+        },
+        section: 'Vehicle Insurance',
+        questionNumber: 73,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2LoanOriginalAmount',
+        title: 'Vehicle 2: What was the original loan amount for this vehicle?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'vehicle2HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Loans',
+        questionNumber: 74,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2LoanOutstanding',
         title: 'Vehicle 2: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
-        conditional: [
+        validation: [
           {
-            dependsOn: 'hasVehicles',
-            values: ['1', '2', '3', '4 or more']
-          },
-          {
-            dependsOn: 'vehicle2HasLoan',
-            values: ['Yes']
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
           }
         ],
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 65,
+        conditional: {
+          dependsOn: 'vehicle2HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Loans',
+        questionNumber: 75,
         groupId: 'vehicles-insurance-loans'
       },
       {
@@ -1039,37 +1374,52 @@ export const questionGroups: QuestionGroup[] = [
             message: 'Interest rate cannot exceed 100%'
           }
         ],
-        conditional: [
-          {
-            dependsOn: 'hasVehicles',
-            values: ['1', '2', '3', '4 or more']
-          },
-          {
-            dependsOn: 'vehicle2HasLoan',
-            values: ['Yes']
-          }
-        ],
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 66,
+        conditional: {
+          dependsOn: 'vehicle2HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Loans',
+        questionNumber: 76,
         groupId: 'vehicles-insurance-loans'
       },
       {
-        id: 'vehicle2MonthlyEMI',
-        title: 'Vehicle 2: What is your monthly EMI payment for this vehicle?',
+        id: 'vehicle2LoanRemainingTenure',
+        title: 'Vehicle 2: What is the remaining loan tenure (in years)?',
         type: 'number',
         required: true,
-        conditional: [
+        validation: [
           {
-            dependsOn: 'hasVehicles',
-            values: ['1', '2', '3', '4 or more']
-          },
-          {
-            dependsOn: 'vehicle2HasLoan',
-            values: ['Yes']
+            type: 'min',
+            value: 0,
+            message: 'Tenure cannot be negative'
           }
         ],
-        section: 'Vehicle Insurance & Loans',
-        questionNumber: 67,
+        conditional: {
+          dependsOn: 'vehicle2HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Loans',
+        questionNumber: 77,
+        groupId: 'vehicles-insurance-loans'
+      },
+      {
+        id: 'vehicle2LoanMonthlyPayment',
+        title: 'Vehicle 2: What is your monthly EMI/loan payment?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'vehicle2HasLoan',
+          values: ['Yes']
+        },
+        section: 'Vehicle Loans',
+        questionNumber: 78,
         groupId: 'vehicles-insurance-loans'
       }
     ]
@@ -1077,183 +1427,81 @@ export const questionGroups: QuestionGroup[] = [
   {
     id: 'children',
     title: 'Children',
-    description: 'Details about your children and related expenses',
+    description: 'Information about your children',
     conditional: true,
     questions: [
       {
-        id: 'child1AgeGroup',
-        title: 'Child 1: What is the age group of this child?',
+        id: 'child1Age',
+        title: 'Child 1: What is their current age?',
         type: 'select',
         required: true,
-        options: ['0-5', '6-10', '11-15', '16-18', '19-25', '26 or older'],
+        options: ['0-2', '3-5', '6-12', '13-18', '19+'],
         conditional: {
           dependsOn: 'hasChildren',
           values: ['1', '2', '3 or more']
         },
-        section: 'Children',
-        questionNumber: 68,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyDiapers',
-        title: 'Child 1: Monthly expenses for diapers',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'child1AgeGroup',
-          values: ['0-5']
-        },
-        section: 'Children',
-        questionNumber: 69,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyClothing',
-        title: 'Child 1: What are your monthly expenses for clothing, shoes',
-        type: 'number',
-        required: true,
-        section: 'Children',
-        questionNumber: 70,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyToys',
-        title: 'Child 1: What are your monthly expenses for toys and games',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'child1AgeGroup',
-          values: ['0-5', '6-10', '11-15']
-        },
-        section: 'Children',
-        questionNumber: 71,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyParties',
-        title: 'Child 1: What are your monthly expenses for parties, gifts for kids parties',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'child1AgeGroup',
-          values: ['0-5', '6-10', '11-15', '16-18']
-        },
-        section: 'Children',
-        questionNumber: 72,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyActivities',
-        title: 'Child 1: Monthly expense for hobbies, sports, extra curricular activities',
-        type: 'number',
-        required: true,
-        section: 'Children',
-        questionNumber: 73,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyEducation',
-        title: 'Child 1: Monthly expense for school/college fees',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'child1AgeGroup',
-          values: ['6-10', '11-15', '16-18', '19-25']
-        },
-        section: 'Children',
-        questionNumber: 74,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyOnlineLearning',
-        title: 'Child 1: Monthly expense for additional online learning',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'child1AgeGroup',
-          values: ['6-10', '11-15', '16-18', '19-25']
-        },
-        section: 'Children',
-        questionNumber: 75,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyTutoring',
-        title: 'Child 1: Monthly expense for additional tutoring',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'child1AgeGroup',
-          values: ['6-10', '11-15', '16-18', '19-25']
-        },
-        section: 'Children',
-        questionNumber: 76,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyBooks',
-        title: 'Child 1: Monthly expense for school books',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'child1AgeGroup',
-          values: ['6-10', '11-15', '16-18', '19-25']
-        },
-        section: 'Children',
-        questionNumber: 77,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyFieldTrips',
-        title: 'Child 1: Monthly expense for field trips',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'child1AgeGroup',
-          values: ['6-10', '11-15', '16-18']
-        },
-        section: 'Children',
-        questionNumber: 78,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyMedical',
-        title: "Child 1: Monthly expenses for your child's medical expenses, treatments, medicines",
-        type: 'number',
-        required: true,
-        section: 'Children',
+        section: 'Children Details',
         questionNumber: 79,
         groupId: 'children'
       },
       {
-        id: 'child1MonthlyMiscellaneous',
-        title: 'Child 1: Miscellaneous monthly expenses',
+        id: 'child1EducationExpenses',
+        title: 'Child 1: What are their annual education expenses?',
+        subtitle: 'Include school fees, tuition, books, activities',
         type: 'number',
         required: true,
-        section: 'Children',
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
         questionNumber: 80,
         groupId: 'children'
       },
       {
         id: 'child1HealthInsurance',
-        title: 'Child 1: Do you have health insurance that covers your child?',
+        title: 'Child 1: Do you have health insurance for this child?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
-        section: 'Children',
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Children Details',
         questionNumber: 81,
         groupId: 'children'
       },
       {
-        id: 'child1InsuranceCover',
-        title: 'Child 1: What is the value of the insurance cover?',
+        id: 'child1HealthInsuranceCover',
+        title: 'Child 1: What is the coverage amount of their health insurance?',
         type: 'number',
         required: true,
-        conditional: {
-          dependsOn: 'child1HealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Children',
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['1', '2', '3 or more']
+          },
+          {
+            dependsOn: 'child1HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Children Details',
         questionNumber: 82,
         groupId: 'children'
       },
@@ -1262,235 +1510,131 @@ export const questionGroups: QuestionGroup[] = [
         title: "Child 1: What is the annual premium you're paying for this?",
         type: 'number',
         required: true,
-        conditional: {
-          dependsOn: 'child1HealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Children',
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['1', '2', '3 or more']
+          },
+          {
+            dependsOn: 'child1HealthInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Children Details',
         questionNumber: 83,
         groupId: 'children'
       },
       {
-        id: 'child2AgeGroup',
-        title: 'Child 2: What is the age group of this child?',
-        type: 'select',
+        id: 'child1LifeInsurance',
+        title: 'Child 1: Do you have life insurance for this child?',
+        type: 'radio',
         required: true,
-        options: ['0-5', '6-10', '11-15', '16-18', '19-25', '26 or older'],
+        options: ['Yes', 'No'],
         conditional: {
           dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
+          values: ['1', '2', '3 or more']
         },
-        section: 'Children',
+        section: 'Children Details',
         questionNumber: 84,
         groupId: 'children'
       },
       {
-        id: 'child2MonthlyDiapers',
-        title: 'Child 2: Monthly expenses for diapers',
+        id: 'child1LifeInsuranceCover',
+        title: 'Child 1: What is the coverage amount of their life insurance?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
+            values: ['1', '2', '3 or more']
           },
           {
-            dependsOn: 'child2AgeGroup',
-            values: ['0-5']
+            dependsOn: 'child1LifeInsurance',
+            values: ['Yes']
           }
         ],
-        section: 'Children',
+        section: 'Children Details',
         questionNumber: 85,
         groupId: 'children'
       },
       {
-        id: 'child2MonthlyClothing',
-        title: 'Child 2: What are your monthly expenses for clothing, shoes',
+        id: 'child1LifeInsurancePremium',
+        title: "Child 1: What is the annual life insurance premium you're paying for this?",
         type: 'number',
         required: true,
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children',
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['1', '2', '3 or more']
+          },
+          {
+            dependsOn: 'child1LifeInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Children Details',
         questionNumber: 86,
         groupId: 'children'
       },
       {
-        id: 'child2MonthlyToys',
-        title: 'Child 2: What are your monthly expenses for toys and games',
-        type: 'number',
+        id: 'child2Age',
+        title: 'Child 2: What is their current age?',
+        type: 'select',
         required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
-          },
-          {
-            dependsOn: 'child2AgeGroup',
-            values: ['0-5', '6-10', '11-15']
-          }
-        ],
-        section: 'Children',
+        options: ['0-2', '3-5', '6-12', '13-18', '19+'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
         questionNumber: 87,
         groupId: 'children'
       },
       {
-        id: 'child2MonthlyParties',
-        title: 'Child 2: What are your monthly expenses for parties, gifts for kids parties',
+        id: 'child2EducationExpenses',
+        title: 'Child 2: What are their annual education expenses?',
+        subtitle: 'Include school fees, tuition, books, activities',
         type: 'number',
         required: true,
-        conditional: [
+        validation: [
           {
-            dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
-          },
-          {
-            dependsOn: 'child2AgeGroup',
-            values: ['0-5', '6-10', '11-15', '16-18']
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
           }
         ],
-        section: 'Children',
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
         questionNumber: 88,
         groupId: 'children'
       },
       {
-        id: 'child2MonthlyActivities',
-        title: 'Child 2: Monthly expense for hobbies, sports, extra curricular activities',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children',
-        questionNumber: 89,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyEducation',
-        title: 'Child 2: Monthly expense for school/college fees',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
-          },
-          {
-            dependsOn: 'child2AgeGroup',
-            values: ['6-10', '11-15', '16-18', '19-25']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 90,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyOnlineLearning',
-        title: 'Child 2: Monthly expense for additional online learning',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
-          },
-          {
-            dependsOn: 'child2AgeGroup',
-            values: ['6-10', '11-15', '16-18', '19-25']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 91,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyTutoring',
-        title: 'Child 2: Monthly expense for additional tutoring',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
-          },
-          {
-            dependsOn: 'child2AgeGroup',
-            values: ['6-10', '11-15', '16-18', '19-25']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 92,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyBooks',
-        title: 'Child 2: Monthly expense for school books',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
-          },
-          {
-            dependsOn: 'child2AgeGroup',
-            values: ['6-10', '11-15', '16-18', '19-25']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 93,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyFieldTrips',
-        title: 'Child 2: Monthly expense for field trips',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
-          },
-          {
-            dependsOn: 'child2AgeGroup',
-            values: ['6-10', '11-15', '16-18']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 94,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyMedical',
-        title: "Child 2: Monthly expenses for your child's medical expenses, treatments, medicines",
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children',
-        questionNumber: 95,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyMiscellaneous',
-        title: 'Child 2: Miscellaneous monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children',
-        questionNumber: 96,
-        groupId: 'children'
-      },
-      {
         id: 'child2HealthInsurance',
-        title: 'Child 2: Do you have health insurance that covers your child?',
+        title: 'Child 2: Do you have health insurance for this child?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
@@ -1498,15 +1642,22 @@ export const questionGroups: QuestionGroup[] = [
           dependsOn: 'hasChildren',
           values: ['2', '3 or more']
         },
-        section: 'Children',
-        questionNumber: 97,
+        section: 'Children Details',
+        questionNumber: 89,
         groupId: 'children'
       },
       {
-        id: 'child2InsuranceCover',
-        title: 'Child 2: What is the value of the insurance cover?',
+        id: 'child2HealthInsuranceCover',
+        title: 'Child 2: What is the coverage amount of their health insurance?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasChildren',
@@ -1517,8 +1668,8 @@ export const questionGroups: QuestionGroup[] = [
             values: ['Yes']
           }
         ],
-        section: 'Children',
-        questionNumber: 98,
+        section: 'Children Details',
+        questionNumber: 90,
         groupId: 'children'
       },
       {
@@ -1526,6 +1677,13 @@ export const questionGroups: QuestionGroup[] = [
         title: "Child 2: What is the annual premium you're paying for this?",
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasChildren',
@@ -1536,231 +1694,114 @@ export const questionGroups: QuestionGroup[] = [
             values: ['Yes']
           }
         ],
-        section: 'Children',
-        questionNumber: 99,
+        section: 'Children Details',
+        questionNumber: 91,
         groupId: 'children'
       },
       {
-        id: 'child3AgeGroup',
-        title: 'Child 3: What is the age group of this child?',
+        id: 'child2LifeInsurance',
+        title: 'Child 2: Do you have life insurance for this child?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['2', '3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 92,
+        groupId: 'children'
+      },
+      {
+        id: 'child2LifeInsuranceCover',
+        title: 'Child 2: What is the coverage amount of their life insurance?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2LifeInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Children Details',
+        questionNumber: 93,
+        groupId: 'children'
+      },
+      {
+        id: 'child2LifeInsurancePremium',
+        title: "Child 2: What is the annual life insurance premium you're paying for this?",
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['2', '3 or more']
+          },
+          {
+            dependsOn: 'child2LifeInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Children Details',
+        questionNumber: 94,
+        groupId: 'children'
+      },
+      {
+        id: 'child3Age',
+        title: 'Child 3: What is their current age?',
         type: 'select',
         required: true,
-        options: ['0-5', '6-10', '11-15', '16-18', '19-25', '26 or older'],
+        options: ['0-2', '3-5', '6-12', '13-18', '19+'],
         conditional: {
           dependsOn: 'hasChildren',
           values: ['3 or more']
         },
-        section: 'Children',
-        questionNumber: 100,
+        section: 'Children Details',
+        questionNumber: 95,
         groupId: 'children'
       },
       {
-        id: 'child3MonthlyDiapers',
-        title: 'Child 3: Monthly expenses for diapers',
+        id: 'child3EducationExpenses',
+        title: 'Child 3: What are their annual education expenses?',
+        subtitle: 'Include school fees, tuition, books, activities',
         type: 'number',
         required: true,
-        conditional: [
+        validation: [
           {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3AgeGroup',
-            values: ['0-5']
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
           }
         ],
-        section: 'Children',
-        questionNumber: 101,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyClothing',
-        title: 'Child 3: What are your monthly expenses for clothing, shoes',
-        type: 'number',
-        required: true,
         conditional: {
           dependsOn: 'hasChildren',
           values: ['3 or more']
         },
-        section: 'Children',
-        questionNumber: 102,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyToys',
-        title: 'Child 3: What are your monthly expenses for toys and games',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3AgeGroup',
-            values: ['0-5', '6-10', '11-15']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 103,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyParties',
-        title: 'Child 3: What are your monthly expenses for parties, gifts for kids parties',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3AgeGroup',
-            values: ['0-5', '6-10', '11-15', '16-18']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 104,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyActivities',
-        title: 'Child 3: Monthly expense for hobbies, sports, extra curricular activities',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children',
-        questionNumber: 105,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyEducation',
-        title: 'Child 3: Monthly expense for school/college fees',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3AgeGroup',
-            values: ['6-10', '11-15', '16-18', '19-25']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 106,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyOnlineLearning',
-        title: 'Child 3: Monthly expense for additional online learning',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3AgeGroup',
-            values: ['6-10', '11-15', '16-18', '19-25']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 107,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyTutoring',
-        title: 'Child 3: Monthly expense for additional tutoring',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3AgeGroup',
-            values: ['6-10', '11-15', '16-18', '19-25']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 108,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyBooks',
-        title: 'Child 3: Monthly expense for school books',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3AgeGroup',
-            values: ['6-10', '11-15', '16-18', '19-25']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 109,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyFieldTrips',
-        title: 'Child 3: Monthly expense for field trips',
-        type: 'number',
-        required: true,
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3AgeGroup',
-            values: ['6-10', '11-15', '16-18']
-          }
-        ],
-        section: 'Children',
-        questionNumber: 110,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyMedical',
-        title: "Child 3: Monthly expenses for your child's medical expenses, treatments, medicines",
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children',
-        questionNumber: 111,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyMiscellaneous',
-        title: 'Child 3: Miscellaneous monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children',
-        questionNumber: 112,
+        section: 'Children Details',
+        questionNumber: 96,
         groupId: 'children'
       },
       {
         id: 'child3HealthInsurance',
-        title: 'Child 3: Do you have health insurance that covers your child?',
+        title: 'Child 3: Do you have health insurance for this child?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
@@ -1768,15 +1809,22 @@ export const questionGroups: QuestionGroup[] = [
           dependsOn: 'hasChildren',
           values: ['3 or more']
         },
-        section: 'Children',
-        questionNumber: 113,
+        section: 'Children Details',
+        questionNumber: 97,
         groupId: 'children'
       },
       {
-        id: 'child3InsuranceCover',
-        title: 'Child 3: What is the value of the insurance cover?',
+        id: 'child3HealthInsuranceCover',
+        title: 'Child 3: What is the coverage amount of their health insurance?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasChildren',
@@ -1787,8 +1835,8 @@ export const questionGroups: QuestionGroup[] = [
             values: ['Yes']
           }
         ],
-        section: 'Children',
-        questionNumber: 114,
+        section: 'Children Details',
+        questionNumber: 98,
         groupId: 'children'
       },
       {
@@ -1796,6 +1844,13 @@ export const questionGroups: QuestionGroup[] = [
         title: "Child 3: What is the annual premium you're paying for this?",
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasChildren',
@@ -1806,8 +1861,74 @@ export const questionGroups: QuestionGroup[] = [
             values: ['Yes']
           }
         ],
-        section: 'Children',
-        questionNumber: 115,
+        section: 'Children Details',
+        questionNumber: 99,
+        groupId: 'children'
+      },
+      {
+        id: 'child3LifeInsurance',
+        title: 'Child 3: Do you have life insurance for this child?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['3 or more']
+        },
+        section: 'Children Details',
+        questionNumber: 100,
+        groupId: 'children'
+      },
+      {
+        id: 'child3LifeInsuranceCover',
+        title: 'Child 3: What is the coverage amount of their life insurance?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3LifeInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Children Details',
+        questionNumber: 101,
+        groupId: 'children'
+      },
+      {
+        id: 'child3LifeInsurancePremium',
+        title: "Child 3: What is the annual life insurance premium you're paying for this?",
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['3 or more']
+          },
+          {
+            dependsOn: 'child3LifeInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Children Details',
+        questionNumber: 102,
         groupId: 'children'
       }
     ]
@@ -1815,90 +1936,46 @@ export const questionGroups: QuestionGroup[] = [
   {
     id: 'financial-dependents',
     title: 'Financial Dependents',
-    description: 'Details about your financial dependents',
+    description: 'Information about your financial dependents',
     conditional: true,
     questions: [
       {
-        id: 'dependent1HealthExpenses',
-        title: 'Dependent 1: Health related monthly expenses (not covered by insurance)',
-        type: 'number',
+        id: 'dependent1Relationship',
+        title: "Dependent 1: What's their relationship to you?",
+        type: 'select',
         required: true,
+        options: ['Parent', 'Grandparent', 'Sibling', 'Spouse/Partner', 'Other family member', 'Other'],
         conditional: {
           dependsOn: 'hasFinancialDependents',
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 116,
+        questionNumber: 103,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent1MedicalCosts',
-        title: 'Dependent 1: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+        id: 'dependent1MonthlySupport',
+        title: 'Dependent 1: How much monthly financial support do you provide?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'hasFinancialDependents',
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 117,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1LivingExpenses',
-        title: 'Dependent 1: Rent, grocery, utilities expenses, monthly',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 118,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1TravelExpenses',
-        title: 'Dependent 1: Travel and commute monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 119,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1EntertainmentExpenses',
-        title: 'Dependent 1: Entertainment, leisure, holiday, hobby, monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 120,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1MiscellaneousExpenses',
-        title: 'Dependent 1: Other miscellaneous expenses monthly',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 121,
+        questionNumber: 104,
         groupId: 'financial-dependents'
       },
       {
         id: 'dependent1HealthInsurance',
-        title: 'Dependent 1: Do you have health insurance to cover this dependent?',
+        title: 'Dependent 1: Do you have health insurance for this dependent?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
@@ -1907,14 +1984,21 @@ export const questionGroups: QuestionGroup[] = [
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 122,
+        questionNumber: 105,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent1InsuranceCover',
-        title: 'Dependent 1: What is the value of the insurance cover for this dependent?',
+        id: 'dependent1HealthInsuranceCover',
+        title: 'Dependent 1: What is the coverage amount of their health insurance?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasFinancialDependents',
@@ -1926,7 +2010,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 123,
+        questionNumber: 106,
         groupId: 'financial-dependents'
       },
       {
@@ -1934,6 +2018,13 @@ export const questionGroups: QuestionGroup[] = [
         title: "Dependent 1: What is the annual premium you're paying for this?",
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasFinancialDependents',
@@ -1945,90 +2036,46 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 124,
+        questionNumber: 107,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent2HealthExpenses',
-        title: 'Dependent 2: Health related monthly expenses (not covered by insurance)',
-        type: 'number',
+        id: 'dependent2Relationship',
+        title: "Dependent 2: What's their relationship to you?",
+        type: 'select',
         required: true,
+        options: ['Parent', 'Grandparent', 'Sibling', 'Spouse/Partner', 'Other family member', 'Other'],
         conditional: {
           dependsOn: 'hasFinancialDependents',
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 125,
+        questionNumber: 108,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent2MedicalCosts',
-        title: 'Dependent 2: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+        id: 'dependent2MonthlySupport',
+        title: 'Dependent 2: How much monthly financial support do you provide?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'hasFinancialDependents',
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 126,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent2LivingExpenses',
-        title: 'Dependent 2: Rent, grocery, utilities expenses, monthly',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 127,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent2TravelExpenses',
-        title: 'Dependent 2: Travel and commute monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 128,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent2EntertainmentExpenses',
-        title: 'Dependent 2: Entertainment, leisure, holiday, hobby, monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 129,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent2MiscellaneousExpenses',
-        title: 'Dependent 2: Other miscellaneous expenses monthly',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 130,
+        questionNumber: 109,
         groupId: 'financial-dependents'
       },
       {
         id: 'dependent2HealthInsurance',
-        title: 'Dependent 2: Do you have health insurance to cover this dependent?',
+        title: 'Dependent 2: Do you have health insurance for this dependent?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
@@ -2037,14 +2084,21 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 131,
+        questionNumber: 110,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent2InsuranceCover',
-        title: 'Dependent 2: What is the value of the insurance cover for this dependent?',
+        id: 'dependent2HealthInsuranceCover',
+        title: 'Dependent 2: What is the coverage amount of their health insurance?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasFinancialDependents',
@@ -2056,7 +2110,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 132,
+        questionNumber: 111,
         groupId: 'financial-dependents'
       },
       {
@@ -2064,6 +2118,13 @@ export const questionGroups: QuestionGroup[] = [
         title: "Dependent 2: What is the annual premium you're paying for this?",
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasFinancialDependents',
@@ -2075,90 +2136,46 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 133,
+        questionNumber: 112,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent3HealthExpenses',
-        title: 'Dependent 3: Health related monthly expenses (not covered by insurance)',
-        type: 'number',
+        id: 'dependent3Relationship',
+        title: "Dependent 3: What's their relationship to you?",
+        type: 'select',
         required: true,
+        options: ['Parent', 'Grandparent', 'Sibling', 'Spouse/Partner', 'Other family member', 'Other'],
         conditional: {
           dependsOn: 'hasFinancialDependents',
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 134,
+        questionNumber: 113,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent3MedicalCosts',
-        title: 'Dependent 3: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+        id: 'dependent3MonthlySupport',
+        title: 'Dependent 3: How much monthly financial support do you provide?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'hasFinancialDependents',
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 135,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3LivingExpenses',
-        title: 'Dependent 3: Rent, grocery, utilities expenses, monthly',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 136,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3TravelExpenses',
-        title: 'Dependent 3: Travel and commute monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 137,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3EntertainmentExpenses',
-        title: 'Dependent 3: Entertainment, leisure, holiday, hobby, monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 138,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3MiscellaneousExpenses',
-        title: 'Dependent 3: Other miscellaneous expenses monthly',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 139,
+        questionNumber: 114,
         groupId: 'financial-dependents'
       },
       {
         id: 'dependent3HealthInsurance',
-        title: 'Dependent 3: Do you have health insurance to cover this dependent?',
+        title: 'Dependent 3: Do you have health insurance for this dependent?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
@@ -2167,14 +2184,21 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 140,
+        questionNumber: 115,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent3InsuranceCover',
-        title: 'Dependent 3: What is the value of the insurance cover for this dependent?',
+        id: 'dependent3HealthInsuranceCover',
+        title: 'Dependent 3: What is the coverage amount of their health insurance?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasFinancialDependents',
@@ -2186,7 +2210,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 141,
+        questionNumber: 116,
         groupId: 'financial-dependents'
       },
       {
@@ -2194,6 +2218,13 @@ export const questionGroups: QuestionGroup[] = [
         title: "Dependent 3: What is the annual premium you're paying for this?",
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasFinancialDependents',
@@ -2205,90 +2236,46 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 142,
+        questionNumber: 117,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent4HealthExpenses',
-        title: 'Dependent 4: Health related monthly expenses (not covered by insurance)',
-        type: 'number',
+        id: 'dependent4Relationship',
+        title: "Dependent 4: What's their relationship to you?",
+        type: 'select',
         required: true,
+        options: ['Parent', 'Grandparent', 'Sibling', 'Spouse/Partner', 'Other family member', 'Other'],
         conditional: {
           dependsOn: 'hasFinancialDependents',
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 143,
+        questionNumber: 118,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent4MedicalCosts',
-        title: 'Dependent 4: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+        id: 'dependent4MonthlySupport',
+        title: 'Dependent 4: How much monthly financial support do you provide?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'hasFinancialDependents',
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 144,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4LivingExpenses',
-        title: 'Dependent 4: Rent, grocery, utilities expenses, monthly',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 145,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4TravelExpenses',
-        title: 'Dependent 4: Travel and commute monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 146,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4EntertainmentExpenses',
-        title: 'Dependent 4: Entertainment, leisure, holiday, hobby, monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 147,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4MiscellaneousExpenses',
-        title: 'Dependent 4: Other miscellaneous expenses monthly',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 148,
+        questionNumber: 119,
         groupId: 'financial-dependents'
       },
       {
         id: 'dependent4HealthInsurance',
-        title: 'Dependent 4: Do you have health insurance to cover this dependent?',
+        title: 'Dependent 4: Do you have health insurance for this dependent?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
@@ -2297,14 +2284,21 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 149,
+        questionNumber: 120,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent4InsuranceCover',
-        title: 'Dependent 4: What is the value of the insurance cover for this dependent?',
+        id: 'dependent4HealthInsuranceCover',
+        title: 'Dependent 4: What is the coverage amount of their health insurance?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasFinancialDependents',
@@ -2316,7 +2310,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 150,
+        questionNumber: 121,
         groupId: 'financial-dependents'
       },
       {
@@ -2324,6 +2318,13 @@ export const questionGroups: QuestionGroup[] = [
         title: "Dependent 4: What is the annual premium you're paying for this?",
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasFinancialDependents',
@@ -2335,90 +2336,46 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 151,
+        questionNumber: 122,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent5HealthExpenses',
-        title: 'Dependent 5: Health related monthly expenses (not covered by insurance)',
-        type: 'number',
+        id: 'dependent5Relationship',
+        title: "Dependent 5: What's their relationship to you?",
+        type: 'select',
         required: true,
+        options: ['Parent', 'Grandparent', 'Sibling', 'Spouse/Partner', 'Other family member', 'Other'],
         conditional: {
           dependsOn: 'hasFinancialDependents',
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 152,
+        questionNumber: 123,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent5MedicalCosts',
-        title: 'Dependent 5: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+        id: 'dependent5MonthlySupport',
+        title: 'Dependent 5: How much monthly financial support do you provide?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'hasFinancialDependents',
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 153,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5LivingExpenses',
-        title: 'Dependent 5: Rent, grocery, utilities expenses, monthly',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 154,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5TravelExpenses',
-        title: 'Dependent 5: Travel and commute monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 155,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5EntertainmentExpenses',
-        title: 'Dependent 5: Entertainment, leisure, holiday, hobby, monthly expenses',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 156,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5MiscellaneousExpenses',
-        title: 'Dependent 5: Other miscellaneous expenses monthly',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 157,
+        questionNumber: 124,
         groupId: 'financial-dependents'
       },
       {
         id: 'dependent5HealthInsurance',
-        title: 'Dependent 5: Do you have health insurance to cover this dependent?',
+        title: 'Dependent 5: Do you have health insurance for this dependent?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
@@ -2427,14 +2384,21 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 158,
+        questionNumber: 125,
         groupId: 'financial-dependents'
       },
       {
-        id: 'dependent5InsuranceCover',
-        title: 'Dependent 5: What is the value of the insurance cover for this dependent?',
+        id: 'dependent5HealthInsuranceCover',
+        title: 'Dependent 5: What is the coverage amount of their health insurance?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasFinancialDependents',
@@ -2446,7 +2410,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 159,
+        questionNumber: 126,
         groupId: 'financial-dependents'
       },
       {
@@ -2454,6 +2418,13 @@ export const questionGroups: QuestionGroup[] = [
         title: "Dependent 5: What is the annual premium you're paying for this?",
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasFinancialDependents',
@@ -2465,20 +2436,34 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 160,
+        questionNumber: 127,
         groupId: 'financial-dependents'
       }
     ]
   },
   {
     id: 'personal-loans',
-    title: 'Personal Loans & Credit Cards',
+    title: 'Personal Loans & Credit',
     description: 'Details about your personal loans and credit card debt',
     conditional: true,
     questions: [
       {
+        id: 'numberOfPersonalLoans',
+        title: 'How many personal loans do you currently have?',
+        type: 'select',
+        required: true,
+        options: ['1', '2', '3', '4', '5 or more'],
+        conditional: {
+          dependsOn: 'hasPersonalLoans',
+          values: ['Yes']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 128,
+        groupId: 'personal-loans'
+      },
+      {
         id: 'hasCreditCardDebt',
-        title: 'Do you have any credit card debt that is more than 45 days old?',
+        title: 'Do you have credit card debt?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
@@ -2487,33 +2472,29 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 161,
+        questionNumber: 129,
         groupId: 'personal-loans'
       },
+
+      // Credit Card Questions
       {
-        id: 'totalCreditCardDebt',
-        title: 'What is the total outstanding credit card debt?',
+        id: 'creditCardOutstanding',
+        title: 'What is your total outstanding credit card balance?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'hasCreditCardDebt',
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 162,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'creditCardMonthlyPayment',
-        title: 'What is your current credit card monthly payment?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'hasCreditCardDebt',
-          values: ['Yes']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 163,
+        questionNumber: 130,
         groupId: 'personal-loans'
       },
       {
@@ -2544,19 +2525,31 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 164,
+        questionNumber: 131,
         groupId: 'personal-loans'
       },
       {
-        id: 'numberOfPersonalLoans',
-        title: 'How many personal loans do you have apart from those for your home and/or your vehicles?',
-        type: 'select',
+        id: 'creditCardMinimumPayment',
+        title: 'What is your total monthly minimum payment on credit cards?',
+        type: 'number',
         required: true,
-        options: ['0', '1', '2', '3', '4', '5 or more'],
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasCreditCardDebt',
+          values: ['Yes']
+        },
         section: 'Personal Loans & Credit',
-        questionNumber: 165,
+        questionNumber: 132,
         groupId: 'personal-loans'
       },
+
+      // Personal Loan 1 Questions
       {
         id: 'loan1Purpose',
         title: 'Personal Loan 1: What was this loan taken for?',
@@ -2568,7 +2561,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 166,
+        questionNumber: 133,
         groupId: 'personal-loans'
       },
       {
@@ -2576,25 +2569,39 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Personal Loan 1: What was the original loan amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 167,
+        questionNumber: 134,
         groupId: 'personal-loans'
       },
       {
-        id: 'loan1OutstandingBalance',
-        title: 'Personal Loan 1: What is the current outstanding balance?',
+        id: 'loan1Outstanding',
+        title: 'Personal Loan 1: What is the current outstanding amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 168,
+        questionNumber: 135,
         groupId: 'personal-loans'
       },
       {
@@ -2625,7 +2632,27 @@ export const questionGroups: QuestionGroup[] = [
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 169,
+        questionNumber: 136,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan1RemainingTenure',
+        title: 'Personal Loan 1: What is the remaining loan tenure (in years)?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Tenure cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 137,
         groupId: 'personal-loans'
       },
       {
@@ -2638,9 +2665,11 @@ export const questionGroups: QuestionGroup[] = [
           values: ['1', '2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 170,
+        questionNumber: 138,
         groupId: 'personal-loans'
       },
+
+      // Personal Loan 2 Questions
       {
         id: 'loan2Purpose',
         title: 'Personal Loan 2: What was this loan taken for?',
@@ -2652,7 +2681,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 171,
+        questionNumber: 139,
         groupId: 'personal-loans'
       },
       {
@@ -2660,25 +2689,39 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Personal Loan 2: What was the original loan amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 172,
+        questionNumber: 140,
         groupId: 'personal-loans'
       },
       {
-        id: 'loan2OutstandingBalance',
-        title: 'Personal Loan 2: What is the current outstanding balance?',
+        id: 'loan2Outstanding',
+        title: 'Personal Loan 2: What is the current outstanding amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 173,
+        questionNumber: 141,
         groupId: 'personal-loans'
       },
       {
@@ -2709,7 +2752,27 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 174,
+        questionNumber: 142,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan2RemainingTenure',
+        title: 'Personal Loan 2: What is the remaining loan tenure (in years)?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Tenure cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 143,
         groupId: 'personal-loans'
       },
       {
@@ -2722,9 +2785,11 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 175,
+        questionNumber: 144,
         groupId: 'personal-loans'
       },
+
+      // Personal Loan 3 Questions
       {
         id: 'loan3Purpose',
         title: 'Personal Loan 3: What was this loan taken for?',
@@ -2736,7 +2801,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 176,
+        questionNumber: 145,
         groupId: 'personal-loans'
       },
       {
@@ -2744,25 +2809,39 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Personal Loan 3: What was the original loan amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 177,
+        questionNumber: 146,
         groupId: 'personal-loans'
       },
       {
-        id: 'loan3OutstandingBalance',
-        title: 'Personal Loan 3: What is the current outstanding balance?',
+        id: 'loan3Outstanding',
+        title: 'Personal Loan 3: What is the current outstanding amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 178,
+        questionNumber: 147,
         groupId: 'personal-loans'
       },
       {
@@ -2793,7 +2872,27 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 179,
+        questionNumber: 148,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan3RemainingTenure',
+        title: 'Personal Loan 3: What is the remaining loan tenure (in years)?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Tenure cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 149,
         groupId: 'personal-loans'
       },
       {
@@ -2806,9 +2905,11 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 180,
+        questionNumber: 150,
         groupId: 'personal-loans'
       },
+
+      // Personal Loan 4 Questions
       {
         id: 'loan4Purpose',
         title: 'Personal Loan 4: What was this loan taken for?',
@@ -2820,7 +2921,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 181,
+        questionNumber: 151,
         groupId: 'personal-loans'
       },
       {
@@ -2828,25 +2929,39 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Personal Loan 4: What was the original loan amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 182,
+        questionNumber: 152,
         groupId: 'personal-loans'
       },
       {
-        id: 'loan4OutstandingBalance',
-        title: 'Personal Loan 4: What is the current outstanding balance?',
+        id: 'loan4Outstanding',
+        title: 'Personal Loan 4: What is the current outstanding amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 183,
+        questionNumber: 153,
         groupId: 'personal-loans'
       },
       {
@@ -2877,7 +2992,27 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 184,
+        questionNumber: 154,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan4RemainingTenure',
+        title: 'Personal Loan 4: What is the remaining loan tenure (in years)?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Tenure cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['4', '5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 155,
         groupId: 'personal-loans'
       },
       {
@@ -2890,9 +3025,11 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 185,
+        questionNumber: 156,
         groupId: 'personal-loans'
       },
+
+      // Personal Loan 5 Questions
       {
         id: 'loan5Purpose',
         title: 'Personal Loan 5: What was this loan taken for?',
@@ -2904,7 +3041,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 186,
+        questionNumber: 157,
         groupId: 'personal-loans'
       },
       {
@@ -2912,25 +3049,39 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Personal Loan 5: What was the original loan amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 187,
+        questionNumber: 158,
         groupId: 'personal-loans'
       },
       {
-        id: 'loan5OutstandingBalance',
-        title: 'Personal Loan 5: What is the current outstanding balance?',
+        id: 'loan5Outstanding',
+        title: 'Personal Loan 5: What is the current outstanding amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 188,
+        questionNumber: 159,
         groupId: 'personal-loans'
       },
       {
@@ -2961,7 +3112,27 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 189,
+        questionNumber: 160,
+        groupId: 'personal-loans'
+      },
+      {
+        id: 'loan5RemainingTenure',
+        title: 'Personal Loan 5: What is the remaining loan tenure (in years)?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Tenure cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'numberOfPersonalLoans',
+          values: ['5 or more']
+        },
+        section: 'Personal Loans & Credit',
+        questionNumber: 161,
         groupId: 'personal-loans'
       },
       {
@@ -2974,7 +3145,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 190,
+        questionNumber: 162,
         groupId: 'personal-loans'
       }
     ]
@@ -2982,7 +3153,7 @@ export const questionGroups: QuestionGroup[] = [
   {
     id: 'insurance-coverage',
     title: 'Insurance Coverage',
-    description: 'Basic insurance coverage questions',
+    description: 'Overview of your insurance policies',
     questions: [
       {
         id: 'userHealthInsurance',
@@ -2991,7 +3162,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 191,
+        questionNumber: 163,
         groupId: 'insurance-coverage'
       },
       {
@@ -3001,17 +3172,37 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 192,
+        questionNumber: 164,
         groupId: 'insurance-coverage'
       },
       {
-        id: 'userAccidentInsurance',
-        title: 'Do you have accident and disability insurance?',
+        id: 'userDisabilityInsurance',
+        title: 'Do you have disability insurance?',
         type: 'radio',
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 193,
+        questionNumber: 165,
+        groupId: 'insurance-coverage'
+      },
+      {
+        id: 'userCriticalIllnessInsurance',
+        title: 'Do you have critical illness insurance?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Insurance Coverage',
+        questionNumber: 166,
+        groupId: 'insurance-coverage'
+      },
+      {
+        id: 'userTravelInsurance',
+        title: 'Do you regularly purchase travel insurance?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Insurance Coverage',
+        questionNumber: 167,
         groupId: 'insurance-coverage'
       },
       {
@@ -3020,8 +3211,12 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Yes', 'No', 'Not applicable'],
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship living together', 'Married']
+        },
         section: 'Insurance Coverage',
-        questionNumber: 194,
+        questionNumber: 168,
         groupId: 'insurance-coverage'
       },
       {
@@ -3030,18 +3225,12 @@ export const questionGroups: QuestionGroup[] = [
         type: 'radio',
         required: true,
         options: ['Yes', 'No', 'Not applicable'],
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship living together', 'Married']
+        },
         section: 'Insurance Coverage',
-        questionNumber: 195,
-        groupId: 'insurance-coverage'
-      },
-      {
-        id: 'partnerAccidentInsurance',
-        title: 'Does your partner have accident and disability insurance?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No', 'Not applicable'],
-        section: 'Insurance Coverage',
-        questionNumber: 196,
+        questionNumber: 169,
         groupId: 'insurance-coverage'
       }
     ]
@@ -3049,7 +3238,7 @@ export const questionGroups: QuestionGroup[] = [
   {
     id: 'insurance-details',
     title: 'Insurance Details',
-    description: 'Detailed insurance coverage amounts and premiums',
+    description: 'Detailed information about your insurance policies',
     conditional: true,
     questions: [
       {
@@ -3062,7 +3251,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 197,
+        questionNumber: 170,
         groupId: 'insurance-details'
       },
       {
@@ -3075,7 +3264,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 198,
+        questionNumber: 171,
         groupId: 'insurance-details'
       },
       {
@@ -3089,7 +3278,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 199,
+        questionNumber: 172,
         groupId: 'insurance-details'
       },
       {
@@ -3102,7 +3291,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 200,
+        questionNumber: 173,
         groupId: 'insurance-details'
       },
       {
@@ -3115,7 +3304,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 201,
+        questionNumber: 174,
         groupId: 'insurance-details'
       },
       {
@@ -3129,52 +3318,105 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 202,
+        questionNumber: 175,
         groupId: 'insurance-details'
       },
       {
-        id: 'userAccidentInsuranceCover',
-        title: 'What is your total accident and disability insurance coverage amount?',
+        id: 'userDisabilityInsuranceCover',
+        title: 'What is your total disability insurance coverage amount?',
         type: 'number',
         required: true,
         conditional: {
-          dependsOn: 'userAccidentInsurance',
+          dependsOn: 'userDisabilityInsurance',
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 203,
+        questionNumber: 176,
         groupId: 'insurance-details'
       },
       {
-        id: 'userAccidentInsurancePremium',
-        title: 'What is your accident and disability insurance premium amount?',
+        id: 'userDisabilityInsurancePremium',
+        title: 'What is your disability insurance premium amount?',
         type: 'number',
         required: true,
         conditional: {
-          dependsOn: 'userAccidentInsurance',
+          dependsOn: 'userDisabilityInsurance',
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 204,
+        questionNumber: 177,
         groupId: 'insurance-details'
       },
       {
-        id: 'userAccidentInsurancePeriod',
-        title: 'Accident and disability insurance premium period',
+        id: 'userDisabilityInsurancePeriod',
+        title: 'Disability insurance premium period',
         type: 'select',
         required: true,
         options: ['Monthly', 'Annual'],
         conditional: {
-          dependsOn: 'userAccidentInsurance',
+          dependsOn: 'userDisabilityInsurance',
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 205,
+        questionNumber: 178,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userCriticalIllnessInsuranceCover',
+        title: 'What is your total critical illness insurance coverage amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'userCriticalIllnessInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 179,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userCriticalIllnessInsurancePremium',
+        title: 'What is your critical illness insurance premium amount?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'userCriticalIllnessInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 180,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userCriticalIllnessInsurancePeriod',
+        title: 'Critical illness insurance premium period',
+        type: 'select',
+        required: true,
+        options: ['Monthly', 'Annual'],
+        conditional: {
+          dependsOn: 'userCriticalIllnessInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 181,
+        groupId: 'insurance-details'
+      },
+      {
+        id: 'userTravelInsuranceSpend',
+        title: 'What is your annual spending on travel insurance?',
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'userTravelInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance Details',
+        questionNumber: 182,
         groupId: 'insurance-details'
       },
       {
         id: 'partnerHealthInsuranceCover',
-        title: "What is your partner's total health insurance coverage amount?",
+        title: 'What is your partner\'s total health insurance coverage amount?',
         type: 'number',
         required: true,
         conditional: {
@@ -3182,12 +3424,12 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 206,
+        questionNumber: 183,
         groupId: 'insurance-details'
       },
       {
         id: 'partnerHealthInsurancePremium',
-        title: "What is your partner's health insurance premium amount?",
+        title: 'What is your partner\'s health insurance premium amount?',
         type: 'number',
         required: true,
         conditional: {
@@ -3195,12 +3437,12 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 207,
+        questionNumber: 184,
         groupId: 'insurance-details'
       },
       {
         id: 'partnerHealthInsurancePeriod',
-        title: "Partner's health insurance premium period",
+        title: 'Partner\'s health insurance premium period',
         type: 'select',
         required: true,
         options: ['Monthly', 'Annual'],
@@ -3209,12 +3451,12 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 208,
+        questionNumber: 185,
         groupId: 'insurance-details'
       },
       {
         id: 'partnerLifeInsuranceCover',
-        title: "What is your partner's total life insurance coverage amount?",
+        title: 'What is your partner\'s total life insurance coverage amount?',
         type: 'number',
         required: true,
         conditional: {
@@ -3222,12 +3464,12 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 209,
+        questionNumber: 186,
         groupId: 'insurance-details'
       },
       {
         id: 'partnerLifeInsurancePremium',
-        title: "What is your partner's life insurance premium amount?",
+        title: 'What is your partner\'s life insurance premium amount?',
         type: 'number',
         required: true,
         conditional: {
@@ -3235,12 +3477,12 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 210,
+        questionNumber: 187,
         groupId: 'insurance-details'
       },
       {
         id: 'partnerLifeInsurancePeriod',
-        title: "Partner's life insurance premium period",
+        title: 'Partner\'s life insurance premium period',
         type: 'select',
         required: true,
         options: ['Monthly', 'Annual'],
@@ -3249,47 +3491,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 211,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'partnerAccidentInsuranceCover',
-        title: "What is your partner's total accident and disability insurance coverage amount?",
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'partnerAccidentInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 212,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'partnerAccidentInsurancePremium',
-        title: "What is your partner's accident and disability insurance premium amount?",
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'partnerAccidentInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 213,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'partnerAccidentInsurancePeriod',
-        title: "Partner's accident and disability insurance premium period",
-        type: 'select',
-        required: true,
-        options: ['Monthly', 'Annual'],
-        conditional: {
-          dependsOn: 'partnerAccidentInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 214,
+        questionNumber: 188,
         groupId: 'insurance-details'
       }
     ]
@@ -3299,13 +3501,14 @@ export const questionGroups: QuestionGroup[] = [
     title: 'Monthly & Annual Expenses',
     description: 'Your regular monthly living expenses and yearly costs',
     questions: [
+      // Section A: Monthly Expenses (Questions 189-211)
       {
         id: 'monthlyGroceries',
         title: 'What are your monthly costs for groceries and toiletries?',
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 215,
+        questionNumber: 189,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -3314,307 +3517,200 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 216,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyBeauty',
-        title: 'What are your monthly costs for makeup and jewellery?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 217,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlySalon',
-        title: 'What are your monthly costs for haircuts, salon, beauty treatments and massages?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 218,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyDomesticHelp',
-        title: 'What are your monthly costs for maid/cook/househelp/nanny?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 219,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyCookingGas',
-        title: 'What are your monthly cooking gas costs?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 220,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyElectricity',
-        title: 'What are your monthly electricity costs?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 221,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyMobile',
-        title: 'What are your monthly mobile plan costs?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 222,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyInternet',
-        title: 'What are your monthly broadband/internet costs?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 223,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyTvOtt',
-        title: 'What are your monthly TV/OTT/cable bills? Include all your OTT subscriptions.',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 224,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyAppSubscriptions',
-        title: 'What are your monthly costs for other app subscriptions (music, gaming, data storage, email, health trackers, etc.)?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 225,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyCommute',
-        title: 'What are your monthly costs for commuting to office and local transport (not your own vehicle)?',
-        subtitle: 'Include taxis, buses, trains, metro - exclude fuel for your own vehicle',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 226,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyPetCosts',
-        title: 'What are your monthly pet-related costs?',
-        subtitle: 'Include food, grooming, medical treatments, toys, medicines',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 227,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyEntertainment',
-        title: 'What are your monthly costs for movies, concerts, shows, museums, sporting events?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 228,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyHobbies',
-        title: 'What are your monthly hobby costs?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 229,
+        questionNumber: 190,
         groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyDiningOut',
-        title: 'What are your monthly costs for eating out, ordering food, partying, drinking out, coffee outside?',
+        title: 'What are your monthly dining out and food delivery costs?',
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 230,
+        questionNumber: 191,
         groupId: 'monthly-annual-expenses'
       },
       {
-        id: 'monthlyAlcoholHome',
-        title: 'What are your monthly costs for alcohol ordered at home?',
+        id: 'monthlyEntertainment',
+        title: 'What are your monthly entertainment costs?',
+        subtitle: 'Movies, concerts, events, hobbies',
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 231,
+        questionNumber: 192,
         groupId: 'monthly-annual-expenses'
       },
       {
-        id: 'monthlyTobacco',
-        title: 'What are your monthly costs for cigarettes, vaping, tobacco use?',
+        id: 'monthlySubscriptions',
+        title: 'What are your monthly subscription costs?',
+        subtitle: 'Netflix, Spotify, gym, magazines, etc.',
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 232,
+        questionNumber: 193,
         groupId: 'monthly-annual-expenses'
       },
       {
-        id: 'monthlyMedication',
-        title: 'What are your monthly medication and treatment costs not covered by insurance?',
+        id: 'monthlyUtilities',
+        title: 'What are your monthly utility costs?',
+        subtitle: 'Electricity, water, gas, internet, phone',
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 233,
+        questionNumber: 194,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'monthlyTransportation',
+        title: 'What are your monthly transportation costs?',
+        subtitle: 'Public transport, taxis, ride-sharing (excluding vehicle expenses)',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 195,
         groupId: 'monthly-annual-expenses'
       },
       {
         id: 'monthlyHealthcare',
-        title: 'What are your monthly costs for health exams, tests, dental treatment, eyeglasses not covered by insurance?',
+        title: 'What are your monthly healthcare costs?',
+        subtitle: 'Doctor visits, medicines, treatments not covered by insurance',
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 234,
+        questionNumber: 196,
         groupId: 'monthly-annual-expenses'
       },
       {
-        id: 'monthlyEducation',
-        title: 'What are your monthly college/course fees for yourself or partner?',
+        id: 'monthlyPersonalCare',
+        title: 'What are your monthly personal care costs?',
+        subtitle: 'Salon, spa, cosmetics, grooming',
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 235,
+        questionNumber: 197,
         groupId: 'monthly-annual-expenses'
       },
       {
-        id: 'monthlyVisitingHome',
-        title: 'What are your monthly costs for visiting home (if staying away from family)?',
+        id: 'monthlyGifts',
+        title: 'What are your monthly costs for gifts and donations?',
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 236,
+        questionNumber: 198,
         groupId: 'monthly-annual-expenses'
       },
       {
-        id: 'monthlyMiscellaneous',
-        title: 'What are your other miscellaneous monthly expenses not covered above?',
+        id: 'monthlyHouseholdItems',
+        title: 'What are your monthly costs for household items and appliances?',
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 237,
+        questionNumber: 199,
         groupId: 'monthly-annual-expenses'
       },
       {
-        id: 'annualHomeDecor',
-        title: 'What are your annual costs for home decor, furniture, furnishings, linen?',
+        id: 'monthlyPetExpenses',
+        title: 'What are your monthly pet expenses?',
+        subtitle: 'Food, vet, grooming, toys',
         type: 'number',
         required: true,
-        section: 'Annual Expenses',
-        questionNumber: 238,
+        section: 'Monthly Expenses',
+        questionNumber: 200,
         groupId: 'monthly-annual-expenses'
       },
       {
-        id: 'annualElectronics',
-        title: 'What are your annual costs for gadgets, computers, electronics, home appliances (except mobile phone)?',
+        id: 'monthlyMiscExpenses',
+        title: 'What are your other monthly miscellaneous expenses?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Expenses',
+        questionNumber: 201,
+        groupId: 'monthly-annual-expenses'
+      },
+
+      // Section B: Annual Expenses (Questions 202-211)
+      {
+        id: 'annualVacationTravel',
+        title: 'What are your annual vacation and travel costs?',
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 239,
+        questionNumber: 202,
         groupId: 'monthly-annual-expenses'
       },
       {
-        id: 'annualMobileHandset',
-        title: 'What do you spend annually on new mobile handsets?',
-        subtitle: 'If you buy once every 2 years, divide the cost by 2',
+        id: 'annualTaxes',
+        title: 'What are your annual income taxes (net of any refunds)?',
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 240,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualHolidays',
-        title: 'What are your annual costs for holidays and vacations?',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 241,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualGifts',
-        title: 'What are your annual estimated costs for gifts to partner/friends/family?',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 242,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualFitnessMemberships',
-        title: 'What are your annual costs for gym/fitness memberships, sports club fees?',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 243,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualProfessionalMemberships',
-        title: 'What are your annual costs for professional networking, association memberships?',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 244,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualDonations',
-        title: 'What are your annual charitable donations/religious contributions?',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 245,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualProfessionalServices',
-        title: 'What are your annual costs for legal/accounting/professional services, tax preparation?',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 246,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualHomeSecurity',
-        title: 'What are your annual costs for home security systems/services?',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 247,
+        questionNumber: 203,
         groupId: 'monthly-annual-expenses'
       },
       {
         id: 'annualProfessionalDevelopment',
-        title: 'What are your annual costs for professional development, courses, certifications?',
+        title: 'What are your annual professional development costs?',
+        subtitle: 'Training, courses, certifications, conferences',
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 248,
+        questionNumber: 204,
         groupId: 'monthly-annual-expenses'
       },
       {
-        id: 'annualMiscellaneous',
-        title: 'What are your other annual miscellaneous expenses not covered above?',
+        id: 'annualHomeRepairs',
+        title: 'What are your annual home repairs and maintenance costs?',
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 249,
+        questionNumber: 205,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'annualMedicalExpenses',
+        title: 'What are your annual large medical expenses?',
+        subtitle: 'Surgeries, dental work, vision care not covered by insurance',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 206,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'annualCharityDonations',
+        title: 'What are your annual charity donations and large gifts?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 207,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'annualLegalProfessional',
+        title: 'What are your annual legal and professional service fees?',
+        subtitle: 'Lawyer, accountant, financial advisor fees',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 208,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'annualSpecialEvents',
+        title: 'What are your annual special event costs?',
+        subtitle: 'Weddings, parties, celebrations',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 209,
+        groupId: 'monthly-annual-expenses'
+      },
+      {
+        id: 'annualMiscExpenses',
+        title: 'What are your other annual miscellaneous expenses?',
+        type: 'number',
+        required: true,
+        section: 'Annual Expenses',
+        questionNumber: 210,
         groupId: 'monthly-annual-expenses'
       }
     ]
@@ -3622,116 +3718,143 @@ export const questionGroups: QuestionGroup[] = [
   {
     id: 'investment-contributions',
     title: 'Investment Contributions',
-    description: 'Your monthly and annual investment contributions',
+    description: 'Your regular investments and savings contributions',
     questions: [
       {
-        id: 'monthlySipContributions',
-        title: 'What are your monthly systematic investment plan (SIP) contributions to mutual funds?',
+        id: 'monthlyMutualFunds',
+        title: 'What are your monthly mutual fund SIP contributions?',
         type: 'number',
         required: true,
-        section: 'Monthly Investment Contributions',
-        questionNumber: 250,
+        section: 'Investment Contributions',
+        questionNumber: 211,
         groupId: 'investment-contributions'
       },
       {
-        id: 'monthlyDirectEquity',
-        title: 'What are your monthly direct equity purchases?',
+        id: 'monthlyStockInvestments',
+        title: 'What are your monthly direct stock/equity investments?',
         type: 'number',
         required: true,
-        section: 'Monthly Investment Contributions',
-        questionNumber: 251,
-        groupId: 'investment-contributions'
-      },
-      {
-        id: 'monthlyRetirementContributions',
-        title: 'What are your monthly retirement savings contributions?',
-        subtitle: 'Include workplace pension schemes like 401k in US, EPF in India, occupational pensions in Europe, superannuation in Australia, etc.',
-        type: 'number',
-        required: true,
-        section: 'Monthly Investment Contributions',
-        questionNumber: 252,
+        section: 'Investment Contributions',
+        questionNumber: 212,
         groupId: 'investment-contributions'
       },
       {
         id: 'monthlyFixedDeposits',
-        title: 'What are your monthly fixed deposit or term deposit contributions?',
+        title: 'What are your monthly fixed deposit contributions?',
         type: 'number',
         required: true,
-        section: 'Monthly Investment Contributions',
-        questionNumber: 253,
+        section: 'Investment Contributions',
+        questionNumber: 213,
         groupId: 'investment-contributions'
       },
       {
-        id: 'monthlySavingsGoals',
-        title: 'What are your monthly savings account deposits for investment purposes or saving for goals?',
+        id: 'monthlyPPF',
+        title: 'What are your monthly PPF (Public Provident Fund) contributions?',
         type: 'number',
         required: true,
-        section: 'Monthly Investment Contributions',
-        questionNumber: 254,
+        section: 'Investment Contributions',
+        questionNumber: 214,
         groupId: 'investment-contributions'
       },
       {
-        id: 'monthlyCryptoPurchases',
-        title: 'What are your monthly cryptocurrency purchases?',
+        id: 'monthlyEPF',
+        title: 'What are your monthly EPF (Employee Provident Fund) contributions?',
         type: 'number',
         required: true,
-        section: 'Monthly Investment Contributions',
-        questionNumber: 255,
+        section: 'Investment Contributions',
+        questionNumber: 215,
         groupId: 'investment-contributions'
       },
       {
-        id: 'monthlyCommodityInvestments',
-        title: 'What are your monthly gold, silver or other commodity investments?',
+        id: 'monthlyNPS',
+        title: 'What are your monthly NPS (National Pension System) contributions?',
         type: 'number',
         required: true,
-        section: 'Monthly Investment Contributions',
-        questionNumber: 256,
+        section: 'Investment Contributions',
+        questionNumber: 216,
         groupId: 'investment-contributions'
       },
       {
-        id: 'monthlyBondContributions',
-        title: 'What are your monthly contributions to investment bonds or structured products?',
+        id: 'monthlyULIP',
+        title: 'What are your monthly ULIP (Unit Linked Insurance Plan) contributions?',
         type: 'number',
         required: true,
-        section: 'Monthly Investment Contributions',
-        questionNumber: 257,
+        section: 'Investment Contributions',
+        questionNumber: 217,
         groupId: 'investment-contributions'
       },
       {
-        id: 'annualRetirementLumpsum',
-        title: 'What are your annual lump sum contributions to retirement accounts?',
+        id: 'monthlyBonds',
+        title: 'What are your monthly bond/debenture investments?',
         type: 'number',
         required: true,
-        section: 'Annual Investment Contributions',
-        questionNumber: 258,
+        section: 'Investment Contributions',
+        questionNumber: 218,
         groupId: 'investment-contributions'
       },
       {
-        id: 'annualTaxAdvantagedInvestments',
-        title: 'What are your annual tax-advantaged investment contributions?',
-        subtitle: 'Include ELSS in India, ISA in UK, Roth IRA in US, etc.',
+        id: 'monthlyGold',
+        title: 'What are your monthly gold investments?',
+        subtitle: 'Gold ETF, digital gold, physical gold',
         type: 'number',
         required: true,
-        section: 'Annual Investment Contributions',
-        questionNumber: 259,
+        section: 'Investment Contributions',
+        questionNumber: 219,
         groupId: 'investment-contributions'
       },
       {
-        id: 'annualBondPurchases',
-        title: 'What are your annual government or corporate bond purchases?',
+        id: 'monthlyRealEstate',
+        title: 'What are your monthly real estate investment contributions?',
+        subtitle: 'REITs, real estate funds',
         type: 'number',
         required: true,
-        section: 'Annual Investment Contributions',
-        questionNumber: 260,
+        section: 'Investment Contributions',
+        questionNumber: 220,
         groupId: 'investment-contributions'
       },
       {
-        id: 'annualMiscellaneousInvestments',
-        title: 'What are your annual miscellaneous investment contributions not covered above?',
+        id: 'monthlyCryptocurrency',
+        title: 'What are your monthly cryptocurrency investments?',
         type: 'number',
         required: true,
-        section: 'Annual Investment Contributions',
-        questionNumber: 261,
+        section: 'Investment Contributions',
+        questionNumber: 221,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyEmergencyFund',
+        title: 'What are your monthly emergency fund contributions?',
+        type: 'number',
+        required: true,
+        section: 'Investment Contributions',
+        questionNumber: 222,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyRetirementSavings',
+        title: 'What are your monthly retirement savings (outside of EPF/NPS)?',
+        type: 'number',
+        required: true,
+        section: 'Investment Contributions',
+        questionNumber: 223,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyChildEducation',
+        title: 'What are your monthly child education fund contributions?',
+        type: 'number',
+        required: true,
+        section: 'Investment Contributions',
+        questionNumber: 224,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyOtherInvestments',
+        title: 'What are your other monthly investment contributions?',
+        type: 'number',
+        required: true,
+        section: 'Investment Contributions',
+        questionNumber: 225,
         groupId: 'investment-contributions'
       }
     ]
@@ -3741,33 +3864,14 @@ export const questionGroups: QuestionGroup[] = [
     title: 'Assets',
     description: 'Current value of your assets and holdings',
     questions: [
-      {
-        id: 'totalPropertyValue',
-        title: 'Total current value of all properties you own',
-        subtitle: 'This is calculated automatically from your property details above',
-        type: 'number',
-        required: false,
-        section: 'Auto-calculated Assets',
-        questionNumber: 262,
-        groupId: 'assets'
-      },
-      {
-        id: 'totalVehicleValue',
-        title: 'Total current value of all vehicles you own',
-        subtitle: 'This is calculated automatically from your vehicle details above',
-        type: 'number',
-        required: false,
-        section: 'Auto-calculated Assets',
-        questionNumber: 263,
-        groupId: 'assets'
-      },
+      // Section A: Cash & Bank Accounts (Questions 226-235)
       {
         id: 'checkingAccountBalance',
         title: 'What is your current checking account balance?',
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 264,
+        questionNumber: 226,
         groupId: 'assets'
       },
       {
@@ -3777,155 +3881,219 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 265,
+        questionNumber: 227,
         groupId: 'assets'
       },
       {
-        id: 'fixedDepositsValue',
-        title: 'What is the current value of your fixed deposits/term deposits?',
+        id: 'emergencyFundBalance',
+        title: 'What is your current emergency fund balance?',
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 266,
+        questionNumber: 228,
         groupId: 'assets'
       },
       {
-        id: 'cashOnHand',
-        title: 'How much cash do you have on hand?',
+        id: 'fixedDepositBalance',
+        title: 'What is the current value of all your fixed deposits?',
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 267,
+        questionNumber: 229,
         groupId: 'assets'
       },
       {
-        id: 'mutualFundsValue',
-        title: 'What is the current value of your mutual funds?',
+        id: 'recurringDepositBalance',
+        title: 'What is the current value of all your recurring deposits?',
         type: 'number',
         required: true,
-        section: 'Investment Holdings',
-        questionNumber: 268,
+        section: 'Cash & Bank Accounts',
+        questionNumber: 230,
         groupId: 'assets'
       },
+
+      // Section B: Investment Assets (Questions 231-245)
       {
-        id: 'directEquityValue',
-        title: 'What is the current value of your direct equity/stocks?',
+        id: 'mutualFundBalance',
+        title: 'What is the current value of all your mutual fund investments?',
         type: 'number',
         required: true,
-        section: 'Investment Holdings',
-        questionNumber: 269,
+        section: 'Investment Assets',
+        questionNumber: 231,
         groupId: 'assets'
       },
       {
-        id: 'retirementAccountBalance',
-        title: 'What is your retirement account balance?',
-        subtitle: 'Include 401k, EPF, pension funds, superannuation, etc.',
+        id: 'stockPortfolioBalance',
+        title: 'What is the current value of your direct stock portfolio?',
         type: 'number',
         required: true,
-        section: 'Investment Holdings',
-        questionNumber: 270,
+        section: 'Investment Assets',
+        questionNumber: 232,
         groupId: 'assets'
       },
       {
-        id: 'cryptoCurrentValue',
+        id: 'ppfBalance',
+        title: 'What is the current value of your PPF account?',
+        type: 'number',
+        required: true,
+        section: 'Investment Assets',
+        questionNumber: 233,
+        groupId: 'assets'
+      },
+      {
+        id: 'epfBalance',
+        title: 'What is the current value of your EPF account?',
+        type: 'number',
+        required: true,
+        section: 'Investment Assets',
+        questionNumber: 234,
+        groupId: 'assets'
+      },
+      {
+        id: 'npsBalance',
+        title: 'What is the current value of your NPS account?',
+        type: 'number',
+        required: true,
+        section: 'Investment Assets',
+        questionNumber: 235,
+        groupId: 'assets'
+      },
+      {
+        id: 'ulipBalance',
+        title: 'What is the current value of your ULIP investments?',
+        type: 'number',
+        required: true,
+        section: 'Investment Assets',
+        questionNumber: 236,
+        groupId: 'assets'
+      },
+      {
+        id: 'bondBalance',
+        title: 'What is the current value of your bond/debenture investments?',
+        type: 'number',
+        required: true,
+        section: 'Investment Assets',
+        questionNumber: 237,
+        groupId: 'assets'
+      },
+      {
+        id: 'goldBalance',
+        title: 'What is the current value of your gold investments?',
+        subtitle: 'Physical gold, gold ETF, digital gold',
+        type: 'number',
+        required: true,
+        section: 'Investment Assets',
+        questionNumber: 238,
+        groupId: 'assets'
+      },
+      {
+        id: 'realEstateInvestmentBalance',
+        title: 'What is the current value of your real estate investments?',
+        subtitle: 'REITs, real estate funds (excluding primary residence)',
+        type: 'number',
+        required: true,
+        section: 'Investment Assets',
+        questionNumber: 239,
+        groupId: 'assets'
+      },
+      {
+        id: 'cryptocurrencyBalance',
         title: 'What is the current value of your cryptocurrency holdings?',
         type: 'number',
         required: true,
-        section: 'Investment Holdings',
-        questionNumber: 271,
+        section: 'Investment Assets',
+        questionNumber: 240,
         groupId: 'assets'
       },
       {
-        id: 'commodityHoldingsValue',
-        title: 'What is the current value of your gold, silver, or other commodity holdings?',
+        id: 'otherInvestmentBalance',
+        title: 'What is the current value of your other investments?',
+        subtitle: 'Commodities, art, collectibles, etc.',
         type: 'number',
         required: true,
-        section: 'Investment Holdings',
-        questionNumber: 272,
+        section: 'Investment Assets',
+        questionNumber: 241,
+        groupId: 'assets'
+      },
+
+      // Section C: Business & Professional Assets (Questions 242-250)
+      {
+        id: 'businessEquityValue',
+        title: 'What is the estimated value of your business equity/ownership?',
+        type: 'number',
+        required: true,
+        section: 'Business & Professional Assets',
+        questionNumber: 242,
         groupId: 'assets'
       },
       {
-        id: 'bondsCurrentValue',
-        title: 'What is the current value of your government/corporate bonds?',
+        id: 'professionalAssetsValue',
+        title: 'What is the value of your professional assets?',
+        subtitle: 'Equipment, tools, licenses, practice value',
         type: 'number',
         required: true,
-        section: 'Investment Holdings',
-        questionNumber: 273,
+        section: 'Business & Professional Assets',
+        questionNumber: 243,
         groupId: 'assets'
       },
       {
-        id: 'otherInvestmentProducts',
-        title: 'What is the current value of your other investment products?',
+        id: 'intellectualPropertyValue',
+        title: 'What is the estimated value of your intellectual property?',
+        subtitle: 'Patents, copyrights, trademarks, royalties',
         type: 'number',
         required: true,
-        section: 'Investment Holdings',
-        questionNumber: 274,
+        section: 'Business & Professional Assets',
+        questionNumber: 244,
+        groupId: 'assets'
+      },
+
+      // Section D: Other Valuable Assets (Questions 245-250)
+      {
+        id: 'jewelryValue',
+        title: 'What is the estimated value of your jewelry?',
+        subtitle: 'Excluding gold already counted in investments',
+        type: 'number',
+        required: true,
+        section: 'Other Valuable Assets',
+        questionNumber: 245,
         groupId: 'assets'
       },
       {
-        id: 'providentFundBalance',
-        title: 'What is your provident fund/pension fund balance?',
-        subtitle: 'If separate from retirement accounts mentioned above',
+        id: 'artCollectiblesValue',
+        title: 'What is the estimated value of your art and collectibles?',
+        subtitle: 'Paintings, antiques, rare items',
         type: 'number',
         required: true,
-        section: 'Other Assets',
-        questionNumber: 275,
+        section: 'Other Valuable Assets',
+        questionNumber: 246,
         groupId: 'assets'
       },
       {
-        id: 'employeeStockOptions',
-        title: 'What is the current value of your employee stock options?',
+        id: 'electronicItemsValue',
+        title: 'What is the estimated current value of your electronic items?',
+        subtitle: 'Computers, phones, cameras, gadgets',
         type: 'number',
         required: true,
-        section: 'Other Assets',
-        questionNumber: 276,
+        section: 'Other Valuable Assets',
+        questionNumber: 247,
         groupId: 'assets'
       },
       {
-        id: 'businessOwnershipValue',
-        title: 'What is the value of your business ownership/partnership stakes?',
+        id: 'furnitureAppliancesValue',
+        title: 'What is the estimated current value of your furniture and appliances?',
         type: 'number',
         required: true,
-        section: 'Other Assets',
-        questionNumber: 277,
+        section: 'Other Valuable Assets',
+        questionNumber: 248,
         groupId: 'assets'
       },
       {
-        id: 'collectiblesValue',
-        title: 'What is the value of your collectibles?',
-        subtitle: 'Include art, antiques, etc.',
+        id: 'otherPersonalAssetsValue',
+        title: 'What is the estimated value of your other valuable personal assets?',
         type: 'number',
         required: true,
-        section: 'Other Assets',
-        questionNumber: 278,
-        groupId: 'assets'
-      },
-      {
-        id: 'loansGivenToOthers',
-        title: 'How much money is owed to you?',
-        subtitle: 'Loans given to others that you expect to be repaid',
-        type: 'number',
-        required: true,
-        section: 'Other Assets',
-        questionNumber: 279,
-        groupId: 'assets'
-      },
-      {
-        id: 'securityDepositsRecoverable',
-        title: 'What is the total of your recoverable security deposits?',
-        type: 'number',
-        required: true,
-        section: 'Other Assets',
-        questionNumber: 280,
-        groupId: 'assets'
-      },
-      {
-        id: 'otherMiscellaneousAssets',
-        title: 'What is the value of your other miscellaneous assets?',
-        type: 'number',
-        required: true,
-        section: 'Other Assets',
-        questionNumber: 281,
+        section: 'Other Valuable Assets',
+        questionNumber: 249,
         groupId: 'assets'
       }
     ]
@@ -3933,114 +4101,164 @@ export const questionGroups: QuestionGroup[] = [
   {
     id: 'income',
     title: 'Income',
-    description: 'Your various income sources',
+    description: 'Your income sources and amounts',
     questions: [
+      // Primary Income Sources
       {
         id: 'grossMonthlySalary',
-        title: 'What is your gross monthly salary/wage (before taxes)?',
+        title: 'What is your gross monthly salary?',
+        subtitle: 'Before taxes and deductions',
         type: 'number',
         required: true,
-        section: 'Employment Income',
-        questionNumber: 282,
+        section: 'Primary Income',
+        questionNumber: 250,
         groupId: 'income'
       },
       {
         id: 'netMonthlySalary',
-        title: 'What is your net monthly salary/wage (after taxes and deductions)?',
+        title: 'What is your net monthly salary?',
+        subtitle: 'After taxes and deductions',
         type: 'number',
         required: true,
-        section: 'Employment Income',
-        questionNumber: 283,
+        section: 'Primary Income',
+        questionNumber: 251,
         groupId: 'income'
       },
       {
-        id: 'annualBonusCommission',
-        title: 'What is your average annual bonus/commission?',
+        id: 'annualBonus',
+        title: 'What is your annual bonus or variable pay?',
         type: 'number',
         required: true,
-        section: 'Employment Income',
-        questionNumber: 284,
+        section: 'Primary Income',
+        questionNumber: 252,
         groupId: 'income'
       },
       {
-        id: 'monthlyOvertimePay',
-        title: 'What is your monthly average overtime pay?',
+        id: 'employerEPFContribution',
+        title: 'What is your employer\'s monthly EPF contribution?',
         type: 'number',
         required: true,
-        section: 'Employment Income',
-        questionNumber: 285,
+        section: 'Primary Income',
+        questionNumber: 253,
         groupId: 'income'
       },
       {
-        id: 'monthlySelfEmploymentGross',
-        title: 'What is your monthly self-employment/freelance income, side hustles, income from hobbies, gig work (gross)?',
+        id: 'employerBenefitsValue',
+        title: 'What is the monthly value of other employer benefits?',
+        subtitle: 'Health insurance, meal vouchers, transport allowance, etc.',
         type: 'number',
         required: true,
-        section: 'Self-Employment/Business Income',
-        questionNumber: 286,
+        section: 'Primary Income',
+        questionNumber: 254,
         groupId: 'income'
       },
-      {
-        id: 'monthlySelfEmploymentNet',
-        title: 'What is your monthly self-employment/freelance income (net after expenses)?',
-        type: 'number',
-        required: true,
-        section: 'Self-Employment/Business Income',
-        questionNumber: 287,
-        groupId: 'income'
-      },
-      {
-        id: 'annualDividendIncome',
-        title: 'What is your annual dividend income?',
-        type: 'number',
-        required: true,
-        section: 'Investment Income',
-        questionNumber: 288,
-        groupId: 'income'
-      },
-      {
-        id: 'annualInterestIncome',
-        title: 'What is your annual interest income (from savings, FDs, bonds)?',
-        type: 'number',
-        required: true,
-        section: 'Investment Income',
-        questionNumber: 289,
-        groupId: 'income'
-      },
+
+      // Investment Income (Questions 255-270)
       {
         id: 'monthlyRentalIncome',
         title: 'What is your monthly rental income from properties?',
         type: 'number',
         required: true,
         section: 'Investment Income',
-        questionNumber: 290,
+        questionNumber: 255,
         groupId: 'income'
       },
       {
-        id: 'annualCapitalGains',
-        title: 'What are your annual average capital gains?',
+        id: 'monthlyDividendIncome',
+        title: 'What is your monthly dividend income from stocks and mutual funds?',
         type: 'number',
         required: true,
         section: 'Investment Income',
-        questionNumber: 291,
+        questionNumber: 256,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyInterestIncome',
+        title: 'What is your monthly interest income?',
+        subtitle: 'Fixed deposits, savings account, bonds',
+        type: 'number',
+        required: true,
+        section: 'Investment Income',
+        questionNumber: 257,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyCapitalGains',
+        title: 'What is your average monthly capital gains from investments?',
+        subtitle: 'Gains from selling stocks, mutual funds, etc.',
+        type: 'number',
+        required: true,
+        section: 'Investment Income',
+        questionNumber: 258,
+        groupId: 'income'
+      },
+
+      // Business Income (Questions 259-275)
+      {
+        id: 'monthlyBusinessIncome',
+        title: 'What is your monthly business income?',
+        subtitle: 'Net profit from your business',
+        type: 'number',
+        required: true,
+        section: 'Business Income',
+        questionNumber: 259,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyFreelanceIncome',
+        title: 'What is your monthly freelance/consulting income?',
+        type: 'number',
+        required: true,
+        section: 'Business Income',
+        questionNumber: 260,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyPartTimeIncome',
+        title: 'What is your monthly part-time job income?',
+        type: 'number',
+        required: true,
+        section: 'Business Income',
+        questionNumber: 261,
+        groupId: 'income'
+      },
+
+      // Other Income Sources (Questions 262-295)
+      {
+        id: 'monthlyPensionIncome',
+        title: 'What is your monthly pension income?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 262,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyAlimonyIncome',
+        title: 'What is your monthly alimony/maintenance income received?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 263,
         groupId: 'income'
       },
       {
         id: 'monthlyGovernmentBenefits',
-        title: 'What are your monthly government benefits/pensions?',
+        title: 'What is your monthly government benefits or subsidies?',
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 292,
+        questionNumber: 264,
         groupId: 'income'
       },
       {
-        id: 'monthlyAlimonyChildSupport',
-        title: 'What is your monthly alimony/child support received?',
+        id: 'monthlyInsurancePayouts',
+        title: 'What is your monthly insurance payout income?',
+        subtitle: 'Disability, critical illness, etc.',
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 293,
+        questionNumber: 265,
         groupId: 'income'
       },
       {
@@ -4049,7 +4267,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 294,
+        questionNumber: 266,
         groupId: 'income'
       },
       {
@@ -4058,7 +4276,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 295,
+        questionNumber: 267,
         groupId: 'income'
       },
       {
@@ -4067,9 +4285,11 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 296,
+        questionNumber: 268,
         groupId: 'income'
       },
+      
+      // Partner's Income (if applicable)
       {
         id: 'partnerGrossMonthlySalary',
         title: "What is your partner's gross monthly salary?",
@@ -4080,7 +4300,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 297,
+        questionNumber: 269,
         groupId: 'income'
       },
       {
@@ -4093,7 +4313,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 298,
+        questionNumber: 270,
         groupId: 'income'
       },
       {
@@ -4106,7 +4326,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 299,
+        questionNumber: 271,
         groupId: 'income'
       }
     ]
