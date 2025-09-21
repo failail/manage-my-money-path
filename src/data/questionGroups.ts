@@ -4101,71 +4101,70 @@ export const questionGroups: QuestionGroup[] = [
   {
     id: 'income',
     title: 'Income',
-    description: 'Your income sources and amounts',
+    description: 'Your various income sources',
     questions: [
-      // Primary Income Sources
+      // Employment Income
       {
         id: 'grossMonthlySalary',
-        title: 'What is your gross monthly salary?',
-        subtitle: 'Before taxes and deductions',
+        title: 'What is your gross monthly salary/wage (before taxes)?',
         type: 'number',
         required: true,
-        section: 'Primary Income',
+        section: 'Employment Income',
         questionNumber: 250,
         groupId: 'income'
       },
       {
         id: 'netMonthlySalary',
-        title: 'What is your net monthly salary?',
-        subtitle: 'After taxes and deductions',
+        title: 'What is your net monthly salary/wage (after taxes and deductions)?',
         type: 'number',
         required: true,
-        section: 'Primary Income',
+        section: 'Employment Income',
         questionNumber: 251,
         groupId: 'income'
       },
       {
-        id: 'annualBonus',
-        title: 'What is your annual bonus or variable pay?',
+        id: 'annualBonusCommission',
+        title: 'What is your average annual bonus/commission?',
         type: 'number',
         required: true,
-        section: 'Primary Income',
+        section: 'Employment Income',
         questionNumber: 252,
         groupId: 'income'
       },
       {
-        id: 'employerEPFContribution',
-        title: 'What is your employer\'s monthly EPF contribution?',
+        id: 'monthlyOvertimePay',
+        title: 'What is your monthly average overtime pay?',
         type: 'number',
         required: true,
-        section: 'Primary Income',
+        section: 'Employment Income',
         questionNumber: 253,
         groupId: 'income'
       },
+      
+      // Self-Employment/Business Income
       {
-        id: 'employerBenefitsValue',
-        title: 'What is the monthly value of other employer benefits?',
-        subtitle: 'Health insurance, meal vouchers, transport allowance, etc.',
+        id: 'monthlySelfEmploymentGross',
+        title: 'What is your monthly self-employment/freelance income, side hustles, income from hobbies, gig work (gross)?',
         type: 'number',
         required: true,
-        section: 'Primary Income',
+        section: 'Self-Employment/Business Income',
         questionNumber: 254,
         groupId: 'income'
       },
-
-      // Investment Income (Questions 255-270)
       {
-        id: 'monthlyRentalIncome',
-        title: 'What is your monthly rental income from properties?',
+        id: 'monthlySelfEmploymentNet',
+        title: 'What is your monthly self-employment/freelance income (net after expenses)?',
         type: 'number',
         required: true,
-        section: 'Investment Income',
+        section: 'Self-Employment/Business Income',
         questionNumber: 255,
         groupId: 'income'
       },
+      
+      // Investment Income
       {
-        id: 'monthlyDividendIncome',
-        title: 'What is your monthly dividend income from stocks and mutual funds?',
+        id: 'annualDividendIncome',
+        title: 'What is your annual dividend income?',
         type: 'number',
         required: true,
         section: 'Investment Income',
@@ -4173,9 +4172,8 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'income'
       },
       {
-        id: 'monthlyInterestIncome',
-        title: 'What is your monthly interest income?',
-        subtitle: 'Fixed deposits, savings account, bonds',
+        id: 'annualInterestIncome',
+        title: 'What is your annual interest income (from savings, FDs, bonds)?',
         type: 'number',
         required: true,
         section: 'Investment Income',
@@ -4183,82 +4181,41 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'income'
       },
       {
-        id: 'monthlyCapitalGains',
-        title: 'What is your average monthly capital gains from investments?',
-        subtitle: 'Gains from selling stocks, mutual funds, etc.',
+        id: 'monthlyRentalIncome',
+        title: 'What is your monthly rental income from properties?',
         type: 'number',
         required: true,
         section: 'Investment Income',
         questionNumber: 258,
         groupId: 'income'
       },
-
-      // Business Income (Questions 259-275)
       {
-        id: 'monthlyBusinessIncome',
-        title: 'What is your monthly business income?',
-        subtitle: 'Net profit from your business',
+        id: 'annualCapitalGains',
+        title: 'What are your annual average capital gains?',
         type: 'number',
         required: true,
-        section: 'Business Income',
+        section: 'Investment Income',
         questionNumber: 259,
         groupId: 'income'
       },
+      
+      // Other Income Sources
       {
-        id: 'monthlyFreelanceIncome',
-        title: 'What is your monthly freelance/consulting income?',
+        id: 'monthlyGovernmentBenefits',
+        title: 'What are your monthly government benefits/pensions?',
         type: 'number',
         required: true,
-        section: 'Business Income',
+        section: 'Other Income Sources',
         questionNumber: 260,
         groupId: 'income'
       },
       {
-        id: 'monthlyPartTimeIncome',
-        title: 'What is your monthly part-time job income?',
+        id: 'monthlyAlimonyChildSupport',
+        title: 'What is your monthly alimony/child support received?',
         type: 'number',
         required: true,
-        section: 'Business Income',
+        section: 'Other Income Sources',
         questionNumber: 261,
-        groupId: 'income'
-      },
-
-      // Other Income Sources (Questions 262-295)
-      {
-        id: 'monthlyPensionIncome',
-        title: 'What is your monthly pension income?',
-        type: 'number',
-        required: true,
-        section: 'Other Income Sources',
-        questionNumber: 262,
-        groupId: 'income'
-      },
-      {
-        id: 'monthlyAlimonyIncome',
-        title: 'What is your monthly alimony/maintenance income received?',
-        type: 'number',
-        required: true,
-        section: 'Other Income Sources',
-        questionNumber: 263,
-        groupId: 'income'
-      },
-      {
-        id: 'monthlyGovernmentBenefits',
-        title: 'What is your monthly government benefits or subsidies?',
-        type: 'number',
-        required: true,
-        section: 'Other Income Sources',
-        questionNumber: 264,
-        groupId: 'income'
-      },
-      {
-        id: 'monthlyInsurancePayouts',
-        title: 'What is your monthly insurance payout income?',
-        subtitle: 'Disability, critical illness, etc.',
-        type: 'number',
-        required: true,
-        section: 'Other Income Sources',
-        questionNumber: 265,
         groupId: 'income'
       },
       {
@@ -4267,7 +4224,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 266,
+        questionNumber: 262,
         groupId: 'income'
       },
       {
@@ -4276,7 +4233,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 267,
+        questionNumber: 263,
         groupId: 'income'
       },
       {
@@ -4285,7 +4242,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 268,
+        questionNumber: 264,
         groupId: 'income'
       },
       
@@ -4300,7 +4257,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 269,
+        questionNumber: 265,
         groupId: 'income'
       },
       {
@@ -4313,7 +4270,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 270,
+        questionNumber: 266,
         groupId: 'income'
       },
       {
@@ -4326,7 +4283,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 271,
+        questionNumber: 267,
         groupId: 'income'
       }
     ]
