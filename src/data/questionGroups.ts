@@ -1080,7 +1080,6 @@ export const questionGroups: QuestionGroup[] = [
     description: 'Details about your children and related expenses',
     conditional: true,
     questions: [
-      // Child 1 Questions (always shown if group appears)
       {
         id: 'child1AgeGroup',
         title: 'Child 1: What is the age group of this child?',
@@ -1271,8 +1270,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 83,
         groupId: 'children'
       },
-
-      // Child 2 Questions (if Q14 >= "2")
       {
         id: 'child2AgeGroup',
         title: 'Child 2: What is the age group of this child?',
@@ -1543,8 +1540,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 99,
         groupId: 'children'
       },
-
-      // Child 3 Questions (if Q14 = "3 or more")
       {
         id: 'child3AgeGroup',
         title: 'Child 3: What is the age group of this child?',
@@ -1823,7 +1818,6 @@ export const questionGroups: QuestionGroup[] = [
     description: 'Details about your financial dependents',
     conditional: true,
     questions: [
-      // Dependent 1 Questions
       {
         id: 'dependent1HealthExpenses',
         title: 'Dependent 1: Health related monthly expenses (not covered by insurance)',
@@ -1954,8 +1948,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 124,
         groupId: 'financial-dependents'
       },
-
-      // Dependent 2 Questions
       {
         id: 'dependent2HealthExpenses',
         title: 'Dependent 2: Health related monthly expenses (not covered by insurance)',
@@ -2086,8 +2078,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 133,
         groupId: 'financial-dependents'
       },
-
-      // Dependent 3 Questions
       {
         id: 'dependent3HealthExpenses',
         title: 'Dependent 3: Health related monthly expenses (not covered by insurance)',
@@ -2218,8 +2208,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 142,
         groupId: 'financial-dependents'
       },
-
-      // Dependent 4 Questions
       {
         id: 'dependent4HealthExpenses',
         title: 'Dependent 4: Health related monthly expenses (not covered by insurance)',
@@ -2230,7 +2218,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 163,
+        questionNumber: 143,
         groupId: 'financial-dependents'
       },
       {
@@ -2243,7 +2231,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 164,
+        questionNumber: 144,
         groupId: 'financial-dependents'
       },
       {
@@ -2256,7 +2244,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 165,
+        questionNumber: 145,
         groupId: 'financial-dependents'
       },
       {
@@ -2269,7 +2257,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 166,
+        questionNumber: 146,
         groupId: 'financial-dependents'
       },
       {
@@ -2282,7 +2270,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 167,
+        questionNumber: 147,
         groupId: 'financial-dependents'
       },
       {
@@ -2295,7 +2283,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 168,
+        questionNumber: 148,
         groupId: 'financial-dependents'
       },
       {
@@ -2309,7 +2297,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 169,
+        questionNumber: 149,
         groupId: 'financial-dependents'
       },
       {
@@ -2328,7 +2316,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 170,
+        questionNumber: 150,
         groupId: 'financial-dependents'
       },
       {
@@ -2347,11 +2335,9 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 171,
+        questionNumber: 151,
         groupId: 'financial-dependents'
       },
-
-      // Dependent 5 Questions
       {
         id: 'dependent5HealthExpenses',
         title: 'Dependent 5: Health related monthly expenses (not covered by insurance)',
@@ -2362,7 +2348,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 172,
+        questionNumber: 152,
         groupId: 'financial-dependents'
       },
       {
@@ -2375,7 +2361,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 173,
+        questionNumber: 153,
         groupId: 'financial-dependents'
       },
       {
@@ -2388,7 +2374,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 174,
+        questionNumber: 154,
         groupId: 'financial-dependents'
       },
       {
@@ -2401,7 +2387,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 175,
+        questionNumber: 155,
         groupId: 'financial-dependents'
       },
       {
@@ -2414,7 +2400,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 176,
+        questionNumber: 156,
         groupId: 'financial-dependents'
       },
       {
@@ -2427,7 +2413,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 177,
+        questionNumber: 157,
         groupId: 'financial-dependents'
       },
       {
@@ -2441,7 +2427,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 178,
+        questionNumber: 158,
         groupId: 'financial-dependents'
       },
       {
@@ -2460,7 +2446,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 179,
+        questionNumber: 159,
         groupId: 'financial-dependents'
       },
       {
@@ -2490,7 +2476,6 @@ export const questionGroups: QuestionGroup[] = [
     description: 'Details about your personal loans and credit card debt',
     conditional: true,
     questions: [
-      // Part A: Credit Card Debt
       {
         id: 'hasCreditCardDebt',
         title: 'Do you have any credit card debt that is more than 45 days old?',
@@ -2502,7 +2487,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 143,
+        questionNumber: 161,
         groupId: 'personal-loans'
       },
       {
@@ -2515,7 +2500,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 144,
+        questionNumber: 162,
         groupId: 'personal-loans'
       },
       {
@@ -2528,7 +2513,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 145,
+        questionNumber: 163,
         groupId: 'personal-loans'
       },
       {
@@ -2559,11 +2544,9 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 146,
+        questionNumber: 164,
         groupId: 'personal-loans'
       },
-
-      // Part B: Personal Loans
       {
         id: 'numberOfPersonalLoans',
         title: 'How many personal loans do you have apart from those for your home and/or your vehicles?',
@@ -2571,11 +2554,9 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['0', '1', '2', '3', '4', '5 or more'],
         section: 'Personal Loans & Credit',
-        questionNumber: 147,
+        questionNumber: 165,
         groupId: 'personal-loans'
       },
-
-      // Personal Loan 1 Questions
       {
         id: 'loan1Purpose',
         title: 'Personal Loan 1: What was this loan taken for?',
@@ -2660,8 +2641,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 170,
         groupId: 'personal-loans'
       },
-
-      // Personal Loan 2 Questions
       {
         id: 'loan2Purpose',
         title: 'Personal Loan 2: What was this loan taken for?',
@@ -2673,7 +2652,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 168,
+        questionNumber: 171,
         groupId: 'personal-loans'
       },
       {
@@ -2686,7 +2665,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 169,
+        questionNumber: 172,
         groupId: 'personal-loans'
       },
       {
@@ -2699,7 +2678,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 193,
+        questionNumber: 173,
         groupId: 'personal-loans'
       },
       {
@@ -2730,7 +2709,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 194,
+        questionNumber: 174,
         groupId: 'personal-loans'
       },
       {
@@ -2743,11 +2722,9 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 195,
+        questionNumber: 175,
         groupId: 'personal-loans'
       },
-
-      // Personal Loan 3 Questions
       {
         id: 'loan3Purpose',
         title: 'Personal Loan 3: What was this loan taken for?',
@@ -2759,7 +2736,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 196,
+        questionNumber: 176,
         groupId: 'personal-loans'
       },
       {
@@ -2772,7 +2749,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 197,
+        questionNumber: 177,
         groupId: 'personal-loans'
       },
       {
@@ -2785,7 +2762,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 198,
+        questionNumber: 178,
         groupId: 'personal-loans'
       },
       {
@@ -2816,7 +2793,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 199,
+        questionNumber: 179,
         groupId: 'personal-loans'
       },
       {
@@ -2829,11 +2806,9 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 200,
+        questionNumber: 180,
         groupId: 'personal-loans'
       },
-
-      // Personal Loan 4 Questions
       {
         id: 'loan4Purpose',
         title: 'Personal Loan 4: What was this loan taken for?',
@@ -2845,7 +2820,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 201,
+        questionNumber: 181,
         groupId: 'personal-loans'
       },
       {
@@ -2858,7 +2833,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 202,
+        questionNumber: 182,
         groupId: 'personal-loans'
       },
       {
@@ -2871,7 +2846,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 203,
+        questionNumber: 183,
         groupId: 'personal-loans'
       },
       {
@@ -2902,7 +2877,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 204,
+        questionNumber: 184,
         groupId: 'personal-loans'
       },
       {
@@ -2915,11 +2890,9 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 205,
+        questionNumber: 185,
         groupId: 'personal-loans'
       },
-
-      // Personal Loan 5 Questions
       {
         id: 'loan5Purpose',
         title: 'Personal Loan 5: What was this loan taken for?',
@@ -2931,7 +2904,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 206,
+        questionNumber: 186,
         groupId: 'personal-loans'
       },
       {
@@ -2944,7 +2917,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 207,
+        questionNumber: 187,
         groupId: 'personal-loans'
       },
       {
@@ -2957,7 +2930,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 208,
+        questionNumber: 188,
         groupId: 'personal-loans'
       },
       {
@@ -2988,7 +2961,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 209,
+        questionNumber: 189,
         groupId: 'personal-loans'
       },
       {
@@ -3018,7 +2991,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 177,
+        questionNumber: 191,
         groupId: 'insurance-coverage'
       },
       {
@@ -3028,7 +3001,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 178,
+        questionNumber: 192,
         groupId: 'insurance-coverage'
       },
       {
@@ -3038,7 +3011,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No'],
         section: 'Insurance Coverage',
-        questionNumber: 179,
+        questionNumber: 193,
         groupId: 'insurance-coverage'
       },
       {
@@ -3048,7 +3021,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No', 'Not applicable'],
         section: 'Insurance Coverage',
-        questionNumber: 180,
+        questionNumber: 194,
         groupId: 'insurance-coverage'
       },
       {
@@ -3058,7 +3031,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No', 'Not applicable'],
         section: 'Insurance Coverage',
-        questionNumber: 181,
+        questionNumber: 195,
         groupId: 'insurance-coverage'
       },
       {
@@ -3068,7 +3041,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['Yes', 'No', 'Not applicable'],
         section: 'Insurance Coverage',
-        questionNumber: 182,
+        questionNumber: 196,
         groupId: 'insurance-coverage'
       }
     ]
@@ -3089,7 +3062,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 183,
+        questionNumber: 197,
         groupId: 'insurance-details'
       },
       {
@@ -3102,7 +3075,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 184,
+        questionNumber: 198,
         groupId: 'insurance-details'
       },
       {
@@ -3116,7 +3089,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Insurance Details',
-        questionNumber: 185,
+        questionNumber: 199,
         groupId: 'insurance-details'
       },
       {
@@ -3321,20 +3294,18 @@ export const questionGroups: QuestionGroup[] = [
       }
     ]
   },
-  // Group 8: Monthly & Annual Expenses
   {
     id: 'monthly-annual-expenses',
     title: 'Monthly & Annual Expenses',
     description: 'Your regular monthly living expenses and yearly costs',
     questions: [
-      // Section A: Monthly Expenses (Questions 235-257)
       {
         id: 'monthlyGroceries',
         title: 'What are your monthly costs for groceries and toiletries?',
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 201,
+        questionNumber: 215,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -3343,7 +3314,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 202,
+        questionNumber: 216,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -3537,8 +3508,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 237,
         groupId: 'monthly-annual-expenses'
       },
-
-      // Section B: Annual Expenses (Questions 258-269)
       {
         id: 'annualHomeDecor',
         title: 'What are your annual costs for home decor, furniture, furnishings, linen?',
@@ -3650,21 +3619,18 @@ export const questionGroups: QuestionGroup[] = [
       }
     ]
   },
-
-  // Group 9: Investment Contributions
   {
     id: 'investment-contributions',
     title: 'Investment Contributions',
     description: 'Your monthly and annual investment contributions',
     questions: [
-      // Section A: Monthly Investment Contributions
       {
         id: 'monthlySipContributions',
         title: 'What are your monthly systematic investment plan (SIP) contributions to mutual funds?',
         type: 'number',
         required: true,
         section: 'Monthly Investment Contributions',
-        questionNumber: 236,
+        questionNumber: 250,
         groupId: 'investment-contributions'
       },
       {
@@ -3673,7 +3639,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Investment Contributions',
-        questionNumber: 237,
+        questionNumber: 251,
         groupId: 'investment-contributions'
       },
       {
@@ -3731,8 +3697,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 257,
         groupId: 'investment-contributions'
       },
-      
-      // Section B: Annual Investment Contributions
       {
         id: 'annualRetirementLumpsum',
         title: 'What are your annual lump sum contributions to retirement accounts?',
@@ -3772,14 +3736,11 @@ export const questionGroups: QuestionGroup[] = [
       }
     ]
   },
-
-  // Group 10: Assets
   {
     id: 'assets',
     title: 'Assets',
     description: 'Current value of your assets and holdings',
     questions: [
-      // Auto-calculated fields (non-editable)
       {
         id: 'totalPropertyValue',
         title: 'Total current value of all properties you own',
@@ -3787,7 +3748,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: false,
         section: 'Auto-calculated Assets',
-        questionNumber: 248,
+        questionNumber: 262,
         groupId: 'assets'
       },
       {
@@ -3797,11 +3758,9 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: false,
         section: 'Auto-calculated Assets',
-        questionNumber: 249,
+        questionNumber: 263,
         groupId: 'assets'
       },
-      
-      // Cash & Bank Accounts
       {
         id: 'checkingAccountBalance',
         title: 'What is your current checking account balance?',
@@ -3839,8 +3798,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 267,
         groupId: 'assets'
       },
-      
-      // Investment Holdings
       {
         id: 'mutualFundsValue',
         title: 'What is the current value of your mutual funds?',
@@ -3905,8 +3862,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 274,
         groupId: 'assets'
       },
-      
-      // Other Assets
       {
         id: 'providentFundBalance',
         title: 'What is your provident fund/pension fund balance?',
@@ -3975,21 +3930,18 @@ export const questionGroups: QuestionGroup[] = [
       }
     ]
   },
-
-  // Group 11: Income
   {
     id: 'income',
     title: 'Income',
     description: 'Your various income sources',
     questions: [
-      // Employment Income
       {
         id: 'grossMonthlySalary',
         title: 'What is your gross monthly salary/wage (before taxes)?',
         type: 'number',
         required: true,
         section: 'Employment Income',
-        questionNumber: 268,
+        questionNumber: 282,
         groupId: 'income'
       },
       {
@@ -3998,7 +3950,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Employment Income',
-        questionNumber: 269,
+        questionNumber: 283,
         groupId: 'income'
       },
       {
@@ -4019,8 +3971,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 285,
         groupId: 'income'
       },
-      
-      // Self-Employment/Business Income
       {
         id: 'monthlySelfEmploymentGross',
         title: 'What is your monthly self-employment/freelance income, side hustles, income from hobbies, gig work (gross)?',
@@ -4039,8 +3989,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 287,
         groupId: 'income'
       },
-      
-      // Investment Income
       {
         id: 'annualDividendIncome',
         title: 'What is your annual dividend income?',
@@ -4077,8 +4025,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 291,
         groupId: 'income'
       },
-      
-      // Other Income Sources
       {
         id: 'monthlyGovernmentBenefits',
         title: 'What are your monthly government benefits/pensions?',
@@ -4124,8 +4070,6 @@ export const questionGroups: QuestionGroup[] = [
         questionNumber: 296,
         groupId: 'income'
       },
-      
-      // Partner's Income (if applicable)
       {
         id: 'partnerGrossMonthlySalary',
         title: "What is your partner's gross monthly salary?",
