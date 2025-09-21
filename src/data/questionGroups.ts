@@ -1699,4 +1699,511 @@ export const questionGroups: QuestionGroup[] = [
       }
     ]
   },
+
+  // Group 9: Investment Contributions
+  {
+    id: 'investment-contributions',
+    title: 'Investment Contributions',
+    description: 'Your monthly and annual investment contributions',
+    questions: [
+      // Section A: Monthly Investment Contributions
+      {
+        id: 'monthlySipContributions',
+        title: 'What are your monthly systematic investment plan (SIP) contributions to mutual funds?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 270,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyDirectEquity',
+        title: 'What are your monthly direct equity purchases?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 271,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyRetirementContributions',
+        title: 'What are your monthly retirement savings contributions?',
+        subtitle: 'Include workplace pension schemes like 401k in US, EPF in India, occupational pensions in Europe, superannuation in Australia, etc.',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 272,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyFixedDeposits',
+        title: 'What are your monthly fixed deposit or term deposit contributions?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 273,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlySavingsGoals',
+        title: 'What are your monthly savings account deposits for investment purposes or saving for goals?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 274,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyCryptoPurchases',
+        title: 'What are your monthly cryptocurrency purchases?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 275,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyCommodityInvestments',
+        title: 'What are your monthly gold, silver or other commodity investments?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 276,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'monthlyBondContributions',
+        title: 'What are your monthly contributions to investment bonds or structured products?',
+        type: 'number',
+        required: true,
+        section: 'Monthly Investment Contributions',
+        questionNumber: 277,
+        groupId: 'investment-contributions'
+      },
+      
+      // Section B: Annual Investment Contributions
+      {
+        id: 'annualRetirementLumpsum',
+        title: 'What are your annual lump sum contributions to retirement accounts?',
+        type: 'number',
+        required: true,
+        section: 'Annual Investment Contributions',
+        questionNumber: 278,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'annualTaxAdvantagedInvestments',
+        title: 'What are your annual tax-advantaged investment contributions?',
+        subtitle: 'Include ELSS in India, ISA in UK, Roth IRA in US, etc.',
+        type: 'number',
+        required: true,
+        section: 'Annual Investment Contributions',
+        questionNumber: 279,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'annualBondPurchases',
+        title: 'What are your annual government or corporate bond purchases?',
+        type: 'number',
+        required: true,
+        section: 'Annual Investment Contributions',
+        questionNumber: 280,
+        groupId: 'investment-contributions'
+      },
+      {
+        id: 'annualMiscellaneousInvestments',
+        title: 'What are your annual miscellaneous investment contributions not covered above?',
+        type: 'number',
+        required: true,
+        section: 'Annual Investment Contributions',
+        questionNumber: 281,
+        groupId: 'investment-contributions'
+      }
+    ]
+  },
+
+  // Group 10: Assets
+  {
+    id: 'assets',
+    title: 'Assets',
+    description: 'Current value of your assets and holdings',
+    questions: [
+      // Auto-calculated fields (non-editable)
+      {
+        id: 'totalPropertyValue',
+        title: 'Total current value of all properties you own',
+        subtitle: 'This is calculated automatically from your property details above',
+        type: 'number',
+        required: false,
+        section: 'Auto-calculated Assets',
+        questionNumber: 282,
+        groupId: 'assets'
+      },
+      {
+        id: 'totalVehicleValue',
+        title: 'Total current value of all vehicles you own',
+        subtitle: 'This is calculated automatically from your vehicle details above',
+        type: 'number',
+        required: false,
+        section: 'Auto-calculated Assets',
+        questionNumber: 283,
+        groupId: 'assets'
+      },
+      
+      // Cash & Bank Accounts
+      {
+        id: 'checkingAccountBalance',
+        title: 'What is your current checking account balance?',
+        type: 'number',
+        required: true,
+        section: 'Cash & Bank Accounts',
+        questionNumber: 284,
+        groupId: 'assets'
+      },
+      {
+        id: 'fixedDepositsValue',
+        title: 'What is the current value of your fixed deposits/term deposits?',
+        type: 'number',
+        required: true,
+        section: 'Cash & Bank Accounts',
+        questionNumber: 285,
+        groupId: 'assets'
+      },
+      {
+        id: 'cashOnHand',
+        title: 'How much cash do you have on hand?',
+        type: 'number',
+        required: true,
+        section: 'Cash & Bank Accounts',
+        questionNumber: 286,
+        groupId: 'assets'
+      },
+      
+      // Investment Holdings
+      {
+        id: 'mutualFundsValue',
+        title: 'What is the current value of your mutual funds?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 287,
+        groupId: 'assets'
+      },
+      {
+        id: 'directEquityValue',
+        title: 'What is the current value of your direct equity/stocks?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 288,
+        groupId: 'assets'
+      },
+      {
+        id: 'retirementAccountBalance',
+        title: 'What is your retirement account balance?',
+        subtitle: 'Include 401k, EPF, pension funds, superannuation, etc.',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 289,
+        groupId: 'assets'
+      },
+      {
+        id: 'cryptoCurrentValue',
+        title: 'What is the current value of your cryptocurrency holdings?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 290,
+        groupId: 'assets'
+      },
+      {
+        id: 'commodityHoldingsValue',
+        title: 'What is the current value of your gold, silver, or other commodity holdings?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 291,
+        groupId: 'assets'
+      },
+      {
+        id: 'bondsCurrentValue',
+        title: 'What is the current value of your government/corporate bonds?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 292,
+        groupId: 'assets'
+      },
+      {
+        id: 'otherInvestmentProducts',
+        title: 'What is the current value of your other investment products?',
+        type: 'number',
+        required: true,
+        section: 'Investment Holdings',
+        questionNumber: 293,
+        groupId: 'assets'
+      },
+      
+      // Other Assets
+      {
+        id: 'providentFundBalance',
+        title: 'What is your provident fund/pension fund balance?',
+        subtitle: 'If separate from retirement accounts mentioned above',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 294,
+        groupId: 'assets'
+      },
+      {
+        id: 'employeeStockOptions',
+        title: 'What is the current value of your employee stock options?',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 295,
+        groupId: 'assets'
+      },
+      {
+        id: 'businessOwnershipValue',
+        title: 'What is the value of your business ownership/partnership stakes?',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 296,
+        groupId: 'assets'
+      },
+      {
+        id: 'collectiblesValue',
+        title: 'What is the value of your collectibles?',
+        subtitle: 'Include art, antiques, etc.',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 297,
+        groupId: 'assets'
+      },
+      {
+        id: 'loansGivenToOthers',
+        title: 'How much money is owed to you?',
+        subtitle: 'Loans given to others that you expect to be repaid',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 298,
+        groupId: 'assets'
+      },
+      {
+        id: 'securityDepositsRecoverable',
+        title: 'What is the total of your recoverable security deposits?',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 299,
+        groupId: 'assets'
+      },
+      {
+        id: 'otherMiscellaneousAssets',
+        title: 'What is the value of your other miscellaneous assets?',
+        type: 'number',
+        required: true,
+        section: 'Other Assets',
+        questionNumber: 300,
+        groupId: 'assets'
+      }
+    ]
+  },
+
+  // Group 11: Income
+  {
+    id: 'income',
+    title: 'Income',
+    description: 'Your various income sources',
+    questions: [
+      // Employment Income
+      {
+        id: 'grossMonthlySalary',
+        title: 'What is your gross monthly salary/wage (before taxes)?',
+        type: 'number',
+        required: true,
+        section: 'Employment Income',
+        questionNumber: 301,
+        groupId: 'income'
+      },
+      {
+        id: 'netMonthlySalary',
+        title: 'What is your net monthly salary/wage (after taxes and deductions)?',
+        type: 'number',
+        required: true,
+        section: 'Employment Income',
+        questionNumber: 302,
+        groupId: 'income'
+      },
+      {
+        id: 'annualBonusCommission',
+        title: 'What is your average annual bonus/commission?',
+        type: 'number',
+        required: true,
+        section: 'Employment Income',
+        questionNumber: 303,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyOvertimePay',
+        title: 'What is your monthly average overtime pay?',
+        type: 'number',
+        required: true,
+        section: 'Employment Income',
+        questionNumber: 304,
+        groupId: 'income'
+      },
+      
+      // Self-Employment/Business Income
+      {
+        id: 'monthlySelfEmploymentGross',
+        title: 'What is your monthly self-employment/freelance income, side hustles, income from hobbies, gig work (gross)?',
+        type: 'number',
+        required: true,
+        section: 'Self-Employment/Business Income',
+        questionNumber: 305,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlySelfEmploymentNet',
+        title: 'What is your monthly self-employment/freelance income (net after expenses)?',
+        type: 'number',
+        required: true,
+        section: 'Self-Employment/Business Income',
+        questionNumber: 306,
+        groupId: 'income'
+      },
+      
+      // Investment Income
+      {
+        id: 'annualDividendIncome',
+        title: 'What is your annual dividend income?',
+        type: 'number',
+        required: true,
+        section: 'Investment Income',
+        questionNumber: 307,
+        groupId: 'income'
+      },
+      {
+        id: 'annualInterestIncome',
+        title: 'What is your annual interest income (from savings, FDs, bonds)?',
+        type: 'number',
+        required: true,
+        section: 'Investment Income',
+        questionNumber: 308,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyRentalIncome',
+        title: 'What is your monthly rental income from properties?',
+        type: 'number',
+        required: true,
+        section: 'Investment Income',
+        questionNumber: 309,
+        groupId: 'income'
+      },
+      {
+        id: 'annualCapitalGains',
+        title: 'What are your annual average capital gains?',
+        type: 'number',
+        required: true,
+        section: 'Investment Income',
+        questionNumber: 310,
+        groupId: 'income'
+      },
+      
+      // Other Income Sources
+      {
+        id: 'monthlyGovernmentBenefits',
+        title: 'What are your monthly government benefits/pensions?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 311,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyAlimonyChildSupport',
+        title: 'What is your monthly alimony/child support received?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 312,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyRoyaltiesLicensing',
+        title: 'What is your monthly royalties/licensing income?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 313,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyFamilySupport',
+        title: 'What is your monthly family financial support received?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 314,
+        groupId: 'income'
+      },
+      {
+        id: 'monthlyMiscellaneousIncome',
+        title: 'What are your other miscellaneous income sources (monthly)?',
+        type: 'number',
+        required: true,
+        section: 'Other Income Sources',
+        questionNumber: 315,
+        groupId: 'income'
+      },
+      
+      // Partner's Income (if applicable)
+      {
+        id: 'partnerGrossMonthlySalary',
+        title: "What is your partner's gross monthly salary?",
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship living together', 'Married']
+        },
+        section: "Partner's Income",
+        questionNumber: 316,
+        groupId: 'income'
+      },
+      {
+        id: 'partnerNetMonthlySalary',
+        title: "What is your partner's net monthly salary?",
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship living together', 'Married']
+        },
+        section: "Partner's Income",
+        questionNumber: 317,
+        groupId: 'income'
+      },
+      {
+        id: 'partnerOtherIncome',
+        title: "What are your partner's other income sources (monthly)?",
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship living together', 'Married']
+        },
+        section: "Partner's Income",
+        questionNumber: 318,
+        groupId: 'income'
+      }
+    ]
+  }
 ];
