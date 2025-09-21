@@ -3814,6 +3814,7 @@ export const questionGroups: QuestionGroup[] = [
       {
         id: 'savingsAccountBalance',
         title: 'What is your current savings account balance?',
+        subtitle: 'Include only regular savings. Exclude: emergency funds, investment savings, and fixed deposits',
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
