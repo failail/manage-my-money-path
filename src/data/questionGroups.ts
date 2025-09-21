@@ -4571,7 +4571,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 192,
+        questionNumber: 242,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4581,7 +4581,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 193,
+        questionNumber: 243,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4591,7 +4591,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 194,
+        questionNumber: 244,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4601,7 +4601,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 195,
+        questionNumber: 245,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4611,7 +4611,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 196,
+        questionNumber: 246,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4621,7 +4621,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 197,
+        questionNumber: 247,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4630,7 +4630,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 198,
+        questionNumber: 248,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4639,7 +4639,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 199,
+        questionNumber: 249,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4649,7 +4649,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 200,
+        questionNumber: 250,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4658,7 +4658,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Monthly Expenses',
-        questionNumber: 201,
+        questionNumber: 251,
         groupId: 'monthly-annual-expenses'
       },
 
@@ -4669,7 +4669,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 202,
+        questionNumber: 252,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4678,7 +4678,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 203,
+        questionNumber: 253,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4960,7 +4960,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 223,
+        questionNumber: 254,
         groupId: 'investment-contributions'
       },
       {
@@ -4969,7 +4969,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 224,
+        questionNumber: 255,
         groupId: 'investment-contributions'
       },
       {
@@ -4978,7 +4978,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 225,
+        questionNumber: 256,
         groupId: 'investment-contributions'
       },
       {
@@ -4987,7 +4987,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 226,
+        questionNumber: 257,
         groupId: 'investment-contributions'
       },
       {
@@ -4996,7 +4996,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 227,
+        questionNumber: 258,
         groupId: 'investment-contributions'
       },
       {
@@ -5005,7 +5005,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 228,
+        questionNumber: 259,
         groupId: 'investment-contributions'
       },
       {
@@ -5014,7 +5014,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 229,
+        questionNumber: 260,
         groupId: 'investment-contributions'
       },
       {
@@ -5023,7 +5023,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 230,
+        questionNumber: 261,
         groupId: 'investment-contributions'
       },
       {
@@ -5043,7 +5043,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 232,
+        questionNumber: 264,
         groupId: 'investment-contributions'
       },
       {
@@ -5052,7 +5052,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 233,
+        questionNumber: 265,
         groupId: 'investment-contributions'
       },
       {
@@ -5061,7 +5061,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 234,
+        questionNumber: 266,
         groupId: 'investment-contributions'
       },
       {
@@ -5070,7 +5070,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 235,
+        questionNumber: 267,
         groupId: 'investment-contributions'
       },
       {
@@ -5079,7 +5079,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 236,
+        questionNumber: 268,
         groupId: 'investment-contributions'
       },
       {
@@ -5088,7 +5088,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Investment Contributions',
-        questionNumber: 237,
+        questionNumber: 269,
         groupId: 'investment-contributions'
       },
       
@@ -5122,7 +5122,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Investment Contributions',
-        questionNumber: 239,
+        questionNumber: 264,
         groupId: 'investment-contributions'
       }
     ]
@@ -5132,14 +5132,14 @@ export const questionGroups: QuestionGroup[] = [
     title: 'Assets',
     description: 'Current value of your assets and holdings',
     questions: [
-      // Section A: Cash & Bank Accounts (Questions 226-235)
+      // Section A: Cash & Bank Accounts (Questions 265-274)
       {
         id: 'checkingAccountBalance',
         title: 'What is your current checking account balance?',
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 240,
+        questionNumber: 265,
         groupId: 'assets'
       },
       {
@@ -5149,7 +5149,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 241,
+        questionNumber: 266,
         groupId: 'assets'
       },
       {
@@ -5158,7 +5158,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 242,
+        questionNumber: 267,
         groupId: 'assets'
       },
       {
@@ -5167,7 +5167,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 243,
+        questionNumber: 268,
         groupId: 'assets'
       },
       {
@@ -5176,7 +5176,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 244,
+        questionNumber: 269,
         groupId: 'assets'
       },
 
