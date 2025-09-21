@@ -241,6 +241,13 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly rent amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Rent it']
@@ -254,6 +261,13 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What was your total rental deposit amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Rent it']
@@ -281,6 +295,13 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the total coverage amount of your rental insurance?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Rent it']
@@ -294,6 +315,13 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your annual rental insurance premium?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Rent it']
@@ -307,6 +335,13 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Do you pay any building maintenance or society fees monthly?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Rent it']
@@ -342,6 +377,13 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What was the purchase price of this property?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -355,6 +397,13 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the estimated current value of this property?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -382,6 +431,13 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What was the original loan amount for this property?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -395,6 +451,13 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -408,6 +471,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Interest rate cannot be negative'
+          },
+          {
+            type: 'max',
+            value: 100,
+            message: 'Interest rate cannot exceed 100%'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -526,6 +601,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Interest rate cannot be negative'
+          },
+          {
+            type: 'max',
+            value: 100,
+            message: 'Interest rate cannot exceed 100%'
+          }
+        ],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -786,6 +873,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Interest rate cannot be negative'
+          },
+          {
+            type: 'max',
+            value: 100,
+            message: 'Interest rate cannot exceed 100%'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasVehicles',
@@ -897,6 +996,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Interest rate cannot be negative'
+          },
+          {
+            type: 'max',
+            value: 100,
+            message: 'Interest rate cannot exceed 100%'
+          }
+        ],
         conditional: [
           {
             dependsOn: 'hasVehicles',
@@ -2394,6 +2505,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the average interest rate on your credit cards (in percentage)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Interest rate cannot be negative'
+          },
+          {
+            type: 'max',
+            value: 100,
+            message: 'Interest rate cannot exceed 100%'
+          }
+        ],
         conditional: {
           dependsOn: 'hasCreditCardDebt',
           values: ['Yes']
@@ -2461,6 +2584,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Personal Loan 1: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Interest rate cannot be negative'
+          },
+          {
+            type: 'max',
+            value: 100,
+            message: 'Interest rate cannot exceed 100%'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['1', '2', '3', '4', '5 or more']
@@ -2529,6 +2664,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Personal Loan 2: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Interest rate cannot be negative'
+          },
+          {
+            type: 'max',
+            value: 100,
+            message: 'Interest rate cannot exceed 100%'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['2', '3', '4', '5 or more']
@@ -2597,6 +2744,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Personal Loan 3: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Interest rate cannot be negative'
+          },
+          {
+            type: 'max',
+            value: 100,
+            message: 'Interest rate cannot exceed 100%'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['3', '4', '5 or more']
@@ -2665,6 +2824,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Personal Loan 4: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Interest rate cannot be negative'
+          },
+          {
+            type: 'max',
+            value: 100,
+            message: 'Interest rate cannot exceed 100%'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['4', '5 or more']
@@ -2733,6 +2904,18 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Personal Loan 5: What is the interest rate on this loan (in percentage)?',
         type: 'number',
         required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Interest rate cannot be negative'
+          },
+          {
+            type: 'max',
+            value: 100,
+            message: 'Interest rate cannot exceed 100%'
+          }
+        ],
         conditional: {
           dependsOn: 'numberOfPersonalLoans',
           values: ['5 or more']
