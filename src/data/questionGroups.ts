@@ -4688,7 +4688,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 204,
+        questionNumber: 254,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4697,7 +4697,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 205,
+        questionNumber: 255,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4707,7 +4707,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 206,
+        questionNumber: 256,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4716,7 +4716,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 207,
+        questionNumber: 257,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4726,7 +4726,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 208,
+        questionNumber: 258,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4736,7 +4736,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 209,
+        questionNumber: 259,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4745,7 +4745,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Annual Expenses',
-        questionNumber: 210,
+        questionNumber: 260,
         groupId: 'monthly-annual-expenses'
       },
       
@@ -4860,7 +4860,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Monthly Expenses',
-        questionNumber: 217,
+        questionNumber: 267,
         groupId: 'monthly-annual-expenses'
       },
       {
@@ -4876,7 +4876,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Monthly Expenses',
-        questionNumber: 218,
+        questionNumber: 268,
         groupId: 'monthly-annual-expenses'
       },
 
@@ -5132,14 +5132,14 @@ export const questionGroups: QuestionGroup[] = [
     title: 'Assets',
     description: 'Current value of your assets and holdings',
     questions: [
-      // Section A: Cash & Bank Accounts (Questions 265-274)
+      // Section A: Cash & Bank Accounts (Questions 290-294)
       {
         id: 'checkingAccountBalance',
         title: 'What is your current checking account balance?',
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 265,
+        questionNumber: 290,
         groupId: 'assets'
       },
       {
@@ -5149,7 +5149,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 266,
+        questionNumber: 291,
         groupId: 'assets'
       },
       {
@@ -5158,7 +5158,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 267,
+        questionNumber: 292,
         groupId: 'assets'
       },
       {
@@ -5167,7 +5167,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 268,
+        questionNumber: 293,
         groupId: 'assets'
       },
       {
@@ -5176,7 +5176,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Cash & Bank Accounts',
-        questionNumber: 269,
+        questionNumber: 294,
         groupId: 'assets'
       },
 
