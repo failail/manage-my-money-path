@@ -1837,7 +1837,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 146,
+        questionNumber: 126,
         groupId: 'financial-dependents'
       },
       {
@@ -1850,7 +1850,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 147,
+        questionNumber: 127,
         groupId: 'financial-dependents'
       },
       {
@@ -1863,7 +1863,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 148,
+        questionNumber: 128,
         groupId: 'financial-dependents'
       },
       {
@@ -1876,7 +1876,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 149,
+        questionNumber: 129,
         groupId: 'financial-dependents'
       },
       {
@@ -1889,7 +1889,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 150,
+        questionNumber: 130,
         groupId: 'financial-dependents'
       },
       {
@@ -1903,7 +1903,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 151,
+        questionNumber: 131,
         groupId: 'financial-dependents'
       },
       {
@@ -1922,7 +1922,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 152,
+        questionNumber: 132,
         groupId: 'financial-dependents'
       },
       {
@@ -1941,7 +1941,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 153,
+        questionNumber: 133,
         groupId: 'financial-dependents'
       },
 
@@ -1956,7 +1956,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 154,
+        questionNumber: 134,
         groupId: 'financial-dependents'
       },
       {
@@ -1969,7 +1969,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 155,
+        questionNumber: 135,
         groupId: 'financial-dependents'
       },
       {
@@ -1982,7 +1982,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 156,
+        questionNumber: 136,
         groupId: 'financial-dependents'
       },
       {
@@ -1995,7 +1995,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 157,
+        questionNumber: 137,
         groupId: 'financial-dependents'
       },
       {
@@ -2008,7 +2008,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 158,
+        questionNumber: 138,
         groupId: 'financial-dependents'
       },
       {
@@ -2021,7 +2021,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 159,
+        questionNumber: 139,
         groupId: 'financial-dependents'
       },
       {
@@ -2035,7 +2035,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 160,
+        questionNumber: 140,
         groupId: 'financial-dependents'
       },
       {
@@ -2054,7 +2054,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 161,
+        questionNumber: 141,
         groupId: 'financial-dependents'
       },
       {
@@ -2073,7 +2073,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 162,
+        questionNumber: 142,
         groupId: 'financial-dependents'
       },
 
@@ -2360,7 +2360,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 161,
+        questionNumber: 143,
         groupId: 'personal-loans'
       },
       {
@@ -2373,7 +2373,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 162,
+        questionNumber: 144,
         groupId: 'personal-loans'
       },
       {
@@ -2386,7 +2386,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 163,
+        questionNumber: 145,
         groupId: 'personal-loans'
       },
       {
@@ -2399,7 +2399,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 164,
+        questionNumber: 146,
         groupId: 'personal-loans'
       },
 
@@ -2411,7 +2411,7 @@ export const questionGroups: QuestionGroup[] = [
         required: true,
         options: ['0', '1', '2', '3', '4', '5 or more'],
         section: 'Personal Loans & Credit',
-        questionNumber: 165,
+        questionNumber: 147,
         groupId: 'personal-loans'
       },
 
@@ -2495,7 +2495,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 191,
+        questionNumber: 168,
         groupId: 'personal-loans'
       },
       {
@@ -2508,7 +2508,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 192,
+        questionNumber: 169,
         groupId: 'personal-loans'
       },
       {
