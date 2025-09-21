@@ -5202,7 +5202,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 294,
+        questionNumber: 271,
         groupId: 'income'
       },
       {
@@ -5212,7 +5212,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 295,
+        questionNumber: 272,
         groupId: 'income'
       },
       {
@@ -5221,7 +5221,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 296,
+        questionNumber: 273,
         groupId: 'income'
       },
       {
@@ -5230,7 +5230,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 297,
+        questionNumber: 274,
         groupId: 'income'
       },
       {
@@ -5239,7 +5239,7 @@ export const questionGroups: QuestionGroup[] = [
         type: 'number',
         required: true,
         section: 'Other Income Sources',
-        questionNumber: 298,
+        questionNumber: 275,
         groupId: 'income'
       },
       
@@ -5254,7 +5254,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 299,
+        questionNumber: 276,
         groupId: 'income'
       },
       {
@@ -5267,7 +5267,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 284,
+        questionNumber: 277,
         groupId: 'income'
       },
       {
@@ -5280,7 +5280,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 285,
+        questionNumber: 278,
         groupId: 'income'
       },
       
@@ -5298,7 +5298,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Primary Income',
-        questionNumber: 286,
+        questionNumber: 279,
         groupId: 'income'
       },
       {
@@ -5314,7 +5314,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Primary Income',
-        questionNumber: 287,
+        questionNumber: 280,
         groupId: 'income'
       },
       {
@@ -5330,7 +5330,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Other Income Sources',
-        questionNumber: 288,
+        questionNumber: 281,
         groupId: 'income'
       },
       {
@@ -5346,7 +5346,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Other Income Sources',
-        questionNumber: 289,
+        questionNumber: 282,
         groupId: 'income'
       },
       {
@@ -5362,7 +5362,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Business Income',
-        questionNumber: 290,
+        questionNumber: 283,
         groupId: 'income'
       },
       {
@@ -5379,7 +5379,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Investment Income',
-        questionNumber: 291,
+        questionNumber: 284,
         groupId: 'income'
       },
       {
@@ -5395,7 +5395,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Other Income Sources',
-        questionNumber: 292,
+        questionNumber: 285,
         groupId: 'income'
       },
       {
@@ -5411,7 +5411,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Other Income Sources',
-        questionNumber: 293,
+        questionNumber: 286,
         groupId: 'income'
       },
       {
@@ -5431,7 +5431,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 297,
+        questionNumber: 287,
         groupId: 'income'
       },
       {
@@ -5452,7 +5452,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['In relationship living together', 'Married']
         },
         section: "Partner's Income",
-        questionNumber: 298,
+        questionNumber: 288,
         groupId: 'income'
       },
       {
