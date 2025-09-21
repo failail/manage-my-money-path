@@ -2679,7 +2679,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 106,
+        questionNumber: 139,
         groupId: 'financial-dependents'
       },
       {
@@ -2705,7 +2705,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 107,
+        questionNumber: 140,
         groupId: 'financial-dependents'
       },
       {
@@ -2719,7 +2719,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 108,
+        questionNumber: 141,
         groupId: 'financial-dependents'
       },
       {
@@ -2739,7 +2739,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 109,
+        questionNumber: 142,
         groupId: 'financial-dependents'
       },
       {
@@ -2753,7 +2753,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['2', '3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 110,
+        questionNumber: 143,
         groupId: 'financial-dependents'
       },
       {
@@ -2779,7 +2779,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 111,
+        questionNumber: 144,
         groupId: 'financial-dependents'
       },
       {
@@ -2805,7 +2805,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 112,
+        questionNumber: 145,
         groupId: 'financial-dependents'
       },
       {
@@ -2819,7 +2819,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 113,
+        questionNumber: 146,
         groupId: 'financial-dependents'
       },
       {
@@ -2839,7 +2839,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 114,
+        questionNumber: 147,
         groupId: 'financial-dependents'
       },
       {
@@ -2853,7 +2853,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['3', '4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 115,
+        questionNumber: 148,
         groupId: 'financial-dependents'
       },
       {
@@ -2879,7 +2879,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 116,
+        questionNumber: 149,
         groupId: 'financial-dependents'
       },
       {
@@ -2905,7 +2905,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 117,
+        questionNumber: 150,
         groupId: 'financial-dependents'
       },
       {
@@ -2919,7 +2919,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 118,
+        questionNumber: 151,
         groupId: 'financial-dependents'
       },
       {
@@ -2939,7 +2939,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 119,
+        questionNumber: 152,
         groupId: 'financial-dependents'
       },
       {
@@ -2953,7 +2953,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['4', '5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 120,
+        questionNumber: 153,
         groupId: 'financial-dependents'
       },
       {
@@ -2979,7 +2979,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 121,
+        questionNumber: 154,
         groupId: 'financial-dependents'
       },
       {
@@ -3005,7 +3005,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 122,
+        questionNumber: 155,
         groupId: 'financial-dependents'
       },
       {
@@ -3019,7 +3019,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 123,
+        questionNumber: 156,
         groupId: 'financial-dependents'
       },
       {
@@ -3039,7 +3039,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 124,
+        questionNumber: 157,
         groupId: 'financial-dependents'
       },
       {
@@ -3053,7 +3053,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['5 or more']
         },
         section: 'Financial Dependents',
-        questionNumber: 125,
+        questionNumber: 158,
         groupId: 'financial-dependents'
       },
       {
@@ -3079,7 +3079,7 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 126,
+        questionNumber: 159,
         groupId: 'financial-dependents'
       },
       {
@@ -3105,7 +3105,373 @@ export const questionGroups: QuestionGroup[] = [
           }
         ],
         section: 'Financial Dependents',
-        questionNumber: 127,
+        questionNumber: 160,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1EducationCosts',
+        title: 'Dependent 1: What are your monthly education costs for this dependent?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 161,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent1TransportCosts',
+        title: 'Dependent 1: What are your monthly transport costs for this dependent?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 162,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent2EducationCosts',
+        title: 'Dependent 2: What are your monthly education costs for this dependent?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 163,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent2TransportCosts',
+        title: 'Dependent 2: What are your monthly transport costs for this dependent?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 164,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent3EducationCosts',
+        title: 'Dependent 3: What are your monthly education costs for this dependent?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 165,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent3TransportCosts',
+        title: 'Dependent 3: What are your monthly transport costs for this dependent?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 166,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent4EducationCosts',
+        title: 'Dependent 4: What are your monthly education costs for this dependent?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 167,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent4TransportCosts',
+        title: 'Dependent 4: What are your monthly transport costs for this dependent?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 168,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent5EducationCosts',
+        title: 'Dependent 5: What are your monthly education costs for this dependent?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 169,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependent5TransportCosts',
+        title: 'Dependent 5: What are your monthly transport costs for this dependent?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 170,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependentEmergencyFund',
+        title: 'Do you maintain an emergency fund for your dependents?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 171,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependentEmergencyFundAmount',
+        title: 'What is the current balance of this emergency fund?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['1', '2', '3', '4', '5 or more']
+          },
+          {
+            dependsOn: 'dependentEmergencyFund',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 172,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependentLifeInsurance',
+        title: 'Do you have life insurance that covers your dependents?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 173,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependentLifeInsuranceCover',
+        title: 'What is the total coverage amount of this life insurance?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['1', '2', '3', '4', '5 or more']
+          },
+          {
+            dependsOn: 'dependentLifeInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 174,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependentLifeInsurancePremium',
+        title: 'What is the annual premium for this life insurance?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['1', '2', '3', '4', '5 or more']
+          },
+          {
+            dependsOn: 'dependentLifeInsurance',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 175,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'totalMonthlyDependentCost',
+        title: 'What is your estimated total monthly cost for all dependents?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 176,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependentSavingsGoal',
+        title: 'Do you have specific savings goals for your dependents?',
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasFinancialDependents',
+          values: ['1', '2', '3', '4', '5 or more']
+        },
+        section: 'Financial Dependents',
+        questionNumber: 177,
+        groupId: 'financial-dependents'
+      },
+      {
+        id: 'dependentSavingsAmount',
+        title: 'What is your monthly savings target for your dependents?',
+        type: 'number',
+        required: true,
+        validation: [
+          {
+            type: 'min',
+            value: 0,
+            message: 'Amount cannot be negative'
+          }
+        ],
+        conditional: [
+          {
+            dependsOn: 'hasFinancialDependents',
+            values: ['1', '2', '3', '4', '5 or more']
+          },
+          {
+            dependsOn: 'dependentSavingsGoal',
+            values: ['Yes']
+          }
+        ],
+        section: 'Financial Dependents',
+        questionNumber: 178,
         groupId: 'financial-dependents'
       }
     ]
@@ -3127,7 +3493,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 128,
+        questionNumber: 179,
         groupId: 'personal-loans'
       },
       {
@@ -3141,7 +3507,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 129,
+        questionNumber: 180,
         groupId: 'personal-loans'
       },
 
@@ -3163,7 +3529,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 130,
+        questionNumber: 181,
         groupId: 'personal-loans'
       },
       {
@@ -3194,7 +3560,7 @@ export const questionGroups: QuestionGroup[] = [
           values: ['Yes']
         },
         section: 'Personal Loans & Credit',
-        questionNumber: 131,
+        questionNumber: 182,
         groupId: 'personal-loans'
       },
       {
