@@ -237,5606 +237,3402 @@ export const questionGroups: QuestionGroup[] = [
       }
     ]
   },
+  
   {
-    id: 'rental-housing',
-    title: 'Rental Housing',
-    description: 'Details about your rental situation',
-    conditional: true,
+    id: 'income-expenses',
+    title: 'Income & Expenses',
+    description: 'Your current financial situation',
     questions: [
       {
-        id: 'monthlyRent',
-        title: 'What is your monthly rent amount?',
+        id: 'monthlyIncome',
+        title: "What's your monthly income after taxes?",
+        subtitle: "Include all sources of income",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Rent it']
-        },
-        section: 'Rental Housing',
+        section: 'Financial Information',
         questionNumber: 20,
-        groupId: 'rental-housing'
+        groupId: 'income-expenses'
       },
       {
-        id: 'rentalDeposit',
-        title: 'What was your total rental deposit amount?',
+        id: 'partnerIncome',
+        title: "What's your partner's monthly income after taxes?",
         type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        required: false,
         conditional: {
-          dependsOn: 'housingType',
-          values: ['Rent it']
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship not living together', 'In relationship living together', 'Married']
         },
-        section: 'Rental Housing',
+        section: 'Financial Information',
         questionNumber: 21,
-        groupId: 'rental-housing'
+        groupId: 'income-expenses'
       },
       {
-        id: 'rentalInsurance',
-        title: 'Do you have rental/contents insurance?',
-        type: 'radio',
+        id: 'monthlyExpenses',
+        title: "What are your total monthly expenses?",
+        subtitle: "Include all living costs, bills, and regular expenses",
+        type: 'number',
         required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Rent it']
-        },
-        section: 'Rental Housing',
+        section: 'Financial Information',
         questionNumber: 22,
-        groupId: 'rental-housing'
+        groupId: 'income-expenses'
       },
       {
-        id: 'rentalInsuranceCover',
-        title: 'What is the total coverage amount of your rental insurance?',
+        id: 'housingCosts',
+        title: "What are your monthly housing costs?",
+        subtitle: "Rent, mortgage, utilities, maintenance",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Rent it']
-        },
-        section: 'Rental Housing',
+        section: 'Financial Information',
         questionNumber: 23,
-        groupId: 'rental-housing'
+        groupId: 'income-expenses'
       },
       {
-        id: 'rentalInsurancePremium',
-        title: 'What is your annual rental insurance premium?',
+        id: 'transportationCosts',
+        title: "What are your monthly transportation costs?",
+        subtitle: "Car payments, fuel, public transport, maintenance",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Rent it']
-        },
-        section: 'Rental Housing',
+        section: 'Financial Information',
         questionNumber: 24,
-        groupId: 'rental-housing'
+        groupId: 'income-expenses'
       },
       {
-        id: 'buildingMaintenanceFees',
-        title: 'Do you pay any building maintenance or society fees monthly?',
+        id: 'foodCosts',
+        title: "What are your monthly food and dining costs?",
+        subtitle: "Groceries, restaurants, takeout",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Rent it']
-        },
-        section: 'Rental Housing',
+        section: 'Financial Information',
         questionNumber: 25,
-        groupId: 'rental-housing'
+        groupId: 'income-expenses'
       },
       {
-        id: 'ownedHomesCount',
-        title: 'Apart from your rental, how many other homes do you own?',
-        type: 'select',
+        id: 'entertainmentCosts',
+        title: "What are your monthly entertainment and leisure costs?",
+        subtitle: "Movies, hobbies, subscriptions, travel",
+        type: 'number',
         required: true,
-        options: ['0', '1', '2', '3', '4 or more'],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Rent it']
-        },
-        section: 'Rental Housing',
+        section: 'Financial Information',
         questionNumber: 26,
-        groupId: 'rental-housing'
-      }
-    ]
-  },
-  {
-    id: 'owned-properties',
-    title: 'Owned Properties',
-    description: 'Details about properties you own',
-    conditional: true,
-    questions: [
+        groupId: 'income-expenses'
+      },
       {
-        id: 'home1PurchasePrice',
-        title: 'Home 1: What was the purchase price of this property?',
+        id: 'childcareCosts',
+        title: "What are your monthly childcare costs?",
+        subtitle: "Daycare, school fees, activities",
         type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        required: false,
         conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
         },
-        section: 'Owned Properties',
+        section: 'Financial Information',
         questionNumber: 27,
-        groupId: 'owned-properties'
+        groupId: 'income-expenses'
       },
       {
-        id: 'home1CurrentValue',
-        title: 'Home 1: What is the estimated current value of this property?',
+        id: 'healthcareCosts',
+        title: "What are your monthly healthcare costs?",
+        subtitle: "Insurance premiums, medical expenses, medications",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
-        },
-        section: 'Owned Properties',
+        section: 'Financial Information',
         questionNumber: 28,
-        groupId: 'owned-properties'
+        groupId: 'income-expenses'
       },
       {
-        id: 'home1HasLoan',
-        title: 'Home 1: Do you have a loan on this property?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
+        id: 'debtPayments',
+        title: "What are your monthly debt payments?",
+        subtitle: "Credit cards, personal loans, student loans",
+        type: 'number',
+        required: false,
         conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
+          dependsOn: 'hasPersonalLoans',
+          values: ['Yes']
         },
-        section: 'Owned Properties',
+        section: 'Financial Information',
         questionNumber: 29,
-        groupId: 'owned-properties'
-      },
+        groupId: 'income-expenses'
+      }
+    ]
+  },
+
+  {
+    id: 'assets-liabilities',
+    title: 'Assets & Liabilities',
+    description: 'Your current wealth and debts',
+    questions: [
       {
-        id: 'home1OriginalLoanAmount',
-        title: 'Home 1: What was the original loan amount for this property?',
+        id: 'cashSavings',
+        title: "How much do you have in cash and savings accounts?",
+        subtitle: "Bank accounts, fixed deposits, cash",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
-        },
-        section: 'Owned Properties',
+        section: 'Assets & Liabilities',
         questionNumber: 30,
-        groupId: 'owned-properties'
+        groupId: 'assets-liabilities'
       },
       {
-        id: 'home1OutstandingLoan',
-        title: 'Home 1: What is the current outstanding loan amount?',
+        id: 'investments',
+        title: "What's the current value of your investments?",
+        subtitle: "Stocks, bonds, mutual funds, ETFs",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
-        },
-        section: 'Owned Properties',
+        section: 'Assets & Liabilities',
         questionNumber: 31,
-        groupId: 'owned-properties'
+        groupId: 'assets-liabilities'
       },
       {
-        id: 'home1LoanInterestRate',
-        title: 'Home 1: What is the interest rate on this loan (in percentage)?',
-        type: 'range',
+        id: 'retirementAccounts',
+        title: "What's the current value of your retirement accounts?",
+        subtitle: "401k, IRA, pension funds, PF",
+        type: 'number',
         required: true,
-        min: 0,
-        max: 50,
-        step: 0.1,
-        defaultValue: 10,
-        showValue: true,
-        suffix: '%',
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Interest rate cannot be negative'
-          },
-          {
-            type: 'max',
-            value: 100,
-            message: 'Interest rate cannot exceed 100%'
-          }
-        ],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
-        },
-        section: 'Owned Properties',
+        section: 'Assets & Liabilities',
         questionNumber: 32,
-        groupId: 'owned-properties'
+        groupId: 'assets-liabilities'
       },
       {
-        id: 'home1RemainingTenure',
-        title: 'Home 1: What is the remaining loan tenure (in years)?',
+        id: 'realEstateValue',
+        title: "What's the current market value of your real estate?",
+        subtitle: "Primary residence and other properties",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Tenure cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
-        },
-        section: 'Owned Properties',
+        section: 'Assets & Liabilities',
         questionNumber: 33,
-        groupId: 'owned-properties'
+        groupId: 'assets-liabilities'
       },
       {
-        id: 'home1MonthlyPayment',
-        title: 'Home 1: What is your monthly EMI/loan payment?',
+        id: 'vehicleValue',
+        title: "What's the current value of your vehicles?",
+        subtitle: "Cars, motorcycles, boats",
         type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        required: false,
         conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
+          dependsOn: 'hasVehicles',
+          values: ['1', '2', '3', '4 or more']
         },
-        section: 'Owned Properties',
+        section: 'Assets & Liabilities',
         questionNumber: 34,
-        groupId: 'owned-properties'
+        groupId: 'assets-liabilities'
       },
       {
-        id: 'home1PropertyTax',
-        title: 'Home 1: What is your annual property tax?',
+        id: 'otherAssets',
+        title: "What's the value of your other assets?",
+        subtitle: "Jewelry, art, collectibles, business equity",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
-        },
-        section: 'Owned Properties',
+        section: 'Assets & Liabilities',
         questionNumber: 35,
-        groupId: 'owned-properties'
+        groupId: 'assets-liabilities'
       },
       {
-        id: 'home1MaintenanceFees',
-        title: 'Home 1: What are your monthly building maintenance or society fees?',
+        id: 'mortgageDebt',
+        title: "How much do you owe on mortgages?",
+        subtitle: "Outstanding mortgage balances on all properties",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
-        },
-        section: 'Owned Properties',
+        section: 'Assets & Liabilities',
         questionNumber: 36,
-        groupId: 'owned-properties'
+        groupId: 'assets-liabilities'
       },
       {
-        id: 'home1Insurance',
-        title: 'Home 1: Do you have home insurance for this property?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
+        id: 'creditCardDebt',
+        title: "How much credit card debt do you have?",
+        subtitle: "Total outstanding balances",
+        type: 'number',
+        required: false,
         conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
+          dependsOn: 'hasPersonalLoans',
+          values: ['Yes']
         },
-        section: 'Owned Properties',
+        section: 'Assets & Liabilities',
         questionNumber: 37,
-        groupId: 'owned-properties'
+        groupId: 'assets-liabilities'
       },
       {
-        id: 'home1InsuranceCover',
-        title: 'Home 1: What is the total coverage amount of your home insurance?',
+        id: 'personalLoans',
+        title: "How much do you owe in personal loans?",
+        subtitle: "Student loans, personal loans, other debt",
         type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        required: false,
         conditional: {
-          dependsOn: 'housingType',
-          values: ['Own it']
+          dependsOn: 'hasPersonalLoans',
+          values: ['Yes']
         },
-        section: 'Owned Properties',
+        section: 'Assets & Liabilities',
         questionNumber: 38,
-        groupId: 'owned-properties'
+        groupId: 'assets-liabilities'
       },
       {
-        id: 'home1InsurancePremium',
-        title: 'Home 1: What is your annual home insurance premium?',
+        id: 'otherDebts',
+        title: "How much do you owe in other debts?",
+        subtitle: "Business loans, family loans, other obligations",
         type: 'number',
         required: true,
-        validation: [
+        section: 'Assets & Liabilities',
+        questionNumber: 39,
+        groupId: 'assets-liabilities'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-goals',
+    title: 'Financial Goals',
+    description: 'Your short and long-term financial objectives',
+    questions: [
+      {
+        id: 'primaryGoal',
+        title: "What's your primary financial goal?",
+        type: 'radio',
+        required: true,
+        options: ['Retirement planning', 'Buying a home', 'Children\'s education', 'Starting a business', 'Building emergency fund', 'Debt reduction', 'Wealth accumulation', 'Other'],
+        section: 'Goals & Planning',
+        questionNumber: 40,
+        groupId: 'financial-goals'
+      },
+      {
+        id: 'retirementGoal',
+        title: "How much do you want to have saved for retirement?",
+        subtitle: "Total amount needed for comfortable retirement",
+        type: 'number',
+        required: true,
+        section: 'Goals & Planning',
+        questionNumber: 41,
+        groupId: 'financial-goals'
+      },
+      {
+        id: 'emergencyFundGoal',
+        title: "How many months of expenses do you want in your emergency fund?",
+        type: 'select',
+        required: true,
+        options: ['3 months', '6 months', '9 months', '12 months', '18 months', '24 months'],
+        section: 'Goals & Planning',
+        questionNumber: 42,
+        groupId: 'financial-goals'
+      },
+      {
+        id: 'homeDownPayment',
+        title: "How much do you need for a home down payment?",
+        type: 'number',
+        required: false,
+        conditional: {
+          dependsOn: 'primaryGoal',
+          values: ['Buying a home']
+        },
+        section: 'Goals & Planning',
+        questionNumber: 43,
+        groupId: 'financial-goals'
+      },
+      {
+        id: 'educationFund',
+        title: "How much do you want to save for children's education?",
+        type: 'number',
+        required: false,
+        conditional: [
           {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
+            dependsOn: 'hasChildren',
+            values: ['1', '2', '3 or more']
+          },
+          {
+            dependsOn: 'primaryGoal',
+            values: ['Children\'s education']
           }
         ],
+        section: 'Goals & Planning',
+        questionNumber: 44,
+        groupId: 'financial-goals'
+      },
+      {
+        id: 'businessStartupFund',
+        title: "How much capital do you need to start your business?",
+        type: 'number',
+        required: false,
+        conditional: {
+          dependsOn: 'primaryGoal',
+          values: ['Starting a business']
+        },
+        section: 'Goals & Planning',
+        questionNumber: 45,
+        groupId: 'financial-goals'
+      },
+      {
+        id: 'timeHorizon',
+        title: "What's your investment time horizon?",
+        type: 'radio',
+        required: true,
+        options: ['Less than 1 year', '1-3 years', '3-5 years', '5-10 years', '10-20 years', 'More than 20 years'],
+        section: 'Goals & Planning',
+        questionNumber: 46,
+        groupId: 'financial-goals'
+      },
+      {
+        id: 'savingsRate',
+        title: "What percentage of your income do you currently save?",
+        type: 'select',
+        required: true,
+        options: ['0-5%', '6-10%', '11-15%', '16-20%', '21-25%', '26-30%', 'More than 30%'],
+        section: 'Goals & Planning',
+        questionNumber: 47,
+        groupId: 'financial-goals'
+      },
+      {
+        id: 'targetSavingsRate',
+        title: "What percentage of your income would you like to save?",
+        type: 'select',
+        required: true,
+        options: ['5-10%', '11-15%', '16-20%', '21-25%', '26-30%', '31-40%', 'More than 40%'],
+        section: 'Goals & Planning',
+        questionNumber: 48,
+        groupId: 'financial-goals'
+      }
+    ]
+  },
+
+  {
+    id: 'risk-tolerance',
+    title: 'Risk Tolerance',
+    description: 'Understanding your comfort level with investment risk',
+    questions: [
+      {
+        id: 'riskComfort',
+        title: "How comfortable are you with investment risk?",
+        type: 'radio',
+        required: true,
+        options: ['Very conservative - I prefer guaranteed returns', 'Conservative - I prefer low risk with modest returns', 'Moderate - I can accept some risk for better returns', 'Aggressive - I\'m comfortable with high risk for high returns', 'Very aggressive - I seek maximum returns despite high risk'],
+        section: 'Risk Assessment',
+        questionNumber: 49,
+        groupId: 'risk-tolerance'
+      },
+      {
+        id: 'marketDownturn',
+        title: "If your investments lost 20% in a market downturn, what would you do?",
+        type: 'radio',
+        required: true,
+        options: ['Sell everything immediately', 'Sell some investments', 'Hold and wait for recovery', 'Buy more at lower prices'],
+        section: 'Risk Assessment',
+        questionNumber: 50,
+        groupId: 'risk-tolerance'
+      },
+      {
+        id: 'investmentExperience',
+        title: "How would you describe your investment experience?",
+        type: 'radio',
+        required: true,
+        options: ['Beginner - Little to no experience', 'Basic - Some experience with simple investments', 'Intermediate - Comfortable with various investment types', 'Advanced - Extensive experience and knowledge', 'Expert - Professional level expertise'],
+        section: 'Risk Assessment',
+        questionNumber: 51,
+        groupId: 'risk-tolerance'
+      },
+      {
+        id: 'volatilityTolerance',
+        title: "What level of portfolio volatility can you tolerate?",
+        type: 'radio',
+        required: true,
+        options: ['Very low - I want stable, predictable returns', 'Low - Minor fluctuations are acceptable', 'Moderate - I can handle moderate ups and downs', 'High - I\'m comfortable with significant fluctuations', 'Very high - I can handle extreme volatility'],
+        section: 'Risk Assessment',
+        questionNumber: 52,
+        groupId: 'risk-tolerance'
+      },
+      {
+        id: 'lossCapacity',
+        title: "What's the maximum percentage loss you could handle without affecting your lifestyle?",
+        type: 'radio',
+        required: true,
+        options: ['0-5%', '6-10%', '11-20%', '21-30%', 'More than 30%'],
+        section: 'Risk Assessment',
+        questionNumber: 53,
+        groupId: 'risk-tolerance'
+      },
+      {
+        id: 'investmentPriority',
+        title: "What's most important to you in investments?",
+        type: 'radio',
+        required: true,
+        options: ['Capital preservation', 'Steady income', 'Moderate growth', 'High growth potential', 'Beating inflation'],
+        section: 'Risk Assessment',
+        questionNumber: 54,
+        groupId: 'risk-tolerance'
+      }
+    ]
+  },
+
+  {
+    id: 'investment-preferences',
+    title: 'Investment Preferences',
+    description: 'Your preferences for different types of investments',
+    questions: [
+      {
+        id: 'preferredAssets',
+        title: "Which asset classes are you most interested in?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Stocks/Equities', 'Bonds', 'Real Estate', 'Commodities', 'Cryptocurrency', 'Cash/Money Market', 'Alternative Investments'],
+        section: 'Investment Strategy',
+        questionNumber: 55,
+        groupId: 'investment-preferences'
+      },
+      {
+        id: 'geographicPreference',
+        title: "What's your geographic investment preference?",
+        type: 'radio',
+        required: true,
+        options: ['Domestic only', 'Primarily domestic with some international', 'Balanced domestic and international', 'Primarily international', 'Global diversification'],
+        section: 'Investment Strategy',
+        questionNumber: 56,
+        groupId: 'investment-preferences'
+      },
+      {
+        id: 'investmentStyle',
+        title: "What investment style appeals to you most?",
+        type: 'radio',
+        required: true,
+        options: ['Passive index investing', 'Active stock picking', 'Value investing', 'Growth investing', 'Income investing', 'Momentum investing'],
+        section: 'Investment Strategy',
+        questionNumber: 57,
+        groupId: 'investment-preferences'
+      },
+      {
+        id: 'esgImportance',
+        title: "How important is ESG (Environmental, Social, Governance) investing to you?",
+        type: 'radio',
+        required: true,
+        options: ['Not important', 'Somewhat important', 'Important', 'Very important', 'Essential'],
+        section: 'Investment Strategy',
+        questionNumber: 58,
+        groupId: 'investment-preferences'
+      },
+      {
+        id: 'rebalancingFrequency',
+        title: "How often would you like to rebalance your portfolio?",
+        type: 'radio',
+        required: true,
+        options: ['Never - Set and forget', 'Annually', 'Semi-annually', 'Quarterly', 'Monthly', 'As needed based on market conditions'],
+        section: 'Investment Strategy',
+        questionNumber: 59,
+        groupId: 'investment-preferences'
+      },
+      {
+        id: 'taxConsideration',
+        title: "How important are tax considerations in your investment decisions?",
+        type: 'radio',
+        required: true,
+        options: ['Not important', 'Somewhat important', 'Important', 'Very important', 'Critical'],
+        section: 'Investment Strategy',
+        questionNumber: 60,
+        groupId: 'investment-preferences'
+      }
+    ]
+  },
+
+  {
+    id: 'insurance-protection',
+    title: 'Insurance & Protection',
+    description: 'Your current insurance coverage and protection needs',
+    questions: [
+      {
+        id: 'lifeInsurance',
+        title: "Do you have life insurance?",
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Insurance & Protection',
+        questionNumber: 61,
+        groupId: 'insurance-protection'
+      },
+      {
+        id: 'lifeInsuranceCoverage',
+        title: "What's your current life insurance coverage amount?",
+        type: 'number',
+        required: false,
+        conditional: {
+          dependsOn: 'lifeInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance & Protection',
+        questionNumber: 62,
+        groupId: 'insurance-protection'
+      },
+      {
+        id: 'lifeInsuranceType',
+        title: "What type of life insurance do you have?",
+        type: 'radio',
+        required: false,
+        options: ['Term life', 'Whole life', 'Universal life', 'Variable life', 'Not sure'],
+        conditional: {
+          dependsOn: 'lifeInsurance',
+          values: ['Yes']
+        },
+        section: 'Insurance & Protection',
+        questionNumber: 63,
+        groupId: 'insurance-protection'
+      },
+      {
+        id: 'disabilityInsurance',
+        title: "Do you have disability insurance?",
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Insurance & Protection',
+        questionNumber: 64,
+        groupId: 'insurance-protection'
+      },
+      {
+        id: 'healthInsurance',
+        title: "Do you have health insurance?",
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Insurance & Protection',
+        questionNumber: 65,
+        groupId: 'insurance-protection'
+      },
+      {
+        id: 'propertyInsurance',
+        title: "Do you have property insurance (home/renters)?",
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Insurance & Protection',
+        questionNumber: 66,
+        groupId: 'insurance-protection'
+      },
+      {
+        id: 'umbrellaInsurance',
+        title: "Do you have umbrella liability insurance?",
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Insurance & Protection',
+        questionNumber: 67,
+        groupId: 'insurance-protection'
+      },
+      {
+        id: 'emergencyFundMonths',
+        title: "How many months of expenses do you currently have in your emergency fund?",
+        type: 'select',
+        required: true,
+        options: ['0 months', '1 month', '2 months', '3 months', '4-6 months', '7-12 months', 'More than 12 months'],
+        section: 'Insurance & Protection',
+        questionNumber: 68,
+        groupId: 'insurance-protection'
+      }
+    ]
+  },
+
+  {
+    id: 'tax-planning',
+    title: 'Tax Planning',
+    description: 'Your tax situation and planning strategies',
+    questions: [
+      {
+        id: 'taxBracket',
+        title: "What's your estimated tax bracket?",
+        type: 'select',
+        required: true,
+        options: ['0-10%', '11-15%', '16-22%', '23-24%', '25-32%', '33-35%', '36%+', 'Not sure'],
+        section: 'Tax Planning',
+        questionNumber: 69,
+        groupId: 'tax-planning'
+      },
+      {
+        id: 'taxFilingStatus',
+        title: "What's your tax filing status?",
+        type: 'radio',
+        required: true,
+        options: ['Single', 'Married filing jointly', 'Married filing separately', 'Head of household'],
+        section: 'Tax Planning',
+        questionNumber: 70,
+        groupId: 'tax-planning'
+      },
+      {
+        id: 'taxDeductions',
+        title: "Do you itemize deductions or take the standard deduction?",
+        type: 'radio',
+        required: true,
+        options: ['Itemize', 'Standard deduction', 'Not sure'],
+        section: 'Tax Planning',
+        questionNumber: 71,
+        groupId: 'tax-planning'
+      },
+      {
+        id: 'retirementContributions',
+        title: "Do you contribute to tax-advantaged retirement accounts?",
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Tax Planning',
+        questionNumber: 72,
+        groupId: 'tax-planning'
+      },
+      {
+        id: 'retirementContributionAmount',
+        title: "How much do you contribute annually to retirement accounts?",
+        type: 'number',
+        required: false,
+        conditional: {
+          dependsOn: 'retirementContributions',
+          values: ['Yes']
+        },
+        section: 'Tax Planning',
+        questionNumber: 73,
+        groupId: 'tax-planning'
+      },
+      {
+        id: 'hsaContributions',
+        title: "Do you contribute to a Health Savings Account (HSA)?",
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No', 'Not eligible'],
+        section: 'Tax Planning',
+        questionNumber: 74,
+        groupId: 'tax-planning'
+      },
+      {
+        id: 'taxLossHarvesting',
+        title: "Are you familiar with tax-loss harvesting?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, I use it', 'Yes, but I don\'t use it', 'No, not familiar'],
+        section: 'Tax Planning',
+        questionNumber: 75,
+        groupId: 'tax-planning'
+      },
+      {
+        id: 'estatePlanning',
+        title: "Do you have an estate plan (will, trust, etc.)?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, comprehensive plan', 'Yes, basic will only', 'No, but planning to create one', 'No, not a priority'],
+        section: 'Tax Planning',
+        questionNumber: 76,
+        groupId: 'tax-planning'
+      }
+    ]
+  },
+
+  {
+    id: 'retirement-planning',
+    title: 'Retirement Planning',
+    description: 'Detailed retirement planning and expectations',
+    questions: [
+      {
+        id: 'retirementLifestyle',
+        title: "What lifestyle do you envision in retirement?",
+        type: 'radio',
+        required: true,
+        options: ['Modest - Basic needs covered', 'Comfortable - Current lifestyle maintained', 'Luxurious - Enhanced lifestyle with travel and hobbies', 'Lavish - Premium lifestyle with no financial constraints'],
+        section: 'Retirement Planning',
+        questionNumber: 77,
+        groupId: 'retirement-planning'
+      },
+      {
+        id: 'retirementLocation',
+        title: "Where do you plan to live in retirement?",
+        type: 'radio',
+        required: true,
+        options: ['Same location as now', 'Different city in same country', 'Different country', 'Multiple locations', 'Haven\'t decided'],
+        section: 'Retirement Planning',
+        questionNumber: 78,
+        groupId: 'retirement-planning'
+      },
+      {
+        id: 'retirementActivities',
+        title: "What activities do you plan for retirement?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Travel', 'Hobbies', 'Volunteering', 'Part-time work', 'Starting a business', 'Spending time with family', 'Learning new skills', 'Sports and fitness'],
+        section: 'Retirement Planning',
+        questionNumber: 79,
+        groupId: 'retirement-planning'
+      },
+      {
+        id: 'socialSecurityExpectation',
+        title: "Do you expect to receive social security or pension benefits?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, full benefits', 'Yes, reduced benefits', 'No', 'Not sure'],
+        section: 'Retirement Planning',
+        questionNumber: 80,
+        groupId: 'retirement-planning'
+      },
+      {
+        id: 'expectedSocialSecurity',
+        title: "What monthly amount do you expect from social security/pension?",
+        type: 'number',
+        required: false,
+        conditional: {
+          dependsOn: 'socialSecurityExpectation',
+          values: ['Yes, full benefits', 'Yes, reduced benefits']
+        },
+        section: 'Retirement Planning',
+        questionNumber: 81,
+        groupId: 'retirement-planning'
+      },
+      {
+        id: 'retirementHealthcare',
+        title: "How do you plan to handle healthcare costs in retirement?",
+        type: 'radio',
+        required: true,
+        options: ['Government healthcare', 'Employer retiree benefits', 'Private insurance', 'Self-pay', 'Haven\'t planned'],
+        section: 'Retirement Planning',
+        questionNumber: 82,
+        groupId: 'retirement-planning'
+      },
+      {
+        id: 'legacyGoals',
+        title: "Do you want to leave an inheritance?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, substantial inheritance', 'Yes, modest inheritance', 'No, spend it all', 'Haven\'t decided'],
+        section: 'Retirement Planning',
+        questionNumber: 83,
+        groupId: 'retirement-planning'
+      },
+      {
+        id: 'inheritanceAmount',
+        title: "How much would you like to leave as inheritance?",
+        type: 'number',
+        required: false,
+        conditional: {
+          dependsOn: 'legacyGoals',
+          values: ['Yes, substantial inheritance', 'Yes, modest inheritance']
+        },
+        section: 'Retirement Planning',
+        questionNumber: 84,
+        groupId: 'retirement-planning'
+      }
+    ]
+  },
+
+  {
+    id: 'education-planning',
+    title: 'Education Planning',
+    description: 'Planning for children\'s education expenses',
+    conditional: true,
+    triggerQuestions: ['hasChildren'],
+    questions: [
+      {
+        id: 'educationImportance',
+        title: "How important is funding your children's education?",
+        type: 'radio',
+        required: true,
+        options: ['Extremely important', 'Very important', 'Moderately important', 'Not very important', 'Not important'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Education Planning',
+        questionNumber: 85,
+        groupId: 'education-planning'
+      },
+      {
+        id: 'educationType',
+        title: "What type of education do you want to fund?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Public school', 'Private school', 'College/University', 'Graduate school', 'Professional training', 'International education'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Education Planning',
+        questionNumber: 86,
+        groupId: 'education-planning'
+      },
+      {
+        id: 'educationFundingStrategy',
+        title: "How do you plan to fund education expenses?",
+        type: 'radio',
+        required: true,
+        options: ['Save in advance', 'Pay as you go', 'Combination of savings and loans', 'Student loans only', 'Haven\'t decided'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Education Planning',
+        questionNumber: 87,
+        groupId: 'education-planning'
+      },
+      {
+        id: 'educationSavingsAccount',
+        title: "Do you have education savings accounts (529, ESA, etc.)?",
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Education Planning',
+        questionNumber: 88,
+        groupId: 'education-planning'
+      },
+      {
+        id: 'currentEducationSavings',
+        title: "How much do you currently have saved for education?",
+        type: 'number',
+        required: false,
+        conditional: [
+          {
+            dependsOn: 'hasChildren',
+            values: ['1', '2', '3 or more']
+          },
+          {
+            dependsOn: 'educationSavingsAccount',
+            values: ['Yes']
+          }
+        ],
+        section: 'Education Planning',
+        questionNumber: 89,
+        groupId: 'education-planning'
+      },
+      {
+        id: 'monthlyEducationSavings',
+        title: "How much do you save monthly for education?",
+        type: 'number',
+        required: true,
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Education Planning',
+        questionNumber: 90,
+        groupId: 'education-planning'
+      }
+    ]
+  },
+
+  {
+    id: 'major-purchases',
+    title: 'Major Purchases',
+    description: 'Planning for significant upcoming expenses',
+    questions: [
+      {
+        id: 'plannedMajorPurchases',
+        title: "Do you have any major purchases planned in the next 5 years?",
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Major Purchases',
+        questionNumber: 91,
+        groupId: 'major-purchases'
+      },
+      {
+        id: 'purchaseTypes',
+        title: "What major purchases are you planning?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: false,
+        options: ['Home purchase', 'Home renovation', 'Vehicle purchase', 'Vacation/Travel', 'Wedding', 'Starting a business', 'Medical expenses', 'Other'],
+        conditional: {
+          dependsOn: 'plannedMajorPurchases',
+          values: ['Yes']
+        },
+        section: 'Major Purchases',
+        questionNumber: 92,
+        groupId: 'major-purchases'
+      },
+      {
+        id: 'homePurchaseAmount',
+        title: "How much do you plan to spend on a home?",
+        type: 'number',
+        required: false,
+        conditional: {
+          dependsOn: 'purchaseTypes',
+          values: ['Home purchase']
+        },
+        section: 'Major Purchases',
+        questionNumber: 93,
+        groupId: 'major-purchases'
+      },
+      {
+        id: 'homePurchaseTimeframe',
+        title: "When do you plan to buy a home?",
+        type: 'select',
+        required: false,
+        options: ['Within 1 year', '1-2 years', '2-3 years', '3-5 years', 'More than 5 years'],
+        conditional: {
+          dependsOn: 'purchaseTypes',
+          values: ['Home purchase']
+        },
+        section: 'Major Purchases',
+        questionNumber: 94,
+        groupId: 'major-purchases'
+      },
+      {
+        id: 'vehiclePurchaseAmount',
+        title: "How much do you plan to spend on a vehicle?",
+        type: 'number',
+        required: false,
+        conditional: {
+          dependsOn: 'purchaseTypes',
+          values: ['Vehicle purchase']
+        },
+        section: 'Major Purchases',
+        questionNumber: 95,
+        groupId: 'major-purchases'
+      },
+      {
+        id: 'renovationAmount',
+        title: "How much do you plan to spend on home renovation?",
+        type: 'number',
+        required: false,
+        conditional: {
+          dependsOn: 'purchaseTypes',
+          values: ['Home renovation']
+        },
+        section: 'Major Purchases',
+        questionNumber: 96,
+        groupId: 'major-purchases'
+      },
+      {
+        id: 'vacationBudget',
+        title: "What's your annual vacation/travel budget?",
+        type: 'number',
+        required: false,
+        conditional: {
+          dependsOn: 'purchaseTypes',
+          values: ['Vacation/Travel']
+        },
+        section: 'Major Purchases',
+        questionNumber: 97,
+        groupId: 'major-purchases'
+      }
+    ]
+  },
+
+  {
+    id: 'business-planning',
+    title: 'Business Planning',
+    description: 'Entrepreneurial goals and business planning',
+    questions: [
+      {
+        id: 'businessInterest',
+        title: "Are you interested in starting a business?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, actively planning', 'Yes, considering it', 'Maybe in the future', 'No interest'],
+        section: 'Business Planning',
+        questionNumber: 98,
+        groupId: 'business-planning'
+      },
+      {
+        id: 'businessType',
+        title: "What type of business are you considering?",
+        type: 'select',
+        required: false,
+        options: ['Technology/Software', 'Consulting', 'Retail/E-commerce', 'Food & Beverage', 'Real Estate', 'Healthcare', 'Education', 'Manufacturing', 'Service Business', 'Other'],
+        conditional: {
+          dependsOn: 'businessInterest',
+          values: ['Yes, actively planning', 'Yes, considering it']
+        },
+        section: 'Business Planning',
+        questionNumber: 99,
+        groupId: 'business-planning'
+      },
+      {
+        id: 'businessTimeline',
+        title: "When do you plan to start your business?",
+        type: 'select',
+        required: false,
+        options: ['Within 6 months', '6-12 months', '1-2 years', '2-5 years', 'More than 5 years'],
+        conditional: {
+          dependsOn: 'businessInterest',
+          values: ['Yes, actively planning', 'Yes, considering it']
+        },
+        section: 'Business Planning',
+        questionNumber: 100,
+        groupId: 'business-planning'
+      },
+      {
+        id: 'startupCapitalNeeded',
+        title: "How much startup capital do you estimate you'll need?",
+        type: 'number',
+        required: false,
+        conditional: {
+          dependsOn: 'businessInterest',
+          values: ['Yes, actively planning', 'Yes, considering it']
+        },
+        section: 'Business Planning',
+        questionNumber: 101,
+        groupId: 'business-planning'
+      },
+      {
+        id: 'fundingSource',
+        title: "How do you plan to fund your business?",
+        type: 'radio',
+        required: false,
+        options: ['Personal savings', 'Business loan', 'Investors', 'Crowdfunding', 'Combination of sources', 'Haven\'t decided'],
+        conditional: {
+          dependsOn: 'businessInterest',
+          values: ['Yes, actively planning', 'Yes, considering it']
+        },
+        section: 'Business Planning',
+        questionNumber: 102,
+        groupId: 'business-planning'
+      },
+      {
+        id: 'businessRiskTolerance',
+        title: "How comfortable are you with business risk?",
+        type: 'radio',
+        required: false,
+        options: ['Very comfortable', 'Comfortable', 'Somewhat comfortable', 'Not very comfortable', 'Not comfortable at all'],
+        conditional: {
+          dependsOn: 'businessInterest',
+          values: ['Yes, actively planning', 'Yes, considering it']
+        },
+        section: 'Business Planning',
+        questionNumber: 103,
+        groupId: 'business-planning'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-knowledge',
+    title: 'Financial Knowledge',
+    description: 'Assessing your financial literacy and learning preferences',
+    questions: [
+      {
+        id: 'financialLiteracy',
+        title: "How would you rate your financial knowledge?",
+        type: 'radio',
+        required: true,
+        options: ['Beginner', 'Basic', 'Intermediate', 'Advanced', 'Expert'],
+        section: 'Financial Knowledge',
+        questionNumber: 104,
+        groupId: 'financial-knowledge'
+      },
+      {
+        id: 'investmentKnowledge',
+        title: "How familiar are you with different investment options?",
+        type: 'radio',
+        required: true,
+        options: ['Not familiar at all', 'Slightly familiar', 'Moderately familiar', 'Very familiar', 'Expert level'],
+        section: 'Financial Knowledge',
+        questionNumber: 105,
+        groupId: 'financial-knowledge'
+      },
+      {
+        id: 'financialEducationInterest',
+        title: "Are you interested in learning more about personal finance?",
+        type: 'radio',
+        required: true,
+        options: ['Very interested', 'Somewhat interested', 'Neutral', 'Not very interested', 'Not interested'],
+        section: 'Financial Knowledge',
+        questionNumber: 106,
+        groupId: 'financial-knowledge'
+      },
+      {
+        id: 'learningPreference',
+        title: "How do you prefer to learn about financial topics?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Reading articles/books', 'Watching videos', 'Attending seminars', 'Online courses', 'Working with advisor', 'Podcasts', 'Mobile apps'],
+        section: 'Financial Knowledge',
+        questionNumber: 107,
+        groupId: 'financial-knowledge'
+      },
+      {
+        id: 'financialTopicsInterest',
+        title: "Which financial topics interest you most?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Budgeting', 'Investing', 'Retirement planning', 'Tax strategies', 'Insurance', 'Real estate', 'Business finance', 'Cryptocurrency'],
+        section: 'Financial Knowledge',
+        questionNumber: 108,
+        groupId: 'financial-knowledge'
+      },
+      {
+        id: 'financialMistakes',
+        title: "Have you made significant financial mistakes in the past?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, major mistakes', 'Yes, minor mistakes', 'No significant mistakes', 'Prefer not to say'],
+        section: 'Financial Knowledge',
+        questionNumber: 109,
+        groupId: 'financial-knowledge'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-advisor',
+    title: 'Financial Advisor Relationship',
+    description: 'Your experience and preferences for financial advice',
+    questions: [
+      {
+        id: 'hasFinancialAdvisor',
+        title: "Do you currently work with a financial advisor?",
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No'],
+        section: 'Financial Advice',
+        questionNumber: 110,
+        groupId: 'financial-advisor'
+      },
+      {
+        id: 'advisorSatisfaction',
+        title: "How satisfied are you with your current financial advisor?",
+        type: 'radio',
+        required: false,
+        options: ['Very satisfied', 'Satisfied', 'Neutral', 'Dissatisfied', 'Very dissatisfied'],
+        conditional: {
+          dependsOn: 'hasFinancialAdvisor',
+          values: ['Yes']
+        },
+        section: 'Financial Advice',
+        questionNumber: 111,
+        groupId: 'financial-advisor'
+      },
+      {
+        id: 'advisorServices',
+        title: "What services does your advisor provide?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: false,
+        options: ['Investment management', 'Financial planning', 'Tax planning', 'Insurance review', 'Retirement planning', 'Estate planning', 'Business planning'],
+        conditional: {
+          dependsOn: 'hasFinancialAdvisor',
+          values: ['Yes']
+        },
+        section: 'Financial Advice',
+        questionNumber: 112,
+        groupId: 'financial-advisor'
+      },
+      {
+        id: 'advisorFees',
+        title: "How does your advisor charge fees?",
+        type: 'radio',
+        required: false,
+        options: ['Percentage of assets', 'Hourly rate', 'Fixed fee', 'Commission-based', 'Combination', 'Not sure'],
+        conditional: {
+          dependsOn: 'hasFinancialAdvisor',
+          values: ['Yes']
+        },
+        section: 'Financial Advice',
+        questionNumber: 113,
+        groupId: 'financial-advisor'
+      },
+      {
+        id: 'advisorInterest',
+        title: "Are you interested in working with a financial advisor?",
+        type: 'radio',
+        required: false,
+        options: ['Very interested', 'Somewhat interested', 'Maybe', 'Not interested'],
+        conditional: {
+          dependsOn: 'hasFinancialAdvisor',
+          values: ['No']
+        },
+        section: 'Financial Advice',
+        questionNumber: 114,
+        groupId: 'financial-advisor'
+      },
+      {
+        id: 'advisorPreferences',
+        title: "What type of financial advisor would you prefer?",
+        type: 'radio',
+        required: false,
+        options: ['Fee-only fiduciary', 'Commission-based', 'Robo-advisor', 'Hybrid human/digital', 'No preference'],
+        conditional: {
+          dependsOn: 'advisorInterest',
+          values: ['Very interested', 'Somewhat interested', 'Maybe']
+        },
+        section: 'Financial Advice',
+        questionNumber: 115,
+        groupId: 'financial-advisor'
+      },
+      {
+        id: 'diyInvesting',
+        title: "Do you prefer to manage your own investments?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, completely DIY', 'Mostly DIY with some advice', 'Balanced approach', 'Prefer professional management', 'Completely hands-off'],
+        section: 'Financial Advice',
+        questionNumber: 116,
+        groupId: 'financial-advisor'
+      }
+    ]
+  },
+
+  {
+    id: 'technology-preferences',
+    title: 'Technology Preferences',
+    description: 'Your comfort level and preferences for financial technology',
+    questions: [
+      {
+        id: 'techComfort',
+        title: "How comfortable are you with financial technology?",
+        type: 'radio',
+        required: true,
+        options: ['Very comfortable', 'Comfortable', 'Somewhat comfortable', 'Not very comfortable', 'Not comfortable at all'],
+        section: 'Technology & Tools',
+        questionNumber: 117,
+        groupId: 'technology-preferences'
+      },
+      {
+        id: 'financialApps',
+        title: "Do you use financial apps or software?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, regularly', 'Yes, occasionally', 'No, but interested', 'No, not interested'],
+        section: 'Technology & Tools',
+        questionNumber: 118,
+        groupId: 'technology-preferences'
+      },
+      {
+        id: 'appTypes',
+        title: "What types of financial apps do you use?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: false,
+        options: ['Budgeting apps', 'Investment apps', 'Banking apps', 'Credit monitoring', 'Tax software', 'Expense tracking', 'Robo-advisors'],
+        conditional: {
+          dependsOn: 'financialApps',
+          values: ['Yes, regularly', 'Yes, occasionally']
+        },
+        section: 'Technology & Tools',
+        questionNumber: 119,
+        groupId: 'technology-preferences'
+      },
+      {
+        id: 'roboAdvisorInterest',
+        title: "Are you interested in robo-advisor services?",
+        type: 'radio',
+        required: true,
+        options: ['Very interested', 'Somewhat interested', 'Neutral', 'Not very interested', 'Not interested'],
+        section: 'Technology & Tools',
+        questionNumber: 120,
+        groupId: 'technology-preferences'
+      },
+      {
+        id: 'onlineBanking',
+        title: "How often do you use online banking?",
+        type: 'radio',
+        required: true,
+        options: ['Daily', 'Weekly', 'Monthly', 'Rarely', 'Never'],
+        section: 'Technology & Tools',
+        questionNumber: 121,
+        groupId: 'technology-preferences'
+      },
+      {
+        id: 'mobileBanking',
+        title: "Do you use mobile banking apps?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, frequently', 'Yes, occasionally', 'No, but would consider', 'No, prefer other methods'],
+        section: 'Technology & Tools',
+        questionNumber: 122,
+        groupId: 'technology-preferences'
+      },
+      {
+        id: 'cryptocurrencyInterest',
+        title: "Are you interested in cryptocurrency investments?",
+        type: 'radio',
+        required: true,
+        options: ['Very interested', 'Somewhat interested', 'Neutral', 'Not very interested', 'Not interested at all'],
+        section: 'Technology & Tools',
+        questionNumber: 123,
+        groupId: 'technology-preferences'
+      }
+    ]
+  },
+
+  {
+    id: 'spending-habits',
+    title: 'Spending Habits',
+    description: 'Understanding your spending patterns and behaviors',
+    questions: [
+      {
+        id: 'spendingStyle',
+        title: "How would you describe your spending style?",
+        type: 'radio',
+        required: true,
+        options: ['Very frugal', 'Careful spender', 'Moderate spender', 'Liberal spender', 'Big spender'],
+        section: 'Spending & Budgeting',
+        questionNumber: 124,
+        groupId: 'spending-habits'
+      },
+      {
+        id: 'budgetingMethod',
+        title: "Do you follow a budget?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, strict budget', 'Yes, loose budget', 'Sometimes', 'No, but want to start', 'No, don\'t believe in budgets'],
+        section: 'Spending & Budgeting',
+        questionNumber: 125,
+        groupId: 'spending-habits'
+      },
+      {
+        id: 'expenseTracking',
+        title: "How do you track your expenses?",
+        type: 'radio',
+        required: true,
+        options: ['Detailed tracking with apps/software', 'Basic tracking with spreadsheets', 'Mental tracking only', 'Bank statements review', 'Don\'t track expenses'],
+        section: 'Spending & Budgeting',
+        questionNumber: 126,
+        groupId: 'spending-habits'
+      },
+      {
+        id: 'impulseSpending',
+        title: "How often do you make impulse purchases?",
+        type: 'radio',
+        required: true,
+        options: ['Never', 'Rarely', 'Sometimes', 'Often', 'Very often'],
+        section: 'Spending & Budgeting',
+        questionNumber: 127,
+        groupId: 'spending-habits'
+      },
+      {
+        id: 'spendingCategories',
+        title: "What do you spend the most money on besides necessities?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Dining out', 'Entertainment', 'Travel', 'Shopping/Clothes', 'Hobbies', 'Technology', 'Fitness/Health', 'Gifts'],
+        section: 'Spending & Budgeting',
+        questionNumber: 128,
+        groupId: 'spending-habits'
+      },
+      {
+        id: 'paymentMethods',
+        title: "What's your preferred payment method?",
+        type: 'radio',
+        required: true,
+        options: ['Cash', 'Debit card', 'Credit card (pay in full)', 'Credit card (carry balance)', 'Mobile payments', 'Mix of methods'],
+        section: 'Spending & Budgeting',
+        questionNumber: 129,
+        groupId: 'spending-habits'
+      },
+      {
+        id: 'subscriptionServices',
+        title: "How many subscription services do you pay for?",
+        subtitle: "Streaming, software, memberships, etc.",
+        type: 'select',
+        required: true,
+        options: ['0', '1-3', '4-6', '7-10', 'More than 10', 'Don\'t know'],
+        section: 'Spending & Budgeting',
+        questionNumber: 130,
+        groupId: 'spending-habits'
+      }
+    ]
+  },
+
+  {
+    id: 'debt-management',
+    title: 'Debt Management',
+    description: 'Your approach to managing and paying off debt',
+    questions: [
+      {
+        id: 'debtComfort',
+        title: "How comfortable are you with carrying debt?",
+        type: 'radio',
+        required: true,
+        options: ['Very uncomfortable - avoid all debt', 'Uncomfortable - only necessary debt', 'Neutral - debt is a tool', 'Comfortable - strategic use of debt', 'Very comfortable - leverage for growth'],
+        section: 'Debt Management',
+        questionNumber: 131,
+        groupId: 'debt-management'
+      },
+      {
+        id: 'debtPayoffStrategy',
+        title: "What's your debt payoff strategy?",
+        type: 'radio',
+        required: false,
+        options: ['Pay minimums only', 'Debt snowball (smallest first)', 'Debt avalanche (highest interest first)', 'Balanced approach', 'No specific strategy'],
+        conditional: {
+          dependsOn: 'hasPersonalLoans',
+          values: ['Yes']
+        },
+        section: 'Debt Management',
+        questionNumber: 132,
+        groupId: 'debt-management'
+      },
+      {
+        id: 'creditScore',
+        title: "What's your approximate credit score?",
+        type: 'select',
+        required: true,
+        options: ['Below 580 (Poor)', '580-669 (Fair)', '670-739 (Good)', '740-799 (Very Good)', '800+ (Excellent)', 'Don\'t know'],
+        section: 'Debt Management',
+        questionNumber: 133,
+        groupId: 'debt-management'
+      },
+      {
+        id: 'creditMonitoring',
+        title: "Do you monitor your credit score regularly?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, monthly', 'Yes, quarterly', 'Yes, annually', 'Rarely', 'Never'],
+        section: 'Debt Management',
+        questionNumber: 134,
+        groupId: 'debt-management'
+      },
+      {
+        id: 'creditUtilization',
+        title: "What percentage of your available credit do you typically use?",
+        type: 'select',
+        required: true,
+        options: ['0%', '1-10%', '11-30%', '31-50%', '51-70%', 'More than 70%', 'Don\'t know'],
+        section: 'Debt Management',
+        questionNumber: 135,
+        groupId: 'debt-management'
+      },
+      {
+        id: 'debtConsolidation',
+        title: "Have you considered debt consolidation?",
+        type: 'radio',
+        required: false,
+        options: ['Yes, have done it', 'Yes, considering it', 'No, but might consider', 'No, not interested'],
+        conditional: {
+          dependsOn: 'hasPersonalLoans',
+          values: ['Yes']
+        },
+        section: 'Debt Management',
+        questionNumber: 136,
+        groupId: 'debt-management'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-stress',
+    title: 'Financial Stress & Emotions',
+    description: 'Understanding your emotional relationship with money',
+    questions: [
+      {
+        id: 'financialStress',
+        title: "How often do you feel stressed about money?",
+        type: 'radio',
+        required: true,
+        options: ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
+        section: 'Financial Psychology',
+        questionNumber: 137,
+        groupId: 'financial-stress'
+      },
+      {
+        id: 'moneyWorries',
+        title: "What financial concerns worry you most?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Not having enough for retirement', 'Job loss/income reduction', 'Medical emergencies', 'Market crashes', 'Inflation', 'Children\'s future', 'Debt burden', 'Economic uncertainty'],
+        section: 'Financial Psychology',
+        questionNumber: 138,
+        groupId: 'financial-stress'
+      },
+      {
+        id: 'financialConfidence',
+        title: "How confident are you in your financial decisions?",
+        type: 'radio',
+        required: true,
+        options: ['Very confident', 'Confident', 'Somewhat confident', 'Not very confident', 'Not confident at all'],
+        section: 'Financial Psychology',
+        questionNumber: 139,
+        groupId: 'financial-stress'
+      },
+      {
+        id: 'moneyPersonality',
+        title: "Which best describes your money personality?",
+        type: 'radio',
+        required: true,
+        options: ['Saver - I love to save money', 'Spender - I enjoy spending money', 'Investor - I focus on growing wealth', 'Avoider - I prefer not to think about money', 'Worrier - I constantly worry about money'],
+        section: 'Financial Psychology',
+        questionNumber: 140,
+        groupId: 'financial-stress'
+      },
+      {
+        id: 'financialGoalConfidence',
+        title: "How confident are you about reaching your financial goals?",
+        type: 'radio',
+        required: true,
+        options: ['Very confident', 'Confident', 'Somewhat confident', 'Not very confident', 'Not confident at all'],
+        section: 'Financial Psychology',
+        questionNumber: 141,
+        groupId: 'financial-stress'
+      },
+      {
+        id: 'financialRegrets',
+        title: "Do you have major financial regrets?",
+        type: 'radio',
+        required: true,
+        options: ['No regrets', 'Minor regrets', 'Some regrets', 'Major regrets', 'Prefer not to say'],
+        section: 'Financial Psychology',
+        questionNumber: 142,
+        groupId: 'financial-stress'
+      }
+    ]
+  },
+
+  {
+    id: 'family-finances',
+    title: 'Family Financial Dynamics',
+    description: 'How you handle money decisions with family',
+    questions: [
+      {
+        id: 'financialDecisionMaking',
+        title: "Who makes financial decisions in your household?",
+        type: 'radio',
+        required: true,
+        options: ['I make all decisions', 'Partner makes all decisions', 'We decide together', 'We split responsibilities', 'Not applicable'],
+        section: 'Family Finances',
+        questionNumber: 143,
+        groupId: 'family-finances'
+      },
+      {
+        id: 'financialCommunication',
+        title: "How often do you discuss finances with your partner?",
+        type: 'radio',
+        required: false,
+        options: ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Rarely', 'Never'],
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship not living together', 'In relationship living together', 'Married']
+        },
+        section: 'Family Finances',
+        questionNumber: 144,
+        groupId: 'family-finances'
+      },
+      {
+        id: 'financialAgreement',
+        title: "How well do you and your partner agree on financial matters?",
+        type: 'radio',
+        required: false,
+        options: ['Always agree', 'Usually agree', 'Sometimes agree', 'Rarely agree', 'Never agree'],
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship not living together', 'In relationship living together', 'Married']
+        },
+        section: 'Family Finances',
+        questionNumber: 145,
+        groupId: 'family-finances'
+      },
+      {
+        id: 'accountStructure',
+        title: "How do you structure your accounts with your partner?",
+        type: 'radio',
+        required: false,
+        options: ['All joint accounts', 'Mostly joint with some separate', 'Mix of joint and separate', 'Mostly separate with some joint', 'All separate accounts'],
+        conditional: {
+          dependsOn: 'relationshipStatus',
+          values: ['In relationship living together', 'Married']
+        },
+        section: 'Family Finances',
+        questionNumber: 146,
+        groupId: 'family-finances'
+      },
+      {
+        id: 'childrenFinancialEducation',
+        title: "Do you teach your children about money?",
+        type: 'radio',
+        required: false,
+        options: ['Yes, actively teach them', 'Yes, occasionally discuss it', 'No, they\'re too young', 'No, not a priority', 'No, leave it to schools'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Family Finances',
+        questionNumber: 147,
+        groupId: 'family-finances'
+      },
+      {
+        id: 'allowanceSystem',
+        title: "Do you give your children an allowance?",
+        type: 'radio',
+        required: false,
+        options: ['Yes, tied to chores', 'Yes, not tied to chores', 'No, but considering it', 'No, don\'t believe in allowances', 'Children too young'],
+        conditional: {
+          dependsOn: 'hasChildren',
+          values: ['1', '2', '3 or more']
+        },
+        section: 'Family Finances',
+        questionNumber: 148,
+        groupId: 'family-finances'
+      }
+    ]
+  },
+
+  {
+    id: 'economic-outlook',
+    title: 'Economic Outlook',
+    description: 'Your views on economic trends and market conditions',
+    questions: [
+      {
+        id: 'economicOptimism',
+        title: "How optimistic are you about the economy in the next 5 years?",
+        type: 'radio',
+        required: true,
+        options: ['Very optimistic', 'Optimistic', 'Neutral', 'Pessimistic', 'Very pessimistic'],
+        section: 'Economic Views',
+        questionNumber: 149,
+        groupId: 'economic-outlook'
+      },
+      {
+        id: 'inflationConcern',
+        title: "How concerned are you about inflation?",
+        type: 'radio',
+        required: true,
+        options: ['Very concerned', 'Concerned', 'Somewhat concerned', 'Not very concerned', 'Not concerned at all'],
+        section: 'Economic Views',
+        questionNumber: 150,
+        groupId: 'economic-outlook'
+      },
+      {
+        id: 'marketTiming',
+        title: "Do you believe in timing the market?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, actively try to time it', 'Yes, but only for major events', 'No, but watch for opportunities', 'No, time in market beats timing', 'No opinion'],
+        section: 'Economic Views',
+        questionNumber: 151,
+        groupId: 'economic-outlook'
+      },
+      {
+        id: 'recessionPreparation',
+        title: "How are you preparing for potential economic downturns?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Building larger emergency fund', 'Reducing debt', 'Diversifying investments', 'Increasing cash holdings', 'Developing additional income streams', 'Not preparing specifically'],
+        section: 'Economic Views',
+        questionNumber: 152,
+        groupId: 'economic-outlook'
+      },
+      {
+        id: 'globalEconomyImpact',
+        title: "How much do global economic events affect your financial decisions?",
+        type: 'radio',
+        required: true,
+        options: ['Significantly', 'Moderately', 'Somewhat', 'Very little', 'Not at all'],
+        section: 'Economic Views',
+        questionNumber: 153,
+        groupId: 'economic-outlook'
+      }
+    ]
+  },
+
+  {
+    id: 'lifestyle-preferences',
+    title: 'Lifestyle Preferences',
+    description: 'How your lifestyle affects your financial planning',
+    questions: [
+      {
+        id: 'workLifeBalance',
+        title: "How important is work-life balance to you?",
+        type: 'radio',
+        required: true,
+        options: ['Extremely important', 'Very important', 'Moderately important', 'Somewhat important', 'Not important'],
+        section: 'Lifestyle & Values',
+        questionNumber: 154,
+        groupId: 'lifestyle-preferences'
+      },
+      {
+        id: 'careerAmbition',
+        title: "How would you describe your career ambitions?",
+        type: 'radio',
+        required: true,
+        options: ['Very ambitious - want to reach the top', 'Ambitious - want significant advancement', 'Moderate - steady progression', 'Content - happy with current level', 'Focused elsewhere - career not priority'],
+        section: 'Lifestyle & Values',
+        questionNumber: 155,
+        groupId: 'lifestyle-preferences'
+      },
+      {
+        id: 'travelImportance',
+        title: "How important is travel to you?",
+        type: 'radio',
+        required: true,
+        options: ['Extremely important', 'Very important', 'Moderately important', 'Somewhat important', 'Not important'],
+        section: 'Lifestyle & Values',
+        questionNumber: 156,
+        groupId: 'lifestyle-preferences'
+      },
+      {
+        id: 'materialPossessions',
+        title: "How important are material possessions to you?",
+        type: 'radio',
+        required: true,
+        options: ['Very important', 'Important', 'Moderately important', 'Not very important', 'Not important at all'],
+        section: 'Lifestyle & Values',
+        questionNumber: 157,
+        groupId: 'lifestyle-preferences'
+      },
+      {
+        id: 'socialStatus',
+        title: "How important is social status to you?",
+        type: 'radio',
+        required: true,
+        options: ['Very important', 'Important', 'Moderately important', 'Not very important', 'Not important at all'],
+        section: 'Lifestyle & Values',
+        questionNumber: 158,
+        groupId: 'lifestyle-preferences'
+      },
+      {
+        id: 'environmentalValues',
+        title: "How important are environmental considerations in your financial decisions?",
+        type: 'radio',
+        required: true,
+        options: ['Extremely important', 'Very important', 'Moderately important', 'Somewhat important', 'Not important'],
+        section: 'Lifestyle & Values',
+        questionNumber: 159,
+        groupId: 'lifestyle-preferences'
+      },
+      {
+        id: 'charitableGiving',
+        title: "Do you regularly give to charity?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, significant amounts', 'Yes, moderate amounts', 'Yes, small amounts', 'Occasionally', 'No'],
+        section: 'Lifestyle & Values',
+        questionNumber: 160,
+        groupId: 'lifestyle-preferences'
+      }
+    ]
+  },
+
+  {
+    id: 'health-wellness',
+    title: 'Health & Wellness Planning',
+    description: 'Planning for health-related expenses and wellness goals',
+    questions: [
+      {
+        id: 'healthStatus',
+        title: "How would you rate your current health?",
+        type: 'radio',
+        required: true,
+        options: ['Excellent', 'Very good', 'Good', 'Fair', 'Poor'],
+        section: 'Health & Wellness',
+        questionNumber: 161,
+        groupId: 'health-wellness'
+      },
+      {
+        id: 'healthcareExpenses',
+        title: "Do you expect significant healthcare expenses in the future?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, definitely', 'Yes, possibly', 'Uncertain', 'Probably not', 'No'],
+        section: 'Health & Wellness',
+        questionNumber: 162,
+        groupId: 'health-wellness'
+      },
+      {
+        id: 'longTermCareInsurance',
+        title: "Do you have long-term care insurance?",
+        type: 'radio',
+        required: true,
+        options: ['Yes', 'No, but considering it', 'No, not interested', 'Not sure what it is'],
+        section: 'Health & Wellness',
+        questionNumber: 163,
+        groupId: 'health-wellness'
+      },
+      {
+        id: 'hsaUsage',
+        title: "If you have an HSA, how do you use it?",
+        type: 'radio',
+        required: false,
+        options: ['Pay current expenses', 'Save for future expenses', 'Invest for long-term growth', 'Combination approach'],
+        conditional: {
+          dependsOn: 'hsaContributions',
+          values: ['Yes']
+        },
+        section: 'Health & Wellness',
+        questionNumber: 164,
+        groupId: 'health-wellness'
+      },
+      {
+        id: 'wellnessSpending',
+        title: "How much do you spend monthly on wellness activities?",
+        subtitle: "Gym, fitness, mental health, preventive care",
+        type: 'number',
+        required: true,
+        section: 'Health & Wellness',
+        questionNumber: 165,
+        groupId: 'health-wellness'
+      },
+      {
+        id: 'familyHealthHistory',
+        title: "Do you have family history of expensive medical conditions?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, significant history', 'Yes, some history', 'No significant history', 'Don\'t know', 'Prefer not to say'],
+        section: 'Health & Wellness',
+        questionNumber: 166,
+        groupId: 'health-wellness'
+      }
+    ]
+  },
+
+  {
+    id: 'career-development',
+    title: 'Career Development',
+    description: 'Your career plans and their financial implications',
+    questions: [
+      {
+        id: 'careerSatisfaction',
+        title: "How satisfied are you with your current career?",
+        type: 'radio',
+        required: true,
+        options: ['Very satisfied', 'Satisfied', 'Neutral', 'Dissatisfied', 'Very dissatisfied'],
+        section: 'Career & Income',
+        questionNumber: 167,
+        groupId: 'career-development'
+      },
+      {
+        id: 'careerChange',
+        title: "Are you considering a career change?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, actively planning', 'Yes, considering it', 'Maybe in the future', 'No, happy with current career'],
+        section: 'Career & Income',
+        questionNumber: 168,
+        groupId: 'career-development'
+      },
+      {
+        id: 'incomeGrowthExpectation',
+        title: "What do you expect for your income growth over the next 5 years?",
+        type: 'radio',
+        required: true,
+        options: ['Significant increase (>50%)', 'Moderate increase (20-50%)', 'Modest increase (5-20%)', 'Stay about the same', 'Might decrease'],
+        section: 'Career & Income',
+        questionNumber: 169,
+        groupId: 'career-development'
+      },
+      {
+        id: 'skillDevelopment',
+        title: "Do you invest in professional development?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, significantly', 'Yes, moderately', 'Yes, minimally', 'No, but want to', 'No, not necessary'],
+        section: 'Career & Income',
+        questionNumber: 170,
+        groupId: 'career-development'
+      },
+      {
+        id: 'jobSecurity',
+        title: "How secure do you feel in your current job?",
+        type: 'radio',
+        required: true,
+        options: ['Very secure', 'Secure', 'Somewhat secure', 'Not very secure', 'Very insecure'],
+        section: 'Career & Income',
+        questionNumber: 171,
+        groupId: 'career-development'
+      },
+      {
+        id: 'sideIncome',
+        title: "Do you have sources of income besides your main job?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, significant side income', 'Yes, modest side income', 'No, but want to develop some', 'No, not interested'],
+        section: 'Career & Income',
+        questionNumber: 172,
+        groupId: 'career-development'
+      },
+      {
+        id: 'retirementFromWork',
+        title: "Do you plan to work in retirement?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, full-time', 'Yes, part-time', 'Yes, consulting/freelance', 'Maybe, if needed', 'No, complete retirement'],
+        section: 'Career & Income',
+        questionNumber: 173,
+        groupId: 'career-development'
+      }
+    ]
+  },
+
+  {
+    id: 'real-estate-planning',
+    title: 'Real Estate Planning',
+    description: 'Your real estate investment and housing plans',
+    questions: [
+      {
+        id: 'realEstateInterest',
+        title: "Are you interested in real estate investing?",
+        type: 'radio',
+        required: true,
+        options: ['Very interested', 'Somewhat interested', 'Neutral', 'Not very interested', 'Not interested at all'],
+        section: 'Real Estate',
+        questionNumber: 174,
+        groupId: 'real-estate-planning'
+      },
+      {
+        id: 'realEstateExperience',
+        title: "What's your experience with real estate investing?",
+        type: 'radio',
+        required: true,
+        options: ['Extensive experience', 'Some experience', 'Limited experience', 'No experience but interested', 'No experience or interest'],
+        section: 'Real Estate',
+        questionNumber: 175,
+        groupId: 'real-estate-planning'
+      },
+      {
+        id: 'propertyTypes',
+        title: "What types of real estate interest you?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: false,
+        options: ['Residential rental', 'Commercial property', 'REITs', 'Vacation rentals', 'Fix and flip', 'Raw land', 'International property'],
+        conditional: {
+          dependsOn: 'realEstateInterest',
+          values: ['Very interested', 'Somewhat interested']
+        },
+        section: 'Real Estate',
+        questionNumber: 176,
+        groupId: 'real-estate-planning'
+      },
+      {
+        id: 'housingPlans',
+        title: "What are your housing plans for the next 10 years?",
+        type: 'radio',
+        required: true,
+        options: ['Stay in current home', 'Upgrade to larger home', 'Downsize to smaller home', 'Move to different area', 'Buy vacation home', 'Haven\'t decided'],
+        section: 'Real Estate',
+        questionNumber: 177,
+        groupId: 'real-estate-planning'
+      },
+      {
+        id: 'mortgageStrategy',
+        title: "What's your mortgage payoff strategy?",
+        type: 'radio',
+        required: false,
+        options: ['Pay off as quickly as possible', 'Make extra payments when possible', 'Pay minimum and invest difference', 'Refinance for better terms', 'No specific strategy'],
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
         },
-        section: 'Owned Properties',
-        questionNumber: 39,
-        groupId: 'owned-properties'
-      },
-      
-      // Home 2 Questions
-      {
-        id: 'home2PurchasePrice',
-        title: 'Home 2: What was the purchase price of this property?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 40,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2CurrentValue',
-        title: 'Home 2: What is the estimated current value of this property?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 41,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2HasLoan',
-        title: 'Home 2: Do you have a loan on this property?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 42,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2OriginalLoanAmount',
-        title: 'Home 2: What was the original loan amount for this property?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 43,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2OutstandingLoan',
-        title: 'Home 2: What is the current outstanding loan amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 44,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2LoanInterestRate',
-        title: 'Home 2: What is the interest rate on this loan (in percentage)?',
-        type: 'range',
-        required: true,
-        min: 0,
-        max: 50,
-        step: 0.1,
-        defaultValue: 10,
-        showValue: true,
-        suffix: '%',
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Interest rate cannot be negative'
-          },
-          {
-            type: 'max',
-            value: 100,
-            message: 'Interest rate cannot exceed 100%'
-          }
-        ],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 45,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2RemainingTenure',
-        title: 'Home 2: What is the remaining loan tenure (in years)?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Tenure cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 46,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2MonthlyPayment',
-        title: 'Home 2: What is your monthly EMI/loan payment?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 47,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2PropertyTax',
-        title: 'Home 2: What is your annual property tax?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 48,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2MaintenanceFees',
-        title: 'Home 2: What are your monthly building maintenance or society fees?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 49,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2Insurance',
-        title: 'Home 2: Do you have home insurance for this property?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 50,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2InsuranceCover',
-        title: 'Home 2: What is the total coverage amount of your home insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 51,
-        groupId: 'owned-properties'
-      },
-      {
-        id: 'home2InsurancePremium',
-        title: 'Home 2: What is your annual home insurance premium?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'additionalProperties',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Owned Properties',
-        questionNumber: 52,
-        groupId: 'owned-properties'
-      }
-    ]
-  },
-  {
-    id: 'vehicles-common',
-    title: 'Vehicle Expenses & Basics',
-    description: 'Vehicle expenses that apply to all vehicles',
-    conditional: true,
-    questions: [
-      {
-        id: 'monthlyFuelExpenses',
-        title: 'What are your total monthly fuel/petrol/diesel expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Expenses',
-        questionNumber: 53,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'monthlyVehicleMaintenance',
-        title: 'What are your total monthly vehicle maintenance expenses?',
-        subtitle: 'Include servicing, repairs, car wash, etc.',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Expenses',
-        questionNumber: 54,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'monthlyParkingTolls',
-        title: 'What are your total monthly parking and toll expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Expenses',
-        questionNumber: 55,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'annualVehicleRegistration',
-        title: 'What are your total annual vehicle registration and licensing fees?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Expenses',
-        questionNumber: 56,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'vehicle1Type',
-        title: 'Vehicle 1: What type of vehicle is this?',
-        type: 'select',
-        required: true,
-        options: ['Car', 'Motorcycle/Scooter', 'Truck', 'Van', 'SUV', 'Other'],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Details',
-        questionNumber: 57,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'vehicle1PurchasePrice',
-        title: 'Vehicle 1: What was the purchase price of this vehicle?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Details',
-        questionNumber: 58,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'vehicle1CurrentValue',
-        title: 'Vehicle 1: What is the estimated current value of this vehicle?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Details',
-        questionNumber: 59,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'vehicle1HasLoan',
-        title: 'Vehicle 1: Do you have a loan on this vehicle?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Details',
-        questionNumber: 60,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'vehicle2Type',
-        title: 'Vehicle 2: What type of vehicle is this?',
-        type: 'select',
-        required: true,
-        options: ['Car', 'Motorcycle/Scooter', 'Truck', 'Van', 'SUV', 'Other'],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['2', '3', '4 or more']
-        },
-        section: 'Vehicle Details',
-        questionNumber: 61,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'vehicle2PurchasePrice',
-        title: 'Vehicle 2: What was the purchase price of this vehicle?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['2', '3', '4 or more']
-        },
-        section: 'Vehicle Details',
-        questionNumber: 62,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'vehicle2CurrentValue',
-        title: 'Vehicle 2: What is the estimated current value of this vehicle?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['2', '3', '4 or more']
-        },
-        section: 'Vehicle Details',
-        questionNumber: 63,
-        groupId: 'vehicles-common'
-      },
-      {
-        id: 'vehicle2HasLoan',
-        title: 'Vehicle 2: Do you have a loan on this vehicle?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['2', '3', '4 or more']
-        },
-        section: 'Vehicle Details',
-        questionNumber: 64,
-        groupId: 'vehicles-common'
-      }
-    ]
-  },
-  {
-    id: 'vehicles-insurance-loans',
-    title: 'Vehicle Insurance & Loans',
-    description: 'Insurance and loan details for your vehicles',
-    conditional: true,
-    questions: [
-      {
-        id: 'vehicle1Insurance',
-        title: 'Vehicle 1: Do you have insurance for this vehicle?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Insurance',
-        questionNumber: 65,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle1InsurancePremium',
-        title: 'Vehicle 1: What is your annual vehicle insurance premium?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['1', '2', '3', '4 or more']
-        },
-        section: 'Vehicle Insurance',
-        questionNumber: 66,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle1LoanOriginalAmount',
-        title: 'Vehicle 1: What was the original loan amount for this vehicle?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'vehicle1HasLoan',
-          values: ['Yes']
-        },
-        section: 'Vehicle Loans',
-        questionNumber: 67,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle1LoanOutstanding',
-        title: 'Vehicle 1: What is the current outstanding loan amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'vehicle1HasLoan',
-          values: ['Yes']
-        },
-        section: 'Vehicle Loans',
-        questionNumber: 68,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle1LoanInterestRate',
-        title: 'Vehicle 1: What is the interest rate on this loan (in percentage)?',
-        type: 'range',
-        required: true,
-        min: 0,
-        max: 50,
-        step: 0.1,
-        defaultValue: 10,
-        showValue: true,
-        suffix: '%',
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Interest rate cannot be negative'
-          },
-          {
-            type: 'max',
-            value: 100,
-            message: 'Interest rate cannot exceed 100%'
-          }
-        ],
-        conditional: {
-          dependsOn: 'vehicle1HasLoan',
-          values: ['Yes']
-        },
-        section: 'Vehicle Loans',
-        questionNumber: 69,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle1LoanRemainingTenure',
-        title: 'Vehicle 1: What is the remaining loan tenure (in years)?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Tenure cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'vehicle1HasLoan',
-          values: ['Yes']
-        },
-        section: 'Vehicle Loans',
-        questionNumber: 70,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle1LoanMonthlyPayment',
-        title: 'Vehicle 1: What is your monthly EMI/loan payment?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'vehicle1HasLoan',
-          values: ['Yes']
-        },
-        section: 'Vehicle Loans',
-        questionNumber: 71,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2Insurance',
-        title: 'Vehicle 2: Do you have insurance for this vehicle?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['2', '3', '4 or more']
-        },
-        section: 'Vehicle Insurance',
-        questionNumber: 72,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2InsurancePremium',
-        title: 'Vehicle 2: What is your annual vehicle insurance premium?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasVehicles',
-          values: ['2', '3', '4 or more']
-        },
-        section: 'Vehicle Insurance',
-        questionNumber: 73,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2LoanOriginalAmount',
-        title: 'Vehicle 2: What was the original loan amount for this vehicle?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'vehicle2HasLoan',
-          values: ['Yes']
-        },
-        section: 'Vehicle Loans',
-        questionNumber: 74,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2LoanOutstanding',
-        title: 'Vehicle 2: What is the current outstanding loan amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'vehicle2HasLoan',
-          values: ['Yes']
-        },
-        section: 'Vehicle Loans',
-        questionNumber: 75,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2LoanInterestRate',
-        title: 'Vehicle 2: What is the interest rate on this loan (in percentage)?',
-        type: 'range',
-        required: true,
-        min: 0,
-        max: 50,
-        step: 0.1,
-        defaultValue: 10,
-        showValue: true,
-        suffix: '%',
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Interest rate cannot be negative'
-          },
-          {
-            type: 'max',
-            value: 100,
-            message: 'Interest rate cannot exceed 100%'
-          }
-        ],
-        conditional: {
-          dependsOn: 'vehicle2HasLoan',
-          values: ['Yes']
-        },
-        section: 'Vehicle Loans',
-        questionNumber: 76,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2LoanRemainingTenure',
-        title: 'Vehicle 2: What is the remaining loan tenure (in years)?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Tenure cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'vehicle2HasLoan',
-          values: ['Yes']
-        },
-        section: 'Vehicle Loans',
-        questionNumber: 77,
-        groupId: 'vehicles-insurance-loans'
-      },
-      {
-        id: 'vehicle2LoanMonthlyPayment',
-        title: 'Vehicle 2: What is your monthly EMI/loan payment?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'vehicle2HasLoan',
-          values: ['Yes']
-        },
-        section: 'Vehicle Loans',
-        questionNumber: 78,
-        groupId: 'vehicles-insurance-loans'
-      }
-    ]
-  },
-  {
-    id: 'children',
-    title: 'Children',
-    description: 'Information about your children',
-    conditional: true,
-    questions: [
-      {
-        id: 'child1Age',
-        title: 'Child 1: What is their current age?',
-        type: 'select',
-        required: true,
-        options: ['0-2', '3-5', '6-12', '13-18', '19+'],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 79,
-        groupId: 'children'
-      },
-      {
-        id: 'child1EducationExpenses',
-        title: 'Child 1: What are their annual education expenses?',
-        subtitle: 'Include school fees, tuition, books, activities',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 80,
-        groupId: 'children'
-      },
-      {
-        id: 'child1HealthInsurance',
-        title: 'Child 1: Do you have health insurance for this child?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 81,
-        groupId: 'children'
-      },
-      {
-        id: 'child1HealthInsuranceCover',
-        title: 'Child 1: What is the coverage amount of their health insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['1', '2', '3 or more']
-          },
-          {
-            dependsOn: 'child1HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 82,
-        groupId: 'children'
-      },
-      {
-        id: 'child1InsurancePremium',
-        title: "Child 1: What is the annual premium you're paying for this?",
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['1', '2', '3 or more']
-          },
-          {
-            dependsOn: 'child1HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 83,
-        groupId: 'children'
-      },
-      {
-        id: 'child1LifeInsurance',
-        title: 'Child 1: Do you have life insurance for this child?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 84,
-        groupId: 'children'
-      },
-      {
-        id: 'child1LifeInsuranceCover',
-        title: 'Child 1: What is the coverage amount of their life insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['1', '2', '3 or more']
-          },
-          {
-            dependsOn: 'child1LifeInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 85,
-        groupId: 'children'
-      },
-      {
-        id: 'child1LifeInsurancePremium',
-        title: "Child 1: What is the annual life insurance premium you're paying for this?",
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['1', '2', '3 or more']
-          },
-          {
-            dependsOn: 'child1LifeInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 86,
-        groupId: 'children'
-      },
-      {
-        id: 'child2Age',
-        title: 'Child 2: What is their current age?',
-        type: 'select',
-        required: true,
-        options: ['0-2', '3-5', '6-12', '13-18', '19+'],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 87,
-        groupId: 'children'
-      },
-      {
-        id: 'child2EducationExpenses',
-        title: 'Child 2: What are their annual education expenses?',
-        subtitle: 'Include school fees, tuition, books, activities',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 88,
-        groupId: 'children'
-      },
-      {
-        id: 'child2HealthInsurance',
-        title: 'Child 2: Do you have health insurance for this child?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 89,
-        groupId: 'children'
-      },
-      {
-        id: 'child2HealthInsuranceCover',
-        title: 'Child 2: What is the coverage amount of their health insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
-          },
-          {
-            dependsOn: 'child2HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 90,
-        groupId: 'children'
-      },
-      {
-        id: 'child2InsurancePremium',
-        title: "Child 2: What is the annual premium you're paying for this?",
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
-          },
-          {
-            dependsOn: 'child2HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 91,
-        groupId: 'children'
-      },
-      {
-        id: 'child2LifeInsurance',
-        title: 'Child 2: Do you have life insurance for this child?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 92,
-        groupId: 'children'
-      },
-      {
-        id: 'child2LifeInsuranceCover',
-        title: 'Child 2: What is the coverage amount of their life insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
-          },
-          {
-            dependsOn: 'child2LifeInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 93,
-        groupId: 'children'
-      },
-      {
-        id: 'child2LifeInsurancePremium',
-        title: "Child 2: What is the annual life insurance premium you're paying for this?",
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['2', '3 or more']
-          },
-          {
-            dependsOn: 'child2LifeInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 94,
-        groupId: 'children'
-      },
-      {
-        id: 'child3Age',
-        title: 'Child 3: What is their current age?',
-        type: 'select',
-        required: true,
-        options: ['0-2', '3-5', '6-12', '13-18', '19+'],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 95,
-        groupId: 'children'
-      },
-      {
-        id: 'child3EducationExpenses',
-        title: 'Child 3: What are their annual education expenses?',
-        subtitle: 'Include school fees, tuition, books, activities',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 96,
-        groupId: 'children'
-      },
-      {
-        id: 'child3HealthInsurance',
-        title: 'Child 3: Do you have health insurance for this child?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 97,
-        groupId: 'children'
-      },
-      {
-        id: 'child3HealthInsuranceCover',
-        title: 'Child 3: What is the coverage amount of their health insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 98,
-        groupId: 'children'
-      },
-      {
-        id: 'child3InsurancePremium',
-        title: "Child 3: What is the annual premium you're paying for this?",
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 99,
-        groupId: 'children'
-      },
-      {
-        id: 'child3LifeInsurance',
-        title: 'Child 3: Do you have life insurance for this child?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 100,
-        groupId: 'children'
-      },
-      {
-        id: 'child3LifeInsuranceCover',
-        title: 'Child 3: What is the coverage amount of their life insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3LifeInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 101,
-        groupId: 'children'
-      },
-      {
-        id: 'child3LifeInsurancePremium',
-        title: "Child 3: What is the annual life insurance premium you're paying for this?",
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasChildren',
-            values: ['3 or more']
-          },
-          {
-            dependsOn: 'child3LifeInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Children Details',
-        questionNumber: 102,
-        groupId: 'children'
-      },
-      
-      // Additional Child 1 Detailed Expenses
-      {
-        id: 'child1MonthlyChildcare',
-        title: 'Child 1: What are your monthly childcare/daycare expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 103,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyClothing',
-        title: 'Child 1: What are your monthly clothing and shoes expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 104,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyToys',
-        title: 'Child 1: What are your monthly toys and entertainment expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 105,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyActivities',
-        title: 'Child 1: What are your monthly activities/sports/hobbies expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 106,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyMedical',
-        title: 'Child 1: What are your monthly medical expenses not covered by insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 107,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyFood',
-        title: 'Child 1: What are your monthly special food/formula expenses?',
-        subtitle: 'Baby formula, special dietary needs',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 108,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyTransport',
-        title: 'Child 1: What are your monthly school transport expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 109,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyTutoring',
-        title: 'Child 1: What are your monthly tutoring/coaching expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 110,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyBooks',
-        title: 'Child 1: What are your monthly books and educational materials expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 111,
-        groupId: 'children'
-      },
-      {
-        id: 'child1MonthlyMiscellaneous',
-        title: 'Child 1: What are your other monthly expenses for this child?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['1', '2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 112,
-        groupId: 'children'
-      },
-
-      // Additional Child 2 Detailed Expenses
-      {
-        id: 'child2MonthlyChildcare',
-        title: 'Child 2: What are your monthly childcare/daycare expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 113,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyClothing',
-        title: 'Child 2: What are your monthly clothing and shoes expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 114,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyToys',
-        title: 'Child 2: What are your monthly toys and entertainment expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 115,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyActivities',
-        title: 'Child 2: What are your monthly activities/sports/hobbies expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 116,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyMedical',
-        title: 'Child 2: What are your monthly medical expenses not covered by insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 117,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyFood',
-        title: 'Child 2: What are your monthly special food/formula expenses?',
-        subtitle: 'Baby formula, special dietary needs',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 118,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyTransport',
-        title: 'Child 2: What are your monthly school transport expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 119,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyTutoring',
-        title: 'Child 2: What are your monthly tutoring/coaching expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 120,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyBooks',
-        title: 'Child 2: What are your monthly books and educational materials expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 121,
-        groupId: 'children'
-      },
-      {
-        id: 'child2MonthlyMiscellaneous',
-        title: 'Child 2: What are your other monthly expenses for this child?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['2', '3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 122,
-        groupId: 'children'
-      },
-
-      // Additional Child 3 Detailed Expenses
-      {
-        id: 'child3MonthlyChildcare',
-        title: 'Child 3: What are your monthly childcare/daycare expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 123,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyClothing',
-        title: 'Child 3: What are your monthly clothing and shoes expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 124,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyToys',
-        title: 'Child 3: What are your monthly toys and entertainment expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 125,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyActivities',
-        title: 'Child 3: What are your monthly activities/sports/hobbies expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 126,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyMedical',
-        title: 'Child 3: What are your monthly medical expenses not covered by insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 127,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyFood',
-        title: 'Child 3: What are your monthly special food/formula expenses?',
-        subtitle: 'Baby formula, special dietary needs',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 128,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyTransport',
-        title: 'Child 3: What are your monthly school transport expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 129,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyTutoring',
-        title: 'Child 3: What are your monthly tutoring/coaching expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 130,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyBooks',
-        title: 'Child 3: What are your monthly books and educational materials expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 131,
-        groupId: 'children'
-      },
-      {
-        id: 'child3MonthlyMiscellaneous',
-        title: 'Child 3: What are your other monthly expenses for this child?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasChildren',
-          values: ['3 or more']
-        },
-        section: 'Children Details',
-        questionNumber: 132,
-        groupId: 'children'
-      }
-    ]
-  },
-  {
-    id: 'financial-dependents',
-    title: 'Financial Dependents',
-    description: 'Information about your financial dependents',
-    conditional: true,
-    questions: [
-      {
-        id: 'dependent1Relationship',
-        title: "Dependent 1: What's their relationship to you?",
-        type: 'select',
-        required: true,
-        options: ['Parent', 'Grandparent', 'Sibling', 'Spouse/Partner', 'Other family member', 'Other'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 133,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1HealthExpenses',
-        title: 'Dependent 1: What are your monthly health-related expenses not covered by insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 134,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1MedicalCosts',
-        title: 'Dependent 1: What are your monthly costs for medicines and treatments?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 135,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1LivingExpenses',
-        title: 'Dependent 1: What monthly living expenses do you cover (rent, groceries, utilities)?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 136,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1MonthlySupport',
-        title: 'Dependent 1: How much monthly financial support do you provide?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 137,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1HealthInsurance',
-        title: 'Dependent 1: Do you have health insurance for this dependent?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 138,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1HealthInsuranceCover',
-        title: 'Dependent 1: What is the coverage amount of their health insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['1', '2', '3', '4', '5 or more']
-          },
-          {
-            dependsOn: 'dependent1HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 139,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1InsurancePremium',
-        title: "Dependent 1: What is the annual premium you're paying for this?",
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['1', '2', '3', '4', '5 or more']
-          },
-          {
-            dependsOn: 'dependent1HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 140,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent2Relationship',
-        title: "Dependent 2: What's their relationship to you?",
-        type: 'select',
-        required: true,
-        options: ['Parent', 'Grandparent', 'Sibling', 'Spouse/Partner', 'Other family member', 'Other'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 141,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent2MonthlySupport',
-        title: 'Dependent 2: How much monthly financial support do you provide?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 142,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent2HealthInsurance',
-        title: 'Dependent 2: Do you have health insurance for this dependent?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 143,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent2HealthInsuranceCover',
-        title: 'Dependent 2: What is the coverage amount of their health insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['2', '3', '4', '5 or more']
-          },
-          {
-            dependsOn: 'dependent2HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 144,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent2InsurancePremium',
-        title: "Dependent 2: What is the annual premium you're paying for this?",
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['2', '3', '4', '5 or more']
-          },
-          {
-            dependsOn: 'dependent2HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 145,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3Relationship',
-        title: "Dependent 3: What's their relationship to you?",
-        type: 'select',
-        required: true,
-        options: ['Parent', 'Grandparent', 'Sibling', 'Spouse/Partner', 'Other family member', 'Other'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 146,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3MonthlySupport',
-        title: 'Dependent 3: How much monthly financial support do you provide?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 147,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3HealthInsurance',
-        title: 'Dependent 3: Do you have health insurance for this dependent?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 148,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3HealthInsuranceCover',
-        title: 'Dependent 3: What is the coverage amount of their health insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['3', '4', '5 or more']
-          },
-          {
-            dependsOn: 'dependent3HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 149,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3InsurancePremium',
-        title: "Dependent 3: What is the annual premium you're paying for this?",
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['3', '4', '5 or more']
-          },
-          {
-            dependsOn: 'dependent3HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 150,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4Relationship',
-        title: "Dependent 4: What's their relationship to you?",
-        type: 'select',
-        required: true,
-        options: ['Parent', 'Grandparent', 'Sibling', 'Spouse/Partner', 'Other family member', 'Other'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 151,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4MonthlySupport',
-        title: 'Dependent 4: How much monthly financial support do you provide?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 152,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4HealthInsurance',
-        title: 'Dependent 4: Do you have health insurance for this dependent?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 153,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4HealthInsuranceCover',
-        title: 'Dependent 4: What is the coverage amount of their health insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['4', '5 or more']
-          },
-          {
-            dependsOn: 'dependent4HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 154,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4InsurancePremium',
-        title: "Dependent 4: What is the annual premium you're paying for this?",
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['4', '5 or more']
-          },
-          {
-            dependsOn: 'dependent4HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 155,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5Relationship',
-        title: "Dependent 5: What's their relationship to you?",
-        type: 'select',
-        required: true,
-        options: ['Parent', 'Grandparent', 'Sibling', 'Spouse/Partner', 'Other family member', 'Other'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 156,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5MonthlySupport',
-        title: 'Dependent 5: How much monthly financial support do you provide?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 157,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5HealthInsurance',
-        title: 'Dependent 5: Do you have health insurance for this dependent?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 158,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5HealthInsuranceCover',
-        title: 'Dependent 5: What is the coverage amount of their health insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['5 or more']
-          },
-          {
-            dependsOn: 'dependent5HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 159,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5InsurancePremium',
-        title: "Dependent 5: What is the annual premium you're paying for this?",
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['5 or more']
-          },
-          {
-            dependsOn: 'dependent5HealthInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 160,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1EducationCosts',
-        title: 'Dependent 1: What are your monthly education costs for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 161,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent1TransportCosts',
-        title: 'Dependent 1: What are your monthly transport costs for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 162,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent2EducationCosts',
-        title: 'Dependent 2: What are your monthly education costs for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 163,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent2TransportCosts',
-        title: 'Dependent 2: What are your monthly transport costs for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 164,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3EducationCosts',
-        title: 'Dependent 3: What are your monthly education costs for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 165,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3TransportCosts',
-        title: 'Dependent 3: What are your monthly transport costs for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 166,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4EducationCosts',
-        title: 'Dependent 4: What are your monthly education costs for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 167,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4TransportCosts',
-        title: 'Dependent 4: What are your monthly transport costs for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 168,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5EducationCosts',
-        title: 'Dependent 5: What are your monthly education costs for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 169,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5TransportCosts',
-        title: 'Dependent 5: What are your monthly transport costs for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 170,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependentEmergencyFund',
-        title: 'Do you maintain an emergency fund for your dependents?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 171,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependentEmergencyFundAmount',
-        title: 'What is the current balance of this emergency fund?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['1', '2', '3', '4', '5 or more']
-          },
-          {
-            dependsOn: 'dependentEmergencyFund',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 172,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependentLifeInsurance',
-        title: 'Do you have life insurance that covers your dependents?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 173,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependentLifeInsuranceCover',
-        title: 'What is the total coverage amount of this life insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['1', '2', '3', '4', '5 or more']
-          },
-          {
-            dependsOn: 'dependentLifeInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 174,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependentLifeInsurancePremium',
-        title: 'What is the annual premium for this life insurance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['1', '2', '3', '4', '5 or more']
-          },
-          {
-            dependsOn: 'dependentLifeInsurance',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
-        questionNumber: 175,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'totalMonthlyDependentCost',
-        title: 'What is your estimated total monthly cost for all dependents?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 176,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependentSavingsGoal',
-        title: 'Do you have specific savings goals for your dependents?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        questionNumber: 177,
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependentSavingsAmount',
-        title: 'What is your monthly savings target for your dependents?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: [
-          {
-            dependsOn: 'hasFinancialDependents',
-            values: ['1', '2', '3', '4', '5 or more']
-          },
-          {
-            dependsOn: 'dependentSavingsGoal',
-            values: ['Yes']
-          }
-        ],
-        section: 'Financial Dependents',
+        section: 'Real Estate',
         questionNumber: 178,
-        groupId: 'financial-dependents'
-      }
-    ]
-  },
-  {
-    id: 'personal-loans',
-    title: 'Personal Loans & Credit',
-    description: 'Details about your personal loans and credit card debt',
-    conditional: true,
-    questions: [
+        groupId: 'real-estate-planning'
+      },
       {
-        id: 'numberOfPersonalLoans',
-        title: 'How many personal loans do you currently have?',
-        type: 'select',
-        required: true,
-        options: ['1', '2', '3', '4', '5 or more'],
+        id: 'homeEquityUsage',
+        title: "How do you view your home equity?",
+        type: 'radio',
+        required: false,
+        options: ['Emergency fund access', 'Investment opportunity', 'Retirement asset', 'Legacy for children', 'Just a place to live'],
         conditional: {
-          dependsOn: 'hasPersonalLoans',
-          values: ['Yes']
+          dependsOn: 'housingType',
+          values: ['Own it']
         },
-        section: 'Personal Loans & Credit',
+        section: 'Real Estate',
         questionNumber: 179,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'hasCreditCardDebt',
-        title: 'Do you have credit card debt?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasPersonalLoans',
-          values: ['Yes']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 180,
-        groupId: 'personal-loans'
-      },
-
-      // Credit Card Questions
-      {
-        id: 'creditCardOutstanding',
-        title: 'What is your total outstanding credit card balance?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasCreditCardDebt',
-          values: ['Yes']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 181,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'creditCardInterestRate',
-        title: 'What is the average interest rate on your credit cards (in percentage)?',
-        type: 'range',
-        required: true,
-        min: 0,
-        max: 50,
-        step: 0.1,
-        defaultValue: 10,
-        showValue: true,
-        suffix: '%',
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Interest rate cannot be negative'
-          },
-          {
-            type: 'max',
-            value: 100,
-            message: 'Interest rate cannot exceed 100%'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasCreditCardDebt',
-          values: ['Yes']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 182,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'creditCardMinimumPayment',
-        title: 'What is your total monthly minimum payment on credit cards?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasCreditCardDebt',
-          values: ['Yes']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 183,
-        groupId: 'personal-loans'
-      },
-
-      // Personal Loan 1 Questions
-      {
-        id: 'loan1Purpose',
-        title: 'Personal Loan 1: What was this loan taken for?',
-        type: 'select',
-        required: true,
-        options: ['Education', 'Wedding', 'Medical emergency', 'Business', 'Debt consolidation', 'Holiday/Travel', 'Home renovation', 'Emergency', 'Other'],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 184,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan1OriginalAmount',
-        title: 'Personal Loan 1: What was the original loan amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 185,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan1Outstanding',
-        title: 'Personal Loan 1: What is the current outstanding amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 186,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan1InterestRate',
-        title: 'Personal Loan 1: What is the interest rate on this loan (in percentage)?',
-        type: 'range',
-        required: true,
-        min: 0,
-        max: 50,
-        step: 0.1,
-        defaultValue: 10,
-        showValue: true,
-        suffix: '%',
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Interest rate cannot be negative'
-          },
-          {
-            type: 'max',
-            value: 100,
-            message: 'Interest rate cannot exceed 100%'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 187,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan1RemainingTenure',
-        title: 'Personal Loan 1: What is the remaining loan tenure (in years)?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Tenure cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 137,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan1MonthlyPayment',
-        title: 'Personal Loan 1: What is the monthly payment you make towards this loan?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['1', '2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 138,
-        groupId: 'personal-loans'
-      },
-
-      // Personal Loan 2 Questions
-      {
-        id: 'loan2Purpose',
-        title: 'Personal Loan 2: What was this loan taken for?',
-        type: 'select',
-        required: true,
-        options: ['Education', 'Wedding', 'Medical emergency', 'Business', 'Debt consolidation', 'Holiday/Travel', 'Home renovation', 'Emergency', 'Other'],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 139,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan2OriginalAmount',
-        title: 'Personal Loan 2: What was the original loan amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 140,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan2Outstanding',
-        title: 'Personal Loan 2: What is the current outstanding amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 141,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan2InterestRate',
-        title: 'Personal Loan 2: What is the interest rate on this loan (in percentage)?',
-        type: 'range',
-        required: true,
-        min: 0,
-        max: 50,
-        step: 0.1,
-        defaultValue: 10,
-        showValue: true,
-        suffix: '%',
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Interest rate cannot be negative'
-          },
-          {
-            type: 'max',
-            value: 100,
-            message: 'Interest rate cannot exceed 100%'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 142,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan2RemainingTenure',
-        title: 'Personal Loan 2: What is the remaining loan tenure (in years)?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Tenure cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 143,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan2MonthlyPayment',
-        title: 'Personal Loan 2: What is the monthly payment you make towards this loan?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['2', '3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 144,
-        groupId: 'personal-loans'
-      },
-
-      // Personal Loan 3 Questions
-      {
-        id: 'loan3Purpose',
-        title: 'Personal Loan 3: What was this loan taken for?',
-        type: 'select',
-        required: true,
-        options: ['Education', 'Wedding', 'Medical emergency', 'Business', 'Debt consolidation', 'Holiday/Travel', 'Home renovation', 'Emergency', 'Other'],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 145,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan3OriginalAmount',
-        title: 'Personal Loan 3: What was the original loan amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 146,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan3Outstanding',
-        title: 'Personal Loan 3: What is the current outstanding amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 147,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan3InterestRate',
-        title: 'Personal Loan 3: What is the interest rate on this loan (in percentage)?',
-        type: 'range',
-        required: true,
-        min: 0,
-        max: 50,
-        step: 0.1,
-        defaultValue: 10,
-        showValue: true,
-        suffix: '%',
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Interest rate cannot be negative'
-          },
-          {
-            type: 'max',
-            value: 100,
-            message: 'Interest rate cannot exceed 100%'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 148,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan3RemainingTenure',
-        title: 'Personal Loan 3: What is the remaining loan tenure (in years)?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Tenure cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 149,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan3MonthlyPayment',
-        title: 'Personal Loan 3: What is the monthly payment you make towards this loan?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 150,
-        groupId: 'personal-loans'
-      },
-
-      // Personal Loan 4 Questions
-      {
-        id: 'loan4Purpose',
-        title: 'Personal Loan 4: What was this loan taken for?',
-        type: 'select',
-        required: true,
-        options: ['Education', 'Wedding', 'Medical emergency', 'Business', 'Debt consolidation', 'Holiday/Travel', 'Home renovation', 'Emergency', 'Other'],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 151,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan4OriginalAmount',
-        title: 'Personal Loan 4: What was the original loan amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 152,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan4Outstanding',
-        title: 'Personal Loan 4: What is the current outstanding amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 153,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan4InterestRate',
-        title: 'Personal Loan 4: What is the interest rate on this loan (in percentage)?',
-        type: 'range',
-        required: true,
-        min: 0,
-        max: 50,
-        step: 0.1,
-        defaultValue: 10,
-        showValue: true,
-        suffix: '%',
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Interest rate cannot be negative'
-          },
-          {
-            type: 'max',
-            value: 100,
-            message: 'Interest rate cannot exceed 100%'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 154,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan4RemainingTenure',
-        title: 'Personal Loan 4: What is the remaining loan tenure (in years)?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Tenure cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 155,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan4MonthlyPayment',
-        title: 'Personal Loan 4: What is the monthly payment you make towards this loan?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['4', '5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 156,
-        groupId: 'personal-loans'
-      },
-
-      // Personal Loan 5 Questions
-      {
-        id: 'loan5Purpose',
-        title: 'Personal Loan 5: What was this loan taken for?',
-        type: 'select',
-        required: true,
-        options: ['Education', 'Wedding', 'Medical emergency', 'Business', 'Debt consolidation', 'Holiday/Travel', 'Home renovation', 'Emergency', 'Other'],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 157,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan5OriginalAmount',
-        title: 'Personal Loan 5: What was the original loan amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 158,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan5Outstanding',
-        title: 'Personal Loan 5: What is the current outstanding amount?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 159,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan5InterestRate',
-        title: 'Personal Loan 5: What is the interest rate on this loan (in percentage)?',
-        type: 'range',
-        required: true,
-        min: 0,
-        max: 50,
-        step: 0.1,
-        defaultValue: 10,
-        showValue: true,
-        suffix: '%',
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Interest rate cannot be negative'
-          },
-          {
-            type: 'max',
-            value: 100,
-            message: 'Interest rate cannot exceed 100%'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 160,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan5RemainingTenure',
-        title: 'Personal Loan 5: What is the remaining loan tenure (in years)?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Tenure cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 161,
-        groupId: 'personal-loans'
-      },
-      {
-        id: 'loan5MonthlyPayment',
-        title: 'Personal Loan 5: What is the monthly payment you make towards this loan?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'numberOfPersonalLoans',
-          values: ['5 or more']
-        },
-        section: 'Personal Loans & Credit',
-        questionNumber: 213,
-        groupId: 'personal-loans'
+        groupId: 'real-estate-planning'
       }
     ]
   },
+
   {
-    id: 'insurance-coverage',
-    title: 'Insurance Coverage',
-    description: 'Overview of your insurance policies',
+    id: 'alternative-investments',
+    title: 'Alternative Investments',
+    description: 'Your interest in non-traditional investment options',
     questions: [
       {
-        id: 'userHealthInsurance',
-        title: 'Do you have health insurance?',
+        id: 'alternativeInterest',
+        title: "Are you interested in alternative investments?",
         type: 'radio',
         required: true,
-        options: ['Yes', 'No'],
-        section: 'Insurance Coverage',
-        questionNumber: 214,
-        groupId: 'insurance-coverage'
+        options: ['Very interested', 'Somewhat interested', 'Neutral', 'Not very interested', 'Not interested at all'],
+        section: 'Alternative Investments',
+        questionNumber: 180,
+        groupId: 'alternative-investments'
       },
       {
-        id: 'userLifeInsurance',
-        title: 'Do you have life insurance?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        section: 'Insurance Coverage',
-        questionNumber: 215,
-        groupId: 'insurance-coverage'
+        id: 'alternativeTypes',
+        title: "Which alternative investments interest you?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: false,
+        options: ['Cryptocurrency', 'Precious metals', 'Art and collectibles', 'Private equity', 'Hedge funds', 'Commodities', 'Peer-to-peer lending', 'Angel investing'],
+        conditional: {
+          dependsOn: 'alternativeInterest',
+          values: ['Very interested', 'Somewhat interested']
+        },
+        section: 'Alternative Investments',
+        questionNumber: 181,
+        groupId: 'alternative-investments'
       },
       {
-        id: 'userDisabilityInsurance',
-        title: 'Do you have disability insurance?',
+        id: 'cryptoExperience',
+        title: "What's your experience with cryptocurrency?",
         type: 'radio',
         required: true,
-        options: ['Yes', 'No'],
-        section: 'Insurance Coverage',
-        questionNumber: 216,
-        groupId: 'insurance-coverage'
+        options: ['Active trader', 'Long-term holder', 'Occasional buyer', 'No experience but interested', 'No experience or interest'],
+        section: 'Alternative Investments',
+        questionNumber: 182,
+        groupId: 'alternative-investments'
       },
       {
-        id: 'userCriticalIllnessInsurance',
-        title: 'Do you have critical illness insurance?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        section: 'Insurance Coverage',
-        questionNumber: 217,
-        groupId: 'insurance-coverage'
+        id: 'cryptoAllocation',
+        title: "What percentage of your portfolio would you allocate to cryptocurrency?",
+        type: 'select',
+        required: false,
+        options: ['0%', '1-5%', '6-10%', '11-20%', '21-30%', 'More than 30%'],
+        conditional: {
+          dependsOn: 'cryptocurrencyInterest',
+          values: ['Very interested', 'Somewhat interested']
+        },
+        section: 'Alternative Investments',
+        questionNumber: 183,
+        groupId: 'alternative-investments'
       },
       {
-        id: 'userTravelInsurance',
-        title: 'Do you regularly purchase travel insurance?',
+        id: 'collectiblesInterest',
+        title: "Do you invest in collectibles or art?",
         type: 'radio',
         required: true,
-        options: ['Yes', 'No'],
-        section: 'Insurance Coverage',
-        questionNumber: 218,
-        groupId: 'insurance-coverage'
+        options: ['Yes, actively collect', 'Yes, occasionally buy', 'No, but interested', 'No, not interested'],
+        section: 'Alternative Investments',
+        questionNumber: 184,
+        groupId: 'alternative-investments'
       },
       {
-        id: 'partnerHealthInsurance',
-        title: 'Does your partner have health insurance?',
+        id: 'privateInvestments',
+        title: "Are you interested in private investments (private equity, angel investing)?",
         type: 'radio',
         required: true,
-        options: ['Yes', 'No', 'Not applicable'],
+        options: ['Very interested', 'Somewhat interested', 'Neutral', 'Not very interested', 'Not interested'],
+        section: 'Alternative Investments',
+        questionNumber: 185,
+        groupId: 'alternative-investments'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-milestones',
+    title: 'Financial Milestones',
+    description: 'Tracking your progress toward financial independence',
+    questions: [
+      {
+        id: 'netWorthGoal',
+        title: "What's your target net worth for financial independence?",
+        type: 'number',
+        required: true,
+        section: 'Financial Milestones',
+        questionNumber: 186,
+        groupId: 'financial-milestones'
+      },
+      {
+        id: 'fireInterest',
+        title: "Are you familiar with the FIRE movement (Financial Independence, Retire Early)?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, actively pursuing FIRE', 'Yes, interested but not pursuing', 'Yes, but not interested', 'No, not familiar'],
+        section: 'Financial Milestones',
+        questionNumber: 187,
+        groupId: 'financial-milestones'
+      },
+      {
+        id: 'financialIndependenceAge',
+        title: "At what age do you want to achieve financial independence?",
+        type: 'select',
+        required: true,
+        options: ['30-35', '36-40', '41-45', '46-50', '51-55', '56-60', '61-65', '66-70', 'After 70'],
+        section: 'Financial Milestones',
+        questionNumber: 188,
+        groupId: 'financial-milestones'
+      },
+      {
+        id: 'passiveIncomeGoal',
+        title: "What monthly passive income do you want to achieve?",
+        type: 'number',
+        required: true,
+        section: 'Financial Milestones',
+        questionNumber: 189,
+        groupId: 'financial-milestones'
+      },
+      {
+        id: 'wealthBuildingStrategy',
+        title: "What's your primary wealth-building strategy?",
+        type: 'radio',
+        required: true,
+        options: ['High savings rate + index investing', 'Real estate investing', 'Business ownership', 'Stock picking/active investing', 'Combination approach', 'Haven\'t decided'],
+        section: 'Financial Milestones',
+        questionNumber: 190,
+        groupId: 'financial-milestones'
+      },
+      {
+        id: 'financialMilestones',
+        title: "Which financial milestones have you achieved?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Emergency fund (3+ months)', 'Positive net worth', 'Six-figure net worth', 'Debt-free except mortgage', 'Completely debt-free', 'Six-figure income', 'None of these yet'],
+        section: 'Financial Milestones',
+        questionNumber: 191,
+        groupId: 'financial-milestones'
+      }
+    ]
+  },
+
+  {
+    id: 'behavioral-finance',
+    title: 'Behavioral Finance',
+    description: 'Understanding your financial behavior patterns',
+    questions: [
+      {
+        id: 'investmentMistakes',
+        title: "What investment mistakes have you made?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Panic selling during market drops', 'Buying high, selling low', 'Not diversifying enough', 'Trying to time the market', 'Following hot tips', 'Emotional decision making', 'None of these', 'Prefer not to say'],
+        section: 'Behavioral Finance',
+        questionNumber: 192,
+        groupId: 'behavioral-finance'
+      },
+      {
+        id: 'lossAversion',
+        title: "How do you typically react to investment losses?",
+        type: 'radio',
+        required: true,
+        options: ['Sell immediately to prevent further losses', 'Hold and hope for recovery', 'Buy more at lower prices', 'Stick to my plan regardless', 'Seek advice before acting'],
+        section: 'Behavioral Finance',
+        questionNumber: 193,
+        groupId: 'behavioral-finance'
+      },
+      {
+        id: 'investmentResearch',
+        title: "How much research do you do before making investments?",
+        type: 'radio',
+        required: true,
+        options: ['Extensive research', 'Moderate research', 'Basic research', 'Minimal research', 'No research - follow advice'],
+        section: 'Behavioral Finance',
+        questionNumber: 194,
+        groupId: 'behavioral-finance'
+      },
+      {
+        id: 'herdMentality',
+        title: "How influenced are you by what others are investing in?",
+        type: 'radio',
+        required: true,
+        options: ['Very influenced', 'Somewhat influenced', 'Neutral', 'Not very influenced', 'Not influenced at all'],
+        section: 'Behavioral Finance',
+        questionNumber: 195,
+        groupId: 'behavioral-finance'
+      },
+      {
+        id: 'overconfidence',
+        title: "How confident are you in your ability to pick winning investments?",
+        type: 'radio',
+        required: true,
+        options: ['Very confident', 'Confident', 'Somewhat confident', 'Not very confident', 'Not confident at all'],
+        section: 'Behavioral Finance',
+        questionNumber: 196,
+        groupId: 'behavioral-finance'
+      },
+      {
+        id: 'anchoringBias',
+        title: "Do you tend to focus on the price you paid for an investment when deciding to sell?",
+        type: 'radio',
+        required: true,
+        options: ['Always', 'Often', 'Sometimes', 'Rarely', 'Never'],
+        section: 'Behavioral Finance',
+        questionNumber: 197,
+        groupId: 'behavioral-finance'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-communication',
+    title: 'Financial Communication',
+    description: 'How you discuss and share financial information',
+    questions: [
+      {
+        id: 'financialPrivacy',
+        title: "How private are you about your financial situation?",
+        type: 'radio',
+        required: true,
+        options: ['Very private - don\'t discuss with anyone', 'Private - only discuss with close family', 'Somewhat private - discuss with trusted friends', 'Open - comfortable discussing finances', 'Very open - share details freely'],
+        section: 'Financial Communication',
+        questionNumber: 198,
+        groupId: 'financial-communication'
+      },
+      {
+        id: 'financialAdviceSource',
+        title: "Who do you turn to for financial advice?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Professional financial advisor', 'Family members', 'Friends', 'Online resources', 'Books/Publications', 'Social media', 'No one - figure it out myself'],
+        section: 'Financial Communication',
+        questionNumber: 199,
+        groupId: 'financial-communication'
+      },
+      {
+        id: 'financialInfluencers',
+        title: "Do you follow financial influencers or content creators?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, regularly', 'Yes, occasionally', 'No, but interested', 'No, not interested'],
+        section: 'Financial Communication',
+        questionNumber: 200,
+        groupId: 'financial-communication'
+      },
+      {
+        id: 'financialEducationSource',
+        title: "Where do you get most of your financial education?",
+        type: 'radio',
+        required: true,
+        options: ['Professional advisors', 'Books and publications', 'Online articles and blogs', 'YouTube and podcasts', 'Social media', 'Friends and family', 'Trial and error'],
+        section: 'Financial Communication',
+        questionNumber: 201,
+        groupId: 'financial-communication'
+      },
+      {
+        id: 'financialTransparency',
+        title: "How transparent are you with your partner about finances?",
+        type: 'radio',
+        required: false,
+        options: ['Completely transparent', 'Mostly transparent', 'Somewhat transparent', 'Not very transparent', 'Keep finances separate'],
         conditional: {
           dependsOn: 'relationshipStatus',
-          values: ['In relationship living together', 'Married']
+          values: ['In relationship not living together', 'In relationship living together', 'Married']
         },
-        section: 'Insurance Coverage',
-        questionNumber: 219,
-        groupId: 'insurance-coverage'
-      },
+        section: 'Financial Communication',
+        questionNumber: 202,
+        groupId: 'financial-communication'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-tools-preferences',
+    title: 'Financial Tools & Preferences',
+    description: 'Your preferences for managing and tracking finances',
+    questions: [
       {
-        id: 'partnerLifeInsurance',
-        title: 'Does your partner have life insurance?',
+        id: 'portfolioTracking',
+        title: "How do you track your investment portfolio?",
         type: 'radio',
         required: true,
-        options: ['Yes', 'No', 'Not applicable'],
-        conditional: {
-          dependsOn: 'relationshipStatus',
-          values: ['In relationship living together', 'Married']
-        },
-        section: 'Insurance Coverage',
-        questionNumber: 220,
-        groupId: 'insurance-coverage'
+        options: ['Professional software/platform', 'Spreadsheets', 'Mobile apps', 'Broker websites only', 'Don\'t track regularly'],
+        section: 'Financial Tools',
+        questionNumber: 203,
+        groupId: 'financial-tools-preferences'
+      },
+      {
+        id: 'budgetingTools',
+        title: "What tools do you use for budgeting?",
+        type: 'radio',
+        required: true,
+        options: ['Budgeting apps', 'Spreadsheets', 'Pen and paper', 'Mental budgeting', 'Don\'t budget'],
+        section: 'Financial Tools',
+        questionNumber: 204,
+        groupId: 'financial-tools-preferences'
+      },
+      {
+        id: 'automationPreference',
+        title: "How much do you automate your finances?",
+        type: 'radio',
+        required: true,
+        options: ['Highly automated - most transactions automatic', 'Moderately automated - some key transactions', 'Minimally automated - prefer manual control', 'Not automated - handle everything manually'],
+        section: 'Financial Tools',
+        questionNumber: 205,
+        groupId: 'financial-tools-preferences'
+      },
+      {
+        id: 'financialReporting',
+        title: "How often do you review your overall financial situation?",
+        type: 'radio',
+        required: true,
+        options: ['Weekly', 'Monthly', 'Quarterly', 'Annually', 'Rarely'],
+        section: 'Financial Tools',
+        questionNumber: 206,
+        groupId: 'financial-tools-preferences'
+      },
+      {
+        id: 'alertPreferences',
+        title: "What financial alerts do you want to receive?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Account balance changes', 'Large transactions', 'Bill due dates', 'Investment performance', 'Budget overspending', 'Market news', 'None'],
+        section: 'Financial Tools',
+        questionNumber: 207,
+        groupId: 'financial-tools-preferences'
       }
     ]
   },
-  {
-    id: 'insurance-details',
-    title: 'Insurance Details',
-    description: 'Detailed information about your insurance policies',
-    conditional: true,
-    questions: [
-      {
-        id: 'userHealthInsuranceCover',
-        title: 'What is your total health insurance coverage amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'userHealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 170,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userHealthInsurancePremium',
-        title: 'What is your health insurance premium amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'userHealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 171,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userHealthInsurancePeriod',
-        title: 'Health insurance premium period',
-        type: 'select',
-        required: true,
-        options: ['Monthly', 'Annual'],
-        conditional: {
-          dependsOn: 'userHealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 172,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userLifeInsuranceCover',
-        title: 'What is your total life insurance coverage amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'userLifeInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 173,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userLifeInsurancePremium',
-        title: 'What is your life insurance premium amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'userLifeInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 174,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userLifeInsurancePeriod',
-        title: 'Life insurance premium period',
-        type: 'select',
-        required: true,
-        options: ['Monthly', 'Annual'],
-        conditional: {
-          dependsOn: 'userLifeInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 175,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userDisabilityInsuranceCover',
-        title: 'What is your total disability insurance coverage amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'userDisabilityInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 176,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userDisabilityInsurancePremium',
-        title: 'What is your disability insurance premium amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'userDisabilityInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 177,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userDisabilityInsurancePeriod',
-        title: 'Disability insurance premium period',
-        type: 'select',
-        required: true,
-        options: ['Monthly', 'Annual'],
-        conditional: {
-          dependsOn: 'userDisabilityInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 178,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userCriticalIllnessInsuranceCover',
-        title: 'What is your total critical illness insurance coverage amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'userCriticalIllnessInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 179,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userCriticalIllnessInsurancePremium',
-        title: 'What is your critical illness insurance premium amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'userCriticalIllnessInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 180,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userCriticalIllnessInsurancePeriod',
-        title: 'Critical illness insurance premium period',
-        type: 'select',
-        required: true,
-        options: ['Monthly', 'Annual'],
-        conditional: {
-          dependsOn: 'userCriticalIllnessInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 181,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'userTravelInsuranceSpend',
-        title: 'What is your annual spending on travel insurance?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'userTravelInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 182,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'partnerHealthInsuranceCover',
-        title: 'What is your partner\'s total health insurance coverage amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'partnerHealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 183,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'partnerHealthInsurancePremium',
-        title: 'What is your partner\'s health insurance premium amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'partnerHealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 184,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'partnerHealthInsurancePeriod',
-        title: 'Partner\'s health insurance premium period',
-        type: 'select',
-        required: true,
-        options: ['Monthly', 'Annual'],
-        conditional: {
-          dependsOn: 'partnerHealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 185,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'partnerLifeInsuranceCover',
-        title: 'What is your partner\'s total life insurance coverage amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'partnerLifeInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 186,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'partnerLifeInsurancePremium',
-        title: 'What is your partner\'s life insurance premium amount?',
-        type: 'number',
-        required: true,
-        conditional: {
-          dependsOn: 'partnerLifeInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 187,
-        groupId: 'insurance-details'
-      },
-      {
-        id: 'partnerLifeInsurancePeriod',
-        title: 'Partner\'s life insurance premium period',
-        type: 'select',
-        required: true,
-        options: ['Monthly', 'Annual'],
-        conditional: {
-          dependsOn: 'partnerLifeInsurance',
-          values: ['Yes']
-        },
-        section: 'Insurance Details',
-        questionNumber: 238,
-        groupId: 'insurance-details'
-      }
-    ]
-  },
-  {
-    id: 'monthly-annual-expenses',
-    title: 'Monthly & Annual Expenses',
-    description: 'Your regular monthly living expenses and yearly costs',
-    questions: [
-      // Section A: Monthly Expenses (Questions 221-253)
-      {
-        id: 'monthlyGroceries',
-        title: 'What are your monthly costs for groceries and toiletries?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 221,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyClothing',
-        title: 'What are your monthly costs for clothes and shoes?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 222,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyDiningOut',
-        title: 'What are your monthly dining out and food delivery costs?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 223,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyEntertainment',
-        title: 'What are your monthly entertainment costs?',
-        subtitle: 'Movies, concerts, events, hobbies',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 224,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlySubscriptions',
-        title: 'What are your monthly subscription costs?',
-        subtitle: 'Netflix, Spotify, gym, magazines, etc.',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 225,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyUtilities',
-        title: 'What are your monthly utility costs?',
-        subtitle: 'Electricity, water, gas, internet, phone',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 226,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyTransportation',
-        title: 'What are your monthly transportation costs?',
-        subtitle: 'Public transport, taxis, ride-sharing (excluding vehicle expenses)',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 227,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyHealthcare',
-        title: 'What are your monthly healthcare costs?',
-        subtitle: 'Doctor visits, medicines, treatments not covered by insurance',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 228,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyPersonalCare',
-        title: 'What are your monthly personal care costs?',
-        subtitle: 'Salon, spa, cosmetics, grooming',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 229,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyGifts',
-        title: 'What are your monthly costs for gifts and donations?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 230,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyHouseholdItems',
-        title: 'What are your monthly costs for household items and appliances?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 231,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyPetExpenses',
-        title: 'What are your monthly pet expenses?',
-        subtitle: 'Food, vet, grooming, toys',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 232,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyMiscExpenses',
-        title: 'What are your other monthly miscellaneous expenses?',
-        type: 'number',
-        required: true,
-        section: 'Monthly Expenses',
-        questionNumber: 233,
-        groupId: 'monthly-annual-expenses'
-      },
 
-      // Section B: Annual Expenses (Questions 234-243)
+  {
+    id: 'legacy-planning',
+    title: 'Legacy & Estate Planning',
+    description: 'Planning for wealth transfer and legacy goals',
+    questions: [
       {
-        id: 'annualVacationTravel',
-        title: 'What are your annual vacation and travel costs?',
-        type: 'number',
+        id: 'estateDocuments',
+        title: "Which estate planning documents do you have?",
+        subtitle: "Select all that apply",
+        type: 'select',
         required: true,
-        section: 'Annual Expenses',
-        questionNumber: 234,
-        groupId: 'monthly-annual-expenses'
+        options: ['Will', 'Trust', 'Power of attorney', 'Healthcare directive', 'Beneficiary designations updated', 'None of these'],
+        section: 'Legacy Planning',
+        questionNumber: 208,
+        groupId: 'legacy-planning'
       },
       {
-        id: 'annualTaxes',
-        title: 'What are your annual income taxes (net of any refunds)?',
-        type: 'number',
+        id: 'estatePlanningPriority',
+        title: "How important is estate planning to you?",
+        type: 'radio',
         required: true,
-        section: 'Annual Expenses',
-        questionNumber: 235,
-        groupId: 'monthly-annual-expenses'
+        options: ['Extremely important', 'Very important', 'Moderately important', 'Somewhat important', 'Not important'],
+        section: 'Legacy Planning',
+        questionNumber: 209,
+        groupId: 'legacy-planning'
       },
       {
-        id: 'annualProfessionalDevelopment',
-        title: 'What are your annual professional development costs?',
-        subtitle: 'Training, courses, certifications, conferences',
-        type: 'number',
+        id: 'charitableLegacy',
+        title: "Do you plan to leave money to charity?",
+        type: 'radio',
         required: true,
-        section: 'Annual Expenses',
-        questionNumber: 236,
-        groupId: 'monthly-annual-expenses'
+        options: ['Yes, significant amount', 'Yes, modest amount', 'Maybe', 'Probably not', 'No'],
+        section: 'Legacy Planning',
+        questionNumber: 210,
+        groupId: 'legacy-planning'
       },
       {
-        id: 'annualHomeRepairs',
-        title: 'What are your annual home repairs and maintenance costs?',
-        type: 'number',
+        id: 'familyLegacy',
+        title: "What type of legacy do you want to leave your family?",
+        type: 'radio',
         required: true,
-        section: 'Annual Expenses',
-        questionNumber: 237,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualMedicalExpenses',
-        title: 'What are your annual large medical expenses?',
-        subtitle: 'Surgeries, dental work, vision care not covered by insurance',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 238,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualCharityDonations',
-        title: 'What are your annual charity donations and large gifts?',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 239,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualLegalProfessional',
-        title: 'What are your annual legal and professional service fees?',
-        subtitle: 'Lawyer, accountant, financial advisor fees',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 240,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualSpecialEvents',
-        title: 'What are your annual special event costs?',
-        subtitle: 'Weddings, parties, celebrations',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 241,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualMiscExpenses',
-        title: 'What are your other annual miscellaneous expenses?',
-        type: 'number',
-        required: true,
-        section: 'Annual Expenses',
-        questionNumber: 242,
-        groupId: 'monthly-annual-expenses'
-      },
-      
-      // Additional Monthly Expenses
-      {
-        id: 'monthlyDomesticHelp',
-        title: 'What are your monthly costs for household help/maid/cook?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Monthly Expenses',
+        options: ['Financial wealth', 'Financial education and values', 'Business or property', 'Experiences and memories', 'All of the above', 'Not applicable'],
+        section: 'Legacy Planning',
         questionNumber: 211,
-        groupId: 'monthly-annual-expenses'
+        groupId: 'legacy-planning'
       },
       {
-        id: 'monthlyCableTV',
-        title: 'What are your monthly cable/satellite TV costs?',
-        type: 'number',
+        id: 'trustInterest',
+        title: "Are you interested in setting up trusts?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Monthly Expenses',
+        options: ['Yes, already have trusts', 'Yes, planning to set up', 'Maybe, need more information', 'No, not necessary', 'No, too complicated'],
+        section: 'Legacy Planning',
         questionNumber: 212,
-        groupId: 'monthly-annual-expenses'
+        groupId: 'legacy-planning'
       },
       {
-        id: 'monthlyNewspaperMagazines',
-        title: 'What are your monthly newspaper and magazine subscription costs?',
-        type: 'number',
+        id: 'generationalWealth',
+        title: "Do you want to build generational wealth?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Monthly Expenses',
+        options: ['Yes, top priority', 'Yes, important goal', 'Maybe, if possible', 'No, not a goal', 'Haven\'t thought about it'],
+        section: 'Legacy Planning',
         questionNumber: 213,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyLaundry',
-        title: 'What are your monthly laundry and dry cleaning costs?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Monthly Expenses',
-        questionNumber: 246,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyEducationSelf',
-        title: 'What are your monthly education costs for yourself?',
-        subtitle: 'Online courses, books, learning materials',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Monthly Expenses',
-        questionNumber: 247,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyFitnessWellness',
-        title: 'What are your monthly fitness/gym/yoga expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Monthly Expenses',
-        questionNumber: 248,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyAlcoholTobacco',
-        title: 'What are your monthly alcohol and tobacco expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Monthly Expenses',
-        questionNumber: 249,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'monthlyGardening',
-        title: 'What are your monthly gardening and outdoor maintenance costs?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Monthly Expenses',
-        questionNumber: 250,
-        groupId: 'monthly-annual-expenses'
-      },
-
-      // Additional Annual Expenses
-      {
-        id: 'annualClubMemberships',
-        title: 'What are your annual club membership fees?',
-        subtitle: 'Country clubs, social clubs, professional associations',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Annual Expenses',
-        questionNumber: 251,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualSubscriptions',
-        title: 'What are your annual subscription renewals?',
-        subtitle: 'Software, apps, premium services',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Annual Expenses',
-        questionNumber: 252,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualElectronicsAppliances',
-        title: 'What are your annual electronics and appliances purchases?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Annual Expenses',
-        questionNumber: 253,
-        groupId: 'monthly-annual-expenses'
-      },
-      {
-        id: 'annualFurnitureDecor',
-        title: 'What are your annual furniture and home decor expenses?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Annual Expenses',
-        questionNumber: 254,
-        groupId: 'monthly-annual-expenses'
+        groupId: 'legacy-planning'
       }
     ]
   },
+
   {
-    id: 'investment-contributions',
-    title: 'Investment Contributions',
-    description: 'Your regular investments and savings contributions',
+    id: 'financial-flexibility',
+    title: 'Financial Flexibility & Contingencies',
+    description: 'Planning for unexpected events and maintaining flexibility',
     questions: [
       {
-        id: 'monthlyMutualFunds',
-        title: 'What are your monthly mutual fund SIP contributions?',
-        type: 'number',
+        id: 'incomeVolatility',
+        title: "How volatile is your income?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 254,
-        groupId: 'investment-contributions'
+        options: ['Very stable - same amount monthly', 'Mostly stable - minor variations', 'Somewhat variable - seasonal changes', 'Quite variable - significant fluctuations', 'Very volatile - unpredictable'],
+        section: 'Financial Flexibility',
+        questionNumber: 214,
+        groupId: 'financial-flexibility'
       },
       {
-        id: 'monthlyStockInvestments',
-        title: 'What are your monthly direct stock/equity investments?',
-        type: 'number',
+        id: 'contingencyPlanning',
+        title: "Do you have contingency plans for major life changes?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 255,
-        groupId: 'investment-contributions'
+        options: ['Yes, detailed plans', 'Yes, basic plans', 'Some planning', 'Minimal planning', 'No specific plans'],
+        section: 'Financial Flexibility',
+        questionNumber: 215,
+        groupId: 'financial-flexibility'
       },
       {
-        id: 'monthlyFixedDeposits',
-        title: 'What are your monthly fixed deposit contributions?',
-        type: 'number',
+        id: 'liquidityPreference',
+        title: "How important is it to have liquid assets available?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 256,
-        groupId: 'investment-contributions'
+        options: ['Extremely important', 'Very important', 'Moderately important', 'Somewhat important', 'Not important'],
+        section: 'Financial Flexibility',
+        questionNumber: 216,
+        groupId: 'financial-flexibility'
       },
       {
-        id: 'monthlyPPF',
-        title: 'What are your monthly PPF (Public Provident Fund) contributions?',
-        type: 'number',
+        id: 'financialStressors',
+        title: "What financial scenarios worry you most?",
+        subtitle: "Select all that apply",
+        type: 'select',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 257,
-        groupId: 'investment-contributions'
+        options: ['Job loss', 'Market crash', 'Health emergency', 'Family emergency', 'Economic recession', 'Inflation', 'Interest rate changes', 'None of these'],
+        section: 'Financial Flexibility',
+        questionNumber: 217,
+        groupId: 'financial-flexibility'
       },
       {
-        id: 'monthlyEPF',
-        title: 'What are your monthly EPF (Employee Provident Fund) contributions?',
-        type: 'number',
+        id: 'adaptabilityRating',
+        title: "How adaptable are you to changing financial circumstances?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 258,
-        groupId: 'investment-contributions'
+        options: ['Very adaptable', 'Adaptable', 'Somewhat adaptable', 'Not very adaptable', 'Prefer stability'],
+        section: 'Financial Flexibility',
+        questionNumber: 218,
+        groupId: 'financial-flexibility'
+      }
+    ]
+  },
+
+  {
+    id: 'investment-timeline',
+    title: 'Investment Timeline & Liquidity',
+    description: 'Understanding when you need access to your investments',
+    questions: [
+      {
+        id: 'shortTermGoals',
+        title: "Do you have financial goals within the next 2 years?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, major goals', 'Yes, minor goals', 'Maybe', 'No specific goals'],
+        section: 'Investment Timeline',
+        questionNumber: 219,
+        groupId: 'investment-timeline'
       },
       {
-        id: 'monthlyNPS',
-        title: 'What are your monthly NPS (National Pension System) contributions?',
-        type: 'number',
+        id: 'mediumTermGoals',
+        title: "Do you have financial goals in the 2-10 year timeframe?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 259,
-        groupId: 'investment-contributions'
+        options: ['Yes, major goals', 'Yes, minor goals', 'Maybe', 'No specific goals'],
+        section: 'Investment Timeline',
+        questionNumber: 220,
+        groupId: 'investment-timeline'
       },
       {
-        id: 'monthlyULIP',
-        title: 'What are your monthly ULIP (Unit Linked Insurance Plan) contributions?',
-        type: 'number',
+        id: 'liquidityNeeds',
+        title: "How much of your investments need to be easily accessible?",
+        type: 'select',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 260,
-        groupId: 'investment-contributions'
+        options: ['Less than 10%', '10-25%', '26-50%', '51-75%', 'More than 75%'],
+        section: 'Investment Timeline',
+        questionNumber: 221,
+        groupId: 'investment-timeline'
       },
       {
-        id: 'monthlyBonds',
-        title: 'What are your monthly bond/debenture investments?',
-        type: 'number',
+        id: 'lockUpTolerance',
+        title: "Are you comfortable with investments that lock up your money?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 261,
-        groupId: 'investment-contributions'
+        options: ['Yes, for higher returns', 'Yes, for some portion', 'Maybe, depends on terms', 'No, prefer liquidity', 'Absolutely not'],
+        section: 'Investment Timeline',
+        questionNumber: 222,
+        groupId: 'investment-timeline'
       },
       {
-        id: 'monthlyGold',
-        title: 'What are your monthly gold investments?',
-        subtitle: 'Gold ETF, digital gold, physical gold',
-        type: 'number',
+        id: 'investmentRebalancing',
+        title: "How do you prefer to rebalance your portfolio?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
+        options: ['Automatic rebalancing', 'Scheduled rebalancing', 'Threshold-based rebalancing', 'Manual when needed', 'Don\'t rebalance'],
+        section: 'Investment Timeline',
+        questionNumber: 223,
+        groupId: 'investment-timeline'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-priorities',
+    title: 'Financial Priorities & Trade-offs',
+    description: 'Understanding what matters most in your financial decisions',
+    questions: [
+      {
+        id: 'priorityRanking',
+        title: "Rank your top financial priority:",
+        type: 'radio',
+        required: true,
+        options: ['Building wealth', 'Financial security', 'Current lifestyle', 'Family\'s future', 'Early retirement', 'Leaving a legacy'],
+        section: 'Financial Priorities',
+        questionNumber: 224,
+        groupId: 'financial-priorities'
+      },
+      {
+        id: 'riskVsReturn',
+        title: "In the trade-off between risk and return, you prefer:",
+        type: 'radio',
+        required: true,
+        options: ['Higher risk for higher returns', 'Moderate risk for moderate returns', 'Lower risk even if returns are lower', 'Guaranteed returns even if minimal', 'Depends on the situation'],
+        section: 'Financial Priorities',
+        questionNumber: 225,
+        groupId: 'financial-priorities'
+      },
+      {
+        id: 'liquidityVsReturn',
+        title: "In the trade-off between liquidity and returns, you prefer:",
+        type: 'radio',
+        required: true,
+        options: ['Higher returns even if less liquid', 'Balanced approach', 'Liquidity even if returns are lower', 'Maximum liquidity regardless of returns'],
+        section: 'Financial Priorities',
+        questionNumber: 226,
+        groupId: 'financial-priorities'
+      },
+      {
+        id: 'presentVsFuture',
+        title: "Do you prefer to optimize for present enjoyment or future security?",
+        type: 'radio',
+        required: true,
+        options: ['Strongly favor present', 'Somewhat favor present', 'Balanced approach', 'Somewhat favor future', 'Strongly favor future'],
+        section: 'Financial Priorities',
+        questionNumber: 227,
+        groupId: 'financial-priorities'
+      },
+      {
+        id: 'simplicityVsOptimization',
+        title: "Do you prefer simple or optimized financial strategies?",
+        type: 'radio',
+        required: true,
+        options: ['Simple, even if not optimal', 'Mostly simple with some complexity', 'Balanced approach', 'Somewhat complex for optimization', 'Complex for maximum optimization'],
+        section: 'Financial Priorities',
+        questionNumber: 228,
+        groupId: 'financial-priorities'
+      }
+    ]
+  },
+
+  {
+    id: 'market-outlook',
+    title: 'Market Outlook & Timing',
+    description: 'Your views on market conditions and investment timing',
+    questions: [
+      {
+        id: 'marketOptimism',
+        title: "How optimistic are you about stock market performance over the next 5 years?",
+        type: 'radio',
+        required: true,
+        options: ['Very optimistic', 'Optimistic', 'Neutral', 'Pessimistic', 'Very pessimistic'],
+        section: 'Market Outlook',
+        questionNumber: 229,
+        groupId: 'market-outlook'
+      },
+      {
+        id: 'marketTimingBelief',
+        title: "Do you believe it's possible to consistently time the market?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, with skill and research', 'Yes, but very difficult', 'Maybe, for major events', 'No, but worth trying occasionally', 'No, impossible to do consistently'],
+        section: 'Market Outlook',
+        questionNumber: 230,
+        groupId: 'market-outlook'
+      },
+      {
+        id: 'currentMarketView',
+        title: "How do you view current market valuations?",
+        type: 'radio',
+        required: true,
+        options: ['Significantly overvalued', 'Somewhat overvalued', 'Fairly valued', 'Somewhat undervalued', 'Significantly undervalued', 'Don\'t have an opinion'],
+        section: 'Market Outlook',
         questionNumber: 231,
-        groupId: 'investment-contributions'
+        groupId: 'market-outlook'
       },
       {
-        id: 'monthlyRealEstate',
-        title: 'What are your monthly real estate investment contributions?',
-        subtitle: 'REITs, real estate funds',
-        type: 'number',
+        id: 'investmentTiming',
+        title: "When do you prefer to invest new money?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 264,
-        groupId: 'investment-contributions'
+        options: ['Immediately when available', 'Dollar-cost average over time', 'Wait for market dips', 'Time based on market conditions', 'No consistent approach'],
+        section: 'Market Outlook',
+        questionNumber: 232,
+        groupId: 'market-outlook'
       },
       {
-        id: 'monthlyCryptocurrency',
-        title: 'What are your monthly cryptocurrency investments?',
-        type: 'number',
+        id: 'sectorRotation',
+        title: "Do you adjust your investments based on economic cycles?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 265,
-        groupId: 'investment-contributions'
+        options: ['Yes, actively rotate sectors', 'Yes, make minor adjustments', 'Sometimes, for major changes', 'No, maintain consistent allocation', 'No, don\'t believe in timing'],
+        section: 'Market Outlook',
+        questionNumber: 233,
+        groupId: 'market-outlook'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-education-goals',
+    title: 'Financial Education Goals',
+    description: 'Areas where you want to improve your financial knowledge',
+    questions: [
+      {
+        id: 'knowledgeGaps',
+        title: "Which areas do you want to learn more about?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Investment strategies', 'Tax optimization', 'Retirement planning', 'Estate planning', 'Real estate investing', 'Business finance', 'Insurance planning', 'Behavioral finance'],
+        section: 'Financial Education',
+        questionNumber: 234,
+        groupId: 'financial-education-goals'
       },
       {
-        id: 'monthlyEmergencyFund',
-        title: 'What are your monthly emergency fund contributions?',
-        type: 'number',
+        id: 'learningCommitment',
+        title: "How much time can you commit to financial education monthly?",
+        type: 'select',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 266,
-        groupId: 'investment-contributions'
+        options: ['Less than 1 hour', '1-3 hours', '4-6 hours', '7-10 hours', 'More than 10 hours'],
+        section: 'Financial Education',
+        questionNumber: 235,
+        groupId: 'financial-education-goals'
       },
       {
-        id: 'monthlyRetirementSavings',
-        title: 'What are your monthly retirement savings (outside of EPF/NPS)?',
-        type: 'number',
+        id: 'educationFormat',
+        title: "What format do you prefer for financial education?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 267,
-        groupId: 'investment-contributions'
+        options: ['Self-paced online courses', 'Live webinars/seminars', 'One-on-one coaching', 'Books and articles', 'Interactive tools and calculators', 'Video content'],
+        section: 'Financial Education',
+        questionNumber: 236,
+        groupId: 'financial-education-goals'
       },
       {
-        id: 'monthlyChildEducation',
-        title: 'What are your monthly child education fund contributions?',
-        type: 'number',
+        id: 'certificationInterest',
+        title: "Are you interested in pursuing financial certifications?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 268,
-        groupId: 'investment-contributions'
+        options: ['Yes, very interested', 'Yes, somewhat interested', 'Maybe in the future', 'No, not interested'],
+        section: 'Financial Education',
+        questionNumber: 237,
+        groupId: 'financial-education-goals'
       },
       {
-        id: 'monthlyOtherInvestments',
-        title: 'What are your other monthly investment contributions?',
-        type: 'number',
+        id: 'teachingOthers',
+        title: "Do you want to teach others about personal finance?",
+        type: 'radio',
         required: true,
-        section: 'Investment Contributions',
-        questionNumber: 269,
-        groupId: 'investment-contributions'
-      },
-      
-      // Additional Investment Questions
-      {
-        id: 'monthlyP2PLending',
-        title: 'What are your monthly peer-to-peer lending investments?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Investment Contributions',
+        options: ['Yes, actively teach now', 'Yes, want to start teaching', 'Maybe in the future', 'No, prefer to keep knowledge private'],
+        section: 'Financial Education',
         questionNumber: 238,
-        groupId: 'investment-contributions'
-      },
-      {
-        id: 'monthlyInternationalInvestments',
-        title: 'What are your monthly international/foreign investments?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Investment Contributions',
-        questionNumber: 264,
-        groupId: 'investment-contributions'
+        groupId: 'financial-education-goals'
       }
     ]
   },
-  {
-    id: 'assets',
-    title: 'Assets',
-    description: 'Current value of your assets and holdings',
-    questions: [
-      // Section A: Cash & Bank Accounts (Questions 272-276)
-      {
-        id: 'checkingAccountBalance',
-        title: 'What is your current checking account balance?',
-        type: 'number',
-        required: true,
-        section: 'Cash & Bank Accounts',
-        questionNumber: 272,
-        groupId: 'assets'
-      },
-      {
-        id: 'savingsAccountBalance',
-        title: 'What is your current savings account balance?',
-        subtitle: 'Include only regular savings. Exclude: emergency funds, investment savings, and fixed deposits',
-        type: 'number',
-        required: true,
-        section: 'Cash & Bank Accounts',
-        questionNumber: 273,
-        groupId: 'assets'
-      },
-      {
-        id: 'emergencyFundBalance',
-        title: 'What is your current emergency fund balance?',
-        type: 'number',
-        required: true,
-        section: 'Cash & Bank Accounts',
-        questionNumber: 274,
-        groupId: 'assets'
-      },
-      {
-        id: 'fixedDepositBalance',
-        title: 'What is the current value of all your fixed deposits?',
-        type: 'number',
-        required: true,
-        section: 'Cash & Bank Accounts',
-        questionNumber: 275,
-        groupId: 'assets'
-      },
-      {
-        id: 'recurringDepositBalance',
-        title: 'What is the current value of all your recurring deposits?',
-        type: 'number',
-        required: true,
-        section: 'Cash & Bank Accounts',
-        questionNumber: 276,
-        groupId: 'assets'
-      },
 
-      // Section B: Investment Assets (Questions 231-245)
+  {
+    id: 'life-transitions',
+    title: 'Life Transitions & Changes',
+    description: 'Planning for major life events and transitions',
+    questions: [
       {
-        id: 'mutualFundBalance',
-        title: 'What is the current value of all your mutual fund investments?',
-        type: 'number',
+        id: 'upcomingTransitions',
+        title: "Do you anticipate any major life transitions in the next 5 years?",
+        subtitle: "Select all that apply",
+        type: 'select',
         required: true,
-        section: 'Investment Assets',
+        options: ['Marriage', 'Divorce', 'Having children', 'Job change', 'Career change', 'Relocation', 'Retirement', 'Starting a business', 'None anticipated'],
+        section: 'Life Transitions',
+        questionNumber: 239,
+        groupId: 'life-transitions'
+      },
+      {
+        id: 'transitionPlanning',
+        title: "How do you typically plan for major life changes?",
+        type: 'radio',
+        required: true,
+        options: ['Detailed advance planning', 'Basic planning', 'Minimal planning', 'Deal with it when it happens', 'Avoid thinking about it'],
+        section: 'Life Transitions',
+        questionNumber: 240,
+        groupId: 'life-transitions'
+      },
+      {
+        id: 'parentingCosts',
+        title: "Have you planned for the costs of raising children?",
+        type: 'radio',
+        required: false,
+        options: ['Yes, detailed planning', 'Yes, basic planning', 'Somewhat planned', 'No, but should', 'No, will figure it out'],
+        conditional: {
+          dependsOn: 'upcomingTransitions',
+          values: ['Having children']
+        },
+        section: 'Life Transitions',
+        questionNumber: 241,
+        groupId: 'life-transitions'
+      },
+      {
+        id: 'careerChangeFinancing',
+        title: "How would you finance a career change?",
+        type: 'radio',
+        required: false,
+        options: ['Savings', 'Reduced lifestyle', 'Partner\'s income', 'Loans/debt', 'Haven\'t planned'],
+        conditional: {
+          dependsOn: 'upcomingTransitions',
+          values: ['Career change']
+        },
+        section: 'Life Transitions',
+        questionNumber: 242,
+        groupId: 'life-transitions'
+      },
+      {
+        id: 'relocationCosts',
+        title: "Have you budgeted for relocation costs?",
+        type: 'radio',
+        required: false,
+        options: ['Yes, fully budgeted', 'Yes, estimated costs', 'Somewhat planned', 'No, but should', 'No, will figure it out'],
+        conditional: {
+          dependsOn: 'upcomingTransitions',
+          values: ['Relocation']
+        },
+        section: 'Life Transitions',
+        questionNumber: 243,
+        groupId: 'life-transitions'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-values',
+    title: 'Financial Values & Philosophy',
+    description: 'Your core beliefs about money and wealth',
+    questions: [
+      {
+        id: 'moneyMeaning',
+        title: "What does money mean to you?",
+        type: 'radio',
+        required: true,
+        options: ['Freedom and independence', 'Security and stability', 'Power and status', 'Tool for experiences', 'Means to help others', 'Necessary evil'],
+        section: 'Financial Values',
+        questionNumber: 244,
+        groupId: 'financial-values'
+      },
+      {
+        id: 'wealthDefinition',
+        title: "How do you define being wealthy?",
+        type: 'radio',
+        required: true,
+        options: ['Having a specific net worth', 'Not worrying about money', 'Ability to buy anything wanted', 'Financial independence', 'More than others have', 'Contentment with what you have'],
+        section: 'Financial Values',
         questionNumber: 245,
-        groupId: 'assets'
+        groupId: 'financial-values'
       },
       {
-        id: 'stockPortfolioBalance',
-        title: 'What is the current value of your direct stock portfolio?',
-        type: 'number',
+        id: 'moneyVsTime',
+        title: "Do you prefer to save money or save time?",
+        type: 'radio',
         required: true,
-        section: 'Investment Assets',
+        options: ['Always save money', 'Usually save money', 'Depends on situation', 'Usually save time', 'Always save time'],
+        section: 'Financial Values',
         questionNumber: 246,
-        groupId: 'assets'
+        groupId: 'financial-values'
       },
       {
-        id: 'ppfBalance',
-        title: 'What is the current value of your PPF account?',
-        type: 'number',
+        id: 'financialRole',
+        title: "What role should money play in life decisions?",
+        type: 'radio',
         required: true,
-        section: 'Investment Assets',
+        options: ['Primary consideration', 'Important factor', 'One of many factors', 'Minor consideration', 'Should not influence decisions'],
+        section: 'Financial Values',
         questionNumber: 247,
-        groupId: 'assets'
+        groupId: 'financial-values'
       },
       {
-        id: 'epfBalance',
-        title: 'What is the current value of your EPF account?',
-        type: 'number',
+        id: 'wealthResponsibility',
+        title: "Do you believe wealthy people have social responsibilities?",
+        type: 'radio',
         required: true,
-        section: 'Investment Assets',
+        options: ['Yes, significant responsibility', 'Yes, some responsibility', 'Maybe, depends on circumstances', 'No, it\'s their money', 'No opinion'],
+        section: 'Financial Values',
         questionNumber: 248,
-        groupId: 'assets'
-      },
-      {
-        id: 'npsBalance',
-        title: 'What is the current value of your NPS account?',
-        type: 'number',
-        required: true,
-        section: 'Investment Assets',
-        questionNumber: 249,
-        groupId: 'assets'
-      },
-      {
-        id: 'ulipBalance',
-        title: 'What is the current value of your ULIP investments?',
-        type: 'number',
-        required: true,
-        section: 'Investment Assets',
-        questionNumber: 250,
-        groupId: 'assets'
-      },
-      {
-        id: 'bondBalance',
-        title: 'What is the current value of your bond/debenture investments?',
-        type: 'number',
-        required: true,
-        section: 'Investment Assets',
-        questionNumber: 251,
-        groupId: 'assets'
-      },
-      {
-        id: 'goldBalance',
-        title: 'What is the current value of your gold investments?',
-        subtitle: 'Physical gold, gold ETF, digital gold',
-        type: 'number',
-        required: true,
-        section: 'Investment Assets',
-        questionNumber: 252,
-        groupId: 'assets'
-      },
-      {
-        id: 'realEstateInvestmentBalance',
-        title: 'What is the current value of your real estate investments?',
-        subtitle: 'REITs, real estate funds (excluding primary residence)',
-        type: 'number',
-        required: true,
-        section: 'Investment Assets',
-        questionNumber: 253,
-        groupId: 'assets'
-      },
-      {
-        id: 'cryptocurrencyBalance',
-        title: 'What is the current value of your cryptocurrency holdings?',
-        type: 'number',
-        required: true,
-        section: 'Investment Assets',
-        questionNumber: 254,
-        groupId: 'assets'
-      },
-      {
-        id: 'otherInvestmentBalance',
-        title: 'What is the current value of your other investments?',
-        subtitle: 'Commodities, art, collectibles, etc.',
-        type: 'number',
-        required: true,
-        section: 'Investment Assets',
-        questionNumber: 255,
-        groupId: 'assets'
-      },
-
-      // Section C: Business & Professional Assets (Questions 242-250)
-      {
-        id: 'businessEquityValue',
-        title: 'What is the estimated value of your business equity/ownership?',
-        type: 'number',
-        required: true,
-        section: 'Business & Professional Assets',
-        questionNumber: 256,
-        groupId: 'assets'
-      },
-      {
-        id: 'professionalAssetsValue',
-        title: 'What is the value of your professional assets?',
-        subtitle: 'Equipment, tools, licenses, practice value',
-        type: 'number',
-        required: true,
-        section: 'Business & Professional Assets',
-        questionNumber: 257,
-        groupId: 'assets'
-      },
-      {
-        id: 'intellectualPropertyValue',
-        title: 'What is the estimated value of your intellectual property?',
-        subtitle: 'Patents, copyrights, trademarks, royalties',
-        type: 'number',
-        required: true,
-        section: 'Business & Professional Assets',
-        questionNumber: 258,
-        groupId: 'assets'
-      },
-
-      // Section D: Other Valuable Assets (Questions 245-250)
-      {
-        id: 'jewelryValue',
-        title: 'What is the estimated value of your jewelry?',
-        subtitle: 'Excluding gold already counted in investments',
-        type: 'number',
-        required: true,
-        section: 'Other Valuable Assets',
-        questionNumber: 259,
-        groupId: 'assets'
-      },
-      {
-        id: 'artCollectiblesValue',
-        title: 'What is the estimated value of your art and collectibles?',
-        subtitle: 'Paintings, antiques, rare items',
-        type: 'number',
-        required: true,
-        section: 'Other Valuable Assets',
-        questionNumber: 260,
-        groupId: 'assets'
-      },
-      {
-        id: 'electronicItemsValue',
-        title: 'What is the estimated current value of your electronic items?',
-        subtitle: 'Computers, phones, cameras, gadgets',
-        type: 'number',
-        required: true,
-        section: 'Other Valuable Assets',
-        questionNumber: 261,
-        groupId: 'assets'
-      },
-      {
-        id: 'furnitureAppliancesValue',
-        title: 'What is the estimated current value of your furniture and appliances?',
-        type: 'number',
-        required: true,
-        section: 'Other Valuable Assets',
-        questionNumber: 262,
-        groupId: 'assets'
-      },
-      {
-        id: 'otherPersonalAssetsValue',
-        title: 'What is the estimated value of your other valuable personal assets?',
-        type: 'number',
-        required: true,
-        section: 'Other Valuable Assets',
-        questionNumber: 263,
-        groupId: 'assets'
-      },
-      
-      // Additional Asset Questions
-      {
-        id: 'loansGivenToOthers',
-        title: 'What is the total amount of loans you have given to others?',
-        subtitle: 'Money owed to you by friends, family, or others',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Other Assets',
-        questionNumber: 264,
-        groupId: 'assets'
-      },
-      {
-        id: 'securityDeposits',
-        title: 'What is the total value of your security deposits?',
-        subtitle: 'Rental deposits, utility deposits, etc.',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Other Assets',
-        questionNumber: 265,
-        groupId: 'assets'
-      },
-      {
-        id: 'cashInHand',
-        title: 'How much cash do you keep on hand?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Cash & Bank Accounts',
-        questionNumber: 266,
-        groupId: 'assets'
+        groupId: 'financial-values'
       }
     ]
   },
+
   {
-    id: 'income',
-    title: 'Income',
-    description: 'Your income sources and amounts',
+    id: 'spending-psychology',
+    title: 'Spending Psychology',
+    description: 'Understanding your emotional relationship with spending',
     questions: [
-      // Primary Income Sources
       {
-        id: 'grossMonthlySalary',
-        title: 'What is your gross monthly salary?',
-        subtitle: 'Before taxes and deductions',
-        type: 'number',
+        id: 'spendingTriggers',
+        title: "What triggers your spending?",
+        subtitle: "Select all that apply",
+        type: 'select',
         required: true,
-        section: 'Primary Income',
+        options: ['Stress', 'Celebration', 'Boredom', 'Social pressure', 'Sales and discounts', 'Emotional states', 'Convenience', 'None of these'],
+        section: 'Spending Psychology',
+        questionNumber: 249,
+        groupId: 'spending-psychology'
+      },
+      {
+        id: 'spendingRegret',
+        title: "How often do you regret purchases?",
+        type: 'radio',
+        required: true,
+        options: ['Never', 'Rarely', 'Sometimes', 'Often', 'Very often'],
+        section: 'Spending Psychology',
+        questionNumber: 250,
+        groupId: 'spending-psychology'
+      },
+      {
+        id: 'spendingJustification',
+        title: "How do you justify large purchases?",
+        type: 'radio',
+        required: true,
+        options: ['Detailed cost-benefit analysis', 'Compare to income/budget', 'Consider long-term value', 'If it makes me happy', 'Don\'t need justification'],
+        section: 'Spending Psychology',
+        questionNumber: 251,
+        groupId: 'spending-psychology'
+      },
+      {
+        id: 'delayedGratification',
+        title: "How good are you at delaying gratification for financial goals?",
+        type: 'radio',
+        required: true,
+        options: ['Excellent', 'Good', 'Average', 'Poor', 'Very poor'],
+        section: 'Spending Psychology',
+        questionNumber: 252,
+        groupId: 'spending-psychology'
+      },
+      {
+        id: 'spendingInfluence',
+        title: "Who or what most influences your spending decisions?",
+        type: 'radio',
+        required: true,
+        options: ['Personal values and goals', 'Family and friends', 'Social media and advertising', 'Financial advisors', 'Market trends', 'Emotions and mood'],
+        section: 'Spending Psychology',
+        questionNumber: 253,
+        groupId: 'spending-psychology'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-habits',
+    title: 'Financial Habits & Routines',
+    description: 'Your regular financial behaviors and practices',
+    questions: [
+      {
+        id: 'financialRoutines',
+        title: "Which financial routines do you follow regularly?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Check account balances', 'Review investment performance', 'Update budget', 'Pay bills on schedule', 'Review credit reports', 'Research investments', 'None of these'],
+        section: 'Financial Habits',
+        questionNumber: 254,
+        groupId: 'financial-habits'
+      },
+      {
+        id: 'billPayingHabits',
+        title: "How do you handle bill payments?",
+        type: 'radio',
+        required: true,
+        options: ['Automatic payments for everything', 'Automatic for most, manual for some', 'Manual payments with reminders', 'Manual payments without system', 'Often late or missed payments'],
+        section: 'Financial Habits',
+        questionNumber: 255,
+        groupId: 'financial-habits'
+      },
+      {
+        id: 'savingsHabits',
+        title: "How do you approach saving money?",
+        type: 'radio',
+        required: true,
+        options: ['Automatic transfers first', 'Save what\'s left over', 'Save when I remember', 'Save for specific goals only', 'Don\'t save regularly'],
+        section: 'Financial Habits',
+        questionNumber: 256,
+        groupId: 'financial-habits'
+      },
+      {
+        id: 'financialOrganization',
+        title: "How organized are your financial records?",
+        type: 'radio',
+        required: true,
+        options: ['Highly organized system', 'Mostly organized', 'Somewhat organized', 'Minimally organized', 'Disorganized'],
+        section: 'Financial Habits',
+        questionNumber: 257,
+        groupId: 'financial-habits'
+      },
+      {
+        id: 'financialGoalTracking',
+        title: "How do you track progress toward financial goals?",
+        type: 'radio',
+        required: true,
+        options: ['Detailed tracking with metrics', 'Regular informal check-ins', 'Occasional reviews', 'Rarely check progress', 'Don\'t track progress'],
+        section: 'Financial Habits',
+        questionNumber: 258,
+        groupId: 'financial-habits'
+      }
+    ]
+  },
+
+  {
+    id: 'investment-philosophy',
+    title: 'Investment Philosophy',
+    description: 'Your core beliefs about investing and wealth building',
+    questions: [
+      {
+        id: 'investmentApproach',
+        title: "Which investment philosophy best describes your approach?",
+        type: 'radio',
+        required: true,
+        options: ['Buy and hold long-term', 'Active trading and timing', 'Passive index investing', 'Value investing', 'Growth investing', 'Haven\'t developed a philosophy'],
+        section: 'Investment Philosophy',
+        questionNumber: 259,
+        groupId: 'investment-philosophy'
+      },
+      {
+        id: 'marketEfficiency',
+        title: "Do you believe markets are efficient?",
+        type: 'radio',
+        required: true,
+        options: ['Yes, completely efficient', 'Mostly efficient', 'Somewhat efficient', 'Not very efficient', 'Not efficient at all'],
+        section: 'Investment Philosophy',
+        questionNumber: 260,
+        groupId: 'investment-philosophy'
+      },
+      {
+        id: 'diversificationBelief',
+        title: "What's your view on diversification?",
+        type: 'radio',
+        required: true,
+        options: ['Essential for all investors', 'Important for most investors', 'Useful but not critical', 'Overrated concept', 'Limits returns unnecessarily'],
+        section: 'Investment Philosophy',
+        questionNumber: 261,
+        groupId: 'investment-philosophy'
+      },
+      {
+        id: 'activeVsPassive',
+        title: "Do you prefer active or passive investment management?",
+        type: 'radio',
+        required: true,
+        options: ['Strongly prefer active', 'Somewhat prefer active', 'No preference', 'Somewhat prefer passive', 'Strongly prefer passive'],
+        section: 'Investment Philosophy',
+        questionNumber: 262,
+        groupId: 'investment-philosophy'
+      },
+      {
+        id: 'investmentResearchImportance',
+        title: "How important is investment research to you?",
+        type: 'radio',
+        required: true,
+        options: ['Extremely important', 'Very important', 'Moderately important', 'Somewhat important', 'Not important'],
+        section: 'Investment Philosophy',
+        questionNumber: 263,
+        groupId: 'investment-philosophy'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-stress-management',
+    title: 'Financial Stress Management',
+    description: 'How you cope with financial stress and uncertainty',
+    questions: [
+      {
+        id: 'stressCoping',
+        title: "How do you cope with financial stress?",
+        subtitle: "Select all that apply",
+        type: 'select',
+        required: true,
+        options: ['Talk to family/friends', 'Seek professional advice', 'Research and educate myself', 'Exercise or physical activity', 'Meditation or relaxation', 'Avoid thinking about it', 'Make immediate changes'],
+        section: 'Stress Management',
+        questionNumber: 264,
+        groupId: 'financial-stress-management'
+      },
+      {
+        id: 'uncertaintyTolerance',
+        title: "How well do you handle financial uncertainty?",
+        type: 'radio',
+        required: true,
+        options: ['Very well', 'Well', 'Moderately well', 'Not very well', 'Poorly'],
+        section: 'Stress Management',
+        questionNumber: 265,
+        groupId: 'financial-stress-management'
+      },
+      {
+        id: 'financialAnxiety',
+        title: "Do financial concerns affect your sleep or daily life?",
+        type: 'radio',
+        required: true,
+        options: ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
+        section: 'Stress Management',
+        questionNumber: 266,
+        groupId: 'financial-stress-management'
+      },
+      {
+        id: 'controlPerception',
+        title: "How much control do you feel you have over your financial future?",
+        type: 'radio',
+        required: true,
+        options: ['Complete control', 'Significant control', 'Moderate control', 'Limited control', 'No control'],
+        section: 'Stress Management',
         questionNumber: 267,
-        groupId: 'income'
+        groupId: 'financial-stress-management'
       },
       {
-        id: 'netMonthlySalary',
-        title: 'What is your net monthly salary?',
-        subtitle: 'After taxes and deductions',
-        type: 'number',
+        id: 'supportSystem',
+        title: "Do you have people you can talk to about financial concerns?",
+        type: 'radio',
         required: true,
-        section: 'Primary Income',
+        options: ['Yes, many people', 'Yes, a few people', 'Yes, one person', 'No, but wish I did', 'No, prefer to handle alone'],
+        section: 'Stress Management',
         questionNumber: 268,
-        groupId: 'income'
-      },
+        groupId: 'financial-stress-management'
+      }
+    ]
+  },
+
+  {
+    id: 'money-mindset',
+    title: 'Money Mindset & Beliefs',
+    description: 'Deep-seated beliefs about money and wealth',
+    questions: [
       {
-        id: 'annualBonus',
-        title: 'What is your average annual bonus or variable pay/commission?',
-        type: 'number',
+        id: 'moneyBeliefs',
+        title: "Which statement best reflects your money beliefs?",
+        type: 'radio',
         required: true,
-        section: 'Primary Income',
+        options: ['Money is the root of all evil', 'Money doesn\'t buy happiness', 'Money is a tool for good', 'Money equals freedom', 'Money is just numbers', 'Money is power'],
+        section: 'Money Mindset',
         questionNumber: 269,
-        groupId: 'income'
+        groupId: 'money-mindset'
       },
       {
-        id: 'employerEPFContribution',
-        title: 'What is your employer\'s monthly EPF contribution?',
-        type: 'number',
+        id: 'wealthDeserving',
+        title: "Do you believe you deserve to be wealthy?",
+        type: 'radio',
         required: true,
-        section: 'Primary Income',
+        options: ['Absolutely', 'Yes, if I work for it', 'Maybe, depends on circumstances', 'Not sure', 'No, wealth should be limited'],
+        section: 'Money Mindset',
         questionNumber: 270,
-        groupId: 'income'
+        groupId: 'money-mindset'
       },
       {
-        id: 'employerBenefitsValue',
-        title: 'What is the monthly value of other employer benefits?',
-        subtitle: 'Health insurance, meal vouchers, transport allowance, etc.',
-        type: 'number',
+        id: 'moneyScarcity',
+        title: "Do you view money as scarce or abundant?",
+        type: 'radio',
         required: true,
-        section: 'Primary Income',
+        options: ['Very scarce - limited pie', 'Somewhat scarce', 'Neutral', 'Somewhat abundant', 'Very abundant - unlimited potential'],
+        section: 'Money Mindset',
         questionNumber: 271,
-        groupId: 'income'
+        groupId: 'money-mindset'
       },
-
-      // Investment Income (Questions 255-270)
       {
-        id: 'monthlyRentalIncome',
-        title: 'What is your monthly rental income from properties?',
-        type: 'number',
+        id: 'financialSuccess',
+        title: "What does financial success mean to you?",
+        type: 'radio',
         required: true,
-        section: 'Investment Income',
+        options: ['Never worrying about money', 'Achieving specific net worth', 'Living comfortably', 'Having more than others', 'Being able to help others', 'Personal satisfaction'],
+        section: 'Money Mindset',
         questionNumber: 272,
-        groupId: 'income'
+        groupId: 'money-mindset'
       },
       {
-        id: 'monthlyDividendIncome',
-        title: 'What is your monthly dividend income from stocks and mutual funds?',
-        type: 'number',
+        id: 'moneyGuilt',
+        title: "Do you ever feel guilty about having or wanting money?",
+        type: 'radio',
         required: true,
-        section: 'Investment Income',
+        options: ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
+        section: 'Money Mindset',
         questionNumber: 273,
-        groupId: 'income'
-      },
+        groupId: 'money-mindset'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-decision-making',
+    title: 'Financial Decision Making Process',
+    description: 'How you make important financial decisions',
+    questions: [
       {
-        id: 'monthlyInterestIncome',
-        title: 'What is your monthly interest income?',
-        subtitle: 'Fixed deposits, savings account, bonds',
-        type: 'number',
+        id: 'decisionMakingStyle',
+        title: "How do you make major financial decisions?",
+        type: 'radio',
         required: true,
-        section: 'Investment Income',
+        options: ['Extensive research and analysis', 'Moderate research with gut feeling', 'Basic research with advice', 'Mostly intuition and experience', 'Quick decisions based on emotion'],
+        section: 'Decision Making',
         questionNumber: 274,
-        groupId: 'income'
+        groupId: 'financial-decision-making'
       },
       {
-        id: 'monthlyCapitalGains',
-        title: 'What is your average monthly capital gains from investments?',
-        subtitle: 'Gains from selling stocks, mutual funds, etc.',
-        type: 'number',
+        id: 'decisionTimeframe',
+        title: "How long do you typically take to make major financial decisions?",
+        type: 'radio',
         required: true,
-        section: 'Investment Income',
+        options: ['Days', 'Weeks', 'Months', 'Years', 'Varies significantly'],
+        section: 'Decision Making',
         questionNumber: 275,
-        groupId: 'income'
+        groupId: 'financial-decision-making'
       },
-
-      // Business Income (Questions 259-275)
       {
-        id: 'monthlyBusinessIncome',
-        title: 'What is your monthly business income?',
-        subtitle: 'Net profit from your business',
-        type: 'number',
+        id: 'adviceInfluence',
+        title: "How much does professional advice influence your decisions?",
+        type: 'radio',
         required: true,
-        section: 'Business Income',
+        options: ['Completely follow advice', 'Heavily influenced', 'Moderately influenced', 'Slightly influenced', 'Make independent decisions'],
+        section: 'Decision Making',
         questionNumber: 276,
-        groupId: 'income'
+        groupId: 'financial-decision-making'
       },
       {
-        id: 'monthlyFreelanceIncome',
-        title: 'What is your monthly freelance/consulting income?',
-        type: 'number',
+        id: 'decisionRegret',
+        title: "How often do you regret major financial decisions?",
+        type: 'radio',
         required: true,
-        section: 'Business Income',
+        options: ['Never', 'Rarely', 'Sometimes', 'Often', 'Very often'],
+        section: 'Decision Making',
         questionNumber: 277,
-        groupId: 'income'
+        groupId: 'financial-decision-making'
       },
       {
-        id: 'monthlyPartTimeIncome',
-        title: 'What is your monthly part-time job income?',
-        type: 'number',
+        id: 'decisionReversibility',
+        title: "How important is it that financial decisions be reversible?",
+        type: 'radio',
         required: true,
-        section: 'Business Income',
+        options: ['Extremely important', 'Very important', 'Moderately important', 'Somewhat important', 'Not important'],
+        section: 'Decision Making',
         questionNumber: 278,
-        groupId: 'income'
-      },
+        groupId: 'financial-decision-making'
+      }
+    ]
+  },
 
-      // Other Income Sources (Questions 262-295)
+  {
+    id: 'wealth-building-strategy',
+    title: 'Wealth Building Strategy',
+    description: 'Your approach to building long-term wealth',
+    questions: [
       {
-        id: 'monthlyPensionIncome',
-        title: 'What is your monthly pension income?',
-        type: 'number',
+        id: 'wealthBuildingFocus',
+        title: "What's your primary focus for building wealth?",
+        type: 'radio',
         required: true,
-        section: 'Other Income Sources',
+        options: ['Maximizing income', 'Minimizing expenses', 'Optimizing investments', 'Building businesses', 'Real estate accumulation', 'Balanced approach'],
+        section: 'Wealth Building',
         questionNumber: 279,
-        groupId: 'income'
+        groupId: 'wealth-building-strategy'
       },
       {
-        id: 'monthlyAlimonyIncome',
-        title: 'What is your monthly alimony/maintenance income received?',
-        type: 'number',
+        id: 'wealthTimeframe',
+        title: "Over what timeframe are you building wealth?",
+        type: 'radio',
         required: true,
-        section: 'Other Income Sources',
+        options: ['5-10 years', '10-20 years', '20-30 years', '30+ years', 'No specific timeframe'],
+        section: 'Wealth Building',
         questionNumber: 280,
-        groupId: 'income'
+        groupId: 'wealth-building-strategy'
       },
       {
-        id: 'monthlyGovernmentBenefits',
-        title: 'What is your monthly government benefits or subsidies?',
-        type: 'number',
+        id: 'leverageComfort',
+        title: "How comfortable are you using leverage to build wealth?",
+        type: 'radio',
         required: true,
-        section: 'Other Income Sources',
+        options: ['Very comfortable', 'Comfortable', 'Somewhat comfortable', 'Not very comfortable', 'Not comfortable at all'],
+        section: 'Wealth Building',
         questionNumber: 281,
-        groupId: 'income'
+        groupId: 'wealth-building-strategy'
       },
       {
-        id: 'monthlyInsurancePayouts',
-        title: 'What is your monthly insurance payout income?',
-        subtitle: 'Disability, critical illness, etc.',
-        type: 'number',
+        id: 'wealthMeasurement',
+        title: "How do you measure wealth building progress?",
+        type: 'radio',
         required: true,
-        section: 'Other Income Sources',
+        options: ['Net worth growth', 'Investment returns', 'Income growth', 'Cash flow increase', 'Asset accumulation', 'Don\'t measure regularly'],
+        section: 'Wealth Building',
         questionNumber: 282,
-        groupId: 'income'
+        groupId: 'wealth-building-strategy'
       },
       {
-        id: 'monthlyRoyaltiesLicensing',
-        title: 'What is your monthly royalties/licensing income?',
-        type: 'number',
+        id: 'wealthBuildingObstacles',
+        title: "What's your biggest obstacle to building wealth?",
+        type: 'radio',
         required: true,
-        section: 'Other Income Sources',
+        options: ['Low income', 'High expenses', 'Lack of knowledge', 'Lack of discipline', 'Market volatility', 'Life circumstances', 'No major obstacles'],
+        section: 'Wealth Building',
         questionNumber: 283,
-        groupId: 'income'
-      },
+        groupId: 'wealth-building-strategy'
+      }
+    ]
+  },
+
+  {
+    id: 'financial-independence-details',
+    title: 'Financial Independence Details',
+    description: 'Specific plans and expectations for financial independence',
+    questions: [
       {
-        id: 'monthlyFamilySupport',
-        title: 'What is your monthly family financial support received?',
-        type: 'number',
+        id: 'fiDefinition',
+        title: "How do you define financial independence?",
+        type: 'radio',
         required: true,
-        section: 'Other Income Sources',
+        options: ['Never needing to work again', 'Having enough passive income', 'Reaching a specific net worth', 'Being debt-free', 'Having multiple income streams', 'Peace of mind about money'],
+        section: 'Financial Independence',
         questionNumber: 284,
-        groupId: 'income'
+        groupId: 'financial-independence-details'
       },
       {
-        id: 'monthlyMiscellaneousIncome',
-        title: 'What are your other miscellaneous income sources (monthly)?',
-        type: 'number',
+        id: 'fiMotivation',
+        title: "What motivates you most about financial independence?",
+        type: 'radio',
         required: true,
-        section: 'Other Income Sources',
+        options: ['Freedom to choose work', 'Security for family', 'Ability to pursue passions', 'Escape from financial stress', 'Opportunity to help others', 'Personal achievement'],
+        section: 'Financial Independence',
         questionNumber: 285,
-        groupId: 'income'
+        groupId: 'financial-independence-details'
       },
-      
-      // Partner's Income (if applicable)
       {
-        id: 'partnerGrossMonthlySalary',
-        title: "What is your partner's gross monthly salary?",
-        type: 'number',
+        id: 'fiLifestyle',
+        title: "What lifestyle do you want in financial independence?",
+        type: 'radio',
         required: true,
-        conditional: {
-          dependsOn: 'relationshipStatus',
-          values: ['In relationship living together', 'Married']
-        },
-        section: "Partner's Income",
+        options: ['Maintain current lifestyle', 'Upgrade lifestyle significantly', 'Simplify and downsize', 'Focus on experiences over things', 'Luxury lifestyle', 'Haven\'t decided'],
+        section: 'Financial Independence',
         questionNumber: 286,
-        groupId: 'income'
+        groupId: 'financial-independence-details'
       },
       {
-        id: 'partnerNetMonthlySalary',
-        title: "What is your partner's net monthly salary?",
-        type: 'number',
+        id: 'fiWorkPlans',
+        title: "Do you plan to work after achieving financial independence?",
+        type: 'radio',
         required: true,
-        conditional: {
-          dependsOn: 'relationshipStatus',
-          values: ['In relationship living together', 'Married']
-        },
-        section: "Partner's Income",
+        options: ['No, complete retirement', 'Yes, passion projects only', 'Yes, part-time work', 'Yes, but different career', 'Yes, consulting/freelance', 'Haven\'t decided'],
+        section: 'Financial Independence',
         questionNumber: 287,
-        groupId: 'income'
+        groupId: 'financial-independence-details'
       },
       {
-        id: 'partnerOtherIncome',
-        title: "What are your partner's other income sources (monthly)?",
-        type: 'number',
+        id: 'fiConfidence',
+        title: "How confident are you about achieving financial independence?",
+        type: 'radio',
         required: true,
-        conditional: {
-          dependsOn: 'relationshipStatus',
-          values: ['In relationship living together', 'Married']
-        },
-        section: "Partner's Income",
+        options: ['Very confident', 'Confident', 'Somewhat confident', 'Not very confident', 'Not confident at all'],
+        section: 'Financial Independence',
         questionNumber: 288,
-        groupId: 'income'
-      },
-      
-      // Additional Income Questions
+        groupId: 'financial-independence-details'
+      }
+    ]
+  },
+
+  {
+    id: 'final-preferences',
+    title: 'Final Preferences',
+    description: 'Last few questions about your financial planning preferences',
+    questions: [
       {
-        id: 'monthlyCommissionIncome',
-        title: 'What is your average monthly commission income?',
-        type: 'number',
+        id: 'planningHorizon',
+        title: "What's your typical financial planning horizon?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Primary Income',
+        options: ['1 year or less', '2-5 years', '6-10 years', '11-20 years', 'More than 20 years', 'Don\'t plan that far ahead'],
+        section: 'Planning Preferences',
         questionNumber: 289,
-        groupId: 'income'
+        groupId: 'final-preferences'
       },
       {
-        id: 'monthlyOvertimeIncome',
-        title: 'What is your average monthly overtime income?',
-        type: 'number',
+        id: 'planComplexity',
+        title: "How complex do you want your financial plan to be?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Primary Income',
+        options: ['Very simple', 'Somewhat simple', 'Moderately complex', 'Quite complex', 'Very complex'],
+        section: 'Planning Preferences',
         questionNumber: 290,
-        groupId: 'income'
+        groupId: 'final-preferences'
       },
       {
-        id: 'annualTaxRefunds',
-        title: 'What is your average annual tax refund?',
-        type: 'number',
+        id: 'planReviewFrequency',
+        title: "How often do you want to review your financial plan?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Other Income Sources',
+        options: ['Monthly', 'Quarterly', 'Semi-annually', 'Annually', 'Only when major changes occur'],
+        section: 'Planning Preferences',
         questionNumber: 291,
-        groupId: 'income'
+        groupId: 'final-preferences'
       },
       {
-        id: 'monthlyGiftIncome',
-        title: 'What is your average monthly gift/cash gifts received?',
-        type: 'number',
+        id: 'successMetrics',
+        title: "How do you want to measure financial planning success?",
+        subtitle: "Select all that apply",
+        type: 'select',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Other Income Sources',
+        options: ['Net worth growth', 'Goal achievement', 'Reduced financial stress', 'Improved cash flow', 'Better investment returns', 'Increased savings rate', 'Peace of mind'],
+        section: 'Planning Preferences',
         questionNumber: 292,
-        groupId: 'income'
+        groupId: 'final-preferences'
       },
       {
-        id: 'monthlySideBusinessIncome',
-        title: 'What is your monthly side business/hustle income?',
-        type: 'number',
+        id: 'planAdjustments',
+        title: "How flexible do you want your financial plan to be?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Business Income',
+        options: ['Very flexible - adjust frequently', 'Somewhat flexible - adjust as needed', 'Moderately flexible - annual adjustments', 'Not very flexible - stick to plan', 'Rigid - rarely change'],
+        section: 'Planning Preferences',
         questionNumber: 293,
-        groupId: 'income'
+        groupId: 'final-preferences'
       },
       {
-        id: 'monthlyPassiveIncome',
-        title: 'What is your other monthly passive income?',
-        subtitle: 'Income that requires minimal effort',
-        type: 'number',
+        id: 'implementationSupport',
+        title: "What level of support do you want for plan implementation?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Investment Income',
+        options: ['Full service - handle everything', 'Significant support - help with most tasks', 'Moderate support - guidance and check-ins', 'Minimal support - plan only', 'No support - completely DIY'],
+        section: 'Planning Preferences',
         questionNumber: 294,
-        groupId: 'income'
+        groupId: 'final-preferences'
       },
       {
-        id: 'annualInheritanceGifts',
-        title: 'What is your expected annual inheritance or large gifts?',
-        type: 'number',
+        id: 'communicationPreference',
+        title: "How do you prefer to communicate about your finances?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Other Income Sources',
+        options: ['In-person meetings', 'Video calls', 'Phone calls', 'Email', 'Text/messaging', 'Online platform only'],
+        section: 'Planning Preferences',
         questionNumber: 295,
-        groupId: 'income'
+        groupId: 'final-preferences'
       },
       {
-        id: 'monthlyPensionIncome',
-        title: 'What is your monthly pension income?',
-        type: 'number',
+        id: 'reportingPreference',
+        title: "What type of financial reporting do you prefer?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Other Income Sources',
+        options: ['Detailed written reports', 'Summary dashboards', 'Visual charts and graphs', 'Simple bullet points', 'Verbal updates only', 'No formal reporting'],
+        section: 'Planning Preferences',
         questionNumber: 296,
-        groupId: 'income'
+        groupId: 'final-preferences'
       },
       {
-        id: 'partnerAnnualBonus',
-        title: "What is your partner's average annual bonus?",
-        type: 'number',
+        id: 'emergencyPreparedness',
+        title: "How prepared do you feel for financial emergencies?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'relationshipStatus',
-          values: ['In relationship living together', 'Married']
-        },
-        section: "Partner's Income",
+        options: ['Very prepared', 'Prepared', 'Somewhat prepared', 'Not very prepared', 'Not prepared at all'],
+        section: 'Planning Preferences',
         questionNumber: 297,
-        groupId: 'income'
+        groupId: 'final-preferences'
       },
       {
-        id: 'partnerInvestmentIncome',
-        title: "What is your partner's monthly investment income?",
-        subtitle: 'Dividends, interest, capital gains',
-        type: 'number',
+        id: 'overallSatisfaction',
+        title: "How satisfied are you with your current financial situation?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'relationshipStatus',
-          values: ['In relationship living together', 'Married']
-        },
-        section: "Partner's Income",
+        options: ['Very satisfied', 'Satisfied', 'Neutral', 'Dissatisfied', 'Very dissatisfied'],
+        section: 'Planning Preferences',
         questionNumber: 298,
-        groupId: 'income'
+        groupId: 'final-preferences'
       },
       {
-        id: 'householdTotalIncome',
-        title: 'What is your estimated total household monthly income?',
-        subtitle: 'Combined income of all earning members',
-        type: 'number',
+        id: 'futureOptimism',
+        title: "How optimistic are you about your financial future?",
+        type: 'radio',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        section: 'Household Income',
+        options: ['Very optimistic', 'Optimistic', 'Neutral', 'Pessimistic', 'Very pessimistic'],
+        section: 'Planning Preferences',
         questionNumber: 299,
-        groupId: 'income'
+        groupId: 'final-preferences'
       }
     ]
   }
