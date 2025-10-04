@@ -21,7 +21,43 @@
  * Always confirm with developer before making changes.
  */
 
-export const questionGroups: QuestionGroup[] = [
+export interface Validation {
+  type: string;
+  value?: number;
+  message: string;
+}
+
+export interface Conditional {
+  dependsOn: string;
+  values: string[];
+}
+
+export interface Question {
+  id: string;
+  title: string;
+  subtitle?: string;
+  type: 'text' | 'number' | 'select' | 'radio' | 'range';
+  required: boolean;
+  options?: string[];
+  min?: number;
+  max?: number;
+  step?: number;
+  defaultValue?: number;
+  showValue?: boolean;
+  suffix?: string;
+  validation?: Validation[];
+  conditional?: Conditional | Conditional[];
+  section: string;
+  groupId: string;
+}
+
+export interface QuestionGroup {
+  id: string;
+  title: string;
+  description: string;
+  questions: Question[];
+}
+
 export const questionGroups: QuestionGroup[] = [
   {
     id: 'personal-basics',
@@ -170,7 +206,7 @@ export const questionGroups: QuestionGroup[] = [
   options: ['0', '1', '2', '3', '4 or more'],
   section: 'Personal Information',
   groupId: 'personal-basics'
-}
+},
       {
   id: 'numberOfCreditCards',
   title: 'How many credit cards do you have where the outstanding balance is 45 days or older?',
@@ -188,7 +224,7 @@ export const questionGroups: QuestionGroup[] = [
   options: ['Yes', 'No'],
   section: 'Personal Information',
   groupId: 'personal-basics'
-}
+},
       {
         id: 'targetRetirementAge',
         title: 'At what age do you plan to retire?',
@@ -2244,7 +2280,7 @@ export const questionGroups: QuestionGroup[] = [
   ],
   section: 'Children',
   groupId: 'children'
-}
+},
   {
     id: 'financial-dependents',
     title: 'Financial Dependents',
@@ -2582,7 +2618,8 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'financial-dependents'
       }
     ]
-  }{
+  },
+  {
   id: 'dependent3HealthExpenses',
   title: 'Dependent 3: Health related monthly expenses (not covered by insurance)',
   type: 'number',
@@ -3076,7 +3113,7 @@ export const questionGroups: QuestionGroup[] = [
   },
   section: 'Financial Dependents',
   groupId: 'financial-dependents'
-}
+},
   {
   id: 'personal-loans',
   title: 'Personal Loans & Credit',
@@ -4825,6 +4862,7 @@ export const questionGroups: QuestionGroup[] = [
             value: 0,
             message: 'Amount cannot be negative'
           }
+        ],
         section: 'Annual Investment Contributions',
         groupId: 'investment-contributions'
       },
@@ -5242,9 +5280,6 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'income'
       },
       {
-        id: 'annualDividendIncome',
-        title: 'What is your annual
-{
         id: 'annualDividendIncome',
         title: 'What is your annual dividend income?',
         type: 'number',
