@@ -2620,507 +2620,500 @@ export const questionGroups: QuestionGroup[] = [
     ]
   },
   {
-    id: 'financial-dependents-extended',
-    title: 'Additional Financial Dependents',
-    description: 'Information about dependents 3-5',
-    questions: [
-      {
-        id: 'dependent3HealthExpenses',
-        title: 'Dependent 3: Health related monthly expenses (not covered by insurance)',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3MedicalCosts',
-        title: 'Dependent 3: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3LivingExpenses',
-        title: 'Dependent 3: Rent, grocery, utilities expenses, monthly',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3TravelExpenses',
-        title: 'Dependent 3: Travel and commute monthly expenses',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3EntertainmentExpenses',
-        title: 'Dependent 3: Entertainment, leisure, holiday, hobby, monthly expenses',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3MiscellaneousExpenses',
-        title: 'Dependent 3: Other miscellaneous expenses monthly',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3HealthInsurance',
-        title: 'Dependent 3: Do you have health insurance to cover this dependent?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['3', '4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3InsuranceCover',
-        title: 'Dependent 3: What is the value of the insurance cover for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'dependent3HealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent3InsurancePremium',
-        title: 'Dependent 3: What is the annual premium you\'re paying for this?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'dependent3HealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4HealthExpenses',
-        title: 'Dependent 4: Health related monthly expenses (not covered by insurance)',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4MedicalCosts',
-        title: 'Dependent 4: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4LivingExpenses',
-        title: 'Dependent 4: Rent, grocery, utilities expenses, monthly',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4TravelExpenses',
-        title: 'Dependent 4: Travel and commute monthly expenses',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4EntertainmentExpenses',
-        title: 'Dependent 4: Entertainment, leisure, holiday, hobby, monthly expenses',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4MiscellaneousExpenses',
-        title: 'Dependent 4: Other miscellaneous expenses monthly',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4HealthInsurance',
-        title: 'Dependent 4: Do you have health insurance to cover this dependent?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['4', '5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4InsuranceCover',
-        title: 'Dependent 4: What is the value of the insurance cover for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'dependent4HealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent4InsurancePremium',
-        title: 'Dependent 4: What is the annual premium you\'re paying for this?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'dependent4HealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5HealthExpenses',
-        title: 'Dependent 5: Health related monthly expenses (not covered by insurance)',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5MedicalCosts',
-        title: 'Dependent 5: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5LivingExpenses',
-        title: 'Dependent 5: Rent, grocery, utilities expenses, monthly',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5TravelExpenses',
-        title: 'Dependent 5: Travel and commute monthly expenses',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5EntertainmentExpenses',
-        title: 'Dependent 5: Entertainment, leisure, holiday, hobby, monthly expenses',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5MiscellaneousExpenses',
-        title: 'Dependent 5: Other miscellaneous expenses monthly',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5HealthInsurance',
-        title: 'Dependent 5: Do you have health insurance to cover this dependent?',
-        type: 'radio',
-        required: true,
-        options: ['Yes', 'No'],
-        conditional: {
-          dependsOn: 'hasFinancialDependents',
-          values: ['5 or more']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5InsuranceCover',
-        title: 'Dependent 5: What is the value of the insurance cover for this dependent?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'dependent5HealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      },
-      {
-        id: 'dependent5InsurancePremium',
-        title: 'Dependent 5: What is the annual premium you\'re paying for this?',
-        type: 'number',
-        required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
-        conditional: {
-          dependsOn: 'dependent5HealthInsurance',
-          values: ['Yes']
-        },
-        section: 'Financial Dependents',
-        groupId: 'financial-dependents'
-      }
-    ]
+  id: 'dependent3HealthExpenses',
+  title: 'Dependent 3: Health related monthly expenses (not covered by insurance)',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['3', '4', '5 or more']
   },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent3MedicalCosts',
+  title: 'Dependent 3: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['3', '4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent3LivingExpenses',
+  title: 'Dependent 3: Rent, grocery, utilities expenses, monthly',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['3', '4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent3TravelExpenses',
+  title: 'Dependent 3: Travel and commute monthly expenses',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['3', '4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent3EntertainmentExpenses',
+  title: 'Dependent 3: Entertainment, leisure, holiday, hobby, monthly expenses',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['3', '4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent3MiscellaneousExpenses',
+  title: 'Dependent 3: Other miscellaneous expenses monthly',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['3', '4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent3HealthInsurance',
+  title: 'Dependent 3: Do you have health insurance to cover this dependent?',
+  type: 'radio',
+  required: true,
+  options: ['Yes', 'No'],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['3', '4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent3InsuranceCover',
+  title: 'Dependent 3: What is the value of the insurance cover for this dependent?',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'dependent3HealthInsurance',
+    values: ['Yes']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent3InsurancePremium',
+  title: 'Dependent 3: What is the annual premium you\'re paying for this?',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'dependent3HealthInsurance',
+    values: ['Yes']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent4HealthExpenses',
+  title: 'Dependent 4: Health related monthly expenses (not covered by insurance)',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent4MedicalCosts',
+  title: 'Dependent 4: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent4LivingExpenses',
+  title: 'Dependent 4: Rent, grocery, utilities expenses, monthly',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent4TravelExpenses',
+  title: 'Dependent 4: Travel and commute monthly expenses',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent4EntertainmentExpenses',
+  title: 'Dependent 4: Entertainment, leisure, holiday, hobby, monthly expenses',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent4MiscellaneousExpenses',
+  title: 'Dependent 4: Other miscellaneous expenses monthly',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent4HealthInsurance',
+  title: 'Dependent 4: Do you have health insurance to cover this dependent?',
+  type: 'radio',
+  required: true,
+  options: ['Yes', 'No'],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['4', '5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent4InsuranceCover',
+  title: 'Dependent 4: What is the value of the insurance cover for this dependent?',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'dependent4HealthInsurance',
+    values: ['Yes']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent4InsurancePremium',
+  title: 'Dependent 4: What is the annual premium you\'re paying for this?',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'dependent4HealthInsurance',
+    values: ['Yes']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent5HealthExpenses',
+  title: 'Dependent 5: Health related monthly expenses (not covered by insurance)',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent5MedicalCosts',
+  title: 'Dependent 5: Monthly cost for medicines, treatments, medical devices, health checkups, etc.',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent5LivingExpenses',
+  title: 'Dependent 5: Rent, grocery, utilities expenses, monthly',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent5TravelExpenses',
+  title: 'Dependent 5: Travel and commute monthly expenses',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent5EntertainmentExpenses',
+  title: 'Dependent 5: Entertainment, leisure, holiday, hobby, monthly expenses',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent5MiscellaneousExpenses',
+  title: 'Dependent 5: Other miscellaneous expenses monthly',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent5HealthInsurance',
+  title: 'Dependent 5: Do you have health insurance to cover this dependent?',
+  type: 'radio',
+  required: true,
+  options: ['Yes', 'No'],
+  conditional: {
+    dependsOn: 'hasFinancialDependents',
+    values: ['5 or more']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent5InsuranceCover',
+  title: 'Dependent 5: What is the value of the insurance cover for this dependent?',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'dependent5HealthInsurance',
+    values: ['Yes']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
+{
+  id: 'dependent5InsurancePremium',
+  title: 'Dependent 5: What is the annual premium you\'re paying for this?',
+  type: 'number',
+  required: true,
+  validation: [
+    {
+      type: 'min',
+      value: 0,
+      message: 'Amount cannot be negative'
+    }
+  ],
+  conditional: {
+    dependsOn: 'dependent5HealthInsurance',
+    values: ['Yes']
+  },
+  section: 'Financial Dependents',
+  groupId: 'financial-dependents'
+},
   {
   id: 'personal-loans',
   title: 'Personal Loans & Credit',
