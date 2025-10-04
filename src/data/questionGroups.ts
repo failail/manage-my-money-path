@@ -2618,11 +2618,11 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'financial-dependents'
       }
     ]
-  },
+}
+  ]
 },
 {
-  id: 'financial-dependents-extended',
-  title: 'Additional Financial Dependents',
+  id: 'financial-dependents-extended',  title: 'Additional Financial Dependents',
   description: 'Information about dependents 3-5',
   conditional: true,
   questions: [
