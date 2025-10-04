@@ -2619,6 +2619,13 @@ export const questionGroups: QuestionGroup[] = [
       }
     ]
   },
+},
+{
+  id: 'financial-dependents-extended',
+  title: 'Additional Financial Dependents',
+  description: 'Information about dependents 3-5',
+  conditional: true,
+  questions: [
   {
   id: 'dependent3HealthExpenses',
   title: 'Dependent 3: Health related monthly expenses (not covered by insurance)',
@@ -3110,9 +3117,11 @@ export const questionGroups: QuestionGroup[] = [
   conditional: {
     dependsOn: 'dependent5HealthInsurance',
     values: ['Yes']
-  },
-  section: 'Financial Dependents',
-  groupId: 'financial-dependents'
+},
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
+    }
+  ]
 },
   {
   id: 'personal-loans',
