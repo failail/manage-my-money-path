@@ -2620,7 +2620,6 @@ export const questionGroups: QuestionGroup[] = [
     ]
 }
   ]
-},
 // Dependent 3 Questions
 {
   id: 'dependent3HealthExpenses',
