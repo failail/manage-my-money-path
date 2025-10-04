@@ -2629,7 +2629,6 @@ export const questionGroups: QuestionGroup[] = [
     }
   ]
 }
-},
 {
   id: 'personal-loans',
   title: 'Personal Loans & Credit',
