@@ -1,363 +1,599 @@
-export interface FinancialRatio {
-  id: string;
-  name: string;
-  value: number;
-  target: string;
-  status: 'good' | 'warning' | 'poor';
-  description: string;
+// Financial calculations for ManageMeMoney app
+// All calculations use question IDs from questionGroups.ts
+
+export interface UserFinancialData {
+  [key: string]: number | string | boolean | undefined;
 }
 
-export interface CalculationInputs {
-  // Income
-  monthlyGrossIncome: number;
-  monthlyNetIncome: number;
-  annualBonusCommission: number;
-  freelanceIncome: number;
-  investmentIncome: number;
-  benefitsPensionIncome: number;
-  rentalIncome: number;
-
-  // Core Expenses (housing, utilities, food, transport)
-  monthlyMortgageRent: number;
-  councilTaxPropertyTax: number;
-  homeInsurance: number;
-  utilities: number;
-  groceries: number;
-  transport: number;
-  internetBroadband: number;
-
-  // Total Monthly Expenses (all expenses)
-  totalMonthlyExpenses: number;
-
-  // Debt Payments
-  mortgagePayment: number;
-  vehicleLoanPayment: number;
-  creditCardMinPayments: number;
-  personalLoanPayments: number;
-  studentLoanPayments: number;
-  otherDebtPayments: number;
-
-  // Total Debt Balances
-  mortgageBalance: number;
-  additionalPropertyMortgages: number;
-  vehicleLoanBalance: number;
-  creditCardDebt: number;
-  personalLoanBalance: number;
-  studentLoanBalance: number;
-  otherConsumerDebt: number;
-
-  // Assets
-  currentAccountBalance: number;
-  savingsAccountBalance: number;
-  emergencyFundBalance: number;
-  termDeposits: number;
-  cashAtHome: number;
-  retirementAccounts: number;
-  stocksShares: number;
-  bonds: number;
-  cryptocurrency: number;
-  businessEquity: number;
-  propertyValue: number;
-  additionalPropertyValue: number;
-  vehicleValue: number;
-  collectiblesValue: number;
-
-  // Savings
-  monthlyRetirementContribution: number;
-  monthlyInvestmentSavings: number;
-  totalMonthlySavings: number;
+export interface CalculatedRatios {
+  emergencyFundRatio: number;
+  currentRatio: number;
+  quickRatio: number;
+  debtToIncomeRatio: number;
+  debtToAssetRatio: number;
+  savingsRate: number;
+  investmentRate: number;
+  lifeInsuranceCoverage: number;
+  healthInsuranceAdequacy: number;
+  assetProtection: number;
 }
 
-export const calculateFinancialRatios = (inputs: CalculationInputs): FinancialRatio[] => {
-  // Calculate derived values
-  const coreMonthlyExpenses = 
-    inputs.monthlyMortgageRent + 
-    inputs.councilTaxPropertyTax + 
-    inputs.homeInsurance + 
-    inputs.utilities + 
-    inputs.groceries + 
-    inputs.transport + 
-    inputs.internetBroadband;
-
-  const totalMonthlyDebtPayments = 
-    inputs.mortgagePayment + 
-    inputs.vehicleLoanPayment + 
-    inputs.creditCardMinPayments + 
-    inputs.personalLoanPayments + 
-    inputs.studentLoanPayments + 
-    inputs.otherDebtPayments;
-
-  const totalDebt = 
-    inputs.mortgageBalance + 
-    inputs.additionalPropertyMortgages + 
-    inputs.vehicleLoanBalance + 
-    inputs.creditCardDebt + 
-    inputs.personalLoanBalance + 
-    inputs.studentLoanBalance + 
-    inputs.otherConsumerDebt;
-
-  const liquidCash = 
-    inputs.currentAccountBalance + 
-    inputs.savingsAccountBalance + 
-    inputs.cashAtHome;
-
-  const liquidAssets = 
-    liquidCash + 
-    inputs.termDeposits;
-
-  const totalInvestments = 
-    inputs.retirementAccounts + 
-    inputs.stocksShares + 
-    inputs.bonds + 
-    inputs.cryptocurrency + 
-    inputs.businessEquity;
-
-  const totalAssets = 
-    liquidAssets + 
-    totalInvestments + 
-    inputs.propertyValue + 
-    inputs.additionalPropertyValue + 
-    inputs.vehicleValue + 
-    inputs.collectiblesValue;
-
-  const emergencyBuffer = inputs.savingsAccountBalance + inputs.emergencyFundBalance + liquidCash;
-  const annualGrossIncome = inputs.monthlyGrossIncome * 12 + inputs.annualBonusCommission;
-
-  // Helper functions for status determination
-  const getStatus = (value: number, goodThreshold: number, warningThreshold: number, isReverse = false): 'good' | 'warning' | 'poor' => {
-    if (isReverse) {
-      if (value <= goodThreshold) return 'good';
-      if (value <= warningThreshold) return 'warning';
-      return 'poor';
-    } else {
-      if (value >= goodThreshold) return 'good';
-      if (value >= warningThreshold) return 'warning';
-      return 'poor';
-    }
-  };
-
-  const ratios: FinancialRatio[] = [
-    {
-      id: 'core-expense-ratio',
-      name: 'Core Expense Ratio',
-      value: inputs.monthlyNetIncome > 0 ? (coreMonthlyExpenses / inputs.monthlyNetIncome) * 100 : 0,
-      target: '< 50%',
-      status: getStatus(
-        inputs.monthlyNetIncome > 0 ? (coreMonthlyExpenses / inputs.monthlyNetIncome) * 100 : 100,
-        50, 65, true
-      ),
-      description: 'Essential expenses as a percentage of net income. Lower is better for financial flexibility.'
-    },
-    {
-      id: 'total-expense-ratio',
-      name: 'Total Expense Ratio',
-      value: inputs.monthlyNetIncome > 0 ? (inputs.totalMonthlyExpenses / inputs.monthlyNetIncome) * 100 : 0,
-      target: '< 80%',
-      status: getStatus(
-        inputs.monthlyNetIncome > 0 ? (inputs.totalMonthlyExpenses / inputs.monthlyNetIncome) * 100 : 100,
-        80, 90, true
-      ),
-      description: 'Total expenses as a percentage of net income. Leaves room for savings and unexpected costs.'
-    },
-    {
-      id: 'debt-servicing-ratio',
-      name: 'Debt Servicing Ratio',
-      value: inputs.monthlyGrossIncome > 0 ? (totalMonthlyDebtPayments / inputs.monthlyGrossIncome) * 100 : 0,
-      target: '< 36%',
-      status: getStatus(
-        inputs.monthlyGrossIncome > 0 ? (totalMonthlyDebtPayments / inputs.monthlyGrossIncome) * 100 : 100,
-        36, 43, true
-      ),
-      description: 'Monthly debt payments as a percentage of gross income. Critical for creditworthiness.'
-    },
-    {
-      id: 'cash-buffer-ratio',
-      name: 'Cash Buffer Ratio',
-      value: coreMonthlyExpenses > 0 ? liquidCash / coreMonthlyExpenses : 0,
-      target: '≥ 1.0',
-      status: getStatus(
-        coreMonthlyExpenses > 0 ? liquidCash / coreMonthlyExpenses : 0,
-        1.0, 0.5
-      ),
-      description: 'Liquid cash relative to monthly core expenses. Provides immediate financial cushion.'
-    },
-    {
-      id: 'emergency-months',
-      name: 'Emergency Fund (Months)',
-      value: coreMonthlyExpenses > 0 ? emergencyBuffer / coreMonthlyExpenses : 0,
-      target: '≥ 6 months',
-      status: getStatus(
-        coreMonthlyExpenses > 0 ? emergencyBuffer / coreMonthlyExpenses : 0,
-        6, 3
-      ),
-      description: 'Number of months your emergency savings could cover core expenses.'
-    },
-    {
-      id: 'savings-rate',
-      name: 'Savings Rate',
-      value: inputs.monthlyNetIncome > 0 ? (inputs.totalMonthlySavings / inputs.monthlyNetIncome) * 100 : 0,
-      target: '≥ 20%',
-      status: getStatus(
-        inputs.monthlyNetIncome > 0 ? (inputs.totalMonthlySavings / inputs.monthlyNetIncome) * 100 : 0,
-        20, 10
-      ),
-      description: 'Percentage of net income saved each month. Higher rates accelerate wealth building.'
-    },
-    {
-      id: 'investment-allocation',
-      name: 'Investment Allocation',
-      value: totalAssets > 0 ? (totalInvestments / totalAssets) * 100 : 0,
-      target: '≥ 60%',
-      status: getStatus(
-        totalAssets > 0 ? (totalInvestments / totalAssets) * 100 : 0,
-        60, 40
-      ),
-      description: 'Percentage of total assets in growth investments. Important for long-term wealth.'
-    },
-    {
-      id: 'debt-to-income',
-      name: 'Debt-to-Income Ratio',
-      value: annualGrossIncome > 0 ? (totalDebt / annualGrossIncome) * 100 : 0,
-      target: '< 200%',
-      status: getStatus(
-        annualGrossIncome > 0 ? (totalDebt / annualGrossIncome) * 100 : 1000,
-        200, 300, true
-      ),
-      description: 'Total debt relative to annual income. Lower ratios indicate better debt management.'
-    },
-    {
-      id: 'debt-to-assets',
-      name: 'Debt-to-Assets Ratio',
-      value: totalAssets > 0 ? (totalDebt / totalAssets) * 100 : 0,
-      target: '< 40%',
-      status: getStatus(
-        totalAssets > 0 ? (totalDebt / totalAssets) * 100 : 100,
-        40, 60, true
-      ),
-      description: 'Total debt as a percentage of total assets. Measures overall financial leverage.'
-    },
-    {
-      id: 'cash-to-assets',
-      name: 'Cash-to-Assets Ratio',
-      value: totalAssets > 0 ? (liquidCash / totalAssets) * 100 : 0,
-      target: '5-15%',
-      status: getStatus(
-        totalAssets > 0 ? (liquidCash / totalAssets) * 100 : 0,
-        5, 2
-      ) === 'good' && (totalAssets > 0 ? (liquidCash / totalAssets) * 100 : 0) <= 15 ? 'good' : 
-      (totalAssets > 0 ? (liquidCash / totalAssets) * 100 : 0) > 20 ? 'warning' : 'poor',
-      description: 'Liquid cash as percentage of assets. Too high reduces returns, too low reduces flexibility.'
-    },
-    {
-      id: 'liquid-assets-ratio',
-      name: 'Liquid Assets Ratio',
-      value: totalAssets > 0 ? (liquidAssets / totalAssets) * 100 : 0,
-      target: '15-30%',
-      status: getStatus(
-        totalAssets > 0 ? (liquidAssets / totalAssets) * 100 : 0,
-        15, 10
-      ) === 'good' && (totalAssets > 0 ? (liquidAssets / totalAssets) * 100 : 0) <= 30 ? 'good' : 
-      (totalAssets > 0 ? (liquidAssets / totalAssets) * 100 : 0) > 40 ? 'warning' : 'poor',
-      description: 'Easily accessible assets for emergencies and opportunities.'
-    },
-    {
-      id: 'debt-to-liquid',
-      name: 'Debt-to-Liquid Assets',
-      value: liquidAssets > 0 ? (totalDebt / liquidAssets) * 100 : (totalDebt > 0 ? 1000 : 0),
-      target: '< 300%',
-      status: getStatus(
-        liquidAssets > 0 ? (totalDebt / liquidAssets) * 100 : (totalDebt > 0 ? 1000 : 0),
-        300, 500, true
-      ),
-      description: 'Total debt relative to liquid assets. Measures ability to pay down debt quickly.'
-    }
-  ];
-
-  return ratios;
+// Helper: Safely get numeric value from user data
+const getNumber = (data: UserFinancialData, key: string): number => {
+  const value = data[key];
+  return typeof value === 'number' ? value : 0;
 };
 
-export const calculateOverallScore = (ratios: FinancialRatio[]): number => {
-  const weights = {
-    'core-expense-ratio': 0.15,
-    'total-expense-ratio': 0.12,
-    'debt-servicing-ratio': 0.15,
-    'cash-buffer-ratio': 0.10,
-    'emergency-months': 0.15,
-    'savings-rate': 0.12,
-    'investment-allocation': 0.08,
-    'debt-to-income': 0.05,
-    'debt-to-assets': 0.03,
-    'cash-to-assets': 0.02,
-    'liquid-assets-ratio': 0.02,
-    'debt-to-liquid': 0.01
-  };
+// Calculate total monthly expenses from all sources
+export const calculateTotalMonthlyExpenses = (data: UserFinancialData): number => {
+  // Monthly expense fields (monthly-expenses group)
+  const monthlyExpenses = 
+    getNumber(data, 'monthlyGroceries') +
+    getNumber(data, 'monthlyElectricityBill') +
+    getNumber(data, 'monthlyWaterBill') +
+    getNumber(data, 'monthlyGasBill') +
+    getNumber(data, 'monthlyInternetBill') +
+    getNumber(data, 'monthlyMobilePhone') +
+    getNumber(data, 'monthlyPublicTransport') +
+    getNumber(data, 'monthlyRideSharingCab') +
+    getNumber(data, 'monthlyDiningOut') +
+    getNumber(data, 'monthlyFoodDelivery') +
+    getNumber(data, 'monthlyPersonalCare') +
+    getNumber(data, 'monthlyGym') +
+    getNumber(data, 'monthlyEntertainment') +
+    getNumber(data, 'monthlyStreamingServices') +
+    getNumber(data, 'monthlyOtherSubscriptions') +
+    getNumber(data, 'monthlyHouseholdHelp') +
+    getNumber(data, 'monthlyPetExpenses') +
+    getNumber(data, 'monthlyHealthSupplements') +
+    getNumber(data, 'monthlyRegularMedicines') +
+    getNumber(data, 'monthlyDoctorConsultations') +
+    getNumber(data, 'monthlyAlcoholTobacco') +
+    getNumber(data, 'monthlyShopping') +
+    getNumber(data, 'monthlyGiftsAndDonations') +
+    getNumber(data, 'monthlyLaundryDryCleaning') +
+    getNumber(data, 'monthlyHomeDeliveries') +
+    getNumber(data, 'monthlyClubMemberships') +
+    getNumber(data, 'monthlyHobbiesExpenses');
 
-  let weightedScore = 0;
-  let totalWeight = 0;
+  // Annual expenses converted to monthly
+  const annualExpensesMonthly = 
+    (getNumber(data, 'annualHomeImprovement') +
+     getNumber(data, 'annualHolidayTravel') +
+     getNumber(data, 'annualFestivalsGifts') +
+     getNumber(data, 'annualMedicalExpenses') +
+     getNumber(data, 'annualProfessionalFees') +
+     getNumber(data, 'annualMiscExpenses')) / 12;
 
-  ratios.forEach(ratio => {
-    const weight = weights[ratio.id as keyof typeof weights] || 0;
-    if (weight > 0) {
-      let score = 0;
-      if (ratio.status === 'good') score = 100;
-      else if (ratio.status === 'warning') score = 60;
-      else score = 20;
-      
-      weightedScore += score * weight;
-      totalWeight += weight;
-    }
-  });
+  // Housing costs
+  const housingCosts = 
+    getNumber(data, 'monthlyRent') +
+    getNumber(data, 'buildingMaintenanceFees') +
+    getNumber(data, 'home1MonthlyEMI') +
+    getNumber(data, 'home2MonthlyEMI') +
+    getNumber(data, 'rentalInsurancePremium') +
+    getNumber(data, 'home1InsurancePremium') +
+    getNumber(data, 'home2InsurancePremium');
 
-  return totalWeight > 0 ? Math.round(weightedScore / totalWeight) : 0;
+  // Vehicle costs
+  const vehicleCosts = 
+    getNumber(data, 'vehicle1MonthlyEMI') +
+    getNumber(data, 'vehicle2MonthlyEMI') +
+    getNumber(data, 'vehicle1FuelCost') +
+    getNumber(data, 'vehicle2FuelCost') +
+    getNumber(data, 'monthlyParkingCost') +
+    getNumber(data, 'monthlyDriverCost') +
+    getNumber(data, 'monthlyWashingCost') +
+    (getNumber(data, 'annualMaintenanceCost') / 12) +
+    getNumber(data, 'vehicle1InsurancePremium') +
+    getNumber(data, 'vehicle2InsurancePremium');
+
+  // Debt payments
+  const debtPayments = 
+    getNumber(data, 'card1MonthlyPayment') +
+    getNumber(data, 'card2MonthlyPayment') +
+    getNumber(data, 'card3MonthlyPayment') +
+    getNumber(data, 'card4MonthlyPayment') +
+    getNumber(data, 'loan1MonthlyPayment') +
+    getNumber(data, 'loan2MonthlyPayment') +
+    getNumber(data, 'loan3MonthlyPayment') +
+    getNumber(data, 'loan4MonthlyPayment');
+
+  // Child expenses
+  const childExpenses = 
+    // Child 1
+    getNumber(data, 'child1MonthlyDiapers') +
+    getNumber(data, 'child1MonthlyClothing') +
+    getNumber(data, 'child1MonthlyToys') +
+    getNumber(data, 'child1MonthlyParties') +
+    getNumber(data, 'child1MonthlyActivities') +
+    getNumber(data, 'child1MonthlyEducation') +
+    getNumber(data, 'child1MonthlyOnlineLearning') +
+    getNumber(data, 'child1MonthlyTutoring') +
+    getNumber(data, 'child1MonthlyBooks') +
+    getNumber(data, 'child1MonthlyFieldTrips') +
+    getNumber(data, 'child1MonthlyMedical') +
+    getNumber(data, 'child1MonthlyMiscellaneous') +
+    getNumber(data, 'child1InsurancePremium') +
+    // Child 2
+    getNumber(data, 'child2MonthlyDiapers') +
+    getNumber(data, 'child2MonthlyClothing') +
+    getNumber(data, 'child2MonthlyToys') +
+    getNumber(data, 'child2MonthlyParties') +
+    getNumber(data, 'child2MonthlyActivities') +
+    getNumber(data, 'child2MonthlyEducation') +
+    getNumber(data, 'child2MonthlyOnlineLearning') +
+    getNumber(data, 'child2MonthlyTutoring') +
+    getNumber(data, 'child2MonthlyBooks') +
+    getNumber(data, 'child2MonthlyFieldTrips') +
+    getNumber(data, 'child2MonthlyMedical') +
+    getNumber(data, 'child2MonthlyMiscellaneous') +
+    getNumber(data, 'child2InsurancePremium') +
+    // Child 3
+    getNumber(data, 'child3MonthlyDiapers') +
+    getNumber(data, 'child3MonthlyClothing') +
+    getNumber(data, 'child3MonthlyToys') +
+    getNumber(data, 'child3MonthlyParties') +
+    getNumber(data, 'child3MonthlyActivities') +
+    getNumber(data, 'child3MonthlyEducation') +
+    getNumber(data, 'child3MonthlyOnlineLearning') +
+    getNumber(data, 'child3MonthlyTutoring') +
+    getNumber(data, 'child3MonthlyBooks') +
+    getNumber(data, 'child3MonthlyFieldTrips') +
+    getNumber(data, 'child3MonthlyMedical') +
+    getNumber(data, 'child3MonthlyMiscellaneous') +
+    getNumber(data, 'child3InsurancePremium');
+
+  // Dependent expenses
+  const dependentExpenses = 
+    // Dependent 1
+    getNumber(data, 'dependent1HealthExpenses') +
+    getNumber(data, 'dependent1MedicalCosts') +
+    getNumber(data, 'dependent1LivingExpenses') +
+    getNumber(data, 'dependent1TravelExpenses') +
+    getNumber(data, 'dependent1EntertainmentExpenses') +
+    getNumber(data, 'dependent1MiscellaneousExpenses') +
+    getNumber(data, 'dependent1InsurancePremium') +
+    // Dependent 2
+    getNumber(data, 'dependent2HealthExpenses') +
+    getNumber(data, 'dependent2MedicalCosts') +
+    getNumber(data, 'dependent2LivingExpenses') +
+    getNumber(data, 'dependent2TravelExpenses') +
+    getNumber(data, 'dependent2EntertainmentExpenses') +
+    getNumber(data, 'dependent2MiscellaneousExpenses') +
+    getNumber(data, 'dependent2InsurancePremium') +
+    // Dependent 3
+    getNumber(data, 'dependent3HealthExpenses') +
+    getNumber(data, 'dependent3MedicalCosts') +
+    getNumber(data, 'dependent3LivingExpenses') +
+    getNumber(data, 'dependent3TravelExpenses') +
+    getNumber(data, 'dependent3EntertainmentExpenses') +
+    getNumber(data, 'dependent3MiscellaneousExpenses') +
+    getNumber(data, 'dependent3InsurancePremium') +
+    // Dependent 4
+    getNumber(data, 'dependent4HealthExpenses') +
+    getNumber(data, 'dependent4MedicalCosts') +
+    getNumber(data, 'dependent4LivingExpenses') +
+    getNumber(data, 'dependent4TravelExpenses') +
+    getNumber(data, 'dependent4EntertainmentExpenses') +
+    getNumber(data, 'dependent4MiscellaneousExpenses') +
+    getNumber(data, 'dependent4InsurancePremium') +
+    // Dependent 5
+    getNumber(data, 'dependent5HealthExpenses') +
+    getNumber(data, 'dependent5MedicalCosts') +
+    getNumber(data, 'dependent5LivingExpenses') +
+    getNumber(data, 'dependent5TravelExpenses') +
+    getNumber(data, 'dependent5EntertainmentExpenses') +
+    getNumber(data, 'dependent5MiscellaneousExpenses') +
+    getNumber(data, 'dependent5InsurancePremium');
+
+  // User insurance premiums
+  const userInsurancePremiums = 
+    getNumber(data, 'userHealthInsurancePremium') +
+    getNumber(data, 'userLifeInsurancePremium') +
+    getNumber(data, 'userAccidentInsurancePremium');
+
+  // Partner insurance premiums
+  const partnerInsurancePremiums = 
+    getNumber(data, 'partnerHealthInsurancePremium') +
+    getNumber(data, 'partnerLifeInsurancePremium') +
+    getNumber(data, 'partnerAccidentInsurancePremium');
+
+  return monthlyExpenses + annualExpensesMonthly + housingCosts + vehicleCosts + 
+         debtPayments + childExpenses + dependentExpenses + userInsurancePremiums + 
+         partnerInsurancePremiums;
 };
 
-export const getPriorityRecommendations = (ratios: FinancialRatio[]): string[] => {
-  const recommendations: string[] = [];
+// Calculate total liquid assets (cash and easily-sellable investments)
+export const calculateLiquidAssets = (data: UserFinancialData): number => {
+  return getNumber(data, 'checkingAccountBalance') +
+         getNumber(data, 'savingsAccountBalance') +
+         getNumber(data, 'mutualFundsValue') +
+         getNumber(data, 'directEquityValue');
+};
+
+// Calculate short-term liabilities (credit cards + personal loans)
+export const calculateShortTermLiabilities = (data: UserFinancialData): number => {
+  const creditCardDebt = 
+    getNumber(data, 'card1TotalDebt') +
+    getNumber(data, 'card2TotalDebt') +
+    getNumber(data, 'card3TotalDebt') +
+    getNumber(data, 'card4TotalDebt');
+
+  const personalLoanDebt = 
+    getNumber(data, 'loan1OutstandingBalance') +
+    getNumber(data, 'loan2OutstandingBalance') +
+    getNumber(data, 'loan3OutstandingBalance') +
+    getNumber(data, 'loan4OutstandingBalance');
+
+  return creditCardDebt + personalLoanDebt;
+};
+
+// Calculate quick assets (most liquid: cash only)
+export const calculateQuickAssets = (data: UserFinancialData): number => {
+  return getNumber(data, 'checkingAccountBalance') +
+         getNumber(data, 'savingsAccountBalance');
+};
+
+// LIQUIDITY RATIO 1: Emergency Fund Ratio
+// Formula: Emergency Savings / Monthly Expenses
+// Good: 6+ months, Average: 3-6 months, Poor: <3 months
+export const calculateEmergencyFundRatio = (data: UserFinancialData): number => {
+  const emergencySavings = getNumber(data, 'savingsAccountBalance');
+  const monthlyExpenses = calculateTotalMonthlyExpenses(data);
+
+  if (monthlyExpenses === 0) return 0;
   
-  // High priority recommendations based on poor ratios
-  const emergencyMonths = ratios.find(r => r.id === 'emergency-months');
-  if (emergencyMonths && emergencyMonths.status === 'poor') {
-    recommendations.push('Build an emergency fund covering 3-6 months of core expenses');
-  }
+  return emergencySavings / monthlyExpenses;
+};
 
-  const debtServicing = ratios.find(r => r.id === 'debt-servicing-ratio');
-  if (debtServicing && debtServicing.status === 'poor') {
-    recommendations.push('Reduce monthly debt payments to below 36% of gross income');
-  }
+// LIQUIDITY RATIO 2: Current Ratio
+// Formula: Liquid Assets / Short-term Liabilities
+// Good: >2.0, Average: 1.0-2.0, Poor: <1.0
+export const calculateCurrentRatio = (data: UserFinancialData): number => {
+  const liquidAssets = calculateLiquidAssets(data);
+  const shortTermLiabilities = calculateShortTermLiabilities(data);
 
-  const coreExpenses = ratios.find(r => r.id === 'core-expense-ratio');
-  if (coreExpenses && coreExpenses.status === 'poor') {
-    recommendations.push('Reduce core living expenses to improve financial flexibility');
-  }
+  if (shortTermLiabilities === 0) return Infinity;
+  
+  return liquidAssets / shortTermLiabilities;
+};
 
-  const savingsRate = ratios.find(r => r.id === 'savings-rate');
-  if (savingsRate && savingsRate.status === 'poor') {
-    recommendations.push('Increase monthly savings to at least 10% of net income');
-  }
+// LIQUIDITY RATIO 3: Quick Ratio
+// Formula: (Cash + Investments) / Current Liabilities
+// Good: >1.5, Average: 1.0-1.5, Poor: <1.0
+export const calculateQuickRatio = (data: UserFinancialData): number => {
+  const quickAssets = calculateQuickAssets(data);
+  const currentLiabilities = calculateShortTermLiabilities(data);
 
-  const investmentAllocation = ratios.find(r => r.id === 'investment-allocation');
-  if (investmentAllocation && investmentAllocation.status === 'poor') {
-    recommendations.push('Increase investment allocation for long-term wealth building');
-  }
+  if (currentLiabilities === 0) return Infinity;
+  
+  return quickAssets / currentLiabilities;
+};
 
-  // If no poor ratios, look at warning ratios
-  if (recommendations.length === 0) {
-    ratios.forEach(ratio => {
-      if (ratio.status === 'warning') {
-        switch (ratio.id) {
-          case 'emergency-months':
-            recommendations.push('Build emergency fund to 6 months of expenses');
-            break;
-          case 'savings-rate':
-            recommendations.push('Increase savings rate to 20% for optimal wealth building');
-            break;
-          case 'investment-allocation':
-            recommendations.push('Consider increasing investment allocation to 60%+');
-            break;
-        }
-      }
-    });
-  }
+// === DEBT RATIOS ===
 
-  return recommendations.slice(0, 5); // Return top 5 recommendations
+// Calculate total monthly debt payments
+export const calculateTotalMonthlyDebtPayments = (data: UserFinancialData): number => {
+  const creditCardPayments = 
+    getNumber(data, 'card1MonthlyPayment') +
+    getNumber(data, 'card2MonthlyPayment') +
+    getNumber(data, 'card3MonthlyPayment') +
+    getNumber(data, 'card4MonthlyPayment');
+
+  const loanPayments = 
+    getNumber(data, 'loan1MonthlyPayment') +
+    getNumber(data, 'loan2MonthlyPayment') +
+    getNumber(data, 'loan3MonthlyPayment') +
+    getNumber(data, 'loan4MonthlyPayment');
+
+  const mortgagePayments = 
+    getNumber(data, 'home1MonthlyEMI') +
+    getNumber(data, 'home2MonthlyEMI');
+
+  const vehiclePayments = 
+    getNumber(data, 'vehicle1MonthlyEMI') +
+    getNumber(data, 'vehicle2MonthlyEMI');
+
+  return creditCardPayments + loanPayments + mortgagePayments + vehiclePayments;
+};
+
+// Calculate total monthly income
+export const calculateTotalMonthlyIncome = (data: UserFinancialData): number => {
+  // User's income
+  const userIncome = 
+    getNumber(data, 'netMonthlySalary') +
+    (getNumber(data, 'annualBonusCommission') / 12) +
+    getNumber(data, 'monthlyOvertimePay') +
+    getNumber(data, 'monthlySelfEmploymentNet') +
+    ((getNumber(data, 'annualDividendIncome') + 
+      getNumber(data, 'annualInterestIncome') + 
+      getNumber(data, 'annualCapitalGains')) / 12) +
+    getNumber(data, 'monthlyRentalIncome') +
+    getNumber(data, 'monthlyGovernmentBenefits') +
+    getNumber(data, 'monthlyAlimonyChildSupport') +
+    getNumber(data, 'monthlyRoyaltiesLicensing') +
+    getNumber(data, 'monthlyFamilySupport') +
+    getNumber(data, 'monthlyMiscellaneousIncome');
+
+  // Partner's income
+  const partnerIncome = 
+    getNumber(data, 'partnerNetMonthlySalary') +
+    getNumber(data, 'partnerOtherIncome');
+
+  return userIncome + partnerIncome;
+};
+
+// Calculate total assets
+export const calculateTotalAssets = (data: UserFinancialData): number => {
+  // Cash and bank accounts
+  const cashAssets = 
+    getNumber(data, 'checkingAccountBalance') +
+    getNumber(data, 'savingsAccountBalance') +
+    getNumber(data, 'fixedDepositsValue') +
+    getNumber(data, 'cashOnHand');
+
+  // Investments
+  const investments = 
+    getNumber(data, 'mutualFundsValue') +
+    getNumber(data, 'directEquityValue') +
+    getNumber(data, 'retirementAccountBalance') +
+    getNumber(data, 'cryptoCurrentValue') +
+    getNumber(data, 'commodityHoldingsValue') +
+    getNumber(data, 'bondsCurrentValue') +
+    getNumber(data, 'otherInvestmentProducts') +
+    getNumber(data, 'providentFundBalance') +
+    getNumber(data, 'employeeStockOptions');
+
+  // Property values
+  const propertyValues = 
+    getNumber(data, 'home1CurrentValue') +
+    getNumber(data, 'home2CurrentValue');
+
+  // Vehicle values
+  const vehicleValues = 
+    getNumber(data, 'vehicle1CurrentValue') +
+    getNumber(data, 'vehicle2CurrentValue');
+
+  // Other assets
+  const otherAssets = 
+    getNumber(data, 'businessOwnershipValue') +
+    getNumber(data, 'collectiblesValue') +
+    getNumber(data, 'loansGivenToOthers') +
+    getNumber(data, 'securityDepositsRecoverable') +
+    getNumber(data, 'otherMiscellaneousAssets');
+
+  return cashAssets + investments + propertyValues + vehicleValues + otherAssets;
+};
+
+// Calculate total liabilities
+export const calculateTotalLiabilities = (data: UserFinancialData): number => {
+  const creditCardDebt = 
+    getNumber(data, 'card1TotalDebt') +
+    getNumber(data, 'card2TotalDebt') +
+    getNumber(data, 'card3TotalDebt') +
+    getNumber(data, 'card4TotalDebt');
+
+  const personalLoans = 
+    getNumber(data, 'loan1OutstandingBalance') +
+    getNumber(data, 'loan2OutstandingBalance') +
+    getNumber(data, 'loan3OutstandingBalance') +
+    getNumber(data, 'loan4OutstandingBalance');
+
+  const propertyLoans = 
+    getNumber(data, 'home1OutstandingLoan') +
+    getNumber(data, 'home2OutstandingLoan');
+
+  const vehicleLoans = 
+    getNumber(data, 'vehicle1OutstandingLoan') +
+    getNumber(data, 'vehicle2OutstandingLoan');
+
+  return creditCardDebt + personalLoans + propertyLoans + vehicleLoans;
+};
+
+// DEBT RATIO 1: Debt-to-Income Ratio
+// Formula: Total Monthly Debt Payments / Monthly Income
+// Good: <36%, Average: 36-43%, Poor: >43%
+export const calculateDebtToIncomeRatio = (data: UserFinancialData): number => {
+  const monthlyDebtPayments = calculateTotalMonthlyDebtPayments(data);
+  const monthlyIncome = calculateTotalMonthlyIncome(data);
+
+  if (monthlyIncome === 0) return Infinity;
+  
+  return monthlyDebtPayments / monthlyIncome;
+};
+
+// DEBT RATIO 2: Debt-to-Asset Ratio
+// Formula: Total Liabilities / Total Assets
+// Good: <0.5, Average: 0.5-0.7, Poor: >0.7
+export const calculateDebtToAssetRatio = (data: UserFinancialData): number => {
+  const totalLiabilities = calculateTotalLiabilities(data);
+  const totalAssets = calculateTotalAssets(data);
+
+  if (totalAssets === 0) return Infinity;
+  
+  return totalLiabilities / totalAssets;
+};
+
+// === SAVINGS & INVESTMENT RATIOS ===
+
+// Calculate total monthly savings
+export const calculateTotalMonthlySavings = (data: UserFinancialData): number => {
+  return getNumber(data, 'monthlySavingsGoals') +
+         getNumber(data, 'monthlyFixedDeposits');
+};
+
+// Calculate total monthly investments
+export const calculateTotalMonthlyInvestments = (data: UserFinancialData): number => {
+  const monthlyContributions = 
+    getNumber(data, 'monthlySipContributions') +
+    getNumber(data, 'monthlyDirectEquity') +
+    getNumber(data, 'monthlyRetirementContributions') +
+    getNumber(data, 'monthlyFixedDeposits') +
+    getNumber(data, 'monthlySavingsGoals') +
+    getNumber(data, 'monthlyCryptoPurchases') +
+    getNumber(data, 'monthlyCommodityInvestments') +
+    getNumber(data, 'monthlyBondContributions');
+
+  const annualContributions = 
+    (getNumber(data, 'annualRetirementLumpsum') +
+     getNumber(data, 'annualTaxAdvantagedInvestments') +
+     getNumber(data, 'annualBondPurchases') +
+     getNumber(data, 'annualMiscellaneousInvestments')) / 12;
+
+  return monthlyContributions + annualContributions;
+};
+
+// Calculate net worth
+export const calculateNetWorth = (data: UserFinancialData): number => {
+  return calculateTotalAssets(data) - calculateTotalLiabilities(data);
+};
+
+// SAVINGS RATIO 1: Savings Rate
+// Formula: Monthly Savings / Monthly Income
+// Good: >20%, Average: 10-20%, Poor: <10%
+export const calculateSavingsRate = (data: UserFinancialData): number => {
+  const monthlySavings = calculateTotalMonthlySavings(data);
+  const monthlyIncome = calculateTotalMonthlyIncome(data);
+
+  if (monthlyIncome === 0) return 0;
+  
+  return monthlySavings / monthlyIncome;
+};
+
+// SAVINGS RATIO 2: Investment Rate
+// Formula: Monthly Investments / Monthly Income
+// Good: >15%, Average: 5-15%, Poor: <5%
+export const calculateInvestmentRate = (data: UserFinancialData): number => {
+  const monthlyInvestments = calculateTotalMonthlyInvestments(data);
+  const monthlyIncome = calculateTotalMonthlyIncome(data);
+
+  if (monthlyIncome === 0) return 0;
+  
+  return monthlyInvestments / monthlyIncome;
+};
+
+// === PROTECTION RATIOS ===
+
+// Calculate total annual income
+export const calculateTotalAnnualIncome = (data: UserFinancialData): number => {
+  return calculateTotalMonthlyIncome(data) * 12;
+};
+
+// Calculate total life insurance coverage
+export const calculateTotalLifeInsurance = (data: UserFinancialData): number => {
+  return getNumber(data, 'userLifeInsuranceCover') +
+         getNumber(data, 'partnerLifeInsuranceCover');
+};
+
+// Calculate total health insurance coverage
+export const calculateTotalHealthInsurance = (data: UserFinancialData): number => {
+  return getNumber(data, 'userHealthInsuranceCover') +
+         getNumber(data, 'partnerHealthInsuranceCover') +
+         getNumber(data, 'child1InsuranceCover') +
+         getNumber(data, 'child2InsuranceCover') +
+         getNumber(data, 'child3InsuranceCover') +
+         getNumber(data, 'dependent1InsuranceCover') +
+         getNumber(data, 'dependent2InsuranceCover') +
+         getNumber(data, 'dependent3InsuranceCover') +
+         getNumber(data, 'dependent4InsuranceCover') +
+         getNumber(data, 'dependent5InsuranceCover');
+};
+
+// Calculate total insurance coverage (all types)
+export const calculateTotalInsuranceCoverage = (data: UserFinancialData): number => {
+  const lifeInsurance = calculateTotalLifeInsurance(data);
+  
+  const healthInsurance = calculateTotalHealthInsurance(data);
+  
+  const accidentInsurance = 
+    getNumber(data, 'userAccidentInsuranceCover') +
+    getNumber(data, 'partnerAccidentInsuranceCover');
+  
+  const propertyInsurance = 
+    getNumber(data, 'home1InsuranceCover') +
+    getNumber(data, 'home2InsuranceCover') +
+    getNumber(data, 'rentalInsuranceCover');
+  
+  const vehicleInsurance = 
+    getNumber(data, 'vehicle1InsuranceCover') +
+    getNumber(data, 'vehicle2InsuranceCover');
+
+  return lifeInsurance + healthInsurance + accidentInsurance + propertyInsurance + vehicleInsurance;
+};
+
+// PROTECTION RATIO 1: Life Insurance Coverage
+// Formula: Life Insurance Coverage / Annual Income
+// Good: 10-15x annual income, Average: 5-10x, Poor: <5x
+export const calculateLifeInsuranceCoverage = (data: UserFinancialData): number => {
+  const lifeInsurance = calculateTotalLifeInsurance(data);
+  const annualIncome = calculateTotalAnnualIncome(data);
+
+  if (annualIncome === 0) return 0;
+  
+  return lifeInsurance / annualIncome;
+};
+
+// PROTECTION RATIO 2: Health Insurance Adequacy
+// Formula: Health Insurance Coverage / Annual Medical Expenses
+// Good: >5x annual expenses, Average: 3-5x, Poor: <3x
+export const calculateHealthInsuranceAdequacy = (data: UserFinancialData): number => {
+  const healthInsurance = calculateTotalHealthInsurance(data);
+  
+  // Calculate total medical expenses from all sources
+  const monthlyMedicalExpenses = 
+    getNumber(data, 'monthlyHealthSupplements') +
+    getNumber(data, 'monthlyRegularMedicines') +
+    getNumber(data, 'monthlyDoctorConsultations') +
+    getNumber(data, 'child1MonthlyMedical') +
+    getNumber(data, 'child2MonthlyMedical') +
+    getNumber(data, 'child3MonthlyMedical') +
+    getNumber(data, 'dependent1HealthExpenses') +
+    getNumber(data, 'dependent1MedicalCosts') +
+    getNumber(data, 'dependent2HealthExpenses') +
+    getNumber(data, 'dependent2MedicalCosts') +
+    getNumber(data, 'dependent3HealthExpenses') +
+    getNumber(data, 'dependent3MedicalCosts') +
+    getNumber(data, 'dependent4HealthExpenses') +
+    getNumber(data, 'dependent4MedicalCosts') +
+    getNumber(data, 'dependent5HealthExpenses') +
+    getNumber(data, 'dependent5MedicalCosts');
+  
+  const annualMedicalFromMonthly = monthlyMedicalExpenses * 12;
+  const annualMedicalExpenses = annualMedicalFromMonthly + getNumber(data, 'annualMedicalExpenses');
+
+  if (annualMedicalExpenses === 0) {
+    const estimatedExpenses = calculateTotalAnnualIncome(data) * 0.05;
+    return estimatedExpenses > 0 ? healthInsurance / estimatedExpenses : 0;
+  }
+  
+  return healthInsurance / annualMedicalExpenses;
+};
+
+// PROTECTION RATIO 3: Asset Protection
+// Formula: Total Insurance Coverage / Total Asset Value
+// Good: >0.8 (80%+ of assets covered), Average: 0.5-0.8, Poor: <0.5
+export const calculateAssetProtection = (data: UserFinancialData): number => {
+  const totalInsurance = calculateTotalInsuranceCoverage(data);
+  const totalAssets = calculateTotalAssets(data);
+
+  if (totalAssets === 0) return 0;
+  
+  return totalInsurance / totalAssets;
+};
+
+// Main function to calculate all ratios
+export const calculateAllRatios = (data: UserFinancialData): CalculatedRatios => {
+  return {
+    emergencyFundRatio: calculateEmergencyFundRatio(data),
+    currentRatio: calculateCurrentRatio(data),
+    quickRatio: calculateQuickRatio(data),
+    debtToIncomeRatio: calculateDebtToIncomeRatio(data),
+    debtToAssetRatio: calculateDebtToAssetRatio(data),
+    savingsRate: calculateSavingsRate(data),
+    investmentRate: calculateInvestmentRate(data),
+    lifeInsuranceCoverage: calculateLifeInsuranceCoverage(data),
+    healthInsuranceAdequacy: calculateHealthInsuranceAdequacy(data),
+    assetProtection: calculateAssetProtection(data)
+  };
 };
