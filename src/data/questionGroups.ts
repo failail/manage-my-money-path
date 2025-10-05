@@ -1830,8 +1830,6 @@ export const questionGroups: QuestionGroup[] = [
   id: 'financial-dependents',
   title: 'Financial Dependents',
   description: 'Information about people who depend on you financially',
-  section: 'Financial Dependents',
-  groupId: 'financial-dependents',
   conditional: true,
   questions: [
     {
@@ -1841,7 +1839,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Regular health-related costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['1', '2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['1', '2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent1MedicalCosts',
@@ -1850,7 +1853,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Doctor visits, medicines, treatments',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['1', '2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['1', '2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent1LivingExpenses',
@@ -1859,7 +1867,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Food, accommodation, utilities',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['1', '2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['1', '2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent1TravelExpenses',
@@ -1868,7 +1881,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Transportation costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['1', '2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['1', '2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent1EntertainmentExpenses',
@@ -1877,7 +1895,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Recreation and leisure',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['1', '2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['1', '2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent1MiscellaneousExpenses',
@@ -1886,7 +1909,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Any other regular costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['1', '2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['1', '2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent1HealthInsurance',
@@ -1897,7 +1925,12 @@ export const questionGroups: QuestionGroup[] = [
         { value: 'yes', label: 'Yes' },
         { value: 'no', label: 'No' }
       ],
-      dependsOn: { field: 'hasFinancialDependents', value: ['1', '2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['1', '2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent1InsuranceCover',
@@ -1906,7 +1939,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Total sum insured',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'dependent1HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'dependent1HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent1InsurancePremium',
@@ -1914,7 +1952,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly insurance premium for Dependent 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'dependent1HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'dependent1HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent2HealthExpenses',
@@ -1923,7 +1966,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Regular health-related costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent2MedicalCosts',
@@ -1932,7 +1980,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Doctor visits, medicines, treatments',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent2LivingExpenses',
@@ -1941,7 +1994,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Food, accommodation, utilities',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent2TravelExpenses',
@@ -1950,7 +2008,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Transportation costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent2EntertainmentExpenses',
@@ -1959,7 +2022,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Recreation and leisure',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent2MiscellaneousExpenses',
@@ -1968,7 +2036,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Any other regular costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent2HealthInsurance',
@@ -1979,7 +2052,12 @@ export const questionGroups: QuestionGroup[] = [
         { value: 'yes', label: 'Yes' },
         { value: 'no', label: 'No' }
       ],
-      dependsOn: { field: 'hasFinancialDependents', value: ['2', '3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['2', '3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent2InsuranceCover',
@@ -1988,7 +2066,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Total sum insured',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'dependent2HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'dependent2HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     },
     {
       id: 'dependent2InsurancePremium',
@@ -1996,7 +2079,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly insurance premium for Dependent 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'dependent2HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'dependent2HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents'
     }
   ]
 },
@@ -2004,8 +2092,6 @@ export const questionGroups: QuestionGroup[] = [
   id: 'financial-dependents-extended',
   title: 'Additional Financial Dependents',
   description: 'Information about dependents 3-4',
-  section: 'Financial Dependents',
-  groupId: 'financial-dependents-extended',
   conditional: true,
   questions: [
     {
@@ -2015,7 +2101,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Regular health-related costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent3MedicalCosts',
@@ -2024,7 +2115,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Doctor visits, medicines, treatments',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent3LivingExpenses',
@@ -2033,7 +2129,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Food, accommodation, utilities',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent3TravelExpenses',
@@ -2042,7 +2143,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Transportation costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent3EntertainmentExpenses',
@@ -2051,7 +2157,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Recreation and leisure',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent3MiscellaneousExpenses',
@@ -2060,7 +2171,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Any other regular costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent3HealthInsurance',
@@ -2071,7 +2187,12 @@ export const questionGroups: QuestionGroup[] = [
         { value: 'yes', label: 'Yes' },
         { value: 'no', label: 'No' }
       ],
-      dependsOn: { field: 'hasFinancialDependents', value: ['3', '4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['3', '4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent3InsuranceCover',
@@ -2080,7 +2201,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Total sum insured',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'dependent3HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'dependent3HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent3InsurancePremium',
@@ -2088,7 +2214,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly insurance premium for Dependent 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'dependent3HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'dependent3HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent4HealthExpenses',
@@ -2097,7 +2228,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Regular health-related costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent4MedicalCosts',
@@ -2106,7 +2242,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Doctor visits, medicines, treatments',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent4LivingExpenses',
@@ -2115,7 +2256,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Food, accommodation, utilities',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent4TravelExpenses',
@@ -2124,7 +2270,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Transportation costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent4EntertainmentExpenses',
@@ -2133,7 +2284,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Recreation and leisure',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent4MiscellaneousExpenses',
@@ -2142,7 +2298,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Any other regular costs',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasFinancialDependents', value: ['4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
     {
       id: 'dependent4HealthInsurance',
@@ -2153,8 +2314,42 @@ export const questionGroups: QuestionGroup[] = [
         { value: 'yes', label: 'Yes' },
         { value: 'no', label: 'No' }
       ],
-      dependsOn: { field: 'hasFinancialDependents', value: ['4'] }
+      conditional: {
+        dependsOn: 'hasFinancialDependents',
+        values: ['4']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
     },
+    {
+      id: 'dependent4InsuranceCover',
+      type: 'number',
+      title: 'Health insurance coverage amount for Dependent 4',
+      description: 'Total sum insured',
+      required: true,
+      validation: { min: 0 },
+      conditional: {
+        dependsOn: 'dependent4HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
+    },
+    {
+      id: 'dependent4InsurancePremium',
+      type: 'number',
+      title: 'Monthly insurance premium for Dependent 4',
+      required: true,
+      validation: { min: 0 },
+      conditional: {
+        dependsOn: 'dependent4HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
+    }
+  ]
+},
     {
       id: 'dependent4InsuranceCover',
       type: 'number',
