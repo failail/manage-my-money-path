@@ -35,36 +35,44 @@ const QuestionRenderer = ({ question, value, onChange }: QuestionRendererProps) 
         );
 
       case 'radio':
-        return (
-          <RadioGroup value={value || ''} onValueChange={onChange}>
-            <div className="space-y-2">
-              {question.options?.map((option) => (
-                <div key={option} className="flex items-center space-x-2">
-                  <RadioGroupItem value={option} id={`${question.id}-${option}`} />
-                  <Label htmlFor={`${question.id}-${option}`} className="text-sm font-normal">
-                    {option}
-                  </Label>
-                </div>
-              ))}
+  return (
+    <RadioGroup value={value || ''} onValueChange={onChange}>
+      <div className="space-y-2">
+        {question.options?.map((option) => {
+          const optionValue = typeof option === 'string' ? option : option.value;
+          const optionLabel = typeof option === 'string' ? option : option.label;
+          return (
+            <div key={optionValue} className="flex items-center space-x-2">
+              <RadioGroupItem value={optionValue} id={`${question.id}-${optionValue}`} />
+              <Label htmlFor={`${question.id}-${optionValue}`} className="text-sm font-normal">
+                {optionLabel}
+              </Label>
             </div>
-          </RadioGroup>
-        );
+          );
+        })}
+      </div>
+    </RadioGroup>
+  );
 
-      case 'select':
-        return (
-          <Select value={value || ''} onValueChange={onChange}>
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="Select an option..." />
-            </SelectTrigger>
-            <SelectContent>
-              {question.options?.map((option) => (
-                <SelectItem key={option} value={option}>
-                  {option}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        );
+case 'select':
+  return (
+    <Select value={value || ''} onValueChange={onChange}>
+      <SelectTrigger className="w-full">
+        <SelectValue placeholder="Select an option..." />
+      </SelectTrigger>
+      <SelectContent>
+        {question.options?.map((option) => {
+          const optionValue = typeof option === 'string' ? option : option.value;
+          const optionLabel = typeof option === 'string' ? option : option.label;
+          return (
+            <SelectItem key={optionValue} value={optionValue}>
+              {optionLabel}
+            </SelectItem>
+          );
+        })}
+      </SelectContent>
+    </Select>
+  );
 
       default:
         return null;
