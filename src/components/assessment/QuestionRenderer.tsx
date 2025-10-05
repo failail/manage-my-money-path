@@ -84,8 +84,7 @@ case 'select':
       <div className="space-y-2">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <Label htmlFor={question.id} className="text-base font-medium leading-relaxed">
-              <span className="text-muted-foreground text-sm">Q{question.questionNumber}.</span> {question.title}
+            <Label htmlFor={question.id} className="text-base font-medium leading-relaxed">{question.title}
             </Label>
             {question.subtitle && (
               <p className="text-sm text-muted-foreground mt-1">{question.subtitle}</p>
