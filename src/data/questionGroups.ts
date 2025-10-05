@@ -1637,7 +1637,7 @@ export const questionGroups: QuestionGroup[] = [
       dependsOn: { field: 'child3HealthInsurance', value: 'yes' }
     }
   ]
-}
+},
 {
   id: 'financial-dependents',
   title: 'Financial Dependents',
@@ -4344,5 +4344,5 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'income'
       }
     ]
-  }
+  },
 ];
