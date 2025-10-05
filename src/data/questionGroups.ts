@@ -4342,7 +4342,7 @@ export const questionGroups: QuestionGroup[] = [
         },
         section: "Partner's Income",
         groupId: 'income'
-      },
+      }
     ]
   }
 ];
