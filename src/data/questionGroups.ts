@@ -1232,7 +1232,12 @@ export const questionGroups: QuestionGroup[] = [
         { value: '13-18', label: '13-18 years' },
         { value: '18+', label: '18+ years' }
       ],
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyDiapers',
@@ -1240,7 +1245,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on diapers/baby care for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyClothing',
@@ -1248,7 +1258,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly clothing expenses for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyToys',
@@ -1256,7 +1271,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on toys and games for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyParties',
@@ -1264,7 +1284,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on parties and celebrations for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyActivities',
@@ -1272,7 +1297,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on activities and sports for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyEducation',
@@ -1280,7 +1310,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly school/education fees for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyOnlineLearning',
@@ -1288,7 +1323,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly online learning subscriptions for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyTutoring',
@@ -1296,7 +1336,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly tutoring/coaching expenses for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyBooks',
@@ -1304,7 +1349,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on books and stationery for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyFieldTrips',
@@ -1312,7 +1362,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly field trips and excursions for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyMedical',
@@ -1320,7 +1375,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly medical expenses for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1MonthlyMiscellaneous',
@@ -1328,7 +1388,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Other monthly expenses for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1HealthInsurance',
@@ -1339,7 +1404,12 @@ export const questionGroups: QuestionGroup[] = [
         { value: 'yes', label: 'Yes' },
         { value: 'no', label: 'No' }
       ],
-      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['1', '2', '3']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1InsuranceCover',
@@ -1348,7 +1418,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Total sum insured',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'child1HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'child1HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Children',
+      groupId: 'children'
     },
     {
       id: 'child1InsurancePremium',
@@ -1356,7 +1431,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly insurance premium for Child 1',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'child1HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'child1HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Children',
+      groupId: 'children'
     }
   ]
 },
@@ -1380,7 +1460,12 @@ export const questionGroups: QuestionGroup[] = [
         { value: '13-18', label: '13-18 years' },
         { value: '18+', label: '18+ years' }
       ],
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyDiapers',
@@ -1388,7 +1473,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on diapers/baby care for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyClothing',
@@ -1396,7 +1486,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly clothing expenses for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyToys',
@@ -1404,7 +1499,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on toys and games for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyParties',
@@ -1412,7 +1512,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on parties and celebrations for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyActivities',
@@ -1420,7 +1525,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on activities and sports for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyEducation',
@@ -1428,7 +1538,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly school/education fees for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyOnlineLearning',
@@ -1436,7 +1551,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly online learning subscriptions for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyTutoring',
@@ -1444,7 +1564,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly tutoring/coaching expenses for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyBooks',
@@ -1452,7 +1577,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on books and stationery for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyFieldTrips',
@@ -1460,7 +1590,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly field trips and excursions for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyMedical',
@@ -1468,7 +1603,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly medical expenses for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2MonthlyMiscellaneous',
@@ -1476,7 +1616,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Other monthly expenses for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2HealthInsurance',
@@ -1487,7 +1632,12 @@ export const questionGroups: QuestionGroup[] = [
         { value: 'yes', label: 'Yes' },
         { value: 'no', label: 'No' }
       ],
-      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['2', '3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2InsuranceCover',
@@ -1496,7 +1646,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Total sum insured',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'child2HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'child2HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child2InsurancePremium',
@@ -1504,7 +1659,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly insurance premium for Child 2',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'child2HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'child2HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3AgeGroup',
@@ -1518,7 +1678,12 @@ export const questionGroups: QuestionGroup[] = [
         { value: '13-18', label: '13-18 years' },
         { value: '18+', label: '18+ years' }
       ],
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyDiapers',
@@ -1526,7 +1691,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on diapers/baby care for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyClothing',
@@ -1534,7 +1704,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly clothing expenses for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyToys',
@@ -1542,7 +1717,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on toys and games for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyParties',
@@ -1550,7 +1730,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on parties and celebrations for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyActivities',
@@ -1558,7 +1743,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on activities and sports for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyEducation',
@@ -1566,7 +1756,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly school/education fees for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyOnlineLearning',
@@ -1574,7 +1769,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly online learning subscriptions for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyTutoring',
@@ -1582,7 +1782,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly tutoring/coaching expenses for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyBooks',
@@ -1590,7 +1795,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly expenses on books and stationery for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyFieldTrips',
@@ -1598,7 +1808,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly field trips and excursions for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyMedical',
@@ -1606,7 +1821,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly medical expenses for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3MonthlyMiscellaneous',
@@ -1614,7 +1834,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Other monthly expenses for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3HealthInsurance',
@@ -1625,7 +1850,12 @@ export const questionGroups: QuestionGroup[] = [
         { value: 'yes', label: 'Yes' },
         { value: 'no', label: 'No' }
       ],
-      dependsOn: { field: 'hasChildren', value: ['3'] }
+      conditional: {
+        dependsOn: 'hasChildren',
+        values: ['3']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3InsuranceCover',
@@ -1634,7 +1864,12 @@ export const questionGroups: QuestionGroup[] = [
       description: 'Total sum insured',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'child3HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'child3HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     },
     {
       id: 'child3InsurancePremium',
@@ -1642,7 +1877,12 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly insurance premium for Child 3',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'child3HealthInsurance', value: 'yes' }
+      conditional: {
+        dependsOn: 'child3HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Children',
+      groupId: 'children-extended'
     }
   ]
 },
