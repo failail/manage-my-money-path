@@ -1812,13 +1812,19 @@ export const questionGroups: QuestionGroup[] = [
       groupId: 'children-extended'
     },
     {
-      id: 'child3MonthlyMedical',
-      type: 'number',
-      title: 'Monthly medical expenses for Child 3',
-      required: true,
-      validation: { min: 0 },
-      conditional: {
-        dependsOn: 'hasChildren    }
+  id: 'child3MonthlyMedical',
+  type: 'number',
+  title: 'Monthly medical expenses for Child 3',
+  required: true,
+  validation: { min: 0 },
+  conditional: {
+    dependsOn: 'hasChildren',
+    values: ['3']
+  },
+  section: 'Children',
+  groupId: 'children-extended'
+}
+    }
   ]
 },
 {
