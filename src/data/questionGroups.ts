@@ -1212,12 +1212,10 @@ export const questionGroups: QuestionGroup[] = [
       }
     ]
   },
-  {
+{
   id: 'children',
   title: 'Children',
   description: 'Information about your children',
-  section: 'Children',
-  groupId: 'children',
   conditional: true,
   questions: [
     {
@@ -1242,7 +1240,7 @@ export const questionGroups: QuestionGroup[] = [
     {
       id: 'child1MonthlyDiapers',
       type: 'number',
-      title: 'Monthly expenses on diapers/baby care for Child 1',
+      title: 'Monthly expenses for diapers for Child 1',
       required: true,
       validation: { min: 0 },
       conditional: {
@@ -1444,8 +1442,6 @@ export const questionGroups: QuestionGroup[] = [
   id: 'children-extended',
   title: 'Additional Children',
   description: 'Information about children 2-3',
-  section: 'Children',
-  groupId: 'children-extended',
   conditional: true,
   questions: [
     {
@@ -1470,7 +1466,7 @@ export const questionGroups: QuestionGroup[] = [
     {
       id: 'child2MonthlyDiapers',
       type: 'number',
-      title: 'Monthly expenses on diapers/baby care for Child 2',
+      title: 'Monthly expenses for diapers for Child 2',
       required: true,
       validation: { min: 0 },
       conditional: {
@@ -1688,7 +1684,7 @@ export const questionGroups: QuestionGroup[] = [
     {
       id: 'child3MonthlyDiapers',
       type: 'number',
-      title: 'Monthly expenses on diapers/baby care for Child 3',
+      title: 'Monthly expenses for diapers for Child 3',
       required: true,
       validation: { min: 0 },
       conditional: {
@@ -1822,68 +1818,7 @@ export const questionGroups: QuestionGroup[] = [
       required: true,
       validation: { min: 0 },
       conditional: {
-        dependsOn: 'hasChildren',
-        values: ['3']
-      },
-      section: 'Children',
-      groupId: 'children-extended'
-    },
-    {
-      id: 'child3MonthlyMiscellaneous',
-      type: 'number',
-      title: 'Other monthly expenses for Child 3',
-      required: true,
-      validation: { min: 0 },
-      conditional: {
-        dependsOn: 'hasChildren',
-        values: ['3']
-      },
-      section: 'Children',
-      groupId: 'children-extended'
-    },
-    {
-      id: 'child3HealthInsurance',
-      type: 'radio',
-      title: 'Do you have health insurance for Child 3?',
-      required: true,
-      options: [
-        { value: 'yes', label: 'Yes' },
-        { value: 'no', label: 'No' }
-      ],
-      conditional: {
-        dependsOn: 'hasChildren',
-        values: ['3']
-      },
-      section: 'Children',
-      groupId: 'children-extended'
-    },
-    {
-      id: 'child3InsuranceCover',
-      type: 'number',
-      title: 'Health insurance coverage amount for Child 3',
-      description: 'Total sum insured',
-      required: true,
-      validation: { min: 0 },
-      conditional: {
-        dependsOn: 'child3HealthInsurance',
-        values: ['yes']
-      },
-      section: 'Children',
-      groupId: 'children-extended'
-    },
-    {
-      id: 'child3InsurancePremium',
-      type: 'number',
-      title: 'Monthly insurance premium for Child 3',
-      required: true,
-      validation: { min: 0 },
-      conditional: {
-        dependsOn: 'child3HealthInsurance',
-        values: ['yes']
-      },
-      section: 'Children',
-      groupId: 'children-extended'
-    }
+        dependsOn: 'hasChildren    }
   ]
 },
 {
