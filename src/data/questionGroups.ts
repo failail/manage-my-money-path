@@ -264,13 +264,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly rent amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'housingType',
           values: ['Rent it']
@@ -283,13 +277,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What was your total rental deposit amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'housingType',
           values: ['Rent it']
@@ -315,13 +303,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the total coverage amount of your rental insurance?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'rentalInsurance',
           values: ['Yes']
@@ -334,13 +316,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your annual rental insurance premium?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'rentalInsurance',
           values: ['Yes']
@@ -353,13 +329,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Do you pay any building maintenance or society fees monthly?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'housingType',
           values: ['Rent it']
@@ -393,13 +363,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What was the purchase price of this property?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -412,13 +376,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the estimated current value of this property?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -444,13 +402,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What was the original loan amount for this property?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'home1HasLoan',
           values: ['Yes']
@@ -463,13 +415,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'home1HasLoan',
           values: ['Yes']
@@ -512,13 +458,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is your monthly EMI payment for this loan?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'home1HasLoan',
           values: ['Yes']
@@ -531,13 +471,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the coverage amount of insurance for this property?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -550,13 +484,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 1: What is the annual insurance premium for this property?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'housingType',
           values: ['Own it']
@@ -569,13 +497,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What was the purchase price of this property?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'additionalProperties',
           values: ['1', '2', '3', '4 or more']
@@ -588,13 +510,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is the estimated current value of this property?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'additionalProperties',
           values: ['1', '2', '3', '4 or more']
@@ -620,13 +536,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What was the original loan amount for this property?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'home2HasLoan',
           values: ['Yes']
@@ -639,13 +549,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'home2HasLoan',
           values: ['Yes']
@@ -688,13 +592,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is your monthly EMI payment for this loan?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'home2HasLoan',
           values: ['Yes']
@@ -707,13 +605,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is the coverage amount of insurance for this property?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'additionalProperties',
           values: ['1', '2', '3', '4 or more']
@@ -726,13 +618,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Home 2: What is the annual insurance premium for this property?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'additionalProperties',
           values: ['1', '2', '3', '4 or more']
@@ -753,13 +639,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your total monthly parking cost for all vehicles?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -772,13 +652,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your total monthly chauffeur/driver cost?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -791,13 +665,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your total monthly vehicle washing/cleaning cost?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -810,13 +678,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your total annual cost for maintenance, service, accessories, repairs for all vehicles?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -829,13 +691,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What was the purchase price of this vehicle?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -848,13 +704,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is the estimated current value of this vehicle?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -880,13 +730,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What are your estimated monthly fuel costs for this vehicle?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -899,13 +743,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What was the purchase price of this vehicle?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -918,13 +756,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is the estimated current value of this vehicle?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -950,13 +782,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What are your estimated monthly fuel costs for this vehicle?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -977,13 +803,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is the insurance coverage amount for this vehicle? (Enter 0 if no insurance)',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -996,13 +816,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is your insurance premium for this vehicle?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -1028,13 +842,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'vehicle1HasLoan',
           values: ['Yes']
@@ -1077,13 +885,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 1: What is your monthly EMI payment for this vehicle?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'vehicle1HasLoan',
           values: ['Yes']
@@ -1096,13 +898,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is the insurance coverage amount for this vehicle? (Enter 0 if no insurance)',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -1115,13 +911,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is your insurance premium for this vehicle?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'hasVehicles',
           values: ['Yes']
@@ -1147,13 +937,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is the current outstanding loan amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'vehicle2HasLoan',
           values: ['Yes']
@@ -1196,13 +980,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'Vehicle 2: What is your monthly EMI payment for this vehicle?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'vehicle2HasLoan',
           values: ['Yes']
@@ -2383,13 +2161,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Credit Card 1: What is the total outstanding balance?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfCreditCards',
         values: ['1', '2', '3', '4 or more']
@@ -2402,13 +2174,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Credit Card 1: What is your current monthly payment?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfCreditCards',
         values: ['1', '2', '3', '4 or more']
@@ -2451,13 +2217,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Credit Card 2: What is the total outstanding balance?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfCreditCards',
         values: ['2', '3', '4 or more']
@@ -2470,13 +2230,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Credit Card 2: What is your current monthly payment?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfCreditCards',
         values: ['2', '3', '4 or more']
@@ -2519,13 +2273,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Credit Card 3: What is the total outstanding balance?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfCreditCards',
         values: ['3', '4 or more']
@@ -2538,13 +2286,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Credit Card 3: What is your current monthly payment?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfCreditCards',
         values: ['3', '4 or more']
@@ -2587,13 +2329,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Credit Card 4: What is the total outstanding balance?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfCreditCards',
         values: ['4 or more']
@@ -2606,13 +2342,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Credit Card 4: What is your current monthly payment?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfCreditCards',
         values: ['4 or more']
@@ -2669,13 +2399,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 1: What was the original loan amount?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['1', '2', '3', '4 or more']
@@ -2688,13 +2412,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 1: What is the current outstanding balance?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['1', '2', '3', '4 or more']
@@ -2737,13 +2455,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 1: What is the monthly payment you make towards this loan?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['1', '2', '3', '4 or more']
@@ -2769,13 +2481,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 2: What was the original loan amount?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['2', '3', '4 or more']
@@ -2788,13 +2494,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 2: What is the current outstanding balance?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['2', '3', '4 or more']
@@ -2837,13 +2537,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 2: What is the monthly payment you make towards this loan?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['2', '3', '4 or more']
@@ -2869,13 +2563,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 3: What was the original loan amount?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['3', '4 or more']
@@ -2888,13 +2576,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 3: What is the current outstanding balance?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['3', '4 or more']
@@ -2937,13 +2619,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 3: What is the monthly payment you make towards this loan?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['3', '4 or more']
@@ -2969,13 +2645,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 4: What was the original loan amount?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['4 or more']
@@ -2988,13 +2658,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 4: What is the current outstanding balance?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['4 or more']
@@ -3037,13 +2701,7 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Personal Loan 4: What is the monthly payment you make towards this loan?',
       type: 'number',
       required: true,
-      validation: [
-        {
-          type: 'min',
-          value: 0,
-          message: 'Amount cannot be negative'
-        }
-      ],
+      validation: { min: 0 },
       conditional: {
         dependsOn: 'numberOfPersonalLoans',
         values: ['4 or more']
@@ -3144,13 +2802,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your total health insurance coverage amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'userHealthInsurance',
           values: ['Yes']
@@ -3163,13 +2815,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your health insurance premium amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'userHealthInsurance',
           values: ['Yes']
@@ -3195,13 +2841,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your total life insurance coverage amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'userLifeInsurance',
           values: ['Yes']
@@ -3214,13 +2854,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your life insurance premium amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'userLifeInsurance',
           values: ['Yes']
@@ -3246,13 +2880,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your total accident and disability insurance coverage amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'userAccidentInsurance',
           values: ['Yes']
@@ -3265,13 +2893,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your accident and disability insurance premium amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'userAccidentInsurance',
           values: ['Yes']
@@ -3297,13 +2919,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your partner\'s total health insurance coverage amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'partnerHealthInsurance',
           values: ['Yes']
@@ -3316,13 +2932,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your partner\'s health insurance premium amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'partnerHealthInsurance',
           values: ['Yes']
@@ -3348,13 +2958,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your partner\'s total life insurance coverage amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'partnerLifeInsurance',
           values: ['Yes']
@@ -3367,13 +2971,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your partner\'s life insurance premium amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'partnerLifeInsurance',
           values: ['Yes']
@@ -3399,13 +2997,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your partner\'s total accident and disability insurance coverage amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'partnerAccidentInsurance',
           values: ['Yes']
@@ -3418,13 +3010,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your partner\'s accident and disability insurance premium amount?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'partnerAccidentInsurance',
           values: ['Yes']
@@ -3457,13 +3043,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly groceries expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3472,13 +3052,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly electricity bill?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3487,13 +3061,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly water bill?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3502,13 +3070,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly gas/LPG bill?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3517,13 +3079,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly internet bill?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3532,13 +3088,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly mobile phone expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3547,13 +3097,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly public transport expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3562,13 +3106,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly ride-sharing/cab expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3577,13 +3115,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly dining out expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3592,13 +3124,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly food delivery expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3607,13 +3133,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly personal care expenses (saloon, spa, grooming)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3622,13 +3142,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly gym/fitness expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3637,13 +3151,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly entertainment expenses (movies, events, concerts)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3652,13 +3160,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly streaming services expenses (Netflix, Prime, Spotify)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3667,13 +3169,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your other monthly subscription expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3682,13 +3178,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly household help expenses (maid, cook, driver)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3697,13 +3187,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly pet-related expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3712,13 +3196,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly health supplements and vitamins expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3727,13 +3205,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly regular medicines expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3742,13 +3214,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly doctor consultation expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3757,13 +3223,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly alcohol and tobacco expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3772,13 +3232,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly shopping expenses (clothes, gadgets, etc)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3787,13 +3241,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly gifts and charitable donations expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3802,13 +3250,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly laundry and dry cleaning expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3817,13 +3259,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly home deliveries expenses (milk, newspapers, etc)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3832,13 +3268,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly club membership fees?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3847,13 +3277,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly hobbies and recreation expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3862,13 +3286,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your annual home improvement and maintenance expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Annual Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3877,13 +3295,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your annual holiday and travel expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Annual Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3892,13 +3304,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your annual festival and gift-giving expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Annual Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3907,13 +3313,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your annual medical expenses not covered by insurance?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Annual Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3922,13 +3322,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your annual professional fees (licenses, certifications)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Annual Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3937,13 +3331,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your other annual miscellaneous expenses?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Annual Expenses',
         groupId: 'monthly-expenses'
       },
@@ -3977,13 +3365,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly systematic investment plan (SIP) contributions to mutual funds?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Investment Contributions',
         groupId: 'investment-contributions'
       },
@@ -3992,13 +3374,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly direct equity purchases?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Investment Contributions',
         groupId: 'investment-contributions'
       },
@@ -4008,13 +3384,7 @@ export const questionGroups: QuestionGroup[] = [
         subtitle: 'Include workplace pension schemes like 401k in US, EPF in India, occupational pensions in Europe, superannuation in Australia, etc.',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Investment Contributions',
         groupId: 'investment-contributions'
       },
@@ -4023,13 +3393,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly fixed deposit or term deposit contributions?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Investment Contributions',
         groupId: 'investment-contributions'
       },
@@ -4038,13 +3402,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly savings account deposits for investment purposes or saving for goals?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Investment Contributions',
         groupId: 'investment-contributions'
       },
@@ -4053,13 +3411,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly cryptocurrency purchases?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Investment Contributions',
         groupId: 'investment-contributions'
       },
@@ -4068,13 +3420,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly gold, silver or other commodity investments?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Investment Contributions',
         groupId: 'investment-contributions'
       },
@@ -4083,13 +3429,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly contributions to investment, structured, government bonds or structured products?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Monthly Investment Contributions',
         groupId: 'investment-contributions'
       },
@@ -4098,13 +3438,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your annual lump sum contributions to retirement accounts?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Annual Investment Contributions',
         groupId: 'investment-contributions'
       },
@@ -4114,13 +3448,7 @@ export const questionGroups: QuestionGroup[] = [
         subtitle: 'Include ELSS in India, ISA in UK, Roth IRA in US, etc.',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Annual Investment Contributions',
         groupId: 'investment-contributions'
       },
@@ -4129,13 +3457,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your annual miscellaneous investment contributions not covered above?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Annual Investment Contributions',
         groupId: 'investment-contributions'
       }
@@ -4171,13 +3493,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your current checking account balance?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Cash & Bank Accounts',
         groupId: 'assets'
       },
@@ -4186,13 +3502,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your current savings account balance?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Cash & Bank Accounts',
         groupId: 'assets'
       },
@@ -4201,13 +3511,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the current value of your fixed deposits/term deposits?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Cash & Bank Accounts',
         groupId: 'assets'
       },
@@ -4216,13 +3520,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'How much cash do you have on hand?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Cash & Bank Accounts',
         groupId: 'assets'
       },
@@ -4231,13 +3529,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the current value of your mutual funds?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Investment Holdings',
         groupId: 'assets'
       },
@@ -4246,13 +3538,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the current value of your direct equity/stocks?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Investment Holdings',
         groupId: 'assets'
       },
@@ -4262,13 +3548,7 @@ export const questionGroups: QuestionGroup[] = [
         subtitle: 'Include 401k, EPF, pension funds, superannuation, etc.',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Investment Holdings',
         groupId: 'assets'
       },
@@ -4277,13 +3557,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the current value of your cryptocurrency holdings?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Investment Holdings',
         groupId: 'assets'
       },
@@ -4292,13 +3566,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the current value of your gold, silver, or other commodity holdings?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Investment Holdings',
         groupId: 'assets'
       },
@@ -4307,13 +3575,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the current value of your government/corporate bonds?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Investment Holdings',
         groupId: 'assets'
       },
@@ -4322,13 +3584,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the current value of your other investment products?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Investment Holdings',
         groupId: 'assets'
       },
@@ -4338,13 +3594,7 @@ export const questionGroups: QuestionGroup[] = [
         subtitle: 'If separate from retirement accounts mentioned above',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Assets',
         groupId: 'assets'
       },
@@ -4353,13 +3603,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the current value of your employee stock options?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Assets',
         groupId: 'assets'
       },
@@ -4368,13 +3612,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the value of your business ownership/partnership stakes?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Assets',
         groupId: 'assets'
       },
@@ -4384,13 +3622,7 @@ export const questionGroups: QuestionGroup[] = [
         subtitle: 'Include art, antiques, etc.',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Assets',
         groupId: 'assets'
       },
@@ -4400,13 +3632,7 @@ export const questionGroups: QuestionGroup[] = [
         subtitle: 'Loans given to others that you expect to be repaid',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Assets',
         groupId: 'assets'
       },
@@ -4415,13 +3641,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the total of your recoverable security deposits?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Assets',
         groupId: 'assets'
       },
@@ -4430,13 +3650,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is the value of your other miscellaneous assets?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Assets',
         groupId: 'assets'
       }
@@ -4452,13 +3666,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your gross monthly salary/wage (before taxes)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Employment Income',
         groupId: 'income'
       },
@@ -4467,13 +3675,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your net monthly salary/wage (after taxes and deductions)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Employment Income',
         groupId: 'income'
       },
@@ -4482,13 +3684,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your average annual bonus/commission?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Employment Income',
         groupId: 'income'
       },
@@ -4497,13 +3693,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly average overtime pay?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Employment Income',
         groupId: 'income'
       },
@@ -4512,13 +3702,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly self-employment/freelance income, side hustles, income from hobbies, gig work (gross)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Self-Employment/Business Income',
         groupId: 'income'
       },
@@ -4527,13 +3711,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly self-employment/freelance income (net after expenses)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Self-Employment/Business Income',
         groupId: 'income'
       },
@@ -4542,13 +3720,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your annual dividend income?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Investment Income',
         groupId: 'income'
       },
@@ -4557,13 +3729,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your annual interest income (from savings, FDs, bonds)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Investment Income',
         groupId: 'income'
       },
@@ -4572,13 +3738,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly rental income from properties?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Investment Income',
         groupId: 'income'
       },
@@ -4587,13 +3747,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your annual average capital gains?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Investment Income',
         groupId: 'income'
       },
@@ -4602,13 +3756,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your monthly government benefits/pensions?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Income Sources',
         groupId: 'income'
       },
@@ -4617,13 +3765,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly alimony/child support received?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Income Sources',
         groupId: 'income'
       },
@@ -4632,13 +3774,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly royalties/licensing income?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Income Sources',
         groupId: 'income'
       },
@@ -4647,13 +3783,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What is your monthly family financial support received?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Income Sources',
         groupId: 'income'
       },
@@ -4662,13 +3792,7 @@ export const questionGroups: QuestionGroup[] = [
         title: 'What are your other miscellaneous income sources (monthly)?',
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         section: 'Other Income Sources',
         groupId: 'income'
       },
@@ -4677,13 +3801,7 @@ export const questionGroups: QuestionGroup[] = [
         title: "What is your partner's gross monthly salary?",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'relationshipStatus',
           values: ['In relationship living together', 'Married']
@@ -4696,13 +3814,7 @@ export const questionGroups: QuestionGroup[] = [
         title: "What is your partner's net monthly salary?",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'relationshipStatus',
           values: ['In relationship living together', 'Married']
@@ -4715,13 +3827,7 @@ export const questionGroups: QuestionGroup[] = [
         title: "What are your partner's other income sources (monthly)?",
         type: 'number',
         required: true,
-        validation: [
-          {
-            type: 'min',
-            value: 0,
-            message: 'Amount cannot be negative'
-          }
-        ],
+        validation: { min: 0 },
         conditional: {
           dependsOn: 'relationshipStatus',
           values: ['In relationship living together', 'Married']
