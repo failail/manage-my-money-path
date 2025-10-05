@@ -2142,7 +2142,7 @@ export const questionGroups: QuestionGroup[] = [
   section: 'Financial Dependents',
   groupId: 'financial-dependents-extended'
 },
-    {
+  {
       id: 'dependent4InsurancePremium',
       type: 'number',
       title: 'Monthly insurance premium for Dependent 4',
