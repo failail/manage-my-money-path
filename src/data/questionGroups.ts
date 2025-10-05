@@ -2745,8 +2745,9 @@ export const questionGroups: QuestionGroup[] = [
         type: 'skip',
         section: 'Personal Insurance',
         groupId: 'insurance-coverage'
-      },
-      
+      }
+    ]
+  },    
   {
     id: 'insurance-details',
     title: 'Insurance Details',
