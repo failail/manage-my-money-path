@@ -2667,8 +2667,8 @@ export const questionGroups: QuestionGroup[] = [
       groupId: 'personal-loans'
     }
   ]
- },
-  {
+},
+{
     id: 'insurance-coverage',
     title: 'Personal Insurance',
     description: 'Your insurance coverage',
