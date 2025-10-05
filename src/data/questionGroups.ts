@@ -30,6 +30,8 @@ export interface Validation {
 export interface Conditional {
   dependsOn: string;
   values: string[];
+  field?: string;
+  value?: string[];
 }
 
 export interface Question {
@@ -38,17 +40,20 @@ export interface Question {
   subtitle?: string;
   type: 'text' | 'number' | 'select' | 'radio' | 'range';
   required: boolean;
-  options?: string[];
+  options?: (string | { value: string; label: string })[];
   min?: number;
   max?: number;
   step?: number;
   defaultValue?: number;
   showValue?: boolean;
   suffix?: string;
-  validation?: Validation[];
+  validation?: Validation[] | { min: number };
   conditional?: Conditional | Conditional[];
+  dependsOn?: { field: string; value: string[] };
   section: string;
   groupId: string;
+  description?: string;
+  readOnly?: boolean;
 }
 
 export interface QuestionGroup {
@@ -56,6 +61,9 @@ export interface QuestionGroup {
   title: string;
   description: string;
   questions: Question[];
+  conditional?: boolean;
+  section?: string;
+  groupId?: string;
 }
 
 export const questionGroups: QuestionGroup[] = [
