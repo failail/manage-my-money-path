@@ -4704,5 +4704,5 @@ export const questionGroups: QuestionGroup[] = [
         groupId: 'income'
       }
     ]
-  }
+  },
 ];
