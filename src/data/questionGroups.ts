@@ -1565,721 +1565,438 @@ export const questionGroups: QuestionGroup[] = [
     ]
   },
 {
-  id: 'child2AgeGroup',
-  title: 'Child 2: What is the age group of this child?',
-  type: 'select',
-  required: true,
-  options: ['0-5', '6-10', '11-15', '16-18', '19-25', '26 or older'],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
+  id: 'children',
+  title: 'Children',
+  description: 'Information about your children',
   section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyDiapers',
-  title: 'Child 2: Monthly expenses for diapers',
-  type: 'number',
-  required: true,
-  validation: [
+  groupId: 'children',
+  conditional: true,
+  questions: [
     {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1AgeGroup',
+      type: 'select',
+      title: 'Age group of Child 1',
+      required: true,
+      options: [
+        { value: '0-2', label: '0-2 years' },
+        { value: '3-5', label: '3-5 years' },
+        { value: '6-12', label: '6-12 years' },
+        { value: '13-18', label: '13-18 years' },
+        { value: '18+', label: '18+ years' }
+      ],
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child2AgeGroup',
-      values: ['0-5']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyClothing',
-  title: 'Child 2: What are your monthly expenses for clothing, shoes',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyToys',
-  title: 'Child 2: What are your monthly expenses for toys and games',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyDiapers',
+      type: 'number',
+      title: 'Monthly expenses on diapers/baby care for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child2AgeGroup',
-      values: ['0-5', '6-10', '11-15']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyParties',
-  title: 'Child 2: What are your monthly expenses for parties, gifts for kids parties',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyClothing',
+      type: 'number',
+      title: 'Monthly clothing expenses for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child2AgeGroup',
-      values: ['0-5', '6-10', '11-15', '16-18']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyActivities',
-  title: 'Child 2: Monthly expense for hobbies, sports, extra curricular activities',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyEducation',
-  title: 'Child 2: Monthly expense for school/college fees',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyToys',
+      type: 'number',
+      title: 'Monthly expenses on toys and games for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child2AgeGroup',
-      values: ['6-10', '11-15', '16-18', '19-25']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyOnlineLearning',
-  title: 'Child 2: Monthly expense for additional online learning',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyParties',
+      type: 'number',
+      title: 'Monthly expenses on parties and celebrations for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child2AgeGroup',
-      values: ['6-10', '11-15', '16-18', '19-25']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyTutoring',
-  title: 'Child 2: Monthly expense for additional tutoring',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyActivities',
+      type: 'number',
+      title: 'Monthly expenses on activities and sports for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child2AgeGroup',
-      values: ['6-10', '11-15', '16-18', '19-25']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyBooks',
-  title: 'Child 2: Monthly expense for school books',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyEducation',
+      type: 'number',
+      title: 'Monthly school/education fees for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child2AgeGroup',
-      values: ['6-10', '11-15', '16-18', '19-25']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyFieldTrips',
-  title: 'Child 2: Monthly expense for field trips',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyOnlineLearning',
+      type: 'number',
+      title: 'Monthly online learning subscriptions for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child2AgeGroup',
-      values: ['6-10', '11-15', '16-18']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyMedical',
-  title: 'Child 2: Monthly expenses for your child\'s medical expenses, treatments, medicines',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2MonthlyMiscellaneous',
-  title: 'Child 2: Miscellaneous monthly expenses',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2HealthInsurance',
-  title: 'Child 2: Do you have health insurance that covers your child?',
-  type: 'radio',
-  required: true,
-  options: ['Yes', 'No'],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2InsuranceCover',
-  title: 'Child 2: What is the value of the insurance cover?',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyTutoring',
+      type: 'number',
+      title: 'Monthly tutoring/coaching expenses for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child2HealthInsurance',
-      values: ['Yes']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child2InsurancePremium',
-  title: 'Child 2: What is the annual premium you\'re paying for this?',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyBooks',
+      type: 'number',
+      title: 'Monthly expenses on books and stationery for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child2HealthInsurance',
-      values: ['Yes']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3AgeGroup',
-  title: 'Child 3: What is the age group of this child?',
-  type: 'select',
-  required: true,
-  options: ['0-5', '6-10', '11-15', '16-18', '19-25', '26 or older'],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3AgeGroup',
-  title: 'Child 3: What is the age group of this child?',
-  type: 'select',
-  required: true,
-  options: ['0-5', '6-10', '11-15', '16-18', '19-25', '26 or older'],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3MonthlyDiapers',
-  title: 'Child 3: Monthly expenses for diapers',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyFieldTrips',
+      type: 'number',
+      title: 'Monthly field trips and excursions for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child3AgeGroup',
-      values: ['0-5']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3MonthlyClothing',
-  title: 'Child 3: What are your monthly expenses for clothing, shoes',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3MonthlyToys',
-  title: 'Child 3: What are your monthly expenses for toys and games',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyMedical',
+      type: 'number',
+      title: 'Monthly medical expenses for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child3AgeGroup',
-      values: ['0-5', '6-10', '11-15']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3MonthlyParties',
-  title: 'Child 3: What are your monthly expenses for parties, gifts for kids parties',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1MonthlyMiscellaneous',
+      type: 'number',
+      title: 'Other monthly expenses for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child3AgeGroup',
-      values: ['0-5', '6-10', '11-15', '16-18']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3MonthlyActivities',
-  title: 'Child 3: Monthly expense for hobbies, sports, extra curricular activities',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3MonthlyEducation',
-  title: 'Child 3: Monthly expense for school/college fees',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1HealthInsurance',
+      type: 'radio',
+      title: 'Do you have health insurance for Child 1?',
+      required: true,
+      options: [
+        { value: 'yes', label: 'Yes' },
+        { value: 'no', label: 'No' }
+      ],
+      dependsOn: { field: 'hasChildren', value: ['1', '2', '3'] }
     },
     {
-      dependsOn: 'child3AgeGroup',
-      values: ['6-10', '11-15', '16-18', '19-25']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3MonthlyOnlineLearning',
-  title: 'Child 3: Monthly expense for additional online learning',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child1InsuranceCover',
+      type: 'number',
+      title: 'Health insurance coverage amount for Child 1',
+      description: 'Total sum insured',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'child1HealthInsurance', value: 'yes' }
     },
     {
-      dependsOn: 'child3AgeGroup',
-      values: ['6-10', '11-15', '16-18', '19-25']
+      id: 'child1InsurancePremium',
+      type: 'number',
+      title: 'Monthly insurance premium for Child 1',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'child1HealthInsurance', value: 'yes' }
     }
-  ],
-  section: 'Children',
-  groupId: 'children'
+  ]
 },
 {
-  id: 'child3MonthlyTutoring',
-  title: 'Child 3: Monthly expense for additional tutoring',
-  type: 'number',
-  required: true,
-  validation: [
+  id: 'children-extended',
+  title: 'Additional Children',
+  description: 'Information about children 2-3',
+  section: 'Children',
+  groupId: 'children-extended',
+  conditional: true,
+  questions: [
     {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child2AgeGroup',
+      type: 'select',
+      title: 'Age group of Child 2',
+      required: true,
+      options: [
+        { value: '0-2', label: '0-2 years' },
+        { value: '3-5', label: '3-5 years' },
+        { value: '6-12', label: '6-12 years' },
+        { value: '13-18', label: '13-18 years' },
+        { value: '18+', label: '18+ years' }
+      ],
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
     },
     {
-      dependsOn: 'child3AgeGroup',
-      values: ['6-10', '11-15', '16-18', '19-25']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3MonthlyBooks',
-  title: 'Child 3: Monthly expense for school books',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child2MonthlyDiapers',
+      type: 'number',
+      title: 'Monthly expenses on diapers/baby care for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
     },
     {
-      dependsOn: 'child3AgeGroup',
-      values: ['6-10', '11-15', '16-18', '19-25']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3MonthlyFieldTrips',
-  title: 'Child 3: Monthly expense for field trips',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child2MonthlyClothing',
+      type: 'number',
+      title: 'Monthly clothing expenses for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
     },
     {
-      dependsOn: 'child3AgeGroup',
-      values: ['6-10', '11-15', '16-18']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3MonthlyMedical',
-  title: 'Child 3: Monthly expenses for your child\'s medical expenses, treatments, medicines',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3MonthlyMiscellaneous',
-  title: 'Child 3: Miscellaneous monthly expenses',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3HealthInsurance',
-  title: 'Child 3: Do you have health insurance that covers your child?',
-  type: 'radio',
-  required: true,
-  options: ['Yes', 'No'],
-  conditional: {
-    dependsOn: 'hasChildren',
-    values: ['Yes']
-  },
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3InsuranceCover',
-  title: 'Child 3: What is the value of the insurance cover?',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child2MonthlyToys',
+      type: 'number',
+      title: 'Monthly expenses on toys and games for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
     },
     {
-      dependsOn: 'child3HealthInsurance',
-      values: ['Yes']
-    }
-  ],
-  section: 'Children',
-  groupId: 'children'
-},
-{
-  id: 'child3InsurancePremium',
-  title: 'Child 3: What is the annual premium you\'re paying for this?',
-  type: 'number',
-  required: true,
-  validation: [
-    {
-      type: 'min',
-      value: 0,
-      message: 'Amount cannot be negative'
-    }
-  ],
-  conditional: [
-    {
-      dependsOn: 'hasChildren',
-      values: ['Yes']
+      id: 'child2MonthlyParties',
+      type: 'number',
+      title: 'Monthly expenses on parties and celebrations for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
     },
     {
-      dependsOn: 'child3HealthInsurance',
-      values: ['Yes']
+      id: 'child2MonthlyActivities',
+      type: 'number',
+      title: 'Monthly expenses on activities and sports for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+    },
+    {
+      id: 'child2MonthlyEducation',
+      type: 'number',
+      title: 'Monthly school/education fees for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+    },
+    {
+      id: 'child2MonthlyOnlineLearning',
+      type: 'number',
+      title: 'Monthly online learning subscriptions for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+    },
+    {
+      id: 'child2MonthlyTutoring',
+      type: 'number',
+      title: 'Monthly tutoring/coaching expenses for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+    },
+    {
+      id: 'child2MonthlyBooks',
+      type: 'number',
+      title: 'Monthly expenses on books and stationery for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+    },
+    {
+      id: 'child2MonthlyFieldTrips',
+      type: 'number',
+      title: 'Monthly field trips and excursions for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+    },
+    {
+      id: 'child2MonthlyMedical',
+      type: 'number',
+      title: 'Monthly medical expenses for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+    },
+    {
+      id: 'child2MonthlyMiscellaneous',
+      type: 'number',
+      title: 'Other monthly expenses for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+    },
+    {
+      id: 'child2HealthInsurance',
+      type: 'radio',
+      title: 'Do you have health insurance for Child 2?',
+      required: true,
+      options: [
+        { value: 'yes', label: 'Yes' },
+        { value: 'no', label: 'No' }
+      ],
+      dependsOn: { field: 'hasChildren', value: ['2', '3'] }
+    },
+    {
+      id: 'child2InsuranceCover',
+      type: 'number',
+      title: 'Health insurance coverage amount for Child 2',
+      description: 'Total sum insured',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'child2HealthInsurance', value: 'yes' }
+    },
+    {
+      id: 'child2InsurancePremium',
+      type: 'number',
+      title: 'Monthly insurance premium for Child 2',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'child2HealthInsurance', value: 'yes' }
+    },
+    {
+      id: 'child3AgeGroup',
+      type: 'select',
+      title: 'Age group of Child 3',
+      required: true,
+      options: [
+        { value: '0-2', label: '0-2 years' },
+        { value: '3-5', label: '3-5 years' },
+        { value: '6-12', label: '6-12 years' },
+        { value: '13-18', label: '13-18 years' },
+        { value: '18+', label: '18+ years' }
+      ],
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyDiapers',
+      type: 'number',
+      title: 'Monthly expenses on diapers/baby care for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyClothing',
+      type: 'number',
+      title: 'Monthly clothing expenses for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyToys',
+      type: 'number',
+      title: 'Monthly expenses on toys and games for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyParties',
+      type: 'number',
+      title: 'Monthly expenses on parties and celebrations for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyActivities',
+      type: 'number',
+      title: 'Monthly expenses on activities and sports for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyEducation',
+      type: 'number',
+      title: 'Monthly school/education fees for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyOnlineLearning',
+      type: 'number',
+      title: 'Monthly online learning subscriptions for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyTutoring',
+      type: 'number',
+      title: 'Monthly tutoring/coaching expenses for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyBooks',
+      type: 'number',
+      title: 'Monthly expenses on books and stationery for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyFieldTrips',
+      type: 'number',
+      title: 'Monthly field trips and excursions for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyMedical',
+      type: 'number',
+      title: 'Monthly medical expenses for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3MonthlyMiscellaneous',
+      type: 'number',
+      title: 'Other monthly expenses for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3HealthInsurance',
+      type: 'radio',
+      title: 'Do you have health insurance for Child 3?',
+      required: true,
+      options: [
+        { value: 'yes', label: 'Yes' },
+        { value: 'no', label: 'No' }
+      ],
+      dependsOn: { field: 'hasChildren', value: ['3'] }
+    },
+    {
+      id: 'child3InsuranceCover',
+      type: 'number',
+      title: 'Health insurance coverage amount for Child 3',
+      description: 'Total sum insured',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'child3HealthInsurance', value: 'yes' }
+    },
+    {
+      id: 'child3InsurancePremium',
+      type: 'number',
+      title: 'Monthly insurance premium for Child 3',
+      required: true,
+      validation: { min: 0 },
+      dependsOn: { field: 'child3HealthInsurance', value: 'yes' }
     }
-  ],
-  section: 'Children',
-  groupId: 'children'
+  ]
 },
 {
   id: 'financial-dependents',
