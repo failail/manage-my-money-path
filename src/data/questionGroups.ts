@@ -2128,35 +2128,6 @@ export const questionGroups: QuestionGroup[] = [
     }
   ]
 },
-   {
-  id: 'dependent4InsuranceCover',
-  type: 'number',
-  title: 'Health insurance coverage amount for Dependent 4',
-  description: 'Total sum insured',
-  required: true,
-  validation: { min: 0 },
-  conditional: {
-    dependsOn: 'dependent4HealthInsurance',
-    values: ['yes']
-  },
-  section: 'Financial Dependents',
-  groupId: 'financial-dependents-extended'
-},
-  {
-      id: 'dependent4InsurancePremium',
-      type: 'number',
-      title: 'Monthly insurance premium for Dependent 4',
-      required: true,
-      validation: { min: 0 },
-      conditional: {
-        dependsOn: 'dependent4HealthInsurance',
-        values: ['yes']
-      },
-      section: 'Financial Dependents',
-      groupId: 'financial-dependents-extended'
-    }
-  ]
-},
 {
   id: 'personal-loans',
   title: 'Personal Loans & Credit',
