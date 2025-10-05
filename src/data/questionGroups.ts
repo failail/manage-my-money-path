@@ -2144,9 +2144,12 @@ export const questionGroups: QuestionGroup[] = [
       required: true,
       validation: { min: 0 },
       conditional: {
-  dependsOn: 'dependent4HealthInsurance',
-  values: ['yes']
-}
+        dependsOn: 'dependent4HealthInsurance',
+        values: ['yes']
+      },
+      section: 'Financial Dependents',
+      groupId: 'financial-dependents-extended'
+    }
   ]
 },
 {
