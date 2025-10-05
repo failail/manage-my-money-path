@@ -1824,7 +1824,6 @@ export const questionGroups: QuestionGroup[] = [
   section: 'Children',
   groupId: 'children-extended'
 }
-    }
   ]
 },
 {
