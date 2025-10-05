@@ -2369,7 +2369,6 @@ export const questionGroups: QuestionGroup[] = [
   dependsOn: 'dependent4HealthInsurance',
   values: ['yes']
 }
-    }
   ]
 },
 {
