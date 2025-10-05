@@ -2365,7 +2365,10 @@ export const questionGroups: QuestionGroup[] = [
       title: 'Monthly insurance premium for Dependent 4',
       required: true,
       validation: { min: 0 },
-      dependsOn: { field: 'dependent4HealthInsurance', value: 'yes' }
+      conditional: {
+  dependsOn: 'dependent4HealthInsurance',
+  values: ['yes']
+}
     }
   ]
 },
