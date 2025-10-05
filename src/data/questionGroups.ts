@@ -2760,7 +2760,6 @@ export const questionGroups: QuestionGroup[] = [
         },
         section: 'Personal Insurance',
         groupId: 'insurance-coverage'
-      },
       }
     ]
   },    
